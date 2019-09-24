@@ -1,0 +1,67 @@
+@mixin pc {
+  @media screen and (min-device-width: ($breakpoint)) {
+    @content;
+  }
+}
+@mixin gradientBlue {
+  background: linear-gradient(
+    to right,
+    rgb(102, 182, 234) 0%,
+    rgb(135, 67, 255) 100%
+  );
+}
+@mixin gradientPink {
+  background: linear-gradient(
+    to right,
+    rgb(255, 143, 190) 0%,
+    rgb(255, 178, 196) 100%
+  );
+}
+@mixin gradientBlack {
+  background: linear-gradient(to right, rgb(30, 30, 50) 0%, rgb(0, 0, 0) 100%);
+}
+@mixin shadowBlue() {
+  box-shadow: 0px 10px 30px 2px rgba(159, 191, 255, 0.4);
+}
+@mixin shadowPink() {
+  box-shadow: 0px 10px 30px 2px rgba(255, 162, 219, 0.4);
+}
+@mixin pageBottom {
+  padding-bottom: 118px;
+  @include pc {
+    padding-bottom: 0;
+  }
+}
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin absoluteCenter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+@mixin fixedCenter {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+@mixin gradientTextBlue {
+  color: rgb(102, 182, 234);
+  @include gradientBlue();
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin gradientTextPink {
+  color: rgb(255, 143, 190);
+  @include gradientPink();
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
