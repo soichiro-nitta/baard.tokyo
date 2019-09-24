@@ -6,7 +6,11 @@ type Props = {
   siteTitle: string
 }
 
-const Header: React.FC<Props> = props => <Root to="/">{props.siteTitle}</Root>
+const Header: React.FC<Props> = props => (
+  <Root to="/">
+    <img src="../../assets/images/logo.svg" alt="" />
+  </Root>
+)
 
 const Root = styled(Link)`
   display: inline-block;

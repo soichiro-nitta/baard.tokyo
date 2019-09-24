@@ -45,7 +45,7 @@ const globalStyles = css`
     /* color: white; */
     /* background: #2d2c33; */
     letter-spacing: 0px;
-    font-family: 'Spectral', 'Noto Serif JP', serif;
+    font-family: 'Fira Sans', 'M PLUS 1p', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 0;

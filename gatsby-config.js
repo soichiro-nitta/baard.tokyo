@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Spectral\:600,800`, `Noto Serif JP\:600,900`],
+        fonts: [`Fira Sans\:500,700`, `M PlUS 1p\:500,700`],
         display: 'swap'
       }
     },
@@ -58,6 +58,14 @@ module.exports = {
             }
           }
         ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: `${__dirname}/src/assets/svg/`
+        }
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
