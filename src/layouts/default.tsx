@@ -63,7 +63,7 @@ const HeaderWrapper = styled.div`
   svg {
     width: 100px;
     path {
-      fill: pink;
+      /* fill: pink; */
     }
   }
 `

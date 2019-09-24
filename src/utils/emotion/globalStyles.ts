@@ -34,6 +34,7 @@ const globalStyles = css`
     width: 100%;
     height: 100%;
     color: #555;
+    font-weight: 500;
     background: #fefefe;
 
     /* color: white; */
