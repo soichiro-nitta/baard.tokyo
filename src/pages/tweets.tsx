@@ -62,7 +62,8 @@ const Work = styled.li`
   width: 100%;
   ${(props): string => props.theme.mixins.lhCrop(2)}
   word-wrap: break-word;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid
+    ${(props): string => props.theme.colors.light.border};
   a {
     text-decoration: underline;
   }

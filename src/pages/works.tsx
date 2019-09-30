@@ -67,7 +67,7 @@ const Work = styled.li`
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
   width: 100%;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   ${(props): string => props.theme.mixins.lhCrop(2)}
 `
 

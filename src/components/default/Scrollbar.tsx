@@ -23,11 +23,11 @@ const ScrollbarBackground = styled.div`
   position: absolute;
   width: ${(props): number => props.theme.sizes.phone.scrollbar}px;
   height: 2px;
-  background: #b5b5b5;
+  background: ${(props): string => props.theme.colors.light.neutral};
   transform: none;
 `
 const Scrollbar = styled(ScrollbarBackground)`
-  background: #555;
+  background: ${(props): string => props.theme.colors.light.logo};
   transform: scaleX(0);
   transform-origin: left center;
 `

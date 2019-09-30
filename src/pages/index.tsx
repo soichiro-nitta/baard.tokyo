@@ -127,8 +127,8 @@ const VideoWrapper = styled.div`
     2}px;
   width: 100%;
   height: 210px;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
   overflow: hidden;
   video {
     width: 100%;
@@ -160,7 +160,7 @@ const Work = styled.li`
   width: calc(
     100% + ${(props): number => props.theme.sizes.phone.dashboard - 18}px
   );
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   ${(props): string => props.theme.mixins.lhCrop(2)}
 `
 

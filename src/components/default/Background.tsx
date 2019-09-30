@@ -22,7 +22,7 @@ const Border1 = styled.div`
   left: ${(props): number => props.theme.sizes.phone.dashboard}px;
   width: 1px;
   height: 9px;
-  background: #e5e5e5;
+  background: ${(props): string => props.theme.colors.light.border};
 `
 const Border2 = styled(Border1)`
   top: ${(props): number => props.theme.sizes.phone.dashboard}px;

@@ -18,7 +18,7 @@ const Root = styled.a`
   display: inline-block;
   padding: 10px;
   line-height: 1;
-  border: 1px solid #e5e5e5;
+  border: 1px solid ${(props): string => props.theme.colors.light.border};
   svg {
     margin-left: 7.5px;
   }
