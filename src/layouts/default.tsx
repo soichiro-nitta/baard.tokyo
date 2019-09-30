@@ -7,7 +7,7 @@ import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
-import Logo from '~/assets/svg/logo.svg'
+import Logo from '~/assets/svg/logo-baard.svg'
 
 const Layout: React.FC = props => {
   const data = useStaticQuery(graphql`

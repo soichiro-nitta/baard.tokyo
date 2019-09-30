@@ -52,7 +52,7 @@ const Index: React.FC<Props> = props => {
       <VideoWrapper>
         <video
           ref={video}
-          src="video.mp4"
+          src="video-pc.mp4"
           preload="none"
           muted
           playsInline
