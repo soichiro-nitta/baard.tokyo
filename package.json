@@ -5,7 +5,7 @@
   "author": "Soichiro Nitta",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop --host=192.168.1.6",
     "format": "prettier --write src/**/*.{js,ts,jsx,tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve"

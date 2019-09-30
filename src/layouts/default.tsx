@@ -7,7 +7,6 @@ import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
-import Logo from '~/assets/svg/logo-baard.svg'
 
 const Layout: React.FC = props => {
   const data = useStaticQuery(graphql`
@@ -25,8 +24,7 @@ const Layout: React.FC = props => {
         <Background />
       </BackgroundWrapper>
       <HeaderWrapper>
-        <Logo />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header />
       </HeaderWrapper>
       <DashboardWrapper>
         <Dashboard />
@@ -63,7 +61,7 @@ const HeaderWrapper = styled.div`
   svg {
     width: 100px;
     path {
-      /* fill: pink; */
+      fill: #314458;
     }
   }
 `
@@ -130,7 +128,7 @@ const Footer = styled.div`
   width: calc(
     100% + ${(props): number => props.theme.sizes.phone.dashboard - 18}px
   );
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   line-height: 1;
 `
 

@@ -1,14 +1,11 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import Logo from '~/assets/svg/logo-baard.svg'
 
-type Props = {
-  siteTitle: string
-}
-
-const Header: React.FC<Props> = props => (
+const Header: React.FC = () => (
   <Root to="/">
-    <img src="../../assets/images/logo.svg" alt="" />
+    <Logo />
   </Root>
 )
 

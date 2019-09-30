@@ -26,7 +26,7 @@ const Circle = styled.circle`
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
   animation: dash 0.9s ease-in-out infinite;
-  stroke: #555;
+  stroke: ${(props): string => props.theme.colors.light.logo};
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

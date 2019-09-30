@@ -1,4 +1,5 @@
 import { css } from '@emotion/core'
+import colors from '~/utils/emotion/colors'
 
 const globalStyles = css`
   *,
@@ -33,18 +34,9 @@ const globalStyles = css`
     padding: 0;
     width: 100%;
     height: 100%;
-    color: #555;
+    color: ${colors.light.logo};
     font-weight: 500;
-    background: #fefefe;
-
-    /* color: white; */
-    /* background: #888; */
-
-    /* color: white; */
-    /* background: #222; */
-
-    /* color: white; */
-    /* background: #2d2c33; */
+    background: ${colors.light.background};
     letter-spacing: 0px;
     font-family: 'Fira Sans', 'M PLUS 1p', sans-serif;
     -webkit-font-smoothing: antialiased;

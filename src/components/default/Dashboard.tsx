@@ -46,7 +46,7 @@ const Icon = styled(Link)`
   text-align: center;
   overflow: hidden;
   svg {
-    color: #555;
+    color: ${(props): string => props.theme.colors.light.logo};
     font-size: 16px;
     height: 16px;
     vertical-align: top;
@@ -58,7 +58,7 @@ const Border = styled.div`
     auto 0;
   width: 100%;
   height: 1px;
-  background: #e5e5e5;
+  background: ${(props): string => props.theme.colors.light.border};
 `
 
 export default Dashboard
