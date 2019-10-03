@@ -13,20 +13,20 @@ const Scrollbar: React.FC = () => {
   })
   return (
     <>
-      <ScrollbarBackground />
-      <Scrollbar ref={scrollbar} />
+      <Bar1 />
+      <Bar2 ref={scrollbar} />
     </>
   )
 }
 
-const ScrollbarBackground = styled.div`
+const Bar2 = styled.div`
   position: absolute;
   width: ${(props): number => props.theme.sizes.phone.scrollbar}px;
   height: 2px;
   background: ${(props): string => props.theme.colors.light.neutral};
   transform: none;
 `
-const Scrollbar = styled(ScrollbarBackground)`
+const Bar1 = styled(Bar2)`
   background: ${(props): string => props.theme.colors.light.logo};
   transform: scaleX(0);
   transform-origin: left center;
