@@ -42,6 +42,16 @@ const Index: React.FC<Props> = props => {
   return (
     <Layout>
       <Seo title="Home" />
+      <VideoWrapper>
+        <video
+          ref={video}
+          src="video-mobile.mp4"
+          preload="none"
+          muted
+          playsInline
+          loop
+        />
+      </VideoWrapper>
       <P1>
         UI Designer & Software Engineer
         新田聡一郎の活動報告をしているサイトです。
@@ -49,16 +59,6 @@ const Index: React.FC<Props> = props => {
       <TwitterWrapper>
         <Twitter />
       </TwitterWrapper>
-      <VideoWrapper>
-        <video
-          ref={video}
-          src="video-pc.mp4"
-          preload="none"
-          muted
-          playsInline
-          loop
-        />
-      </VideoWrapper>
       <P2>
         <b>新田聡一郎（Soichiro Nitta）</b>
         <br />
@@ -100,6 +100,9 @@ const Index: React.FC<Props> = props => {
 }
 
 const P1 = styled.p`
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
   padding: 0
     ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
@@ -115,21 +118,8 @@ const TwitterWrapper = styled.div`
     2}px;
 `
 const VideoWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding: ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px
-    0;
-  padding-right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
   width: 100%;
-  height: 210px;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
-  overflow: hidden;
+  height: 105vw;
   video {
     width: 100%;
     height: 100%;

@@ -11,10 +11,15 @@ const Header: React.FC = () => (
 
 const Root = styled(Link)`
   display: inline-block;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1;
-  vertical-align: bottom;
+  height: 100%;
+  overflow: hidden;
+  svg {
+    height: 100%;
+    vertical-align: top;
+    path {
+      fill: #314458;
+    }
+  }
 `
 
 export default Header
