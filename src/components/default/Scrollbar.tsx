@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
 
-const Statusbar: React.FC = () => {
+const Scrollbar: React.FC = () => {
   const scrollbar = React.useRef(null)
   React.useEffect(() => {
     const main = document.getElementById('main')
@@ -32,4 +32,4 @@ const Scrollbar = styled(ScrollbarBackground)`
   transform-origin: left center;
 `
 
-export default Statusbar
+export default Scrollbar
