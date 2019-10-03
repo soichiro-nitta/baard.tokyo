@@ -7,6 +7,7 @@ import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
+import Navigation from '~/components/default/Navigation'
 
 const Layout: React.FC = props => {
   // const data = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ const Layout: React.FC = props => {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
+      <Navigation />
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
