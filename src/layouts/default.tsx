@@ -9,6 +9,7 @@ import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
+import Opening from '~/components/default/Opening'
 
 const Layout: React.FC = props => {
   // const data = useStaticQuery(graphql`
@@ -49,6 +50,7 @@ const Layout: React.FC = props => {
           © {new Date().getFullYear()}, Produced by Soichiro Nitta
         </Footer>
       </Main>
+      <Opening />
     </Theme>
   )
 }
