@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
 
-const Statusbar: React.FC = () => {
+const Scrollbar: React.FC = () => {
   const scrollbar = React.useRef(null)
   React.useEffect(() => {
     const main = document.getElementById('main')
@@ -13,23 +13,23 @@ const Statusbar: React.FC = () => {
   })
   return (
     <>
-      <ScrollbarBackground />
-      <Scrollbar ref={scrollbar} />
+      <Bar1 />
+      <Bar2 ref={scrollbar} />
     </>
   )
 }
 
-const ScrollbarBackground = styled.div`
+const Bar1 = styled.div`
   position: absolute;
   width: ${(props): number => props.theme.sizes.phone.scrollbar}px;
   height: 2px;
   background: ${(props): string => props.theme.colors.light.neutral};
   transform: none;
 `
-const Scrollbar = styled(ScrollbarBackground)`
+const Bar2 = styled(Bar1)`
   background: ${(props): string => props.theme.colors.light.logo};
   transform: scaleX(0);
   transform-origin: left center;
 `
 
-export default Statusbar
+export default Scrollbar

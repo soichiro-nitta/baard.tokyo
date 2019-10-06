@@ -4,6 +4,8 @@ import styled from '~/utils/emotion'
 import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 import Twitter from '~/components/index/Twitter'
+import Katakana from '~/assets/svg/katakana.svg'
+import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 
 type Props = {
   data: {
@@ -33,7 +35,6 @@ type Props = {
 }
 
 const Index: React.FC<Props> = props => {
-  console.log(props)
   const video = React.useRef(null)
   React.useEffect(() => {
     video.current.load()
@@ -42,6 +43,24 @@ const Index: React.FC<Props> = props => {
   return (
     <Layout>
       <Seo title="Home" />
+      <VideoWrapper>
+        <video
+          ref={video}
+          src="video-mobile.mp4"
+          preload="none"
+          muted
+          playsInline
+          loop
+        />
+        <Text>
+          <KatakanaWrapper>
+            <Katakana />
+          </KatakanaWrapper>
+          <RihatsutenWrapper>
+            <Rihatsuten />
+          </RihatsutenWrapper>
+        </Text>
+      </VideoWrapper>
       <P1>
         UI Designer & Software Engineer
         新田聡一郎の活動報告をしているサイトです。
@@ -49,16 +68,6 @@ const Index: React.FC<Props> = props => {
       <TwitterWrapper>
         <Twitter />
       </TwitterWrapper>
-      <VideoWrapper>
-        <video
-          ref={video}
-          src="video-pc.mp4"
-          preload="none"
-          muted
-          playsInline
-          loop
-        />
-      </VideoWrapper>
       <P2>
         <b>新田聡一郎（Soichiro Nitta）</b>
         <br />
@@ -100,6 +109,9 @@ const Index: React.FC<Props> = props => {
 }
 
 const P1 = styled.p`
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
   padding: 0
     ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
@@ -115,26 +127,45 @@ const TwitterWrapper = styled.div`
     2}px;
 `
 const VideoWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding: ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px
-    0;
-  padding-right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  position: relative;
   width: 100%;
-  height: 210px;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
-  overflow: hidden;
+  height: 105vw;
   video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     /* opacity: 0; */
+  }
+`
+const Text = styled.div`
+  position: absolute;
+  bottom: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  color: ${(props): string => props.theme.colors.light.background};
+  font-weight: bold;
+  mix-blend-mode: exclusion;
+`
+const KatakanaWrapper = styled.div`
+  svg {
+    width: 120px;
+    vertical-align: top;
+    path {
+      fill: ${(props): string => props.theme.colors.light.background};
+    }
+  }
+`
+const RihatsutenWrapper = styled.div`
+  margin-top: 10px;
+  svg {
+    width: 60px;
+    vertical-align: top;
+    path {
+      fill: ${(props): string => props.theme.colors.light.background};
+    }
   }
 `
 const P2 = styled(P1)`

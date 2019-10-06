@@ -1,23 +1,25 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+// import { useStaticQuery, graphql } from 'gatsby'
 import styled from '~/utils/emotion'
 import Theme from '~/components/default/Theme'
 import Header from '~/components/default/Header'
 import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
-import Loader from '~/components/default/Loader'
+import Loader from '~/components/default/Loader'ZZZ
+import Humberger from '~/components/default/Humberger'
+import Navigation from '~/components/default/Navigation'
 
 const Layout: React.FC = props => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
   return (
     <Theme>
       <BackgroundWrapper>
@@ -26,6 +28,12 @@ const Layout: React.FC = props => {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
+      <HumbergerWrapper>
+        <Humberger />
+      </HumbergerWrapper>
+      <NavigationWrapper>
+        <Navigation />
+      </NavigationWrapper>
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
@@ -53,17 +61,35 @@ const BackgroundWrapper = styled.div`
   height: 100%;
   z-index: -1;
 `
+const HeaderHeight = 20
 const HeaderWrapper = styled.div`
   position: fixed;
-  top: ${(props): number => (props.theme.sizes.phone.dashboard - 30) / 2 + 3}px;
-  left: ${(props): number => (props.theme.sizes.phone.dashboard - 22) / 2}px;
+  top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  height: ${HeaderHeight}px;
   z-index: 1;
-  svg {
-    width: 100px;
-    path {
-      fill: #314458;
-    }
-  }
+`
+const HumbergerWrapper = styled.div`
+  position: fixed;
+  top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  z-index: 1;
+`
+const NavigationWrapper = styled.div`
+  position: fixed;
+  top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  z-index: 1;
+  opacity: 0;
 `
 const DashboardWrapper = styled.div`
   position: fixed;
@@ -99,10 +125,10 @@ const LoaderWrapper = styled.div`
   height: ${(props): number => props.theme.sizes.phone.scrollbar + 2}px;
 `
 const Main = styled.div`
-  padding-top: ${(props): number =>
-    props.theme.sizes.phone.dashboard +
-    (props.theme.sizes.phone.dashboard - 30) / 2 +
-    7}px;
+/* padding-top: ${(props): number =>
+  props.theme.sizes.phone.dashboard +
+  (props.theme.sizes.phone.dashboard - 30) / 2 +
+  7}px; */
   padding-left: ${(props): number => props.theme.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
