@@ -4,6 +4,8 @@ import styled from '~/utils/emotion'
 import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 import Twitter from '~/components/index/Twitter'
+import Katakana from '~/assets/svg/katakana.svg'
+import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 
 type Props = {
   data: {
@@ -33,7 +35,6 @@ type Props = {
 }
 
 const Index: React.FC<Props> = props => {
-  console.log(props)
   const video = React.useRef(null)
   React.useEffect(() => {
     video.current.load()
@@ -51,6 +52,14 @@ const Index: React.FC<Props> = props => {
           playsInline
           loop
         />
+        <Text>
+          <KatakanaWrapper>
+            <Katakana />
+          </KatakanaWrapper>
+          <RihatsutenWrapper>
+            <Rihatsuten />
+          </RihatsutenWrapper>
+        </Text>
       </VideoWrapper>
       <P1>
         UI Designer & Software Engineer
@@ -118,6 +127,7 @@ const TwitterWrapper = styled.div`
     2}px;
 `
 const VideoWrapper = styled.div`
+  position: relative;
   width: 100%;
   height: 105vw;
   video {
@@ -125,6 +135,37 @@ const VideoWrapper = styled.div`
     height: 100%;
     object-fit: cover;
     /* opacity: 0; */
+  }
+`
+const Text = styled.div`
+  position: absolute;
+  bottom: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  color: ${(props): string => props.theme.colors.light.background};
+  font-weight: bold;
+  mix-blend-mode: exclusion;
+`
+const KatakanaWrapper = styled.div`
+  svg {
+    width: 120px;
+    vertical-align: top;
+    path {
+      fill: ${(props): string => props.theme.colors.light.background};
+    }
+  }
+`
+const RihatsutenWrapper = styled.div`
+  margin-top: 10px;
+  svg {
+    width: 60px;
+    vertical-align: top;
+    path {
+      fill: ${(props): string => props.theme.colors.light.background};
+    }
   }
 `
 const P2 = styled(P1)`

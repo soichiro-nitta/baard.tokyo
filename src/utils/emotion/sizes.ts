@@ -3,7 +3,7 @@ const sizes = {
   tablet: {},
   phone: {
     dashboard: 61,
-    scrollbar: 18
+    scrollbar: 20
   }
 }
 export default sizes

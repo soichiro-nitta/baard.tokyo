@@ -12,8 +12,9 @@ const Humberger: React.FC = () => {
 }
 
 const Root = styled.div`
-  margin-top: 3px;
+  padding-top: 3px;
   width: 20px;
+  height: 20px;
 `
 const Border1 = styled.div`
   width: 100%;

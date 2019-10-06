@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import Logo from '~/assets/svg/logo-baard.svg'
+import Logo from '~/assets/svg/baard.svg'
 
 const Header: React.FC = () => (
   <Root to="/">

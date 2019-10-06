@@ -3,27 +3,27 @@ import { Link } from 'gatsby'
 import styled from '~/utils/emotion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faCode,
-  faFeatherAlt,
-  faBook,
-  faSmileWink,
+  faHome,
+  faCut,
+  faClipboardList,
+  faMapMarkedAlt,
   faFillDrip,
   faVolumeSlash
 } from '@fortawesome/pro-duotone-svg-icons'
 
 const Dashboard: React.FC = () => (
   <>
-    <Icon to="/works">
-      <FontAwesomeIcon icon={faCode} />
+    <Icon to="/">
+      <FontAwesomeIcon icon={faHome} />
     </Icon>
     <Icon to="/tweets">
-      <FontAwesomeIcon icon={faFeatherAlt} />
+      <FontAwesomeIcon icon={faCut} />
     </Icon>
     <Icon to="/diary">
-      <FontAwesomeIcon icon={faBook} />
+      <FontAwesomeIcon icon={faClipboardList} />
     </Icon>
     <Icon to="/contact">
-      <FontAwesomeIcon icon={faSmileWink} />
+      <FontAwesomeIcon icon={faMapMarkedAlt} />
     </Icon>
     <Border />
     <Icon to="/">
