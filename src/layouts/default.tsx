@@ -6,7 +6,7 @@ import Header from '~/components/default/Header'
 import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
-import Loader from '~/components/default/Loader'ZZZ
+import Loader from '~/components/default/Loader'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 
