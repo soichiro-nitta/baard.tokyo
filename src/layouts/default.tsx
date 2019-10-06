@@ -7,6 +7,7 @@ import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
+import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 
 const Layout: React.FC = props => {
@@ -27,7 +28,12 @@ const Layout: React.FC = props => {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-      <Navigation />
+      <HumbergerWrapper>
+        <Humberger />
+      </HumbergerWrapper>
+      <NavigationWrapper>
+        <Navigation />
+      </NavigationWrapper>
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
@@ -65,6 +71,25 @@ const HeaderWrapper = styled.div`
     2}px;
   height: ${HeaderHeight}px;
   z-index: 1;
+`
+const HumbergerWrapper = styled.div`
+  position: fixed;
+  top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  z-index: 1;
+`
+const NavigationWrapper = styled.div`
+  position: fixed;
+  top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  z-index: 1;
+  opacity: 0;
 `
 const DashboardWrapper = styled.div`
   position: fixed;
