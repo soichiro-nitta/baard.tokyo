@@ -1,5 +1,4 @@
 import * as React from 'react'
-// import { useStaticQuery, graphql } from 'gatsby'
 import styled from '~/utils/emotion'
 import Theme from '~/components/default/Theme'
 import Header from '~/components/default/Header'
@@ -12,15 +11,7 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 
 const Layout: React.FC = props => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
+  const [opening, setOpening] = React.useState(false)
   return (
     <Theme>
       <BackgroundWrapper>
@@ -50,9 +41,11 @@ const Layout: React.FC = props => {
           © {new Date().getFullYear()}, Produced by Soichiro Nitta
         </Footer>
       </Main>
-      <OpeningWrapper>
-        <Opening />
-      </OpeningWrapper>
+      {!opening && (
+        <OpeningWrapper>
+          <Opening setOpening={setOpening} />
+        </OpeningWrapper>
+      )}
     </Theme>
   )
 }

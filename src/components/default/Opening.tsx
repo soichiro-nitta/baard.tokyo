@@ -5,7 +5,11 @@ import functions from '~/utils/functions'
 import opening from '~/utils/animations/opening'
 import Signpole from '~/assets/svg/signpole.svg'
 
-type SignpoleTypes = React.MutableRefObject<HTMLDivElement> & {
+type Props = {
+  setOpening: Function
+}
+
+type Signpole = React.MutableRefObject<HTMLDivElement> & {
   current: {
     children: {
       [index: number]: {
@@ -21,8 +25,8 @@ type SignpoleTypes = React.MutableRefObject<HTMLDivElement> & {
   }
 }
 
-const Opening: React.FC = () => {
-  const signpole: SignpoleTypes = React.useRef()
+const Opening: React.FC<Props> = props => {
+  const signpole: Signpole = React.useRef()
   React.useEffect(() => {
     const root = signpole.current
     const signpoleWrapper = root.children[0]
@@ -39,6 +43,8 @@ const Opening: React.FC = () => {
       opening.path(path3)
       await functions.delay(800)
       opening.leave(paths, root)
+      await functions.delay(1350)
+      props.setOpening(true)
     })()
   })
   return (
