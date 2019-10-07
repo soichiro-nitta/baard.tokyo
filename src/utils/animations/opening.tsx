@@ -33,9 +33,10 @@ const opening = {
       height: 0,
       ease: Expo.easeInOut
     })
-    await functions.delay(350)
+    await functions.delay(150)
     TweenMax.to(paths, 1, {
       y: '-30px',
+      scale: 0.8,
       opacity: 0,
       ease: Expo.easeOut
     })

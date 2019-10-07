@@ -3,13 +3,13 @@ import Div100vh from 'react-div-100vh'
 import styled from '~/utils/emotion'
 import functions from '~/utils/functions'
 import opening from '~/utils/animations/opening'
-import Signpole from '~/assets/svg/signpole.svg'
+import Logo from '~/assets/svg/logo.svg'
 
 type Props = {
   setOpening: Function
 }
 
-type Signpole = React.MutableRefObject<HTMLDivElement> & {
+type Logo = React.MutableRefObject<HTMLDivElement> & {
   current: {
     children: {
       [index: number]: {
@@ -26,21 +26,45 @@ type Signpole = React.MutableRefObject<HTMLDivElement> & {
 }
 
 const Opening: React.FC<Props> = props => {
-  const signpole: Signpole = React.useRef()
+  const logo: Logo = React.useRef()
   React.useEffect(() => {
-    const root = signpole.current
-    const signpoleWrapper = root.children[0]
-    const svg = signpoleWrapper.children[0]
+    const root = logo.current
+    const logoWrapper = root.children[0]
+    const svg = logoWrapper.children[0]
     const paths = svg.children
     const path1 = paths[0]
     const path2 = paths[1]
     const path3 = paths[2]
+    const path4 = paths[3]
+    const path5 = paths[4]
+    const path6 = paths[5]
+    const path7 = paths[6]
+    const path8 = paths[7]
+    const path9 = paths[8]
+    const path10 = paths[9]
+    const path11 = paths[10]
     ;(async (): Promise<void> => {
       opening.path(path1)
       await functions.delay(120)
       opening.path(path2)
       await functions.delay(120)
       opening.path(path3)
+      await functions.delay(120)
+      opening.path(path4)
+      await functions.delay(120)
+      opening.path(path5)
+      await functions.delay(120)
+      opening.path(path6)
+      await functions.delay(120)
+      opening.path(path7)
+      await functions.delay(120)
+      opening.path(path8)
+      await functions.delay(120)
+      opening.path(path9)
+      await functions.delay(120)
+      opening.path(path10)
+      await functions.delay(120)
+      opening.path(path11)
       await functions.delay(800)
       opening.leave(paths, root)
       await functions.delay(1350)
@@ -48,10 +72,10 @@ const Opening: React.FC<Props> = props => {
     })()
   })
   return (
-    <Root ref={signpole}>
-      <SignpoleWrapper>
-        <Signpole />
-      </SignpoleWrapper>
+    <Root ref={logo}>
+      <LogoWrapper>
+        <Logo />
+      </LogoWrapper>
     </Root>
   )
 }
@@ -61,13 +85,13 @@ const Root = styled.div`
   height: 100%;
   overflow: hidden;
 `
-const SignpoleWrapper = styled(Div100vh)`
+const LogoWrapper = styled(Div100vh)`
   ${(props): string => props.theme.mixins.flexCenter}
   width: 100%;
   height: 100%;
   background: ${(props): string => props.theme.colors.light.background};
   svg {
-    width: 50px;
+    width: 50%;
     vertical-align: top;
     path {
       stroke: ${(props): string => props.theme.colors.light.logo};
