@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { TweenMax, Expo } from 'gsap'
+import Div100vh from 'react-div-100vh'
 import styled from '~/utils/emotion'
 import functions from '~/utils/functions'
+import opening from '~/utils/animations/opening'
 import Signpole from '~/assets/svg/signpole.svg'
 
 type SignpoleTypes = React.MutableRefObject<HTMLDivElement> & {
@@ -22,43 +23,6 @@ type SignpoleTypes = React.MutableRefObject<HTMLDivElement> & {
 
 const Opening: React.FC = () => {
   const signpole: SignpoleTypes = React.useRef()
-  const pathAnimation = async (path: SVGPathElement): Promise<void> => {
-    const length = path.getTotalLength()
-    await functions.raf()
-    TweenMax.set(path, {
-      strokeDasharray: length + ' ' + length,
-      strokeDashoffset: length,
-      opacity: 1,
-      y: '30px',
-      scale: 1.2
-    })
-    TweenMax.to(path, 1, {
-      strokeDashoffset: 0,
-      y: 0,
-      scale: 1,
-      ease: Expo.easeOut
-    })
-    TweenMax.to(path, 1, {
-      fillOpacity: 1,
-      strokeOpacity: 0,
-      ease: Expo.easeInOut
-    })
-  }
-  const leaveAnimation = async (
-    paths: { [index: number]: SVGPathElement },
-    root: HTMLDivElement
-  ): Promise<void> => {
-    await functions.raf()
-    TweenMax.to(root, 1, {
-      height: 0,
-      ease: Expo.easeInOut
-    })
-    await functions.delay(350)
-    TweenMax.to(paths, 1, {
-      y: '-30px',
-      ease: Expo.easeOut
-    })
-  }
   React.useEffect(() => {
     const root = signpole.current
     const signpoleWrapper = root.children[0]
@@ -68,13 +32,13 @@ const Opening: React.FC = () => {
     const path2 = paths[1]
     const path3 = paths[2]
     ;(async (): Promise<void> => {
-      pathAnimation(path1)
+      opening.path(path1)
       await functions.delay(120)
-      pathAnimation(path2)
+      opening.path(path2)
       await functions.delay(120)
-      pathAnimation(path3)
+      opening.path(path3)
       await functions.delay(800)
-      leaveAnimation(paths, root)
+      opening.leave(paths, root)
     })()
   })
   return (
@@ -91,10 +55,10 @@ const Root = styled.div`
   height: 100%;
   overflow: hidden;
 `
-const SignpoleWrapper = styled.div`
+const SignpoleWrapper = styled(Div100vh)`
   ${(props): string => props.theme.mixins.flexCenter}
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: ${(props): string => props.theme.colors.light.background};
   svg {
     width: 50px;
