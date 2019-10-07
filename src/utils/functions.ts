@@ -1,12 +1,12 @@
 const functions = {
-  $loadWindow(window: Window): Promise<void> {
+  loadWindow(window: Window): Promise<void> {
     return new Promise((resolve): void => {
       window.onload = (): void => {
         resolve()
       }
     })
   },
-  $loadImage(src: string): Promise<void> {
+  loadImage(src: string): Promise<void> {
     return new Promise((resolve): void => {
       const image = new Image()
       image.onload = (): void => {
@@ -15,33 +15,33 @@ const functions = {
       image.src = src
     })
   },
-  $delay(ms: number): Promise<void> {
+  delay(ms: number): Promise<void> {
     return new Promise((resolve): void => {
       setTimeout(resolve, ms)
     })
   },
-  $raf(): Promise<void> {
+  raf(): Promise<void> {
     return new Promise((resolve): void => {
       requestAnimationFrame((): void => {
         resolve()
       })
     })
   },
-  $completeLottie(anim: HTMLMediaElement): Promise<void> {
+  completeLottie(anim: HTMLMediaElement): Promise<void> {
     return new Promise((resolve): void => {
       anim.addEventListener('complete', () => {
         resolve()
       })
     })
   },
-  $canplayVideo(video: HTMLVideoElement): Promise<void> {
+  canplayVideo(video: HTMLVideoElement): Promise<void> {
     return new Promise((resolve): void => {
       video.addEventListener('canplay', () => {
         resolve()
       })
     })
   },
-  async $playVideo(video: HTMLVideoElement): Promise<void> {
+  async playVideo(video: HTMLVideoElement): Promise<void> {
     video.load()
     video.currentTime = Math.floor(Math.random() * (video.duration + 1 - 0))
     await this.$canplayVideo(video)
