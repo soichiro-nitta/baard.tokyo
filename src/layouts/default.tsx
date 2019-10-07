@@ -50,7 +50,9 @@ const Layout: React.FC = props => {
           © {new Date().getFullYear()}, Produced by Soichiro Nitta
         </Footer>
       </Main>
-      <Opening />
+      <OpeningWrapper>
+        <Opening />
+      </OpeningWrapper>
     </Theme>
   )
 }
@@ -158,6 +160,13 @@ const Footer = styled.div`
   );
   border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   line-height: 1;
+`
+const OpeningWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 `
 
 export default Layout
