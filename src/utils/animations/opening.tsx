@@ -1,7 +1,7 @@
 import { TweenMax, Expo } from 'gsap'
 import functions from '~/utils/functions'
 
-const animations = {
+const opening = {
   path: async (path: SVGPathElement): Promise<void> => {
     const length = path.getTotalLength()
     await functions.raf()
@@ -43,4 +43,5 @@ const animations = {
   }
 }
 
-export default animations
+export default opening
+export type OpeningTypes = typeof opening
