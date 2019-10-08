@@ -40,8 +40,10 @@ const opening = {
       opacity: 0,
       ease: Expo.easeOut
     })
+  },
+  borderUp: (border: HTMLDivElement): void => {
+    console.log(border)
   }
 }
 
 export default opening
-export type OpeningTypes = typeof opening

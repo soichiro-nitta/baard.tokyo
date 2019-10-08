@@ -20,7 +20,7 @@ type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   }
 }
 
-const OpeningLogo: React.FC<Props> = props => {
+const SVG: React.FC<Props> = props => {
   const logo: RootTypes = React.useRef()
   React.useEffect(() => {
     const root = logo.current
@@ -73,8 +73,6 @@ const OpeningLogo: React.FC<Props> = props => {
 }
 
 const Root = styled.div`
-  position: absolute;
-  top: 0;
   ${(props): string => props.theme.mixins.flexCenter}
   width: 100%;
   height: 100%;
@@ -93,4 +91,4 @@ const Root = styled.div`
   }
 `
 
-export default OpeningLogo
+export default SVG

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Div100vh from 'react-div-100vh'
 import styled from '~/utils/emotion'
-import Background from '~/components/default/Background'
-import OpeningLogo from '~/components/default/Opening/logo'
+import Borders from '~/components/default/Opening/Borders'
+import Svg from '~/components/default/Opening/Svg'
 
 type Props = {
   setOpening: Function
@@ -11,10 +11,10 @@ type Props = {
 const Opening: React.FC<Props> = props => {
   return (
     <Root>
-      <BackgroundWrapper>
-        <Background />
-      </BackgroundWrapper>
-      <OpeningLogo setOpening={props.setOpening} />
+      <Borders />
+      <SvgWrapper>
+        <Svg setOpening={props.setOpening} />
+      </SvgWrapper>
     </Root>
   )
 }
@@ -25,16 +25,11 @@ const Root = styled.div`
   overflow: hidden;
   background: ${(props): string => props.theme.colors.light.background};
 `
-const BackgroundWrapper = styled(Div100vh)`
-  display: flex;
+const SvgWrapper = styled.div`
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
-`
-const Background1 = styled.div`
-  width: ${(props): number => props.theme.sizes.phone.dashboard}px;
-  height: 100%;
-  background: ${(props): string => props.theme.colors.light.background};
-  border-right: 1px solid #ccc;
 `
 
 export default Opening
