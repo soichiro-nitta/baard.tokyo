@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Div100vh from 'react-div-100vh'
 import styled from '~/utils/emotion'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'

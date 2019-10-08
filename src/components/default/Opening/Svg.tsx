@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
-import functions from '~/utils/functions'
 import animations from '~/utils/animations'
+import functions from '~/utils/functions'
 import Logo from '~/assets/svg/logo.svg'
 
 type Props = {
@@ -38,30 +38,30 @@ const SVG: React.FC<Props> = props => {
     const path10 = paths[9]
     const path11 = paths[10]
     ;(async (): Promise<void> => {
-      animations.opening.path(path1)
+      animations.path(path1)
       await functions.delay(120)
-      animations.opening.path(path2)
+      animations.path(path2)
       await functions.delay(120)
-      animations.opening.path(path3)
+      animations.path(path3)
       await functions.delay(120)
-      animations.opening.path(path4)
+      animations.path(path4)
       await functions.delay(120)
-      animations.opening.path(path5)
+      animations.path(path5)
       await functions.delay(120)
-      animations.opening.path(path6)
+      animations.path(path6)
       await functions.delay(120)
-      animations.opening.path(path7)
+      animations.path(path7)
       await functions.delay(120)
-      animations.opening.path(path8)
+      animations.path(path8)
       await functions.delay(120)
-      animations.opening.path(path9)
+      animations.path(path9)
       await functions.delay(120)
-      animations.opening.path(path10)
+      animations.path(path10)
       await functions.delay(120)
-      animations.opening.path(path11)
+      animations.path(path11)
       await functions.delay(800)
-      animations.opening.leave(paths, root)
-      await functions.delay(1350)
+      animations.paths(paths)
+      await functions.delay(1000)
       props.setOpening(true)
     })()
   })
