@@ -25,7 +25,7 @@ const opening = {
     })
   },
   leave: async (
-    paths: { [index: number]: SVGPathElement },
+    paths: { [index: number]: SVGElement },
     root: HTMLDivElement
   ): Promise<void> => {
     await functions.raf()

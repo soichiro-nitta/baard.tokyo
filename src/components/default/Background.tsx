@@ -21,8 +21,7 @@ const Background: React.FC = () => (
 )
 
 const Root = styled.div`
-  width: 100%;
-  height: 100%;
+  ${(props): string => props.theme.mixins.relative}
 `
 const Relative = styled.div`
   ${(props): string => props.theme.mixins.relative}

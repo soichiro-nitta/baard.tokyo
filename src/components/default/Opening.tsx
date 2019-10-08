@@ -4,6 +4,7 @@ import styled from '~/utils/emotion'
 import functions from '~/utils/functions'
 import opening from '~/utils/animations/opening'
 import Logo from '~/assets/svg/logo.svg'
+import Background from '~/components/default/Background'
 
 type Props = {
   setOpening: Function
@@ -29,7 +30,7 @@ const Opening: React.FC<Props> = props => {
   const logo: Logo = React.useRef()
   React.useEffect(() => {
     const root = logo.current
-    const logoWrapper = root.children[0]
+    const logoWrapper = root.children[1]
     const svg = logoWrapper.children[0]
     const paths = svg.children
     const path1 = paths[0]
@@ -73,6 +74,9 @@ const Opening: React.FC<Props> = props => {
   })
   return (
     <Root ref={logo}>
+      <BackgroundWrapper>
+        <Background />
+      </BackgroundWrapper>
       <LogoWrapper>
         <Logo />
       </LogoWrapper>
@@ -84,12 +88,32 @@ const Root = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: ${(props): string => props.theme.colors.light.background};
 `
-const LogoWrapper = styled(Div100vh)`
+const BackgroundWrapper = styled(Div100vh)`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`
+const Background1 = styled.div`
+  width: ${(props): number => props.theme.sizes.phone.dashboard}px;
+  height: 100%;
+  background: ${(props): string => props.theme.colors.light.background};
+  border-right: 1px solid #ccc;
+`
+const Background2 = styled(Background1)`
+  width: calc(
+    (100% - ${(props): number => props.theme.sizes.phone.dashboard * 2}px) / 2
+  );
+`
+const Background3 = Background2
+const Background4 = Background1
+const LogoWrapper = styled.div`
+  position: absolute;
+  top: 0;
   ${(props): string => props.theme.mixins.flexCenter}
   width: 100%;
   height: 100%;
-  background: ${(props): string => props.theme.colors.light.background};
   svg {
     width: 50%;
     vertical-align: top;
