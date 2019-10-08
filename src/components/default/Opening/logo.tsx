@@ -1,37 +1,30 @@
 import * as React from 'react'
-import Div100vh from 'react-div-100vh'
 import styled from '~/utils/emotion'
 import functions from '~/utils/functions'
-import opening from '~/utils/animations/opening'
+import animations from '~/utils/animations/opening'
 import Logo from '~/assets/svg/logo.svg'
-import Background from '~/components/default/Background'
 
 type Props = {
   setOpening: Function
 }
 
-type Logo = React.MutableRefObject<HTMLDivElement> & {
+type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   current: {
     children: {
       [index: number]: {
         children: {
-          [index: number]: {
-            children: {
-              [index: number]: SVGPathElement
-            }
-          }
+          [index: number]: SVGPathElement
         }
       }
     }
   }
 }
 
-const Opening: React.FC<Props> = props => {
-  const logo: Logo = React.useRef()
+const OpeningLogo: React.FC<Props> = props => {
+  const logo: RootTypes = React.useRef()
   React.useEffect(() => {
     const root = logo.current
-    const logoWrapper = root.children[1]
-    const svg = logoWrapper.children[0]
+    const svg = root.children[0]
     const paths = svg.children
     const path1 = paths[0]
     const path2 = paths[1]
@@ -45,70 +38,41 @@ const Opening: React.FC<Props> = props => {
     const path10 = paths[9]
     const path11 = paths[10]
     ;(async (): Promise<void> => {
-      opening.path(path1)
+      animations.path(path1)
       await functions.delay(120)
-      opening.path(path2)
+      animations.path(path2)
       await functions.delay(120)
-      opening.path(path3)
+      animations.path(path3)
       await functions.delay(120)
-      opening.path(path4)
+      animations.path(path4)
       await functions.delay(120)
-      opening.path(path5)
+      animations.path(path5)
       await functions.delay(120)
-      opening.path(path6)
+      animations.path(path6)
       await functions.delay(120)
-      opening.path(path7)
+      animations.path(path7)
       await functions.delay(120)
-      opening.path(path8)
+      animations.path(path8)
       await functions.delay(120)
-      opening.path(path9)
+      animations.path(path9)
       await functions.delay(120)
-      opening.path(path10)
+      animations.path(path10)
       await functions.delay(120)
-      opening.path(path11)
+      animations.path(path11)
       await functions.delay(800)
-      opening.leave(paths, root)
+      animations.leave(paths, root)
       await functions.delay(1350)
       props.setOpening(true)
     })()
   })
   return (
     <Root ref={logo}>
-      <BackgroundWrapper>
-        <Background />
-      </BackgroundWrapper>
-      <LogoWrapper>
-        <Logo />
-      </LogoWrapper>
+      <Logo />
     </Root>
   )
 }
 
 const Root = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: ${(props): string => props.theme.colors.light.background};
-`
-const BackgroundWrapper = styled(Div100vh)`
-  display: flex;
-  width: 100%;
-  height: 100%;
-`
-const Background1 = styled.div`
-  width: ${(props): number => props.theme.sizes.phone.dashboard}px;
-  height: 100%;
-  background: ${(props): string => props.theme.colors.light.background};
-  border-right: 1px solid #ccc;
-`
-const Background2 = styled(Background1)`
-  width: calc(
-    (100% - ${(props): number => props.theme.sizes.phone.dashboard * 2}px) / 2
-  );
-`
-const Background3 = Background2
-const Background4 = Background1
-const LogoWrapper = styled.div`
   position: absolute;
   top: 0;
   ${(props): string => props.theme.mixins.flexCenter}
@@ -129,4 +93,4 @@ const LogoWrapper = styled.div`
   }
 `
 
-export default Opening
+export default OpeningLogo
