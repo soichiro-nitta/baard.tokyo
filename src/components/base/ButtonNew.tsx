@@ -3,13 +3,14 @@ import styled from '~/utils/emotion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 
-const Twitter: React.FC = () => (
-  <Root
-    href="https://twitter.com/soichiro_nitta"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    近況報告はTwitterにて
+type Props = {
+  to: string
+  text: string
+}
+
+const ButtonNew: React.FC<Props> = props => (
+  <Root href={props.to} target="_blank" rel="noopener noreferrer">
+    {props.text}
     <FontAwesomeIcon icon={faLongArrowRight} />
   </Root>
 )
@@ -24,4 +25,4 @@ const Root = styled.a`
   }
 `
 
-export default Twitter
+export default ButtonNew

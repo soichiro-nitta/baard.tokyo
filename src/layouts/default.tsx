@@ -9,6 +9,7 @@ import Loader from '~/components/default/Loader'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
+import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
@@ -37,9 +38,9 @@ const Layout: React.FC = props => {
       </LoaderWrapper>
       <Main id="main">
         {props.children}
-        <Footer>
-          © {new Date().getFullYear()}, Produced by Soichiro Nitta
-        </Footer>
+        <FooterWrapper>
+          <Footer />
+        </FooterWrapper>
       </Main>
       {!opening && (
         <OpeningWrapper>
@@ -137,22 +138,11 @@ const Main = styled.div`
   backface-visibility: hidden;
   z-index: 0;
 `
-const Footer = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding: ${(props): number =>
+const FooterWrapper = styled.div`
+  margin: ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
       2}px
     0;
-  padding-left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% + ${(props): number => props.theme.sizes.phone.dashboard - 18}px
-  );
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  line-height: 1;
 `
 const OpeningWrapper = styled.div`
   position: fixed;
