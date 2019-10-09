@@ -16,6 +16,7 @@ type Props = {
   icon: string
   head: string
   body: string
+  to: string
 }
 
 const Left: React.FC<Props> = props => {
@@ -36,7 +37,7 @@ const Left: React.FC<Props> = props => {
           <FontAwesomeIcon icon={icons[props.icon]} />
         </Head>
         <Body>{props.body}</Body>
-        <Button to="/salon">
+        <Button to={props.to}>
           くわしくみる
           <FontAwesomeIcon icon={faLongArrowRight} />
         </Button>

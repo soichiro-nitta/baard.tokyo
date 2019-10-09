@@ -38,6 +38,7 @@ const Sections: React.FC = () => {
           icon="faCut"
           head="SALON"
           body="SALON、STAFFページ（サロンコンセプト、スタッフ紹介、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなど）"
+          to="/salon"
         />
       </SectionWrapper>
       <SectionWrapper>
@@ -46,6 +47,7 @@ const Sections: React.FC = () => {
           icon="faClipboardList"
           head="SERVICE"
           body="SERVICEページ（バーバーサロンメニュー、女性のお顔そりのメニュー、実際のカット風景など）"
+          to="/service"
         />
       </SectionWrapper>
       <SectionWrapper>
@@ -54,6 +56,7 @@ const Sections: React.FC = () => {
           icon="faMapMarkedAlt"
           head="ACCESS"
           body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、スケジュール・定休日、駐車場？のご案内など）"
+          to="/access"
         />
       </SectionWrapper>
     </>
