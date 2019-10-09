@@ -16,10 +16,10 @@ const Dashboard: React.FC = () => (
     <Icon to="/">
       <FontAwesomeIcon icon={faHome} />
     </Icon>
-    <Icon to="/tweets">
+    <Icon to="/salon">
       <FontAwesomeIcon icon={faCut} />
     </Icon>
-    <Icon to="/diary">
+    <Icon to="/service">
       <FontAwesomeIcon icon={faClipboardList} />
     </Icon>
     <Icon to="/access">
