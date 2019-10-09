@@ -4,10 +4,6 @@ import animations from '~/utils/animations'
 import functions from '~/utils/functions'
 import Logo from '~/assets/svg/logo.svg'
 
-type Props = {
-  setOpening: Function
-}
-
 type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   current: {
     children: {
@@ -20,7 +16,7 @@ type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   }
 }
 
-const Svg: React.FC<Props> = props => {
+const Svg: React.FC = () => {
   const logo: RootTypes = React.useRef()
   React.useEffect(() => {
     const root = logo.current
@@ -62,8 +58,6 @@ const Svg: React.FC<Props> = props => {
       animations.path(path11)
       await functions.delay(1200)
       animations.paths(paths)
-      // await functions.delay(1000)
-      // props.setOpening(true)
     })()
   })
   return (

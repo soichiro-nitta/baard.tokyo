@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
+import functions from '~/utils/functions'
 import Shapes from '~/components/default/Opening/Shapes'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
@@ -9,6 +10,12 @@ type Props = {
 }
 
 const Opening: React.FC<Props> = props => {
+  React.useEffect(() => {
+    ;(async (): Promise<void> => {
+      await functions.delay(4500)
+      props.setOpening(true)
+    })()
+  })
   return (
     <Root>
       <Shapes />
@@ -16,7 +23,7 @@ const Opening: React.FC<Props> = props => {
         <Borders />
       </BordersWrapper>
       <SvgWrapper>
-        <Svg setOpening={props.setOpening} />
+        <Svg />
       </SvgWrapper>
     </Root>
   )

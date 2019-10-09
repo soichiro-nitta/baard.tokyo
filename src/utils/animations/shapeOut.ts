@@ -3,9 +3,9 @@ import functions from '~/utils/functions'
 
 const shapeOut = async (shape: HTMLDivElement): Promise<void> => {
   await functions.raf()
-  TweenMax.to(shape, 2, {
+  TweenMax.to(shape, 1, {
     opacity: 0,
-    ease: Expo.easeInOut
+    ease: Expo.easeIn
   })
 }
 
