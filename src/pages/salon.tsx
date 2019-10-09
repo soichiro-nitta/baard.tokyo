@@ -6,63 +6,69 @@ import ButtonNew from '~/components/base/ButtonNew'
 
 const Salon: React.FC = () => {
   return (
-    <>
-      <Seo title="Access" />
+    <Root>
+      <Seo title="Salon" />
+      <P1>
+        Salonページです。亀有にオープンしたBAARD理髪店のウェブサイトです。
+        ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
+      </P1>
+      <ButtonWrapper>
+        <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
+      </ButtonWrapper>
       <Wrapper>
-        <P>
-          Salonページです。亀有にオープンしたBAARD理髪店のウェブサイトです。
-          ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
-        </P>
-        <ButtonWrapper>
-          <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
-        </ButtonWrapper>
-      </Wrapper>
-      <Wrapper>
-        <P>
+        <P2>
           Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
-        </P>
+        </P2>
         <ButtonWrapper>
           <ButtonNew to={config.facebook} text="近況報告はFacebookにて" />
         </ButtonWrapper>
       </Wrapper>
       <Wrapper>
-        <P>
+        <P2>
           <b>店名</b>
-        </P>
-        <P>BAARD（バーールト）理髪店</P>
+        </P2>
+        <P2>BAARD（バーールト）理髪店</P2>
       </Wrapper>
       <Wrapper>
-        <P>
+        <P2>
           <b>所在地</b>
-        </P>
-        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
+        </P2>
+        <P2>〒125-0061 東京都葛飾区亀有 2-59-7</P2>
       </Wrapper>
       <Wrapper>
-        <P>
+        <P2>
           <b>電話番号</b>
-        </P>
-        <P>03-0000-0000</P>
+        </P2>
+        <P2>03-0000-0000</P2>
       </Wrapper>
-    </>
+    </Root>
   )
 }
 
+const Root = styled.div`
+  margin-top: ${(props): number =>
+    props.theme.sizes.phone.dashboard +
+    (props.theme.sizes.phone.dashboard - 30) / 2 +
+    5}px;
+`
 const Wrapper = styled.div`
   margin-top: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
   border-top: 1px solid ${(props): string => props.theme.colors.light.border};
 `
-const P = styled.p`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+const P1 = styled.p`
   padding: 0
     ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
       2}px;
   width: 100%;
   ${(props): string => props.theme.mixins.lhCrop(2)}
+`
+const P2 = styled(P1)`
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
 `
 const ButtonWrapper = styled.div`
   margin-top: ${(props): number =>
