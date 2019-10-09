@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import styled from '~/utils/emotion'
 import config from '~/utils/config'
 import Seo from '~/components/base/Seo'
@@ -8,34 +7,7 @@ import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 
-type Props = {
-  data: {
-    works: {
-      edges: {
-        node: {
-          frontmatter: {
-            title: string
-            date: string
-            path: string
-          }
-        }
-      }[]
-    }
-    tweets: {
-      edges: {
-        node: {
-          frontmatter: {
-            title: string
-            date: string
-            path: string
-          }
-        }
-      }[]
-    }
-  }
-}
-
-const Index: React.FC<Props> = props => {
+const Index: React.FC = () => {
   const video = React.useRef(null)
   React.useEffect(() => {
     video.current.load()

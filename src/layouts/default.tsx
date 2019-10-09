@@ -13,7 +13,6 @@ import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
-  console.log(opening)
   return (
     <Theme>
       <BackgroundWrapper>
