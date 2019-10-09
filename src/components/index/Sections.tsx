@@ -35,6 +35,7 @@ const Sections: React.FC = () => {
       <SectionWrapper>
         <Right
           fluid={data.salon.childImageSharp.fluid}
+          icon="faCut"
           head="SALON"
           body="SALON、STAFFページ（サロンコンセプト、スタッフ紹介、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなど）"
         />
@@ -42,6 +43,7 @@ const Sections: React.FC = () => {
       <SectionWrapper>
         <Left
           fluid={data.menu.childImageSharp.fluid}
+          icon="faClipboardList"
           head="SERVICE"
           body="SERVICEページ（バーバーサロンメニュー、女性のお顔そりのメニュー、実際のカット風景など）"
         />
@@ -49,6 +51,7 @@ const Sections: React.FC = () => {
       <SectionWrapper>
         <Right
           fluid={data.access.childImageSharp.fluid}
+          icon="faMapMarkedAlt"
           head="ACCESS"
           body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、スケジュール・定休日、駐車場？のご案内など）"
         />

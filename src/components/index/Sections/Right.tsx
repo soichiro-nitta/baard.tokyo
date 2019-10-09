@@ -4,15 +4,26 @@ import Img from 'gatsby-image'
 import { FluidObject } from 'gatsby-image'
 import styled from '~/utils/emotion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+import {
+  faCut,
+  faClipboardList,
+  faMapMarkedAlt,
+  faLongArrowRight
+} from '@fortawesome/pro-duotone-svg-icons'
 
 type Props = {
   fluid: FluidObject | FluidObject[]
+  icon: string
   head: string
   body: string
 }
 
 const Left: React.FC<Props> = props => {
+  const icons = {
+    faCut,
+    faClipboardList,
+    faMapMarkedAlt
+  }
   return (
     <Root>
       <Background />
@@ -20,7 +31,10 @@ const Left: React.FC<Props> = props => {
         <Img fluid={props.fluid} />
       </ImgWrapper>
       <Content>
-        <Head>{props.head}</Head>
+        <Head>
+          {props.head}
+          <FontAwesomeIcon icon={icons[props.icon]} />
+        </Head>
         <Body>{props.body}</Body>
         <Button to="/salon">
           くわしくみる
@@ -129,6 +143,9 @@ const Head = styled.div`
   font-weight: bold;
   letter-spacing: 7px;
   ${(props): string => props.theme.mixins.lhCrop(1.8)}
+  svg {
+    margin-left: 7.5px;
+  }
 `
 const Body = styled.div`
   margin-top: ${(props): number =>
