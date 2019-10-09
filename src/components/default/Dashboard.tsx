@@ -22,7 +22,7 @@ const Dashboard: React.FC = () => (
     <Icon to="/diary">
       <FontAwesomeIcon icon={faClipboardList} />
     </Icon>
-    <Icon to="/contact">
+    <Icon to="/access">
       <FontAwesomeIcon icon={faMapMarkedAlt} />
     </Icon>
     <Border />
