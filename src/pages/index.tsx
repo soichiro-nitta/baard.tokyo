@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '~/utils/emotion'
 import Seo from '~/components/base/Seo'
-import Twitter from '~/components/index/Twitter'
+import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
@@ -67,13 +67,24 @@ const Index: React.FC<Props> = props => {
           亀有にオープンしたBAARD理髪店のウェブサイトです。
           ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
         </P>
-        <TwitterWrapper>
-          <Twitter />
-        </TwitterWrapper>
+        <ButtonWrapper>
+          <ButtonNew
+            to="https://instagram.com/"
+            text="スタイル集はInstagramにて"
+          />
+        </ButtonWrapper>
       </Wrapper>
       <SectionsWrapper>
         <Sections />
       </SectionsWrapper>
+      <Wrapper>
+        <P>
+          Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
+        </P>
+        <ButtonWrapper>
+          <ButtonNew to="https://facebook.com/" text="近況報告はFacebookにて" />
+        </ButtonWrapper>
+      </Wrapper>
       <Wrapper>
         <P>
           <b>店名</b>
@@ -113,7 +124,7 @@ const P = styled.p`
   width: 100%;
   ${(props): string => props.theme.mixins.lhCrop(2)}
 `
-const TwitterWrapper = styled.div`
+const ButtonWrapper = styled.div`
   margin-top: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     3}px;
@@ -178,27 +189,6 @@ const RihatsutenWrapper = styled.div`
       fill: ${(props): string => props.theme.colors.light.background};
     }
   }
-`
-const Work = styled.li`
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding-left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% + ${(props): number => props.theme.sizes.phone.dashboard - 18}px
-  );
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  ${(props): string => props.theme.mixins.lhCrop(2)}
 `
 
 export default Index
