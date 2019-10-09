@@ -121,15 +121,12 @@ const VideoWrapper = styled.div`
   }
 `
 const VideoFilter = styled.div`
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: ${(props): string => props.theme.colors.light.shape};
-    opacity: 0.3;
-  }
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: ${(props): string => props.theme.colors.light.shape};
+  opacity: 0.3;
 `
 const Text = styled.div`
   position: absolute;
