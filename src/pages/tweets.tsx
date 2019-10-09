@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from '~/utils/emotion'
-import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 
 type Props = {
@@ -21,7 +20,7 @@ type Props = {
 
 const Tweets: React.FC<Props> = props => {
   return (
-    <Layout>
+    <>
       <Seo title="Tweets" />
       <P1>
         普段考えていること・技術・デザインについて、ひっそりとこちらで呟いています。
@@ -37,7 +36,7 @@ const Tweets: React.FC<Props> = props => {
           )
         })}
       </ul>
-    </Layout>
+    </>
   )
 }
 
@@ -62,8 +61,7 @@ const Work = styled.li`
   width: 100%;
   ${(props): string => props.theme.mixins.lhCrop(2)}
   word-wrap: break-word;
-  border-top: 1px solid
-    ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   a {
     text-decoration: underline;
   }

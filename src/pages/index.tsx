@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from '~/utils/emotion'
-import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 import Twitter from '~/components/index/Twitter'
+import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 
@@ -41,7 +41,7 @@ const Index: React.FC<Props> = props => {
     video.current.play()
   })
   return (
-    <Layout>
+    <>
       <Seo title="Home" />
       <VideoWrapper>
         <video
@@ -62,9 +62,13 @@ const Index: React.FC<Props> = props => {
         </Text>
       </VideoWrapper>
       <P1>理髪店BAARDのウェブサイトです。</P1>
+      <P1>ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。</P1>
       <TwitterWrapper>
         <Twitter />
       </TwitterWrapper>
+      <SectionsWrapper>
+        <Sections />
+      </SectionsWrapper>
       <P2>
         <b>新田聡一郎（Soichiro Nitta）</b>
         <br />
@@ -101,7 +105,7 @@ const Index: React.FC<Props> = props => {
           )
         })}
       </ul>
-    </Layout>
+    </>
   )
 }
 
@@ -120,6 +124,11 @@ const TwitterWrapper = styled.div`
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     3}px;
   margin-left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+`
+const SectionsWrapper = styled.div`
+  margin-top: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
 `
