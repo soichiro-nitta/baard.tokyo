@@ -4,12 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 
 const Twitter: React.FC = () => (
-  <Root
-    href="https://twitter.com/soichiro_nitta"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    近況報告はTwitterにて
+  <Root href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+    スタイル集はInstagramにて
     <FontAwesomeIcon icon={faLongArrowRight} />
   </Root>
 )

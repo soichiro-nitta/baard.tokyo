@@ -12,6 +12,7 @@ import Opening from '~/components/default/Opening'
 
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
+  console.log(opening)
   return (
     <Theme>
       <BackgroundWrapper>
