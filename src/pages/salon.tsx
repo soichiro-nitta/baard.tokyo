@@ -1,10 +1,12 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
 import config from '~/utils/config'
+import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import ButtonNew from '~/components/base/ButtonNew'
 
 const Salon: React.FC = () => {
+  useMain()
   return (
     <Root>
       <Seo title="Salon" />

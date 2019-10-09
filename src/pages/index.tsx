@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
 import config from '~/utils/config'
+import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
@@ -8,6 +9,7 @@ import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 
 const Index: React.FC = () => {
+  useMain()
   const video = React.useRef(null)
   React.useEffect(() => {
     video.current.load()
