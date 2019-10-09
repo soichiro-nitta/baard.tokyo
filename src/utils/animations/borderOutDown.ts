@@ -3,9 +3,9 @@ import functions from '~/utils/functions'
 
 const borderOutDown = async (border: HTMLDivElement): Promise<void> => {
   await functions.raf()
-  TweenMax.to(border, 2, {
+  TweenMax.to(border, 0.5, {
     y: '100%',
-    ease: Expo.easeOut
+    ease: Expo.easeInOut
   })
 }
 

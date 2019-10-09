@@ -20,7 +20,7 @@ type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   }
 }
 
-const SVG: React.FC<Props> = props => {
+const Svg: React.FC<Props> = props => {
   const logo: RootTypes = React.useRef()
   React.useEffect(() => {
     const root = logo.current
@@ -38,6 +38,7 @@ const SVG: React.FC<Props> = props => {
     const path10 = paths[9]
     const path11 = paths[10]
     ;(async (): Promise<void> => {
+      await functions.delay(1500)
       animations.path(path1)
       await functions.delay(120)
       animations.path(path2)
@@ -59,10 +60,10 @@ const SVG: React.FC<Props> = props => {
       animations.path(path10)
       await functions.delay(120)
       animations.path(path11)
-      await functions.delay(800)
-      animations.paths(paths)
       await functions.delay(1000)
-      props.setOpening(true)
+      animations.paths(paths)
+      // await functions.delay(1000)
+      // props.setOpening(true)
     })()
   })
   return (
@@ -91,4 +92,4 @@ const Root = styled.div`
   }
 `
 
-export default SVG
+export default Svg

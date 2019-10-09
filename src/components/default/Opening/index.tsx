@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
+import Shapes from '~/components/default/Opening/Shapes'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
 
@@ -10,7 +11,10 @@ type Props = {
 const Opening: React.FC<Props> = props => {
   return (
     <Root>
-      <Borders />
+      <Shapes />
+      <BordersWrapper>
+        <Borders />
+      </BordersWrapper>
       <SvgWrapper>
         <Svg setOpening={props.setOpening} />
       </SvgWrapper>
@@ -22,7 +26,12 @@ const Root = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: ${(props): string => props.theme.colors.light.background};
+`
+const BordersWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `
 const SvgWrapper = styled.div`
   position: absolute;
