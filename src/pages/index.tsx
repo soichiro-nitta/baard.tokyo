@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '~/utils/emotion'
+import config from '~/utils/config'
 import Seo from '~/components/base/Seo'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
@@ -68,10 +69,7 @@ const Index: React.FC<Props> = props => {
           ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
         </P>
         <ButtonWrapper>
-          <ButtonNew
-            to="https://instagram.com/"
-            text="スタイル集はInstagramにて"
-          />
+          <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
         </ButtonWrapper>
       </Wrapper>
       <SectionsWrapper>
@@ -82,7 +80,7 @@ const Index: React.FC<Props> = props => {
           Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
         </P>
         <ButtonWrapper>
-          <ButtonNew to="https://facebook.com/" text="近況報告はFacebookにて" />
+          <ButtonNew to={config.facebook} text="近況報告はFacebookにて" />
         </ButtonWrapper>
       </Wrapper>
       <Wrapper>
