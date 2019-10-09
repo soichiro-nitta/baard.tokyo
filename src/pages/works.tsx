@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from '~/utils/emotion'
-import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 
 type Props = {
@@ -22,7 +21,7 @@ type Props = {
 
 const Works: React.FC<Props> = props => {
   return (
-    <Layout>
+    <>
       <Seo title="Works" />
       <P1>最新の作品を追加していきます。</P1>
       <ul>
@@ -40,7 +39,7 @@ const Works: React.FC<Props> = props => {
           )
         })}
       </ul>
-    </Layout>
+    </>
   )
 }
 

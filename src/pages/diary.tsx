@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import styled from '~/utils/emotion'
-import Layout from '~/layouts/default'
 import Seo from '~/components/base/Seo'
 
 type Props = {
@@ -22,7 +21,7 @@ type Props = {
 
 const Diary: React.FC<Props> = props => {
   return (
-    <Layout>
+    <>
       <Seo title="Diary" />
       <P1>日記です。</P1>
       <ul>
@@ -40,7 +39,7 @@ const Diary: React.FC<Props> = props => {
           )
         })}
       </ul>
-    </Layout>
+    </>
   )
 }
 
@@ -67,8 +66,7 @@ const Work = styled.li`
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
   width: 100%;
-  border-top: 1px solid
-    ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
   ${(props): string => props.theme.mixins.lhCrop(2)}
 `
 
