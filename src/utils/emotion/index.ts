@@ -10,12 +10,12 @@ type ThemeTypes = {
   colors: ColorsTypes
 }
 
-export const theme: ThemeTypes = {
+const theme: ThemeTypes = {
   sizes,
   mixins,
   colors
 }
 
-export { globalStyles }
+export { globalStyles, theme }
 
 export default styled as CreateStyled<ThemeTypes>

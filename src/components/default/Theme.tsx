@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import { Global } from '@emotion/core'
-import * as Emotion from '~/utils/emotion'
+import * as emotion from '~/utils/emotion'
 
 const Theme: React.FC = props => (
-  <ThemeProvider theme={Emotion.theme}>
-    <Global styles={Emotion.globalStyles} />
+  <ThemeProvider theme={emotion.theme}>
+    <Global styles={emotion.globalStyles} />
     {props.children}
   </ThemeProvider>
 )

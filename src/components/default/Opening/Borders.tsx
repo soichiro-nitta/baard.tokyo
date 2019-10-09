@@ -1,30 +1,40 @@
 import * as React from 'react'
 import styled from '~/utils/emotion'
+import animations from '~/utils/animations'
+import functions from '~/utils/functions'
 
-const Background: React.FC = () => (
-  <Root>
-    <Border1>
-      <Relative>
-        <Border1A />
-        <Border1B />
-      </Relative>
-    </Border1>
-    <Border2>
-      <Relative>
-        <Border2A />
-        <Border2B />
-      </Relative>
-    </Border2>
-    <Border3 />
-    <Border4 />
-  </Root>
-)
+const Borders: React.FC = () => {
+  const border1 = React.useRef()
+  const border2 = React.useRef()
+  const border3 = React.useRef()
+  const border4 = React.useRef()
+  React.useEffect(() => {
+    ;(async (): Promise<void> => {
+      animations.borderIn(border1.current)
+      animations.borderIn(border2.current)
+      animations.borderIn(border3.current)
+      animations.borderIn(border4.current)
+      await functions.delay(3000)
+      animations.borderOutDown(border4.current)
+      animations.borderOutUp(border3.current)
+      animations.borderOutDown(border2.current)
+      animations.borderOutUp(border1.current)
+    })()
+  })
+  return (
+    <Root>
+      <Border1 ref={border1} />
+      <Border2 ref={border2} />
+      <Border3 ref={border3} />
+      <Border4 ref={border4} />
+    </Root>
+  )
+}
 
 const Root = styled.div`
   ${(props): string => props.theme.mixins.relative}
-`
-const Relative = styled.div`
-  ${(props): string => props.theme.mixins.relative}
+  width: 100%;
+  height: 100%;
 `
 const Border1 = styled.div`
   position: absolute;
@@ -32,20 +42,8 @@ const Border1 = styled.div`
   left: ${(props): number => props.theme.sizes.phone.dashboard}px;
   width: 1px;
   height: 100%;
-`
-const Border1A = styled.div`
-  width: 100%;
-  height: 9px;
   background: ${(props): string => props.theme.colors.light.border};
-`
-const Border1B = styled.div`
-  position: absolute;
-  top: ${(props): number => props.theme.sizes.phone.dashboard}px;
-  width: 100%;
-  height: calc(
-    100% - ${(props): number => props.theme.sizes.phone.dashboard}px
-  );
-  background: ${(props): string => props.theme.colors.light.border};
+  transform: translate(0, 100%);
 `
 const Border2 = styled(Border1)`
   left: calc(
@@ -56,11 +54,8 @@ const Border2 = styled(Border1)`
           ) - 2px
       ) / 3 + ${(props): number => props.theme.sizes.phone.dashboard + 1}px
   );
+  transform: translate(0, -100%);
 `
-const Border2A = styled(Border1A)`
-  height: 11px;
-`
-const Border2B = Border1B
 const Border3 = styled.div`
   position: absolute;
   top: 0;
@@ -75,10 +70,12 @@ const Border3 = styled.div`
   width: 1px;
   height: 100%;
   background: ${(props): string => props.theme.colors.light.border};
+  transform: translate(0, 100%);
 `
 const Border4 = styled(Border3)`
   right: ${(props): number => props.theme.sizes.phone.dashboard}px;
   height: 100%;
+  transform: translate(0, -100%);
 `
 
-export default Background
+export default Borders
