@@ -1,9 +1,15 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import { FluidObject } from 'gatsby-image'
 import styled from '~/utils/emotion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 
 type Props = {
-  fluid: object
+  fluid: FluidObject | FluidObject[]
+  head: string
+  body: string
 }
 
 const Left: React.FC<Props> = props => {
@@ -14,10 +20,12 @@ const Left: React.FC<Props> = props => {
         <Img fluid={props.fluid} />
       </ImgWrapper>
       <Content>
-        <Head>SALON</Head>
-        <Body>
-          サロン、スタッフ紹介（サロンコンセプト、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなどはここ）
-        </Body>
+        <Head>{props.head}</Head>
+        <Body>{props.body}</Body>
+        <Button to="/salon">
+          くわしくみる
+          <FontAwesomeIcon icon={faLongArrowRight} />
+        </Button>
       </Content>
     </Root>
   )
@@ -25,6 +33,9 @@ const Left: React.FC<Props> = props => {
 
 const Root = styled.div`
   position: relative;
+  margin-left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
   width: calc(
     100% -
       ${(props): number =>
@@ -32,12 +43,18 @@ const Root = styled.div`
           props.theme.sizes.phone.scrollbar) /
         2}px
   );
-  height: 105vw;
-  color: ${(props): string => props.theme.colors.light.background};
+  height: calc(
+    105vw +
+      ${(props): number =>
+        (props.theme.sizes.phone.dashboard -
+          props.theme.sizes.phone.scrollbar) /
+        2}px
+  );
+  color: white;
 `
 const Background = styled.div`
   position: absolute;
-  right: 0;
+  left: 0;
   bottom: 0;
   width: calc(
     100% -
@@ -47,34 +64,65 @@ const Background = styled.div`
   height: calc(
     100% -
       ${(props): number =>
-        props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar}px
+        (props.theme.sizes.phone.dashboard -
+          props.theme.sizes.phone.scrollbar) /
+        2}px
   );
-  background: ${(props): string => props.theme.colors.light.neutral};
+  background: ${(props): string => props.theme.colors.light.shape};
 `
 const ImgWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  padding-right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  width: 100%;
-  height: 100vw;
-`
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
   width: calc(
     100% -
       ${(props): number =>
+        props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar}px
+  );
+  height: calc(
+    100% -
+      ${(props): number =>
         (props.theme.sizes.phone.dashboard -
           props.theme.sizes.phone.scrollbar) /
         2}px
   );
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: ${(props): string => props.theme.colors.light.shape};
+    opacity: 0.3;
+  }
+`
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  width: calc(
+    100% -
+      ${(props): number =>
+        ((props.theme.sizes.phone.dashboard -
+          props.theme.sizes.phone.scrollbar) /
+          2) *
+        4}px
+  );
   height: 100%;
+  span {
+    background: Pink;
+  }
 `
 const Head = styled.div`
   font-size: 20px;
@@ -87,6 +135,18 @@ const Body = styled.div`
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
   ${(props): string => props.theme.mixins.lhCrop(2)}
+`
+const Button = styled(Link)`
+  display: inline-block;
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  padding: 10px;
+  line-height: 1;
+  border: 1px solid ${(props): string => props.theme.colors.light.neutral};
+  svg {
+    margin-left: 7.5px;
+  }
 `
 
 export default Left

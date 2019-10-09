@@ -61,20 +61,24 @@ const Index: React.FC<Props> = props => {
           </RihatsutenWrapper>
         </Text>
       </VideoWrapper>
-      <P1>理髪店BAARDのウェブサイトです。</P1>
-      <P1>ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。</P1>
-      <TwitterWrapper>
-        <Twitter />
-      </TwitterWrapper>
+      <Wrapper>
+        <P>理髪店BAARDのウェブサイトです。</P>
+        <P>ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。</P>
+        <TwitterWrapper>
+          <Twitter />
+        </TwitterWrapper>
+      </Wrapper>
       <SectionsWrapper>
         <Sections />
       </SectionsWrapper>
-      <P2>
-        <b>新田聡一郎（Soichiro Nitta）</b>
-        <br />
-        1994年生まれ・男。埼玉県在住・埼玉県出身。ウェブサイト、アプリケーション制作等。
-        「Nitta.Studio」は新田聡一郎が活動報告のために個人的に制作、管理しているホームページです。
-      </P2>
+      <Wrapper>
+        <P>
+          <b>新田聡一郎（Soichiro Nitta）</b>
+          <br />
+          1994年生まれ・男。埼玉県在住・埼玉県出身。ウェブサイト、アプリケーション制作等。
+          「Nitta.Studio」は新田聡一郎が活動報告のために個人的に制作、管理しているホームページです。
+        </P>
+      </Wrapper>
       <ul>
         {props.data.works.edges.map(({ node }, index) => {
           return (
@@ -109,7 +113,13 @@ const Index: React.FC<Props> = props => {
   )
 }
 
-const P1 = styled.p`
+const Wrapper = styled.div`
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+`
+const P = styled.p`
   margin-top: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
@@ -173,11 +183,6 @@ const RihatsutenWrapper = styled.div`
       fill: ${(props): string => props.theme.colors.light.background};
     }
   }
-`
-const P2 = styled(P1)`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
 `
 const Work = styled.li`
   a {

@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import styled from '~/utils/emotion'
 import Left from '~/components/index/Sections/Left'
+import Right from '~/components/index/Sections/Right'
 
 const Sections: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -30,23 +32,39 @@ const Sections: React.FC = () => {
   `)
   return (
     <>
-      <Left
-        fluid={data.salon.childImageSharp.fluid}
-        head="SALON"
-        body="サロン、スタッフ紹介（サロンコンセプト、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなどはここ）"
-      />
-      <Left
-        fluid={data.menu.childImageSharp.fluid}
-        head="MENU"
-        body="サロン、スタッフ紹介（サロンコンセプト、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなどはここ）"
-      />
-      <Left
-        fluid={data.access.childImageSharp.fluid}
-        head="ACCESS"
-        body="サロン、スタッフ紹介（サロンコンセプト、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなどはここ）"
-      />
+      <SectionWrapper>
+        <Right
+          fluid={data.salon.childImageSharp.fluid}
+          head="SALON"
+          body="SALON、STAFFページ（サロンコンセプト、スタッフ紹介、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなど）"
+        />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Left
+          fluid={data.menu.childImageSharp.fluid}
+          head="SERVICE"
+          body="SERVICEページ（バーバーサロンメニュー、女性のお顔そりのメニュー、実際のカット風景など）"
+        />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Right
+          fluid={data.access.childImageSharp.fluid}
+          head="ACCESS"
+          body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、スケジュール・定休日、駐車場？のご案内など）"
+        />
+      </SectionWrapper>
     </>
   )
 }
+
+const SectionWrapper = styled.div`
+  margin-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  padding-top: ${(props): number =>
+    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+    2}px;
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+`
 
 export default Sections
