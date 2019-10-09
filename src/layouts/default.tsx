@@ -38,9 +38,11 @@ const Layout: React.FC = props => {
       </LoaderWrapper>
       <Main id="main">
         {props.children}
-        <Footer>
-          © {new Date().getFullYear()}, Produced by Soichiro Nitta
-        </Footer>
+        <FooterWrapper>
+          <Footer>
+            © {new Date().getFullYear()}, Produced by BAARD Barber.
+          </Footer>
+        </FooterWrapper>
       </Main>
       {!opening && (
         <OpeningWrapper>
@@ -138,22 +140,32 @@ const Main = styled.div`
   backface-visibility: hidden;
   z-index: 0;
 `
-const Footer = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  padding: ${(props): number =>
+const FooterWrapper = styled.div`
+  margin: ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
       2}px
     0;
-  padding-left: ${(props): number =>
+  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
+`
+const Footer = styled.div`
+  margin: ${(props): number =>
+      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+      2}px
+    0;
+  padding: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
   width: calc(
-    100% + ${(props): number => props.theme.sizes.phone.dashboard - 18}px
+    100% -
+      ${(props): number =>
+        (props.theme.sizes.phone.dashboard -
+          props.theme.sizes.phone.scrollbar) /
+        2}px
   );
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  color: white;
   line-height: 1;
+  background: ${(props): string => props.theme.colors.light.shape};
 `
 const OpeningWrapper = styled.div`
   position: fixed;
