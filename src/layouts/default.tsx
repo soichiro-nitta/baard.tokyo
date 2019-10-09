@@ -9,6 +9,7 @@ import Loader from '~/components/default/Loader'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
+import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
@@ -39,9 +40,7 @@ const Layout: React.FC = props => {
       <Main id="main">
         {props.children}
         <FooterWrapper>
-          <Footer>
-            © {new Date().getFullYear()}, Produced by BAARD Barber.
-          </Footer>
+          <Footer />
         </FooterWrapper>
       </Main>
       {!opening && (
@@ -145,27 +144,6 @@ const FooterWrapper = styled.div`
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
       2}px
     0;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
-`
-const Footer = styled.div`
-  margin: ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px
-    0;
-  padding: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% -
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
-  );
-  color: white;
-  line-height: 1;
-  background: ${(props): string => props.theme.colors.light.shape};
 `
 const OpeningWrapper = styled.div`
   position: fixed;
