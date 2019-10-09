@@ -47,7 +47,7 @@ const functions = {
     await this.$canplayVideo(video)
     video.play()
   },
-  hex2rgb(hex: string): number[] {
+  hex2rgb(hex: string): string {
     if (hex.slice(0, 1) == '#') hex = hex.slice(1)
     if (hex.length == 3)
       hex =
@@ -57,12 +57,10 @@ const functions = {
         hex.slice(1, 2) +
         hex.slice(2, 3) +
         hex.slice(2, 3)
-    // TODO: ここを文字列で返すようにする
-    return [hex.slice(0, 2), hex.slice(2, 4), hex.slice(4, 6)].map(function(
-      str
-    ) {
-      return parseInt(str, 16)
-    })
+    const r = parseInt(hex.slice(0, 2), 16)
+    const g = parseInt(hex.slice(2, 4), 16)
+    const b = parseInt(hex.slice(4, 6), 16)
+    return `${r}, ${g}, ${b}`
   }
 }
 
