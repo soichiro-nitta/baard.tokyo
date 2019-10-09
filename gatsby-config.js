@@ -7,7 +7,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
@@ -18,13 +17,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/assets/markdowns`
       }
     },
     {
@@ -44,20 +36,6 @@ module.exports = {
       options: {
         fonts: [`Fira Sans\:400,700`, `M PlUS 1p\:500,700`],
         display: 'swap'
-      }
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'noopener noreferrer'
-            }
-          }
-        ]
       }
     },
     {
