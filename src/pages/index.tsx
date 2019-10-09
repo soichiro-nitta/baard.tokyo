@@ -52,6 +52,7 @@ const Index: React.FC<Props> = props => {
           playsInline
           loop
         />
+        <VideoFilter />
         <Text>
           <KatakanaWrapper>
             <Katakana />
@@ -153,6 +154,17 @@ const VideoWrapper = styled.div`
     /* opacity: 0; */
   }
 `
+const VideoFilter = styled.div`
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: ${(props): string => props.theme.colors.light.shape};
+    opacity: 0.3;
+  }
+`
 const Text = styled.div`
   position: absolute;
   bottom: ${(props): number =>
@@ -161,7 +173,7 @@ const Text = styled.div`
   left: ${(props): number =>
     (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
     2}px;
-  color: ${(props): string => props.theme.colors.light.background};
+  color: white;
   font-weight: bold;
   mix-blend-mode: exclusion;
 `
