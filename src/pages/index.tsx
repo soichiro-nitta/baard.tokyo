@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import styled from '~/utils/emotion'
 import Seo from '~/components/base/Seo'
 import Twitter from '~/components/index/Twitter'
@@ -63,8 +63,10 @@ const Index: React.FC<Props> = props => {
         </Text>
       </VideoWrapper>
       <Wrapper>
-        <P>理髪店BAARDのウェブサイトです。</P>
-        <P>ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。</P>
+        <P>
+          亀有にオープンしたBAARD理髪店のウェブサイトです。
+          ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
+        </P>
         <TwitterWrapper>
           <Twitter />
         </TwitterWrapper>
@@ -74,42 +76,22 @@ const Index: React.FC<Props> = props => {
       </SectionsWrapper>
       <Wrapper>
         <P>
-          <b>新田聡一郎（Soichiro Nitta）</b>
-          <br />
-          1994年生まれ・男。埼玉県在住・埼玉県出身。ウェブサイト、アプリケーション制作等。
-          「Nitta.Studio」は新田聡一郎が活動報告のために個人的に制作、管理しているホームページです。
+          <b>店名</b>
         </P>
+        <P>BAARD（バーールト）理髪店</P>
       </Wrapper>
-      <ul>
-        {props.data.works.edges.map(({ node }, index) => {
-          return (
-            <Work key={index}>
-              <Link to={`/${node.frontmatter.path}`}>
-                {node.frontmatter.title}
-                <br />
-                {node.frontmatter.date}
-                <br />
-                {node.frontmatter.path}
-              </Link>
-            </Work>
-          )
-        })}
-      </ul>
-      <ul>
-        {props.data.tweets.edges.map(({ node }, index) => {
-          return (
-            <Work key={index}>
-              <Link to={`/${node.frontmatter.path}`}>
-                {node.frontmatter.title}
-                <br />
-                {node.frontmatter.date}
-                <br />
-                {node.frontmatter.path}
-              </Link>
-            </Work>
-          )
-        })}
-      </ul>
+      <Wrapper>
+        <P>
+          <b>所在地</b>
+        </P>
+        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
+      </Wrapper>
+      <Wrapper>
+        <P>
+          <b>電話番号</b>
+        </P>
+        <P>03-0000-0000</P>
+      </Wrapper>
     </>
   )
 }
@@ -128,6 +110,7 @@ const P = styled.p`
     ${(props): number =>
       (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
       2}px;
+  width: 100%;
   ${(props): string => props.theme.mixins.lhCrop(2)}
 `
 const TwitterWrapper = styled.div`
@@ -219,38 +202,3 @@ const Work = styled.li`
 `
 
 export default Index
-
-export const pageQuery = graphql`
-  {
-    works: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { category: { eq: "works" } } }
-      limit: 2
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            path
-          }
-        }
-      }
-    }
-    tweets: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { category: { eq: "tweets" } } }
-      limit: 2
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            path
-          }
-        }
-      }
-    }
-  }
-`
