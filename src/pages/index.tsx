@@ -61,10 +61,7 @@ const Index: React.FC<Props> = props => {
           </RihatsutenWrapper>
         </Text>
       </VideoWrapper>
-      <P1>
-        UI Designer & Software Engineer
-        新田聡一郎の活動報告をしているサイトです。
-      </P1>
+      <P1>理髪店BAARDのウェブサイトです。</P1>
       <TwitterWrapper>
         <Twitter />
       </TwitterWrapper>
