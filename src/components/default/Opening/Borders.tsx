@@ -14,7 +14,7 @@ const Borders: React.FC = () => {
       animations.borderIn(border2.current)
       animations.borderIn(border3.current)
       animations.borderIn(border4.current)
-      await functions.delay(3800)
+      await functions.delay(3000)
       animations.borderOutDown(border4.current)
       animations.borderOutUp(border3.current)
       animations.borderOutDown(border2.current)
