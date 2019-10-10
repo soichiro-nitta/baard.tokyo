@@ -55,7 +55,7 @@ const Sections: React.FC = () => {
           fluid={data.access.childImageSharp.fluid}
           icon="faMapMarkedAlt"
           head="ACCESS"
-          body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、スケジュール・定休日、駐車場？のご案内など）"
+          body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場？のご案内など）"
           to="/access"
         />
       </SectionWrapper>
