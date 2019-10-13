@@ -31,4 +31,3 @@ const mixins = {
   }
 }
 export default mixins
-export type MixinsTypes = typeof mixins

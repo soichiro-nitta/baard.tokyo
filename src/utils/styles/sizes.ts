@@ -7,4 +7,3 @@ const sizes = {
   }
 }
 export default sizes
-export type SizesTypes = typeof sizes

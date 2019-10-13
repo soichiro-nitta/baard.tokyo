@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
-import Theme from '~/components/default/Theme'
+import styled from '@emotion/styled'
+import { Global } from '@emotion/core'
+import styles, { global } from '~/utils/styles'
 import Header from '~/components/default/Header'
 import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
@@ -14,7 +15,8 @@ import Footer from '~/components/default/Footer'
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
   return (
-    <Theme>
+    <>
+      <Global styles={global} />
       <BackgroundWrapper>
         <Background />
       </BackgroundWrapper>
@@ -47,7 +49,7 @@ const Layout: React.FC = props => {
           <Opening setOpening={setOpening} />
         </OpeningWrapper>
       )}
-    </Theme>
+    </>
   )
 }
 
@@ -62,72 +64,51 @@ const BackgroundWrapper = styled.div`
 const HeaderHeight = 20
 const HeaderWrapper = styled.div`
   position: fixed;
-  top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   height: ${HeaderHeight}px;
   z-index: 1;
 `
 const HumbergerWrapper = styled.div`
   position: fixed;
-  top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   z-index: 1;
 `
 const NavigationWrapper = styled.div`
   position: fixed;
-  top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
+  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   z-index: 1;
   opacity: 0;
 `
 const DashboardWrapper = styled.div`
   position: fixed;
-  top: ${(props): number =>
-    props.theme.sizes.phone.dashboard +
-    (props.theme.sizes.phone.dashboard - 30) / 2 +
+  top: ${styles.sizes.phone.dashboard +
+    (styles.sizes.phone.dashboard - 30) / 2 +
     5}px;
-  left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   z-index: 1;
 `
 const ScrollbarWrapper = styled.div`
   position: fixed;
-  left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
-  bottom: ${(props): number => (props.theme.sizes.phone.dashboard - 2) / 2}px;
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
 `
 const LoaderWrapper = styled.div`
   position: fixed;
-  left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard -
-      props.theme.sizes.phone.scrollbar -
-      2) /
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
-  bottom: ${(props): number =>
-    (props.theme.sizes.phone.dashboard -
-      props.theme.sizes.phone.scrollbar -
-      2) /
+  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
-  height: ${(props): number => props.theme.sizes.phone.scrollbar + 2}px;
+  height: ${styles.sizes.phone.scrollbar + 2}px;
 `
 const Main = styled.div`
-/* padding-top: ${(props): number =>
-  props.theme.sizes.phone.dashboard +
-  (props.theme.sizes.phone.dashboard - 30) / 2 +
+/* padding-top: ${styles.sizes.phone.dashboard +
+  (styles.sizes.phone.dashboard - 30) / 2 +
   7}px; */
-  padding-left: ${(props): number => props.theme.sizes.phone.dashboard + 1}px;
+  padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
   font-size: 14px;
@@ -139,9 +120,7 @@ const Main = styled.div`
   z-index: 0;
 `
 const FooterWrapper = styled.div`
-  margin: ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px
+  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
     0;
 `
 const OpeningWrapper = styled.div`

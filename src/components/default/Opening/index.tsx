@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import functions from '~/utils/functions'
 import Shapes from '~/components/default/Opening/Shapes'
 import Borders from '~/components/default/Opening/Borders'
