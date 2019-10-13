@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Humberger: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Root = styled.div`
 const Border1 = styled.div`
   width: 100%;
   height: 2px;
-  background: ${(props): string => props.theme.colors.light.logo};
+  background: ${styles.colors.light.logo};
 `
 const Border2 = styled(Border1)`
   margin-top: 4px;

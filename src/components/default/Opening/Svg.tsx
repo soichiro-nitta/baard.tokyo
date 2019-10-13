@@ -1,7 +1,8 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import animations from '~/utils/animations'
 import functions from '~/utils/functions'
+import styles from '~/utils/styles'
 import Logo from '~/assets/svg/logo.svg'
 
 type RootTypes = React.MutableRefObject<HTMLDivElement> & {
@@ -68,18 +69,18 @@ const Svg: React.FC = () => {
 }
 
 const Root = styled.div`
-  ${(props): string => props.theme.mixins.flexCenter}
+  ${styles.mixins.flexCenter}
   width: 100%;
   height: 100%;
   svg {
     width: 50%;
     vertical-align: top;
     path {
-      stroke: ${(props): string => props.theme.colors.light.logo};
+      stroke: ${styles.colors.light.logo};
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      fill: ${(props): string => props.theme.colors.light.logo};
+      fill: ${styles.colors.light.logo};
       fill-opacity: 0;
       opacity: 0;
     }

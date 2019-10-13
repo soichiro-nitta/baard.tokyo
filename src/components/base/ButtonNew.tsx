@@ -1,7 +1,8 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+import styles from '~/utils/styles'
 
 type Props = {
   to: string
@@ -19,7 +20,7 @@ const Root = styled.a`
   display: inline-block;
   padding: 10px;
   line-height: 1;
-  border: 1px solid ${(props): string => props.theme.colors.light.border};
+  border: 1px solid ${styles.colors.light.border};
   svg {
     margin-left: 7.5px;
   }

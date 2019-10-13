@@ -8,4 +8,3 @@ const colors = {
   }
 }
 export default colors
-export type ColorsTypes = typeof colors

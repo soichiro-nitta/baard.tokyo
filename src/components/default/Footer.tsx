@@ -4,8 +4,9 @@ import {
   faFacebookSquare,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
+import styled from '@emotion/styled'
 import config from '~/utils/config'
-import styled from '~/utils/emotion'
+import styles from '~/utils/styles'
 
 const Humberger: React.FC = () => {
   return (
@@ -34,36 +35,29 @@ const Humberger: React.FC = () => {
 }
 
 const Root = styled.div`
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
-  border-bottom: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${styles.colors.light.border};
+  border-bottom: 1px solid ${styles.colors.light.border};
 `
 const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px
+  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
     0;
-  padding: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  padding: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
   width: calc(
     100% -
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
   );
   color: white;
   line-height: 1;
-  background: ${(props): string => props.theme.colors.light.shape};
+  background: ${styles.colors.light.shape};
 `
 const Text = styled.div``
 const Icons = styled.div``
 const Icon = styled.a`
-  margin-left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
   font-size: 16px;
 `
