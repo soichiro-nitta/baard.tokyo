@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHome,
@@ -10,6 +10,7 @@ import {
   faFillDrip,
   faVolumeSlash
 } from '@fortawesome/pro-duotone-svg-icons'
+import styles from '~/utils/styles'
 
 const Dashboard: React.FC = () => (
   <>
@@ -38,27 +39,24 @@ const Dashboard: React.FC = () => (
 const Icon = styled(Link)`
   display: block;
   :not(:first-of-type) {
-    margin-top: ${(props): number =>
-      ((props.theme.sizes.phone.dashboard - 30) / 2 + 5) * 2}px;
+    margin-top: ${((styles.sizes.phone.dashboard - 30) / 2 + 5) * 2}px;
   }
   width: 100%;
   height: 16px;
   text-align: center;
   overflow: hidden;
   svg {
-    color: ${(props): string => props.theme.colors.light.logo};
+    color: ${styles.colors.light.logo};
     font-size: 16px;
     height: 16px;
     vertical-align: top;
   }
 `
 const Border = styled.div`
-  margin: ${(props): number =>
-      ((props.theme.sizes.phone.dashboard - 30) / 2 + 5) * 2}px
-    auto 0;
+  margin: ${((styles.sizes.phone.dashboard - 30) / 2 + 5) * 2}px auto 0;
   width: 100%;
   height: 1px;
-  background: ${(props): string => props.theme.colors.light.border};
+  background: ${styles.colors.light.border};
 `
 
 export default Dashboard

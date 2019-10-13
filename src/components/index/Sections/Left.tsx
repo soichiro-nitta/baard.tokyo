@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FluidObject } from 'gatsby-image'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCut,
@@ -10,6 +10,7 @@ import {
   faMapMarkedAlt,
   faLongArrowRight
 } from '@fortawesome/pro-duotone-svg-icons'
+import styles from '~/utils/styles'
 
 type Props = {
   fluid: FluidObject | FluidObject[]
@@ -50,17 +51,11 @@ const Root = styled.div`
   position: relative;
   width: calc(
     100% -
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
   );
   height: calc(
     105vw +
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
   );
   color: white;
 `
@@ -69,34 +64,24 @@ const Background = styled.div`
   right: 0;
   bottom: 0;
   width: calc(
-    100% -
-      ${(props): number =>
-        props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar}px
+    100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
   height: calc(
     100% -
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
   );
-  background: ${(props): string => props.theme.colors.light.shape};
+  background: ${styles.colors.light.shape};
 `
 const ImgWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: calc(
-    100% -
-      ${(props): number =>
-        props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar}px
+    100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
   height: calc(
     100% -
-      ${(props): number =>
-        (props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-        2}px
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
   );
   .gatsby-image-wrapper {
     width: 100%;
@@ -109,7 +94,7 @@ const ImgWrapper = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background: ${(props): string => props.theme.colors.light.shape};
+    background: ${styles.colors.light.shape};
     opacity: 0.3;
   }
 `
@@ -120,15 +105,10 @@ const Content = styled.div`
   align-items: flex-end;
   position: absolute;
   top: 0;
-  right: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   width: calc(
     100% -
-      ${(props): number =>
-        ((props.theme.sizes.phone.dashboard -
-          props.theme.sizes.phone.scrollbar) /
-          2) *
+      ${((styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2) *
         4}px
   );
   height: 100%;
@@ -138,25 +118,23 @@ const Head = styled.div`
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 7px;
-  ${(props): string => props.theme.mixins.lhCrop(1.8)}
+  ${styles.mixins.lhCrop(1.8)}
   svg {
     margin-left: 7.5px;
   }
 `
 const Body = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  ${(props): string => props.theme.mixins.lhCrop(2)}
+  ${styles.mixins.lhCrop(2)}
 `
 const Button = styled(Link)`
   display: inline-block;
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
   padding: 10px;
   line-height: 1;
-  border: 1px solid ${(props): string => props.theme.colors.light.neutral};
+  border: 1px solid ${styles.colors.light.neutral};
   svg {
     margin-left: 7.5px;
   }

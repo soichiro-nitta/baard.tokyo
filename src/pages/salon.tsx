@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import config from '~/utils/config'
+import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import ButtonNew from '~/components/base/ButtonNew'
@@ -48,36 +49,29 @@ const Salon: React.FC = () => {
 }
 
 const Root = styled.div`
-  margin-top: ${(props): number =>
-    props.theme.sizes.phone.dashboard +
-    (props.theme.sizes.phone.dashboard - 30) / 2 +
+  margin-top: ${styles.sizes.phone.dashboard +
+    (styles.sizes.phone.dashboard - 30) / 2 +
     5}px;
 `
 const Wrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${styles.colors.light.border};
 `
 const P1 = styled.p`
   padding: 0
-    ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px;
+    ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   width: 100%;
-  ${(props): string => props.theme.mixins.lhCrop(2)}
+  ${styles.mixins.lhCrop(2)}
 `
 const P2 = styled(P1)`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
 `
 const ButtonWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     3}px;
-  margin-left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
 `
 

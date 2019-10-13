@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 import Left from '~/components/index/Sections/Left'
 import Right from '~/components/index/Sections/Right'
 
@@ -64,13 +65,11 @@ const Sections: React.FC = () => {
 }
 
 const SectionWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  padding-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  padding-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${styles.colors.light.border};
 `
 
 export default Sections

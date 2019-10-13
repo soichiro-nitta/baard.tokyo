@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Loader: React.FC = () => {
   return (
@@ -10,8 +11,8 @@ const Loader: React.FC = () => {
 }
 
 const Root = styled.svg`
-  width: ${(props): number => props.theme.sizes.phone.scrollbar + 2}px;
-  height: ${(props): number => props.theme.sizes.phone.scrollbar + 2}px;
+  width: ${styles.sizes.phone.scrollbar + 2}px;
+  height: ${styles.sizes.phone.scrollbar + 2}px;
   transform-origin: center center;
   animation: rotate 1.2s linear infinite;
   @keyframes rotate {
@@ -26,7 +27,7 @@ const Circle = styled.circle`
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
   animation: dash 0.9s ease-in-out infinite;
-  stroke: ${(props): string => props.theme.colors.light.logo};
+  stroke: ${styles.colors.light.logo};
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Background: React.FC = () => (
   <Root>
@@ -21,40 +22,34 @@ const Background: React.FC = () => (
 )
 
 const Root = styled.div`
-  ${(props): string => props.theme.mixins.relative}
+  ${styles.mixins.relative}
 `
 const Relative = styled.div`
-  ${(props): string => props.theme.mixins.relative}
+  ${styles.mixins.relative}
 `
 const Border1 = styled.div`
   position: absolute;
   top: 0;
-  left: ${(props): number => props.theme.sizes.phone.dashboard}px;
+  left: ${styles.sizes.phone.dashboard}px;
   width: 1px;
   height: 100%;
 `
 const Border1A = styled.div`
   width: 100%;
   height: 9px;
-  background: ${(props): string => props.theme.colors.light.border};
+  background: ${styles.colors.light.border};
 `
 const Border1B = styled.div`
   position: absolute;
-  top: ${(props): number => props.theme.sizes.phone.dashboard}px;
+  top: ${styles.sizes.phone.dashboard}px;
   width: 100%;
-  height: calc(
-    100% - ${(props): number => props.theme.sizes.phone.dashboard}px
-  );
-  background: ${(props): string => props.theme.colors.light.border};
+  height: calc(100% - ${styles.sizes.phone.dashboard}px);
+  background: ${styles.colors.light.border};
 `
 const Border2 = styled(Border1)`
   left: calc(
-    (
-        (
-            100% -
-              ${(props): number => props.theme.sizes.phone.dashboard * 2 + 2}px
-          ) - 2px
-      ) / 3 + ${(props): number => props.theme.sizes.phone.dashboard + 1}px
+    ((100% - ${styles.sizes.phone.dashboard * 2 + 2}px) - 2px) / 3 +
+      ${styles.sizes.phone.dashboard + 1}px
   );
 `
 const Border2A = styled(Border1A)`
@@ -65,19 +60,15 @@ const Border3 = styled.div`
   position: absolute;
   top: 0;
   right: calc(
-    (
-        (
-            100% -
-              ${(props): number => props.theme.sizes.phone.dashboard * 2 + 2}px
-          ) - 2px
-      ) / 3 + ${(props): number => props.theme.sizes.phone.dashboard + 1}px
+    ((100% - ${styles.sizes.phone.dashboard * 2 + 2}px) - 2px) / 3 +
+      ${styles.sizes.phone.dashboard + 1}px
   );
   width: 1px;
   height: 100%;
-  background: ${(props): string => props.theme.colors.light.border};
+  background: ${styles.colors.light.border};
 `
 const Border4 = styled(Border3)`
-  right: ${(props): number => props.theme.sizes.phone.dashboard}px;
+  right: ${styles.sizes.phone.dashboard}px;
   height: 100%;
 `
 

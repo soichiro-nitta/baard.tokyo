@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
 import config from '~/utils/config'
+import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import ButtonNew from '~/components/base/ButtonNew'
@@ -80,33 +81,26 @@ const Index: React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  border-top: 1px solid ${(props): string => props.theme.colors.light.border};
+  border-top: 1px solid ${styles.colors.light.border};
 `
 const P = styled.p`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
   padding: 0
-    ${(props): number =>
-      (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-      2}px;
+    ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   width: 100%;
-  ${(props): string => props.theme.mixins.lhCrop(2)}
+  ${styles.mixins.lhCrop(2)}
 `
 const ButtonWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     3}px;
-  margin-left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
 `
 const SectionsWrapper = styled.div`
-  margin-top: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
 `
 const VideoWrapper = styled.div`
@@ -125,17 +119,14 @@ const VideoFilter = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background: ${(props): string => props.theme.colors.light.shape};
+  background: ${styles.colors.light.shape};
   opacity: 0.3;
 `
 const Text = styled.div`
   position: absolute;
-  bottom: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
+  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  left: ${(props): number =>
-    (props.theme.sizes.phone.dashboard - props.theme.sizes.phone.scrollbar) /
-    2}px;
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
   color: white;
   font-weight: bold;
   mix-blend-mode: exclusion;
@@ -145,7 +136,7 @@ const KatakanaWrapper = styled.div`
     width: 120px;
     vertical-align: top;
     path {
-      fill: ${(props): string => props.theme.colors.light.background};
+      fill: ${styles.colors.light.background};
     }
   }
 `
@@ -155,7 +146,7 @@ const RihatsutenWrapper = styled.div`
     width: 60px;
     vertical-align: top;
     path {
-      fill: ${(props): string => props.theme.colors.light.background};
+      fill: ${styles.colors.light.background};
     }
   }
 `

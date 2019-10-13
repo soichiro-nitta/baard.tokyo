@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from '~/utils/emotion'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Scrollbar: React.FC = () => {
   const scrollbar = React.useRef(null)
@@ -21,13 +22,13 @@ const Scrollbar: React.FC = () => {
 
 const Bar1 = styled.div`
   position: absolute;
-  width: ${(props): number => props.theme.sizes.phone.scrollbar}px;
+  width: ${styles.sizes.phone.scrollbar}px;
   height: 2px;
-  background: ${(props): string => props.theme.colors.light.neutral};
+  background: ${styles.colors.light.neutral};
   transform: none;
 `
 const Bar2 = styled(Bar1)`
-  background: ${(props): string => props.theme.colors.light.logo};
+  background: ${styles.colors.light.logo};
   transform: scaleX(0);
   transform-origin: left center;
 `
