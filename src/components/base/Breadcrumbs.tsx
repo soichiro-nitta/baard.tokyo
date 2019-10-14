@@ -16,19 +16,12 @@ const Breadcrumbs: React.FC<Props> = props => {
     <Root>
       {props.crumbs.map((crumb, index) => {
         return (
-          <span key={crumb.name}>
+          <Crumb key={crumb.name}>
+            {index !== 0 && <FontAwesomeIcon icon={faAngleRight} />}
             {(index !== props.crumbs.length - 1 && (
-              <CrumbLink to={crumb.to}>
-                {index !== 0 && <FontAwesomeIcon icon={faAngleRight} />}
-                {crumb.name}
-              </CrumbLink>
-            )) || (
-              <CrumbNoLink>
-                {index !== 0 && <FontAwesomeIcon icon={faAngleRight} />}
-                {crumb.name}
-              </CrumbNoLink>
-            )}
-          </span>
+              <CrumbLink to={crumb.to}>{crumb.name}</CrumbLink>
+            )) || <CrumbNoLink>{crumb.name}</CrumbNoLink>}
+          </Crumb>
         )
       })}
     </Root>
@@ -40,26 +33,23 @@ const Root = styled.div`
   line-height: 1;
 `
 const margin = 11.25
-const CrumbLink = styled(Link)`
+const Crumb = styled.div`
   display: inline-block;
   :not(:first-of-type) {
     margin-left: ${margin}px;
   }
-  text-decoration: underline;
   svg {
     margin-right: ${margin}px;
     padding-bottom: 1.5px;
     vertical-align: top;
   }
 `
+const CrumbLink = styled(Link)`
+  display: inline-block;
+  text-decoration: underline;
+`
 const CrumbNoLink = styled.div`
   display: inline-block;
-  margin-left: ${margin}px;
-  svg {
-    margin-right: ${margin}px;
-    padding-bottom: 1.5px;
-    vertical-align: top;
-  }
 `
 
 export default Breadcrumbs
