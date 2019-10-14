@@ -6,6 +6,7 @@ import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
+import Breadcrumbs from '~/components/base/Breadcrumbs'
 import ButtonNew from '~/components/base/ButtonNew'
 
 const Access: React.FC = () => {
@@ -21,10 +22,22 @@ const Access: React.FC = () => {
       }
     }
   `)
+  const crumbs = [
+    {
+      to: '/',
+      name: 'ホーム'
+    },
+    {
+      to: '/access',
+      name: 'アクセス'
+    }
+  ]
   return (
     <Root>
       <Seo title="Access" />
-      <P1>ここにパンくずリストを</P1>
+      <BreadcrumbsWrapper>
+        <Breadcrumbs crumbs={crumbs} />
+      </BreadcrumbsWrapper>
       <ImgWrapper>
         <ImgInner>
           <Img fluid={data.access.childImageSharp.fluid} />
@@ -85,6 +98,10 @@ const P2 = styled(P1)`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
 `
+const BreadcrumbsWrapper = styled.div`
+  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
+    2}px;
+`
 const ImgWrapper = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
@@ -95,7 +112,7 @@ const ImgWrapper = styled.div`
     styles.sizes.phone.scrollbar) /
     2}px;
   width: 100%;
-  height: 200px;
+  height: 70vw;
   border-top: 1px solid ${styles.colors.light.border};
 `
 const ImgInner = styled.div`

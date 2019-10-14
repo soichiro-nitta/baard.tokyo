@@ -105,9 +105,6 @@ const LoaderWrapper = styled.div`
   height: ${styles.sizes.phone.scrollbar + 2}px;
 `
 const Main = styled.div`
-/* padding-top: ${styles.sizes.phone.dashboard +
-  (styles.sizes.phone.dashboard - 30) / 2 +
-  7}px; */
   padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
