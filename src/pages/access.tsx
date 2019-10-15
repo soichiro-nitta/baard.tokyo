@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
-import useGraphql from '~/hooks/access/useGraphql'
+import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import ButtonNew from '~/components/base/ButtonNew'
@@ -11,12 +11,12 @@ import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 
 const Access: React.FC = () => {
   useMain()
-  const data = useGraphql()
+  const fluid = useFluid()
   return (
     <Root>
       <Seo title="Access" />
       <HeaderImage
-        fluid={data.access.childImageSharp.fluid}
+        fluid={fluid}
         icon={faMapMarkedAlt}
         eng="ACCESS"
         ja="アクセス"
