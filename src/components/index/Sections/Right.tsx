@@ -130,6 +130,7 @@ const Head = styled.div`
 const Body = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
+  font-size: 12px;
   ${styles.mixins.lhCrop(2)}
 `
 const Button = styled(Link)`

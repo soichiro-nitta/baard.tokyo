@@ -73,6 +73,7 @@ const HumbergerWrapper = styled.div`
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
   right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  mix-blend-mode: exclusion;
   z-index: 1;
 `
 const NavigationWrapper = styled.div`

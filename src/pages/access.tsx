@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
@@ -8,6 +9,7 @@ import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 import ButtonNew from '~/components/base/ButtonNew'
+import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 
 const Access: React.FC = () => {
   useMain()
@@ -35,12 +37,20 @@ const Access: React.FC = () => {
   return (
     <Root>
       <Seo title="Access" />
-      <BreadcrumbsWrapper>
-        <Breadcrumbs crumbs={crumbs} />
-      </BreadcrumbsWrapper>
       <ImgWrapper>
         <ImgInner>
           <Img fluid={data.access.childImageSharp.fluid} />
+          <ImgFilter />
+          <ImgText>
+            <Head>
+              <FontAwesomeIcon icon={faMapMarkedAlt} />
+              <Text>ACCESS</Text>
+            </Head>
+            <Sub>アクセス</Sub>
+          </ImgText>
+          <BreadcrumbsWrapper>
+            <Breadcrumbs crumbs={crumbs} />
+          </BreadcrumbsWrapper>
         </ImgInner>
       </ImgWrapper>
       <P1>
@@ -84,9 +94,9 @@ const Access: React.FC = () => {
 }
 
 const Root = styled.div`
-  margin-top: ${styles.sizes.phone.dashboard +
+  /* margin-top: ${styles.sizes.phone.dashboard +
     (styles.sizes.phone.dashboard - 30) / 2 +
-    5}px;
+    5}px; */
 `
 const P1 = styled.p`
   padding: 0
@@ -99,21 +109,26 @@ const P2 = styled(P1)`
     2}px;
 `
 const BreadcrumbsWrapper = styled.div`
+  position: absolute;
+  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
+    2}px;
   margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
+  color: white;
 `
 const ImgWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
+  margin-bottom: ${(styles.sizes.phone.dashboard -
+    styles.sizes.phone.scrollbar) /
     2}px;
-  padding: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-      2}px
-    0;
-  padding-right: ${(styles.sizes.phone.dashboard -
+  padding-bottom: ${(styles.sizes.phone.dashboard -
     styles.sizes.phone.scrollbar) /
     2}px;
   width: 100%;
-  height: 70vw;
-  border-top: 1px solid ${styles.colors.light.border};
+  height: calc(
+    105vw +
+      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
+  );
+  border-bottom: 1px solid ${styles.colors.light.border};
 `
 const ImgInner = styled.div`
   ${styles.mixins.relative}
@@ -122,15 +137,43 @@ const ImgInner = styled.div`
     height: 100%;
     object-fit: cover;
   }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: ${styles.colors.light.shape};
-    opacity: 0.3;
-  }
+`
+const ImgFilter = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: ${styles.colors.light.shape};
+  opacity: 0.3;
+`
+const ImgText = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  padding-left: ${(styles.sizes.phone.dashboard -
+    styles.sizes.phone.scrollbar) /
+    2}px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  line-height: 1;
+`
+const Head = styled.div`
+  display: flex;
+  font-size: 22px;
+`
+const Text = styled.div`
+  margin-top: -7px;
+  margin-left: 17px;
+  font-weight: bold;
+  letter-spacing: 7px;
+`
+const Sub = styled.div`
+  margin-left: 43px;
+  font-size: 12px;
+  letter-spacing: 3.5px;
 `
 const Wrapper = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
