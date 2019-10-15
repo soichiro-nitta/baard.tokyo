@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { FluidObject } from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
