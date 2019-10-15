@@ -41,7 +41,6 @@ const Crumb = styled.div`
   }
   svg {
     margin-right: ${margin}px;
-    padding-bottom: 1.5px;
     vertical-align: top;
   }
 `
