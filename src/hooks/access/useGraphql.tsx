@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 import { FluidObject } from 'gatsby-image'
 
-type DataTypes = {
+type ReturnTypes = {
   access: {
     childImageSharp: {
       fluid: FluidObject | FluidObject[]
@@ -9,7 +9,7 @@ type DataTypes = {
   }
 }
 
-const useGraphql = (): DataTypes => {
+const useGraphql = (): ReturnTypes => {
   return useStaticQuery(graphql`
     query {
       access: file(relativePath: { eq: "access.png" }) {
