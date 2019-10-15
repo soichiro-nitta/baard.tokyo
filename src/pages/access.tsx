@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
+import useGraphql from '~/hooks/access/useGraphql'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import ButtonNew from '~/components/base/ButtonNew'
@@ -11,17 +11,7 @@ import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 
 const Access: React.FC = () => {
   useMain()
-  const data = useStaticQuery(graphql`
-    query {
-      access: file(relativePath: { eq: "access.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  const data = useGraphql()
   return (
     <Root>
       <Seo title="Access" />
