@@ -54,25 +54,21 @@ const Root = styled.div`
     5}px;
 `
 const Wrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
 `
 const P1 = styled.p`
-  padding: 0
-    ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  padding: 0 ${styles.sizes.phone.base}px;
   width: 100%;
   ${styles.mixins.lhCrop(2)}
 `
 const P2 = styled(P1)`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const ButtonWrapper = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     3}px;
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-left: ${styles.sizes.phone.base}px;
 `
 
 export default Service

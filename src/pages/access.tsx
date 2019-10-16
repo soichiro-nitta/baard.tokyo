@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
@@ -7,7 +8,7 @@ import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import ButtonNew from '~/components/base/ButtonNew'
-import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
+import Map from '~/components/access/Map'
 
 const Access: React.FC = () => {
   useMain()
@@ -31,6 +32,7 @@ const Access: React.FC = () => {
           }
         ]}
       />
+      <Map />
       <P1>
         <b>ACCESS</b> / マップ、営業時間
       </P1>
@@ -76,25 +78,21 @@ const Root = styled.div`
     5}px; */
 `
 const P1 = styled.p`
-  padding: 0
-    ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  padding: 0 ${styles.sizes.phone.base}px;
   width: 100%;
   ${styles.mixins.lhCrop(2)}
 `
 const P2 = styled(P1)`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const Wrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
 `
 const ButtonWrapper = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     3}px;
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-left: ${styles.sizes.phone.base}px;
 `
 
 export default Access

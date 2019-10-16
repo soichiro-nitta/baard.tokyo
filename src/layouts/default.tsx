@@ -67,7 +67,7 @@ const LogoWrapper = styled(Link)`
   display: inline-block;
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  left: ${styles.sizes.phone.base}px;
   width: 110px;
   height: ${LogoHeight}px;
   z-index: 1;
@@ -80,14 +80,14 @@ const LogoWrapper = styled(Link)`
 const HumbergerWrapper = styled.div`
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  right: ${styles.sizes.phone.base}px;
   mix-blend-mode: exclusion;
   z-index: 1;
 `
 const NavigationWrapper = styled.div`
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  right: ${styles.sizes.phone.base}px;
   z-index: 1;
   opacity: 0;
 `
@@ -96,12 +96,12 @@ const DashboardWrapper = styled.div`
   top: ${styles.sizes.phone.dashboard +
     (styles.sizes.phone.dashboard - 30) / 2 +
     5}px;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  left: ${styles.sizes.phone.base}px;
   z-index: 1;
 `
 const ScrollbarWrapper = styled.div`
   position: fixed;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
 `
@@ -126,8 +126,7 @@ const Main = styled.div`
   z-index: 0;
 `
 const FooterWrapper = styled.div`
-  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-    0;
+  margin: ${styles.sizes.phone.base}px 0;
 `
 const OpeningWrapper = styled.div`
   position: fixed;

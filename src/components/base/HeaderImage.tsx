@@ -54,9 +54,7 @@ const Content = styled.div`
   flex-direction: column;
   position: absolute;
   top: 0;
-  padding-left: ${(styles.sizes.phone.dashboard -
-    styles.sizes.phone.scrollbar) /
-    2}px;
+  padding-left: ${styles.sizes.phone.base}px;
   width: 100%;
   height: 100%;
   color: white;
@@ -82,10 +80,8 @@ const Ja = styled.div`
 `
 const BreadcrumbsWrapper = styled.div`
   position: absolute;
-  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  bottom: ${styles.sizes.phone.base}px;
+  margin-left: ${styles.sizes.phone.base}px;
   color: white;
 `
 

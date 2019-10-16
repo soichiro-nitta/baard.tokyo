@@ -42,14 +42,9 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-    0;
-  padding: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% -
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
+  margin: ${styles.sizes.phone.base}px 0;
+  padding: ${styles.sizes.phone.base}px;
+  width: calc(100% - ${styles.sizes.phone.base}px);
   color: white;
   line-height: 1;
   background: ${styles.colors.light.shape};
@@ -57,8 +52,7 @@ const Footer = styled.div`
 const Text = styled.div``
 const Icons = styled.div``
 const Icon = styled.a`
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-left: ${styles.sizes.phone.base}px;
   font-size: 16px;
 `
 
