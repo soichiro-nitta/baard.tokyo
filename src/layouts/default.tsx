@@ -117,7 +117,7 @@ const Main = styled.div`
   padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
-  font-size: 14px;
+  font-size: 1.3rem;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;

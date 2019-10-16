@@ -35,8 +35,7 @@ const Access: React.FC = () => {
         <b>ACCESS</b> / マップ、営業時間
       </P1>
       <P2>
-        亀有にオープンしたBAARD理髪店のウェブサイトです。
-        ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
+        ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場？のご案内など）
       </P2>
       <ButtonWrapper>
         <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />

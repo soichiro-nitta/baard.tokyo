@@ -114,9 +114,9 @@ const Content = styled.div`
   text-align: right;
 `
 const Head = styled.div`
-  font-size: 20px;
+  font-size: 2.2rem;
   font-weight: bold;
-  letter-spacing: 7px;
+  letter-spacing: 0.33em;
   ${styles.mixins.lhCrop(1.8)}
   svg {
     margin-left: 7.5px;
@@ -125,7 +125,7 @@ const Head = styled.div`
 const Body = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     2}px;
-  font-size: 12px;
+  font-size: 1.2rem;
   ${styles.mixins.lhCrop(2)}
 `
 const Button = styled(Link)`

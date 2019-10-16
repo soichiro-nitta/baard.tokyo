@@ -31,7 +31,7 @@ const Breadcrumbs: React.FC<Props> = props => {
 const Root = styled.div`
   display: inline-block;
   line-height: 1;
-  font-size: 12px;
+  font-size: 1.2rem;
 `
 const margin = 11.25
 const Crumb = styled.div`

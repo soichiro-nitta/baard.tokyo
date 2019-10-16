@@ -60,7 +60,7 @@ const Content = styled.div`
   width: 100%;
   height: 100%;
   color: white;
-  font-size: 22px;
+  font-size: 2.2rem;
   line-height: 1;
   background: rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.3);
 `
@@ -73,12 +73,12 @@ const Text = styled.div`
 `
 const Eng = styled.div`
   font-weight: bold;
-  letter-spacing: 7px;
+  letter-spacing: 0.33em;
 `
 const Ja = styled.div`
   margin-top: 7.5px;
-  font-size: 12px;
-  letter-spacing: 3.5px;
+  font-size: 1.2rem;
+  letter-spacing: 0.33em;
 `
 const BreadcrumbsWrapper = styled.div`
   position: absolute;

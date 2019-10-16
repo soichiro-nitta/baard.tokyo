@@ -27,6 +27,7 @@ const globalStyles = css`
     padding: 0;
     width: 100%;
     height: 100%;
+    font-size: 65%;
   }
   body {
     position: relative;
@@ -52,7 +53,6 @@ const globalStyles = css`
   h2,
   h3 {
     margin: 0;
-    font-size: 14px;
   }
   p {
     margin: 0;
