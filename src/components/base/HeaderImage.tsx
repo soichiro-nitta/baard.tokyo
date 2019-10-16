@@ -67,7 +67,7 @@ const Flex = styled.div`
   align-items: center;
 `
 const Text = styled.div`
-  margin-left: 15px;
+  margin-left: ${styles.sizes.phone.base}px;
 `
 const Eng = styled.div`
   font-weight: bold;
