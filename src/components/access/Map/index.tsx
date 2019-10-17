@@ -7,7 +7,7 @@ import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/access/Map/options'
 
-const Component: React.FC = () => {
+const Map: React.FC = () => {
   return (
     <Root>
       <GoogleMapReact
@@ -58,4 +58,4 @@ const Pin = styled.div<{
   color: ${styles.colors.light.logo};
 `
 
-export default Component
+export default Map
