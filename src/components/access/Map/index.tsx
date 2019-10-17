@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import GoogleMapReact, { Maps, MapOptions } from 'google-map-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin } from '@fortawesome/pro-duotone-svg-icons'
+import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/access/Map/options'
 
@@ -11,7 +12,7 @@ const Component: React.FC = () => {
     <Root>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: 'AIzaSyC8qn_9ItJ58ogb80aTKFMHo9kX2e5Ysn4'
+          key: config.googleApiKey
         }}
         defaultCenter={{
           lat: 43.0582954,
