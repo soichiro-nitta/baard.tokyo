@@ -2,12 +2,14 @@ import * as React from 'react'
 import GoogleMapReact from 'google-map-react'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapPin } from '@fortawesome/pro-duotone-svg-icons'
+import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/access/Map/options'
 
 const Map: React.FC = () => {
+  const lat = 35.762755
+  const lng = 139.848256
   return (
     <Root>
       <GoogleMapReact
@@ -15,14 +17,14 @@ const Map: React.FC = () => {
           key: config.googleApiKey
         }}
         defaultCenter={{
-          lat: 43.0582954,
-          lng: 141.3466919
+          lat: lat,
+          lng: lng
         }}
-        defaultZoom={15}
+        defaultZoom={17}
         options={options}
       >
-        <Pin lat={43.0582954} lng={141.3466919}>
-          <FontAwesomeIcon icon={faMapPin} />
+        <Pin lat={lat} lng={lng}>
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
         </Pin>
       </GoogleMapReact>
     </Root>
@@ -34,7 +36,7 @@ const Root = styled.div`
   padding: ${styles.sizes.phone.base}px;
   padding-left: 0;
   width: 100%;
-  height: 200px;
+  height: 105vw;
   border-top: 1px solid ${styles.colors.light.border};
   border-bottom: 1px solid ${styles.colors.light.border};
   & > div {
@@ -43,7 +45,7 @@ const Root = styled.div`
     border-bottom: 1px solid ${styles.colors.light.border};
   }
 `
-const width = 29.25
+const width = 39
 const height = 52
 const Pin = styled.div<{
   lat: number

@@ -1,4 +1,5 @@
 import { Maps, MapOptions } from 'google-map-react'
+import styles from '~/utils/styles'
 
 const options = (maps: Maps): MapOptions => {
   return {
@@ -28,11 +29,11 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry',
         stylers: [
           {
-            color: '#f5f5f5'
-          },
-          {
-            lightness: 20
+            color: styles.colors.light.border
           }
+          // {
+          //   lightness: 20
+          // }
         ]
       },
       {
@@ -40,7 +41,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry.fill',
         stylers: [
           {
-            color: '#ffffff'
+            color: styles.colors.light.background
           },
           {
             lightness: 17
@@ -52,7 +53,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry.stroke',
         stylers: [
           {
-            color: '#ffffff'
+            color: styles.colors.light.background
           },
           {
             lightness: 29
@@ -67,7 +68,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry',
         stylers: [
           {
-            color: '#ffffff'
+            color: styles.colors.light.background
           },
           {
             lightness: 18
@@ -79,7 +80,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry',
         stylers: [
           {
-            color: '#ffffff'
+            color: styles.colors.light.background
           },
           {
             lightness: 16
@@ -114,13 +115,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'labels.text.stroke',
         stylers: [
           {
-            visibility: 'on'
-          },
-          {
-            color: '#ffffff'
-          },
-          {
-            lightness: 16
+            visibility: 'off'
           }
         ]
       },
@@ -128,21 +123,34 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'labels.text.fill',
         stylers: [
           {
-            saturation: 36
-          },
-          {
-            color: '#333333'
-          },
-          {
-            lightness: 40
+            color: styles.colors.light.neutral
           }
         ]
       },
+
       {
         elementType: 'labels.icon',
         stylers: [
           {
-            visibility: 'off'
+            saturation: -100
+          },
+          {
+            visibility: 'on'
+          },
+          {
+            lightness: 50
+          }
+        ]
+      },
+      {
+        featureType: 'transit',
+        elementType: 'all',
+        stylers: [
+          {
+            saturation: -100
+          },
+          {
+            visibility: 'simplified'
           }
         ]
       },
