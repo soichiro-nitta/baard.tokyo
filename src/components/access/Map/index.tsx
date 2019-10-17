@@ -1,6 +1,6 @@
 import * as React from 'react'
+import GoogleMapReact from 'google-map-react'
 import styled from '@emotion/styled'
-import GoogleMapReact, { Maps, MapOptions } from 'google-map-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
