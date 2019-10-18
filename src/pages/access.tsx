@@ -13,7 +13,7 @@ import Map from '~/components/access/Map'
 import Table from '~/components/access/Table'
 
 const Access: React.FC = () => {
-  // useMain()
+  useMain()
   const fluid = useFluid()
   return (
     <Root>
@@ -38,6 +38,12 @@ const Access: React.FC = () => {
         <H2 en="MAP" ja="マップ" />
       </Wrapper>
       <Wrapper>
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
+          text="Google Mapsでみる"
+        />
+      </Wrapper>
+      <Wrapper>
         <Row head="店名" data="BAARD（バーールト）理髪店" />
       </Wrapper>
       <Wrapper>
@@ -56,26 +62,16 @@ const Access: React.FC = () => {
         <Map />
       </MapWrapper>
       <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
-          text="Google Mapsでみる"
-        />
-      </Wrapper>
-      <Wrapper>
         <H2 en="OPEN" ja="営業時間" />
       </Wrapper>
-      <TableWrapper>
+      <Wrapper>
         <Table />
-      </TableWrapper>
+      </Wrapper>
     </Root>
   )
 }
 
-const Root = styled.div`
-  /* margin-top: ${styles.sizes.phone.dashboard +
-    (styles.sizes.phone.dashboard - 30) / 2 +
-    5}px; */
-`
+const Root = styled.div``
 const Wrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
   padding-top: ${styles.sizes.phone.base}px;
@@ -85,9 +81,6 @@ const Wrapper = styled.div`
 `
 const MapWrapper = styled(Wrapper)`
   padding-left: 0;
-`
-const TableWrapper = styled(Wrapper)`
-  padding: 0;
 `
 
 export default Access

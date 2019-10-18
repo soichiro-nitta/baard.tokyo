@@ -6,8 +6,10 @@ const Table: React.FC = () => {
   return (
     <Root>
       <Col>
-        <b>オープン</b>
-        <div>10:00 ~ 20:00</div>
+        <Row>
+          <b>営業時間</b>
+        </Row>
+        <Row>10:00 ~ 20:00</Row>
       </Col>
       <Col>
         <Row>
@@ -61,22 +63,21 @@ const Table: React.FC = () => {
 
 const Root = styled.div`
   width: 100%;
+  border-right: 1px solid ${styles.colors.light.border};
+  border-bottom: 1px solid ${styles.colors.light.border};
+  background: ${styles.colors.light.background};
 `
 const Col = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: ${styles.sizes.phone.base}px;
-  padding-bottom: 0;
   width: 100%;
   line-height: 1;
-  &:not(:first-of-type) {
-    margin-top: ${styles.sizes.phone.base}px;
-    border-top: 1px solid ${styles.colors.light.border};
-  }
 `
 const Row = styled.div`
   ${styles.mixins.flexCenter}
-  width: 16px;
+  flex-grow: 1;
+  border-top: 1px solid ${styles.colors.light.border};
+  border-left: 1px solid ${styles.colors.light.border};
+  height: 50px;
 `
 const Circle = styled.div`
   display: inline-block;
