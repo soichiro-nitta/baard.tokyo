@@ -46,11 +46,15 @@ const Footer = styled.div`
   padding: ${styles.sizes.phone.base}px;
   width: calc(100% - ${styles.sizes.phone.base}px);
   color: white;
-  line-height: 1;
   background: ${styles.colors.light.shape};
 `
-const Text = styled.div``
-const Icons = styled.div``
+const Text = styled.div`
+  ${styles.mixins.lhCrop(1.8)}
+`
+const Icons = styled.div`
+  ${styles.mixins.lhCrop(1.8)}
+  text-align: right;
+`
 const Icon = styled.a`
   margin-left: ${styles.sizes.phone.base}px;
   font-size: 16px;
