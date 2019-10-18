@@ -12,7 +12,7 @@ const Humberger: React.FC = () => {
   return (
     <Root>
       <Footer>
-        <Text>© {new Date().getFullYear()}, BAARD Barber.</Text>
+        <Text>© {new Date().getFullYear()}, BAARD.</Text>
         <Icons>
           <Icon
             href={config.facebook}
@@ -50,6 +50,8 @@ const Footer = styled.div`
 `
 const Text = styled.div`
   ${styles.mixins.lhCrop(1.8)}
+  letter-spacing: 0.33em;
+  font-weight: bold;
 `
 const Icons = styled.div`
   ${styles.mixins.lhCrop(1.8)}
