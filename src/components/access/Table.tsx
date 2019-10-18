@@ -6,56 +6,54 @@ const Table: React.FC = () => {
   return (
     <Root>
       <Col>
-        <Row1>
-          <b>OPEN</b>
-        </Row1>
-        <Row1 hours>10:00 ~ 20:00</Row1>
+        <div>オープン</div>
+        <div>10:00 ~ 20:00</div>
       </Col>
       <Col>
-        <Row2>
+        <Row>
           <b>月</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>火</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>水</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>木</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>金</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>土</b>
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <b>日</b>
-        </Row2>
+        </Row>
       </Col>
       <Col>
-        <Row2>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
-        <Row2>
+        </Row>
+        <Row>
           <Circle />
-        </Row2>
+        </Row>
       </Col>
     </Root>
   )
@@ -63,29 +61,22 @@ const Table: React.FC = () => {
 
 const Root = styled.div`
   width: 100%;
-  border-right: 1px solid ${styles.colors.light.border};
-  border-bottom: 1px solid ${styles.colors.light.border};
-  background: ${styles.colors.light.background};
 `
 const Col = styled.div`
   display: flex;
+  justify-content: space-between;
+  padding: ${styles.sizes.phone.base}px;
+  padding-bottom: 0;
   width: 100%;
-  height: 50px;
-`
-const Row1 = styled.div<{ hours: boolean }>`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  padding-left: 15px;
-  letter-spacing: ${(props): string => (props.hours ? '0' : '0.33em')};
   line-height: 1;
-  border-top: 1px solid ${styles.colors.light.border};
-  border-left: 1px solid ${styles.colors.light.border};
+  &:not(:first-of-type) {
+    margin-top: ${styles.sizes.phone.base}px;
+    border-top: 1px solid ${styles.colors.light.border};
+  }
 `
-const Row2 = styled(Row1)`
-  justify-content: center;
-  padding-left: 0;
-  letter-spacing: 0;
+const Row = styled.div`
+  ${styles.mixins.flexCenter}
+  width: 16px;
 `
 const Circle = styled.div`
   display: inline-block;

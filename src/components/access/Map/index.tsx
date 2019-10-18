@@ -32,13 +32,8 @@ const Map: React.FC = () => {
 }
 
 const Root = styled.div`
-  margin: ${styles.sizes.phone.base}px 0;
-  padding: ${styles.sizes.phone.base}px;
-  padding-left: 0;
   width: 100%;
   height: 105vw;
-  border-top: 1px solid ${styles.colors.light.border};
-  border-bottom: 1px solid ${styles.colors.light.border};
   & > div {
     border-top: 1px solid ${styles.colors.light.border};
     border-right: 1px solid ${styles.colors.light.border};

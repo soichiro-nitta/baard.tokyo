@@ -14,7 +14,10 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  const [opening, setOpening] = React.useState(false)
+  // 開発中
+  const [opening, setOpening] = React.useState(true)
+  // プロダクション
+  // const [opening, setOpening] = React.useState(false)
   return (
     <>
       <Global styles={global} />
