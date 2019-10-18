@@ -93,7 +93,7 @@ const Content = styled.div`
   position: absolute;
   top: 0;
   right: ${styles.sizes.phone.base}px;
-  width: calc(100% - ${styles.sizes.phone.base * 4}px);
+  width: calc(100% - ${styles.sizes.phone.base() * 4}px);
   height: 100%;
   text-align: right;
 `
