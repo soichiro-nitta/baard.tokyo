@@ -39,7 +39,7 @@ const globalStyles = css`
     font-weight: 500;
     background: ${colors.light.background};
     letter-spacing: 0px;
-    font-family: 'Fira Sans', 'M PLUS 1p', sans-serif;
+    font-family: 'Fira Sans', 'Noto Sans JP', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 0;

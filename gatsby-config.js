@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Fira Sans\:400,700`, `M PlUS 1p\:500,700`],
+        fonts: [`Fira Sans\:400,700`, `Noto Sans JP\:400,700`],
         display: 'swap'
       }
     },
