@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { FluidObject } from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -49,16 +48,9 @@ const Left: React.FC<Props> = props => {
 
 const Root = styled.div`
   position: relative;
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% -
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
-  height: calc(
-    105vw +
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
+  margin-left: ${styles.sizes.phone.base}px;
+  width: calc(100% - ${styles.sizes.phone.base}px);
+  height: calc(105vw + ${styles.sizes.phone.base}px);
   color: white;
 `
 const Background = styled.div`
@@ -68,10 +60,7 @@ const Background = styled.div`
   width: calc(
     100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
-  height: calc(
-    100% -
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
+  height: calc(100% - ${styles.sizes.phone.base}px);
   background: ${styles.colors.light.shape};
 `
 const ImgWrapper = styled.div`
@@ -81,10 +70,7 @@ const ImgWrapper = styled.div`
   width: calc(
     100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
-  height: calc(
-    100% -
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
+  height: calc(100% - ${styles.sizes.phone.base}px);
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
@@ -107,35 +93,30 @@ const Content = styled.div`
   align-items: flex-start;
   position: absolute;
   top: 0;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
-  width: calc(
-    100% -
-      ${((styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2) *
-        4}px
-  );
+  left: ${styles.sizes.phone.base}px;
+  width: calc(100% - ${styles.sizes.phone.base() * 4}px);
   height: 100%;
   span {
     background: Pink;
   }
 `
 const Head = styled.div`
-  font-size: 20px;
+  font-size: 2.2rem;
   font-weight: bold;
-  letter-spacing: 7px;
+  letter-spacing: 0.33em;
   ${styles.mixins.lhCrop(1.8)}
   svg {
     margin-left: 7.5px;
   }
 `
 const Body = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
+  font-size: 1.2rem;
   ${styles.mixins.lhCrop(2)}
 `
 const Button = styled(Link)`
   display: inline-block;
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
   padding: 10px;
   line-height: 1;
   border: 1px solid ${styles.colors.light.neutral};

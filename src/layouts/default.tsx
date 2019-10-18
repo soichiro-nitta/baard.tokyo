@@ -1,8 +1,9 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import styles, { global } from '~/utils/styles'
-import Header from '~/components/default/Header'
+import Logo from '~/assets/svg/baard.svg'
 import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
@@ -13,16 +14,19 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  const [opening, setOpening] = React.useState(false)
+  // 開発中
+  const [opening, setOpening] = React.useState(true)
+  // プロダクション
+  // const [opening, setOpening] = React.useState(false)
   return (
     <>
       <Global styles={global} />
       <BackgroundWrapper>
         <Background />
       </BackgroundWrapper>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
+      <LogoWrapper to="/">
+        <Logo />
+      </LogoWrapper>
       <HumbergerWrapper>
         <Humberger />
       </HumbergerWrapper>
@@ -61,24 +65,32 @@ const BackgroundWrapper = styled.div`
   height: 100%;
   z-index: -1;
 `
-const HeaderHeight = 20
-const HeaderWrapper = styled.div`
+const LogoHeight = 20
+const LogoWrapper = styled(Link)`
+  display: inline-block;
   position: fixed;
-  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
-  height: ${HeaderHeight}px;
+  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  left: ${styles.sizes.phone.base}px;
+  width: 110px;
+  height: ${LogoHeight}px;
   z-index: 1;
+  svg {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+  }
 `
 const HumbergerWrapper = styled.div`
   position: fixed;
-  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  right: ${styles.sizes.phone.base}px;
+  mix-blend-mode: exclusion;
   z-index: 1;
 `
 const NavigationWrapper = styled.div`
   position: fixed;
-  top: ${(styles.sizes.phone.dashboard - HeaderHeight) / 2}px;
-  right: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  right: ${styles.sizes.phone.base}px;
   z-index: 1;
   opacity: 0;
 `
@@ -87,12 +99,12 @@ const DashboardWrapper = styled.div`
   top: ${styles.sizes.phone.dashboard +
     (styles.sizes.phone.dashboard - 30) / 2 +
     5}px;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  left: ${styles.sizes.phone.base}px;
   z-index: 1;
 `
 const ScrollbarWrapper = styled.div`
   position: fixed;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
 `
@@ -105,13 +117,10 @@ const LoaderWrapper = styled.div`
   height: ${styles.sizes.phone.scrollbar + 2}px;
 `
 const Main = styled.div`
-/* padding-top: ${styles.sizes.phone.dashboard +
-  (styles.sizes.phone.dashboard - 30) / 2 +
-  7}px; */
   padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
-  font-size: 14px;
+  font-size: 1.3rem;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -120,8 +129,7 @@ const Main = styled.div`
   z-index: 0;
 `
 const FooterWrapper = styled.div`
-  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-    0;
+  margin: ${styles.sizes.phone.base}px 0;
 `
 const OpeningWrapper = styled.div`
   position: fixed;

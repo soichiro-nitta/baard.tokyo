@@ -12,7 +12,7 @@ const Humberger: React.FC = () => {
   return (
     <Root>
       <Footer>
-        <Text>© {new Date().getFullYear()}, BAARD Barber.</Text>
+        <Text>© {new Date().getFullYear()}, BAARD.</Text>
         <Icons>
           <Icon
             href={config.facebook}
@@ -42,23 +42,23 @@ const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-    0;
-  padding: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  width: calc(
-    100% -
-      ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px
-  );
+  margin: ${styles.sizes.phone.base}px 0;
+  padding: ${styles.sizes.phone.base}px;
+  width: calc(100% - ${styles.sizes.phone.base}px);
   color: white;
-  line-height: 1;
   background: ${styles.colors.light.shape};
 `
-const Text = styled.div``
-const Icons = styled.div``
+const Text = styled.div`
+  ${styles.mixins.lhCrop(1.8)}
+  letter-spacing: 0.33em;
+  font-weight: bold;
+`
+const Icons = styled.div`
+  ${styles.mixins.lhCrop(1.8)}
+  text-align: right;
+`
 const Icon = styled.a`
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-left: ${styles.sizes.phone.base}px;
   font-size: 16px;
 `
 

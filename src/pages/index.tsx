@@ -81,27 +81,22 @@ const Index: React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
 `
 const P = styled.p`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  padding: 0
-    ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  margin-top: ${styles.sizes.phone.base}px;
+  padding: 0 ${styles.sizes.phone.base}px;
   width: 100%;
   ${styles.mixins.lhCrop(2)}
 `
 const ButtonWrapper = styled.div`
   margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
     3}px;
-  margin-left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-left: ${styles.sizes.phone.base}px;
 `
 const SectionsWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const VideoWrapper = styled.div`
   position: relative;
@@ -124,9 +119,8 @@ const VideoFilter = styled.div`
 `
 const Text = styled.div`
   position: absolute;
-  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) / 2}px;
+  bottom: ${styles.sizes.phone.base}px;
+  left: ${styles.sizes.phone.base}px;
   color: white;
   font-weight: bold;
   mix-blend-mode: exclusion;

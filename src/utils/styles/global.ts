@@ -27,6 +27,7 @@ const globalStyles = css`
     padding: 0;
     width: 100%;
     height: 100%;
+    font-size: 65%;
   }
   body {
     position: relative;
@@ -38,7 +39,7 @@ const globalStyles = css`
     font-weight: 500;
     background: ${colors.light.background};
     letter-spacing: 0px;
-    font-family: 'Fira Sans', 'M PLUS 1p', sans-serif;
+    font-family: 'Fira Sans', 'Noto Sans JP', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 0;
@@ -52,7 +53,6 @@ const globalStyles = css`
   h2,
   h3 {
     margin: 0;
-    font-size: 14px;
   }
   p {
     margin: 0;

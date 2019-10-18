@@ -42,9 +42,7 @@ const Icon = styled(Link)`
     margin-top: ${((styles.sizes.phone.dashboard - 30) / 2 + 5) * 2}px;
   }
   width: 100%;
-  height: 16px;
   text-align: center;
-  overflow: hidden;
   svg {
     color: ${styles.colors.light.logo};
     font-size: 16px;
