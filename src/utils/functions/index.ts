@@ -1,4 +1,5 @@
 const functions = {
+  // TODO: モジュール分割する
   loadWindow(window: Window): Promise<void> {
     return new Promise((resolve): void => {
       window.onload = (): void => {

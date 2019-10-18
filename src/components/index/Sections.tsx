@@ -65,10 +65,8 @@ const Sections: React.FC = () => {
 }
 
 const SectionWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
-  padding-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    2}px;
+  margin-top: ${styles.sizes.phone.base}px;
+  padding-top: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
 `
 

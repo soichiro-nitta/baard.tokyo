@@ -1,3 +1,4 @@
+// TODO: ファイル名をBackground.tsxへ変更
 import * as React from 'react'
 import styled from '@emotion/styled'
 import animations from '~/utils/animations'

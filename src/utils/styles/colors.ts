@@ -1,10 +1,11 @@
 const colors = {
+  brand: '#314458',
   light: {
-    logo: '#314458',
-    border: '#eef2f5',
     background: '#fbfcfd',
+    border: '#eef2f5',
     neutral: '#ACB2BA',
-    shape: '#6F7B89'
+    shape: '#6F7B89',
+    logo: '#314458'
   }
 }
 export default colors
