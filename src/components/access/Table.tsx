@@ -6,7 +6,7 @@ const Table: React.FC = () => {
   return (
     <Root>
       <Col>
-        <div>オープン</div>
+        <b>オープン</b>
         <div>10:00 ~ 20:00</div>
       </Col>
       <Col>
