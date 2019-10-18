@@ -1,5 +1,6 @@
 const colors = {
   light: {
+    brand: '#314458',
     logo: '#314458',
     border: '#eef2f5',
     background: '#fbfcfd',
