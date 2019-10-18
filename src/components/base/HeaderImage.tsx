@@ -10,7 +10,7 @@ import Breadcrumbs from '~/components/base/Breadcrumbs'
 type Props = {
   fluid: FluidObject | FluidObject[]
   icon: IconDefinition
-  eng: string
+  en: string
   ja: string
   crumbs: {
     to: string
@@ -26,7 +26,7 @@ const HeaderImage: React.FC<Props> = props => {
         <Flex>
           <FontAwesomeIcon icon={props.icon} />
           <Text>
-            <Eng>ACCESS</Eng>
+            <En>ACCESS</En>
             <Ja>アクセス</Ja>
           </Text>
         </Flex>
@@ -69,7 +69,7 @@ const Flex = styled.div`
 const Text = styled.div`
   margin-left: ${styles.sizes.phone.base}px;
 `
-const Eng = styled.div`
+const En = styled.div`
   font-weight: bold;
   letter-spacing: 0.33em;
 `

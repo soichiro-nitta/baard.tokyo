@@ -19,7 +19,7 @@ const Access: React.FC = () => {
       <HeaderImage
         fluid={fluid}
         icon={faMapMarkedAlt}
-        eng="ACCESS"
+        en="ACCESS"
         ja="アクセス"
         crumbs={[
           {
