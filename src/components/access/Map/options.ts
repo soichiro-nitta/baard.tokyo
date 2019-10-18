@@ -13,65 +13,18 @@ const options = (maps: Maps): MapOptions => {
     fullscreenControl: false,
     styles: [
       {
-        featureType: 'water',
-        elementType: 'geometry',
+        elementType: 'labels.text.fill',
         stylers: [
           {
-            color: '#e9e9e9'
-          },
-          {
-            lightness: 17
+            color: styles.colors.light.neutral
           }
         ]
       },
       {
         featureType: 'landscape',
-        elementType: 'geometry',
         stylers: [
           {
             color: styles.colors.light.border
-          }
-          // {
-          //   lightness: 20
-          // }
-        ]
-      },
-      {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [
-          {
-            color: styles.colors.light.background
-          },
-          {
-            lightness: 17
-          }
-        ]
-      },
-      {
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [
-          {
-            color: styles.colors.light.background
-          },
-          {
-            lightness: 29
-          },
-          {
-            weight: 0.2
-          }
-        ]
-      },
-      {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: styles.colors.light.background
-          },
-          {
-            lightness: 18
           }
         ]
       },
@@ -81,9 +34,33 @@ const options = (maps: Maps): MapOptions => {
         stylers: [
           {
             color: styles.colors.light.background
-          },
+          }
+        ]
+      },
+      {
+        featureType: 'road.arterial',
+        elementType: 'geometry',
+        stylers: [
           {
-            lightness: 16
+            color: styles.colors.light.background
+          }
+        ]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.fill',
+        stylers: [
+          {
+            color: styles.colors.light.background
+          }
+        ]
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [
+          {
+            color: styles.colors.light.border
           }
         ]
       },
@@ -92,10 +69,7 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry',
         stylers: [
           {
-            color: '#f5f5f5'
-          },
-          {
-            lightness: 21
+            color: styles.colors.light.border
           }
         ]
       },
@@ -104,30 +78,43 @@ const options = (maps: Maps): MapOptions => {
         elementType: 'geometry',
         stylers: [
           {
-            color: '#dedede'
-          },
-          {
-            lightness: 21
+            color: styles.colors.light.border
           }
         ]
       },
       {
-        elementType: 'labels.text.stroke',
+        featureType: 'transit',
+        elementType: 'geometry',
         stylers: [
           {
-            visibility: 'off'
+            color: styles.colors.light.background
           }
         ]
       },
       {
-        elementType: 'labels.text.fill',
+        featureType: 'administrative',
+        elementType: 'geometry.fill',
         stylers: [
           {
             color: styles.colors.light.neutral
+          },
+          {
+            lightness: 20
           }
         ]
       },
-
+      {
+        featureType: 'administrative',
+        elementType: 'geometry.stroke',
+        stylers: [
+          {
+            color: styles.colors.light.neutral
+          },
+          {
+            lightness: 17
+          }
+        ]
+      },
       {
         elementType: 'labels.icon',
         stylers: [
@@ -139,6 +126,14 @@ const options = (maps: Maps): MapOptions => {
           },
           {
             lightness: 50
+          }
+        ]
+      },
+      {
+        elementType: 'labels.text.stroke',
+        stylers: [
+          {
+            visibility: 'off'
           }
         ]
       },
@@ -155,41 +150,11 @@ const options = (maps: Maps): MapOptions => {
         ]
       },
       {
-        featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [
-          {
-            color: '#f2f2f2'
-          },
-          {
-            lightness: 19
-          }
-        ]
-      },
-      {
-        featureType: 'administrative',
-        elementType: 'geometry.fill',
-        stylers: [
-          {
-            color: '#fefefe'
-          },
-          {
-            lightness: 20
-          }
-        ]
-      },
-      {
-        featureType: 'administrative',
+        featureType: 'road.highway',
         elementType: 'geometry.stroke',
         stylers: [
           {
-            color: '#fefefe'
-          },
-          {
-            lightness: 17
-          },
-          {
-            weight: 1.2
+            visibility: 'off'
           }
         ]
       }
