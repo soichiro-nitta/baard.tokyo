@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
@@ -15,33 +16,29 @@ import Table from '~/components/access/Table'
 const Access: React.FC = () => {
   useMain()
   const fluid = useFluid()
+  const en = 'access'
+  const ja = 'アクセス'
   return (
     <>
-      <Seo title="Access" />
+      <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
         fluid={fluid}
         icon={faMapMarkedAlt}
-        en="ACCESS"
-        ja="アクセス"
+        en={en.toUpperCase()}
+        ja={ja}
         crumbs={[
           {
             to: '/',
             name: 'ホーム'
           },
           {
-            to: '/access',
-            name: 'アクセス'
+            to: `/${en}`,
+            name: ja
           }
         ]}
       />
       <Wrapper>
-        <H2 en="MAP" ja="マップ" />
-      </Wrapper>
-      <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
-          text="Google Mapsでみる"
-        />
+        <H2 en="INFO" ja="店舗情報" />
       </Wrapper>
       <Wrapper>
         <Row head="店名" data="BAARD（バーールト）理髪店" />
@@ -58,9 +55,20 @@ const Access: React.FC = () => {
       <Wrapper>
         <Row head="メールアドレス" data="baard-tokyo@gmail.com" />
       </Wrapper>
+      <Br />
+      <Wrapper>
+        <H2 en="MAP" ja="マップ" />
+      </Wrapper>
       <MapWrapper>
         <Map />
       </MapWrapper>
+      <Wrapper>
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
+          text="Google Mapsでみる"
+        />
+      </Wrapper>
+      <Br />
       <Wrapper>
         <H2 en="OPEN" ja="営業時間" />
       </Wrapper>
@@ -76,6 +84,10 @@ const Wrapper = styled.div`
   padding-top: ${styles.sizes.phone.base}px;
   padding-right: ${styles.sizes.phone.base}px;
   padding-left: ${styles.sizes.phone.base}px;
+  border-top: 1px solid ${styles.colors.light.border};
+`
+const Br = styled.div`
+  margin-top: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
 `
 const MapWrapper = styled(Wrapper)`
