@@ -16,7 +16,7 @@ const Access: React.FC = () => {
   useMain()
   const fluid = useFluid()
   return (
-    <Root>
+    <>
       <Seo title="Access" />
       <HeaderImage
         fluid={fluid}
@@ -67,11 +67,10 @@ const Access: React.FC = () => {
       <Wrapper>
         <Table />
       </Wrapper>
-    </Root>
+    </>
   )
 }
 
-const Root = styled.div``
 const Wrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
   padding-top: ${styles.sizes.phone.base}px;
