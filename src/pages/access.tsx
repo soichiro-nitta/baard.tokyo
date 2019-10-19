@@ -7,6 +7,8 @@ import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
+import Wrapper from '~/components/base/Wrapper'
+import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
 import ButtonNew from '~/components/base/ButtonNew'
 import Row from '~/components/base/Row'
@@ -79,19 +81,11 @@ const Access: React.FC = () => {
   )
 }
 
-const Wrapper = styled.div`
+const MapWrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
   padding-top: ${styles.sizes.phone.base}px;
   padding-right: ${styles.sizes.phone.base}px;
-  padding-left: ${styles.sizes.phone.base}px;
   border-top: 1px solid ${styles.colors.light.border};
-`
-const Br = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const MapWrapper = styled(Wrapper)`
-  padding-left: 0;
 `
 
 export default Access
