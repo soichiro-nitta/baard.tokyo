@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/service/useFluid'
 import Seo from '~/components/base/Seo'
@@ -15,23 +16,24 @@ import Table from '~/components/access/Table'
 const Service: React.FC = () => {
   useMain()
   const fluid = useFluid()
-  // TODO: Capitalizationの自動化
+  const en = 'service'
+  const ja = 'メニュー案内'
   return (
     <>
-      <Seo title="Service" />
+      <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
         fluid={fluid}
         icon={faClipboardList}
-        en="SERVICE"
-        ja="メニュー案内"
+        en={en.toUpperCase()}
+        ja={ja}
         crumbs={[
           {
             to: '/',
             name: 'ホーム'
           },
           {
-            to: '/service',
-            name: 'メニュー案内'
+            to: `/${en}`,
+            name: ja
           }
         ]}
       />
