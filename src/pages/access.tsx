@@ -8,6 +8,7 @@ import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import Wrapper from '~/components/base/Wrapper'
+import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
 import ButtonNew from '~/components/base/ButtonNew'
@@ -61,9 +62,9 @@ const Access: React.FC = () => {
       <Wrapper>
         <H2 en="MAP" ja="マップ" />
       </Wrapper>
-      <MapWrapper>
+      <Exhibition>
         <Map />
-      </MapWrapper>
+      </Exhibition>
       <Wrapper>
         <ButtonNew
           to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
@@ -80,12 +81,5 @@ const Access: React.FC = () => {
     </>
   )
 }
-
-const MapWrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding-top: ${styles.sizes.phone.base}px;
-  padding-right: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
 
 export default Access
