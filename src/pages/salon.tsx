@@ -1,74 +1,102 @@
 import * as React from 'react'
+import { faCut } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import config from '~/utils/config'
 import styles from '~/utils/styles'
+import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
+import useFluid from '~/hooks/salon/useFluid'
 import Seo from '~/components/base/Seo'
-import ButtonNew from '~/components/base/ButtonNew'
+import HeaderImage from '~/components/base/HeaderImage'
+import Wrapper from '~/components/base/Wrapper'
+import Br from '~/components/base/Br'
+import H2 from '~/components/base/H2'
+import List from '~/components/service/List'
 
 const Salon: React.FC = () => {
   useMain()
+  const fluid = useFluid()
+  const en = 'salon'
+  const ja = 'サロン・スタッフ紹介'
   return (
-    <Root>
-      <Seo title="Salon" />
-      <P1>
-        Salonページです。亀有にオープンしたBAARD理髪店のウェブサイトです。
-        ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
-      </P1>
-      <ButtonWrapper>
-        <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
-      </ButtonWrapper>
+    <>
+      <Seo title={functions.toUpperFirst(en)} />
+      <HeaderImage
+        fluid={fluid}
+        icon={faCut}
+        en={en.toUpperCase()}
+        ja={ja}
+        crumbs={[
+          {
+            to: '/',
+            name: 'ホーム'
+          },
+          {
+            to: `/${en}`,
+            name: ja
+          }
+        ]}
+      />
       <Wrapper>
-        <P2>
-          Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
-        </P2>
-        <ButtonWrapper>
-          <ButtonNew to={config.facebook} text="近況報告はFacebookにて" />
-        </ButtonWrapper>
+        <H2 en="BARBER" ja="メンズメニュー" />
       </Wrapper>
       <Wrapper>
-        <P2>
-          <b>店名</b>
-        </P2>
-        <P2>BAARD（バーールト）理髪店</P2>
+        <P>
+          BAARDではヘアスタイルを作る上で３つの要素を大切に、ヘアデザインに落とし込みます。お客様の髪質に合わせ－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        </P>
       </Wrapper>
       <Wrapper>
-        <P2>
-          <b>所在地</b>
-        </P2>
-        <P2>〒125-0061 東京都葛飾区亀有 2-59-7</P2>
+        <List head="メンズカット" price="5,000" />
       </Wrapper>
       <Wrapper>
-        <P2>
-          <b>電話番号</b>
-        </P2>
-        <P2>03-0000-0000</P2>
+        <List head="前髪カット" price="1,000" />
       </Wrapper>
-    </Root>
+      <Wrapper>
+        <List head="キッズカット" price="3,000" />
+      </Wrapper>
+      <Br />
+      <Wrapper>
+        <List head="リタッチカラー" price="9,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="オールカラー" price="13,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="デザインカラー" price="6,000" />
+      </Wrapper>
+      <Wrapper>
+        <List head="ブリーチカラー" price="10,000" />
+      </Wrapper>
+      <Br />
+      <Wrapper>
+        <List head="コスメパーマ" price="8,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="エアウェーブパーマ" price="11,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="デジタルパーマ" price="12,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="ポイントパーマ" price="3,000" />
+      </Wrapper>
+      <Br />
+      <Wrapper>
+        <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
+      </Wrapper>
+      <Wrapper>
+        <P>
+          BAARDのレディースシェービングは－－。お顔のうぶ毛を剃ることにより－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        </P>
+      </Wrapper>
+      <Wrapper>
+        <List head="シェービング" price="3,000" />
+      </Wrapper>
+    </>
   )
 }
 
-const Root = styled.div`
-  margin-top: ${styles.sizes.phone.dashboard +
-    (styles.sizes.phone.dashboard - 30) / 2 +
-    5}px;
-`
-const Wrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const P1 = styled.p`
-  padding: 0 ${styles.sizes.phone.base}px;
-  width: 100%;
+const P = styled.p`
   ${styles.mixins.lhCrop(2)}
-`
-const P2 = styled(P1)`
-  margin-top: ${styles.sizes.phone.base}px;
-`
-const ButtonWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    3}px;
-  margin-left: ${styles.sizes.phone.base}px;
 `
 
 export default Salon
