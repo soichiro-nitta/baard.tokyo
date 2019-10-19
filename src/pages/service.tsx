@@ -1,17 +1,14 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
-import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/service/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
+import Wrapper from '~/components/base/Wrapper'
+import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
-import ButtonNew from '~/components/base/ButtonNew'
-import Row from '~/components/base/Row'
-import Map from '~/components/access/Map'
-import Table from '~/components/access/Table'
+import List from '~/components/service/List'
 
 const Service: React.FC = () => {
   useMain()
@@ -41,48 +38,29 @@ const Service: React.FC = () => {
         <H2 en="BARBER" ja="メンズメニュー" />
       </Wrapper>
       <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
-          text="Google Mapsでみる"
-        />
+        ここに説明など。ここに説明など。ここに説明など。ここに説明など。
       </Wrapper>
       <Wrapper>
-        <Row head="店名" data="BAARD（バーールト）理髪店" />
+        <List head="メンズカット" price="5,000" />
       </Wrapper>
       <Wrapper>
-        <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
+        <List head="前髪カット" price="1,000" />
       </Wrapper>
       <Wrapper>
-        <Row head="最寄駅" data="JR常磐線 亀有駅 徒歩8分" />
+        <List head="キッズカット" price="3,000" />
       </Wrapper>
-      <Wrapper>
-        <Row head="電話番号" data="03-0000-0000" />
-      </Wrapper>
-      <Wrapper>
-        <Row head="メールアドレス" data="baard-tokyo@gmail.com" />
-      </Wrapper>
-      <MapWrapper>
-        <Map />
-      </MapWrapper>
+      <Br />
       <Wrapper>
         <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
       </Wrapper>
       <Wrapper>
-        <Table />
+        ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+      </Wrapper>
+      <Wrapper>
+        <List head="シェービング" price="3,000" />
       </Wrapper>
     </>
   )
 }
-
-const Wrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding-top: ${styles.sizes.phone.base}px;
-  padding-right: ${styles.sizes.phone.base}px;
-  padding-left: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const MapWrapper = styled(Wrapper)`
-  padding-left: 0;
-`
 
 export default Service
