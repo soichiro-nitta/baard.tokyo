@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import styles, { global } from '~/utils/styles'
 import Logo from '~/assets/svg/baard.svg'
+import Exhibition from '~/components/base/Exhibition'
+import Br from '~/components/base/Br'
 import Background from '~/components/default/Background'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
@@ -44,9 +46,11 @@ const Layout: React.FC = props => {
       </LoaderWrapper>
       <Main id="main">
         {props.children}
-        <FooterWrapper>
+        <Exhibition>
           <Footer />
-        </FooterWrapper>
+        </Exhibition>
+        <Br />
+        <Margin />
       </Main>
       {!opening && (
         <OpeningWrapper>
@@ -128,8 +132,8 @@ const Main = styled.div`
   backface-visibility: hidden;
   z-index: 0;
 `
-const FooterWrapper = styled.div`
-  margin: ${styles.sizes.phone.base}px 0;
+const Margin = styled.div`
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const OpeningWrapper = styled.div`
   position: fixed;
