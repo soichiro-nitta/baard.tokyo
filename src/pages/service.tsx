@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/service/useFluid'
@@ -38,7 +40,9 @@ const Service: React.FC = () => {
         <H2 en="BARBER" ja="メンズメニュー" />
       </Wrapper>
       <Wrapper>
-        ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        <P>
+          BAARDではヘアスタイルを作る上で３つの要素を大切に、ヘアデザインに落とし込みます。お客様の髪質に合わせ－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        </P>
       </Wrapper>
       <Wrapper>
         <List head="メンズカット" price="5,000" />
@@ -51,10 +55,38 @@ const Service: React.FC = () => {
       </Wrapper>
       <Br />
       <Wrapper>
+        <List head="リタッチカラー" price="9,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="オールカラー" price="13,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="デザインカラー" price="6,000" />
+      </Wrapper>
+      <Wrapper>
+        <List head="ブリーチカラー" price="10,000" />
+      </Wrapper>
+      <Br />
+      <Wrapper>
+        <List head="コスメパーマ" price="8,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="エアウェーブパーマ" price="11,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="デジタルパーマ" price="12,500" />
+      </Wrapper>
+      <Wrapper>
+        <List head="ポイントパーマ" price="3,000" />
+      </Wrapper>
+      <Br />
+      <Wrapper>
         <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
       </Wrapper>
       <Wrapper>
-        ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        <P>
+          BAARDのレディースシェービングは－－。お顔のうぶ毛を剃ることにより－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+        </P>
       </Wrapper>
       <Wrapper>
         <List head="シェービング" price="3,000" />
@@ -62,5 +94,9 @@ const Service: React.FC = () => {
     </>
   )
 }
+
+const P = styled.p`
+  ${styles.mixins.lhCrop(2)}
+`
 
 export default Service
