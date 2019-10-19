@@ -26,8 +26,8 @@ const HeaderImage: React.FC<Props> = props => {
         <Flex>
           <FontAwesomeIcon icon={props.icon} />
           <Text>
-            <En>ACCESS</En>
-            <Ja>アクセス</Ja>
+            <En>{props.en}</En>
+            <Ja>{props.ja}</Ja>
           </Text>
         </Flex>
       </Content>

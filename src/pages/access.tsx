@@ -2,46 +2,46 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
-import H2 from '~/components/base/H2'
-import Row from '~/components/base/Row'
 import HeaderImage from '~/components/base/HeaderImage'
+import Wrapper from '~/components/base/Wrapper'
+import Exhibition from '~/components/base/Exhibition'
+import Br from '~/components/base/Br'
+import H2 from '~/components/base/H2'
 import ButtonNew from '~/components/base/ButtonNew'
+import Row from '~/components/base/Row'
 import Map from '~/components/access/Map'
 import Table from '~/components/access/Table'
 
 const Access: React.FC = () => {
   useMain()
   const fluid = useFluid()
+  const en = 'access'
+  const ja = 'アクセス'
   return (
-    <Root>
-      <Seo title="Access" />
+    <>
+      <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
         fluid={fluid}
         icon={faMapMarkedAlt}
-        en="ACCESS"
-        ja="アクセス"
+        en={en.toUpperCase()}
+        ja={ja}
         crumbs={[
           {
             to: '/',
             name: 'ホーム'
           },
           {
-            to: '/access',
-            name: 'アクセス'
+            to: `/${en}`,
+            name: ja
           }
         ]}
       />
       <Wrapper>
-        <H2 en="MAP" ja="マップ" />
-      </Wrapper>
-      <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
-          text="Google Mapsでみる"
-        />
+        <H2 en="INFO" ja="店舗情報" />
       </Wrapper>
       <Wrapper>
         <Row head="店名" data="BAARD（バーールト）理髪店" />
@@ -58,29 +58,28 @@ const Access: React.FC = () => {
       <Wrapper>
         <Row head="メールアドレス" data="baard-tokyo@gmail.com" />
       </Wrapper>
-      <MapWrapper>
+      <Br />
+      <Wrapper>
+        <H2 en="MAP" ja="マップ" />
+      </Wrapper>
+      <Exhibition>
         <Map />
-      </MapWrapper>
+      </Exhibition>
+      <Wrapper>
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
+          text="Google Mapsでみる"
+        />
+      </Wrapper>
+      <Br />
       <Wrapper>
         <H2 en="OPEN" ja="営業時間" />
       </Wrapper>
       <Wrapper>
         <Table />
       </Wrapper>
-    </Root>
+    </>
   )
 }
-
-const Root = styled.div``
-const Wrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding-top: ${styles.sizes.phone.base}px;
-  padding-right: ${styles.sizes.phone.base}px;
-  padding-left: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const MapWrapper = styled(Wrapper)`
-  padding-left: 0;
-`
 
 export default Access

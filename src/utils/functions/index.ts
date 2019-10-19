@@ -62,6 +62,9 @@ const functions = {
     const g = parseInt(hex.slice(2, 4), 16)
     const b = parseInt(hex.slice(4, 6), 16)
     return `${r}, ${g}, ${b}`
+  },
+  toUpperFirst(text: string): string {
+    return `${text.slice(0, 1).toUpperCase()}${text.slice(1)}`
   }
 }
 
