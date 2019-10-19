@@ -15,6 +15,7 @@ import Table from '~/components/access/Table'
 const Service: React.FC = () => {
   useMain()
   const fluid = useFluid()
+  // TODO: Capitalizationの自動化
   return (
     <>
       <Seo title="Service" />
@@ -35,7 +36,7 @@ const Service: React.FC = () => {
         ]}
       />
       <Wrapper>
-        <H2 en="MAP" ja="マップ" />
+        <H2 en="BARBER" ja="メンズメニュー" />
       </Wrapper>
       <Wrapper>
         <ButtonNew
@@ -62,7 +63,7 @@ const Service: React.FC = () => {
         <Map />
       </MapWrapper>
       <Wrapper>
-        <H2 en="OPEN" ja="営業時間" />
+        <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
       </Wrapper>
       <Wrapper>
         <Table />
