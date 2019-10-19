@@ -15,7 +15,7 @@ const Sections: React.FC = () => {
           }
         }
       }
-      menu: file(relativePath: { eq: "menu.png" }) {
+      service: file(relativePath: { eq: "service.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -44,7 +44,7 @@ const Sections: React.FC = () => {
       </SectionWrapper>
       <SectionWrapper>
         <Left
-          fluid={data.menu.childImageSharp.fluid}
+          fluid={data.service.childImageSharp.fluid}
           icon="faClipboardList"
           head="SERVICE"
           body="SERVICEページ（バーバーサロンメニュー、女性のお顔そりのメニュー、実際のカット風景など）"
