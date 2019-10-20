@@ -4,6 +4,8 @@ import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
+import Wrapper from '~/components/base/Wrapper'
+import P from '~/components/base/P'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
@@ -80,20 +82,8 @@ const Index: React.FC = () => {
   )
 }
 
-const Wrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const P = styled.p`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding: 0 ${styles.sizes.phone.base}px;
-  width: 100%;
-  ${styles.mixins.lhCrop(2)}
-`
 const ButtonWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    3}px;
-  margin-left: ${styles.sizes.phone.base}px;
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const SectionsWrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
