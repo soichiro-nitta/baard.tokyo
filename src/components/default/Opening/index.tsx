@@ -1,3 +1,4 @@
+//TODO: モジュールを使ったアニメーションに書き換え
 import * as React from 'react'
 import styled from '@emotion/styled'
 import functions from '~/utils/functions'
