@@ -6,6 +6,7 @@ import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
+import Row from '~/components/base/Row'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
@@ -61,22 +62,13 @@ const Index: React.FC = () => {
         </ButtonWrapper>
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>店名</b>
-        </P>
-        <P>BAARD（バーールト）理髪店</P>
+        <Row head="店名" data="BAARD（バーールト）理髪店" />
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>所在地</b>
-        </P>
-        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
+        <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>電話番号</b>
-        </P>
-        <P>03-0000-0000</P>
+        <Row head="電話番号" data="03-0000-0000" />
       </Wrapper>
     </>
   )
