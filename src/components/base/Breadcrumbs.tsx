@@ -17,7 +17,7 @@ const Breadcrumbs: React.FC<Props> = props => {
       {props.crumbs.map((crumb, index) => {
         return (
           <Crumb key={crumb.name}>
-            {index !== 0 && <FontAwesomeIcon icon={faAngleRight} />}
+            <FontAwesomeIcon icon={faAngleRight} />
             {(index !== props.crumbs.length - 1 && (
               <CrumbLink to={crumb.to}>{crumb.name}</CrumbLink>
             )) || <CrumbNoLink>{crumb.name}</CrumbNoLink>}
