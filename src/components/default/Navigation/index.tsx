@@ -28,8 +28,7 @@ const Navigation: React.FC<Props> = props => {
   }
   React.useEffect(() => {
     video.current.load()
-    video.current.play()
-  }, [])
+  })
   React.useEffect(() => {
     if (props.navigation) {
       video.current.play()
@@ -44,7 +43,7 @@ const Navigation: React.FC<Props> = props => {
       <video
         ref={video}
         src="navigation.mp4"
-        preload="auto"
+        preload="none"
         muted
         playsInline
         loop
