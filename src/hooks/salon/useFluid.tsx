@@ -11,6 +11,7 @@ const useFluid = (): FluidObject | FluidObject[] => {
           }
         }
       }
+
       salon1: file(relativePath: { eq: "salon1.png" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
