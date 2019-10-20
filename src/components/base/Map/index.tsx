@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
-import options from '~/components/base/Map/options'
+import options from '~/components/access/Map/options'
 
 const Map: React.FC = () => {
   const lat = 35.762755
