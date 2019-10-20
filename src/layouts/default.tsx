@@ -4,10 +4,11 @@ import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import styles, { global } from '~/utils/styles'
 import functions from '~/utils/functions'
+import animations from '~/utils/animations'
 import Logo from '~/assets/svg/baard.svg'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
-import Background from '~/components/default/Background'
+import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
 import Loader from '~/components/default/Loader'
@@ -24,19 +25,19 @@ const Layout: React.FC = props => {
   React.useEffect(() => {
     ;(async (): Promise<void> => {
       if (navigation) {
-        navigationWrapper.current.style.display = 'block'
+        animations.set(navigationWrapper.current, { display: 'block' })
       } else {
         await functions.delay(1000)
-        navigationWrapper.current.style.display = 'none'
+        animations.set(navigationWrapper.current, { display: 'none' })
       }
     })()
   }, [navigation])
   return (
     <>
       <Global styles={global} />
-      <BackgroundWrapper>
-        <Background />
-      </BackgroundWrapper>
+      <BordersWrapper>
+        <Borders />
+      </BordersWrapper>
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
@@ -72,7 +73,7 @@ const Layout: React.FC = props => {
   )
 }
 
-const BackgroundWrapper = styled.div`
+const BordersWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;

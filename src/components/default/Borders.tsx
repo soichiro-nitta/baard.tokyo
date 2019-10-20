@@ -10,12 +10,7 @@ const Background: React.FC = () => (
         <Border1B />
       </Relative>
     </Border1>
-    <Border2>
-      <Relative>
-        <Border2A />
-        <Border2B />
-      </Relative>
-    </Border2>
+    <Border2 />
     <Border3 />
     <Border4 />
   </Root>
@@ -51,11 +46,8 @@ const Border2 = styled(Border1)`
     ((100% - ${styles.sizes.phone.dashboard * 2 + 2}px) - 2px) / 3 +
       ${styles.sizes.phone.dashboard + 1}px
   );
+  background: ${styles.colors.light.border};
 `
-const Border2A = styled(Border1A)`
-  height: 11px;
-`
-const Border2B = Border1B
 const Border3 = styled.div`
   position: absolute;
   top: 0;
