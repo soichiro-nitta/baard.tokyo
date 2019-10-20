@@ -6,6 +6,7 @@ import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import Wrapper from '~/components/base/Wrapper'
+import P from '~/components/base/P'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
@@ -60,15 +61,20 @@ const Access: React.FC = () => {
       <Wrapper>
         <H2 en="MAP" ja="マップ" />
       </Wrapper>
+      <Wrapper>
+        <P>
+          BAARD 理髪店（東京都葛飾区亀有 2-59-7）について、Google Mapsでみる。
+        </P>
+        <ButtonWrapper>
+          <ButtonNew
+            to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
+            text="Google Mapsを起動する"
+          />
+        </ButtonWrapper>
+      </Wrapper>
       <Exhibition>
         <Map />
       </Exhibition>
-      <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
-          text="Google Mapsでみる"
-        />
-      </Wrapper>
       <Br />
       <Wrapper>
         <H2 en="OPENING" ja="営業時間について" />
@@ -79,5 +85,9 @@ const Access: React.FC = () => {
     </>
   )
 }
+
+const ButtonWrapper = styled.div`
+  margin-top: ${styles.sizes.phone.base}px;
+`
 
 export default Access

@@ -9,6 +9,7 @@ import useFluid from '~/hooks/salon/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
 import Wrapper from '~/components/base/Wrapper'
+import P from '~/components/base/P'
 import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
 import Exhibition from '~/components/base/Exhibition'
@@ -121,8 +122,32 @@ const Salon: React.FC = () => {
   )
 }
 
-const P = styled.p`
-  ${styles.mixins.lhCrop(2)}
+const ExhibitionImg = styled.div`
+  position: relative;
+  width: 100%;
+  height: 105vw;
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+const ExhibitionFilter = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.3);
+`
+const ExhibitionStaff = styled.div`
+  position: relative;
+  width: 100%;
+  height: 52.5vw;
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `
 const ExhibitionImg = styled.div`
   position: relative;
