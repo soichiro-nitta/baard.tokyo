@@ -41,7 +41,7 @@ const Navigation: React.FC<Props> = props => {
       <video
         ref={video}
         src="navigation.mp4"
-        preload="none"
+        preload="auto"
         muted
         playsInline
         loop

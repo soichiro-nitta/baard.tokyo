@@ -20,7 +20,9 @@ import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
   if (!isMobile) {
-    alert('Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。')
+    window.alert(
+      'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
+    )
   }
   // 開発中
   // const [opening, setOpening] = React.useState(true)
