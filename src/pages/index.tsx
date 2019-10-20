@@ -9,41 +9,17 @@ import P from '~/components/base/P'
 import Row from '~/components/base/Row'
 import Exhibition from '~/components/base/Exhibition'
 import ButtonNew from '~/components/base/ButtonNew'
+import Header from '~/components/index/Header'
 import Sections from '~/components/index/Sections'
-import Katakana from '~/assets/svg/katakana.svg'
-import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 
 const Index: React.FC = () => {
   useMain()
-  const video = React.useRef(null)
-  React.useEffect(() => {
-    video.current.load()
-    video.current.play()
-  })
   return (
     <>
       <Seo title="Home" />
-      <VideoWrapper>
-        <video
-          ref={video}
-          src="video-mobile.mp4"
-          preload="none"
-          muted
-          playsInline
-          loop
-        />
-        <VideoFilter />
-        <Text>
-          <KatakanaWrapper>
-            <Katakana />
-          </KatakanaWrapper>
-          <RihatsutenWrapper>
-            <Rihatsuten />
-          </RihatsutenWrapper>
-        </Text>
-      </VideoWrapper>
+      <Header />
       <Wrapper>
         <P>
           亀有にオープンしたBAARD理髪店のウェブサイトです。
@@ -94,52 +70,6 @@ const ButtonWrapper = styled.div`
 `
 const SectionsWrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
-`
-const VideoWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 105vw;
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* opacity: 0; */
-  }
-`
-const VideoFilter = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: ${styles.colors.light.shape};
-  opacity: 0.3;
-`
-const Text = styled.div`
-  position: absolute;
-  bottom: ${styles.sizes.phone.base}px;
-  left: ${styles.sizes.phone.base}px;
-  color: white;
-  font-weight: bold;
-  mix-blend-mode: exclusion;
-`
-const KatakanaWrapper = styled.div`
-  svg {
-    width: 120px;
-    vertical-align: top;
-    path {
-      fill: ${styles.colors.light.background};
-    }
-  }
-`
-const RihatsutenWrapper = styled.div`
-  margin-top: 10px;
-  svg {
-    width: 60px;
-    vertical-align: top;
-    path {
-      fill: ${styles.colors.light.background};
-    }
-  }
 `
 
 export default Index
