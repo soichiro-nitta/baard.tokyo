@@ -1,7 +1,5 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
-import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/access/useFluid'
@@ -41,7 +39,7 @@ const Access: React.FC = () => {
         ]}
       />
       <Wrapper>
-        <H2 en="INFO" ja="店舗情報" />
+        <H2 en="INFORMATION" ja="店舗情報" />
       </Wrapper>
       <Wrapper>
         <Row head="店名" data="BAARD（バーールト）理髪店" />
@@ -73,7 +71,7 @@ const Access: React.FC = () => {
       </Wrapper>
       <Br />
       <Wrapper>
-        <H2 en="OPEN" ja="営業時間" />
+        <H2 en="OPENING" ja="営業時間について" />
       </Wrapper>
       <Wrapper>
         <Table />
