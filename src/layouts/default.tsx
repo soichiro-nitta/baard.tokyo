@@ -19,11 +19,6 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  if (!isMobile) {
-    window.alert(
-      'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
-    )
-  }
   // 開発中
   // const [opening, setOpening] = React.useState(true)
   // const [navigation, setNavigation] = React.useState(true)
@@ -31,6 +26,13 @@ const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(false)
   const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
+  React.useEffect(() => {
+    if (!isMobile) {
+      window.alert(
+        'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
+      )
+    }
+  })
   React.useEffect(() => {
     ;(async (): Promise<void> => {
       if (navigation) {
