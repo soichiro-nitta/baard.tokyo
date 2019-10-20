@@ -14,8 +14,8 @@ import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
 import ButtonNew from '~/components/base/ButtonNew'
 import Row from '~/components/base/Row'
-import Map from '~/components/access/Map'
-import Table from '~/components/access/Table'
+import Map from '~/components/base/Map'
+import Table from '~/components/base/Table'
 
 const Access: React.FC = () => {
   useMain()
