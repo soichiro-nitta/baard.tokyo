@@ -65,7 +65,7 @@ const Access: React.FC = () => {
       </Exhibition>
       <Wrapper>
         <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD理髪店"
+          to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
           text="Google Mapsでみる"
         />
       </Wrapper>
