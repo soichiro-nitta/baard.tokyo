@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
 import styles, { global } from '~/utils/styles'
+import functions from '~/utils/functions'
 import Logo from '~/assets/svg/baard.svg'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
@@ -16,25 +17,26 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  // 開発中
-  const [opening, setOpening] = React.useState(true)
-  // プロダクション
-  // const [opening, setOpening] = React.useState(false)
+  const [opening, setOpening] = React.useState(true) // 開発中
+  // const [opening, setOpening] = React.useState(false) // プロダクション
+  const [navigation, setNavigation] = React.useState(false)
+  const navigationWrapper = React.useRef(null)
+  React.useEffect(() => {
+    ;(async (): Promise<void> => {
+      if (navigation) {
+        navigationWrapper.current.style.display = 'block'
+      } else {
+        await functions.delay(1000)
+        navigationWrapper.current.style.display = 'none'
+      }
+    })()
+  }, [navigation])
   return (
     <>
       <Global styles={global} />
       <BackgroundWrapper>
         <Background />
       </BackgroundWrapper>
-      <LogoWrapper to="/">
-        <Logo />
-      </LogoWrapper>
-      <HumbergerWrapper>
-        <Humberger />
-      </HumbergerWrapper>
-      <NavigationWrapper>
-        <Navigation />
-      </NavigationWrapper>
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
@@ -52,6 +54,15 @@ const Layout: React.FC = props => {
         <Br />
         <Margin />
       </Main>
+      <NavigationWrapper ref={navigationWrapper}>
+        <Navigation navigation={navigation} />
+      </NavigationWrapper>
+      <LogoWrapper to="/">
+        <Logo />
+      </LogoWrapper>
+      <HumbergerWrapper>
+        <Humberger navigation={navigation} setNavigation={setNavigation} />
+      </HumbergerWrapper>
       {!opening && (
         <OpeningWrapper>
           <Opening setOpening={setOpening} />
@@ -68,35 +79,6 @@ const BackgroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-`
-const LogoHeight = 20
-const LogoWrapper = styled(Link)`
-  display: inline-block;
-  position: fixed;
-  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  left: ${styles.sizes.phone.base}px;
-  width: 110px;
-  height: ${LogoHeight}px;
-  z-index: 1;
-  svg {
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-  }
-`
-const HumbergerWrapper = styled.div`
-  position: fixed;
-  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  right: ${styles.sizes.phone.base}px;
-  z-index: 1;
-`
-const NavigationWrapper = styled.div`
-  display: none;
-  position: fixed;
-  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  right: ${styles.sizes.phone.base}px;
-  z-index: 1;
-  opacity: 0;
 `
 const DashboardWrapper = styled.div`
   position: fixed;
@@ -134,6 +116,36 @@ const Main = styled.div`
 `
 const Margin = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
+`
+const NavigationWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+`
+const LogoHeight = 20
+const LogoWrapper = styled(Link)`
+  display: inline-block;
+  position: fixed;
+  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  left: ${styles.sizes.phone.base}px;
+  width: 110px;
+  height: ${LogoHeight}px;
+  mix-blend-mode: exclusion;
+  z-index: 1;
+  svg {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+  }
+`
+const HumbergerWrapper = styled.div`
+  position: fixed;
+  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  right: ${styles.sizes.phone.base}px;
+  mix-blend-mode: exclusion;
+  z-index: 1;
 `
 const OpeningWrapper = styled.div`
   position: fixed;
