@@ -22,34 +22,38 @@ const Humberger: React.FC<Props> = props => {
       scale: 0,
       opacity: 1
     })
-    if (!props.navigation) {
-      await functions.raf()
-      animations.scale(circle.current, 1, 0.7, 'InOut')
-      animations.opacity(circle.current, 0, 0.7, 'InOut')
-      animations.scaleX(border1.current, 0, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border3.current, 0, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border2.current, 0, 0.7, 'InOut')
-      await functions.delay(350)
-      animations.scaleX(border4.current, 1, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border5.current, 1, 0.7, 'InOut')
-    } else {
-      await functions.raf()
-      animations.scale(circle.current, 1, 0.7, 'InOut')
-      animations.opacity(circle.current, 0, 0.7, 'InOut')
-      animations.scaleX(border4.current, 0, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border5.current, 0, 0.7, 'InOut')
-      await functions.delay(350)
-      animations.scaleX(border2.current, 1, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border3.current, 1, 0.7, 'InOut')
-      await functions.delay(100)
-      animations.scaleX(border1.current, 1, 0.7, 'InOut')
-    }
   }
+  React.useEffect(() => {
+    ;(async (): Promise<void> => {
+      if (props.navigation) {
+        await functions.raf()
+        animations.scale(circle.current, 1, 0.7, 'InOut')
+        animations.opacity(circle.current, 0, 0.7, 'InOut')
+        animations.scaleX(border1.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border3.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border2.current, 0, 0.7, 'InOut')
+        await functions.delay(350)
+        animations.scaleX(border4.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border5.current, 1, 0.7, 'InOut')
+      } else {
+        await functions.raf()
+        animations.scale(circle.current, 1, 0.7, 'InOut')
+        animations.opacity(circle.current, 0, 0.7, 'InOut')
+        animations.scaleX(border4.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border5.current, 0, 0.7, 'InOut')
+        await functions.delay(350)
+        animations.scaleX(border2.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border3.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border1.current, 1, 0.7, 'InOut')
+      }
+    })()
+  }, [props.navigation])
   return (
     <Root onClick={click}>
       <Circle ref={circle} />

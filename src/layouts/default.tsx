@@ -59,7 +59,7 @@ const Layout: React.FC = props => {
         <Margin />
       </Main>
       <NavigationWrapper ref={navigationWrapper}>
-        <Navigation navigation={navigation} />
+        <Navigation navigation={navigation} setNavigation={setNavigation} />
       </NavigationWrapper>
       <LogoWrapper to="/">
         <Logo />
