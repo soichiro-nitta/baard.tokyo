@@ -19,19 +19,31 @@ import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
   // 開発中
-  const [opening, setOpening] = React.useState(true)
-  const [navigation, setNavigation] = React.useState(true)
+  // const [opening, setOpening] = React.useState(true)
+  // const [navigation, setNavigation] = React.useState(true)
   // プロダクション
-  // const [opening, setOpening] = React.useState(false)
-  // const [navigation, setNavigation] = React.useState(false)
+  const [opening, setOpening] = React.useState(false)
+  const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
   React.useEffect(() => {
     ;(async (): Promise<void> => {
       if (navigation) {
         animations.set(navigationWrapper.current, { display: 'block' })
+        if (document.getElementById('main').querySelector('video')) {
+          document
+            .getElementById('main')
+            .querySelector('video')
+            .pause()
+        }
       } else {
         await functions.delay(1000)
         animations.set(navigationWrapper.current, { display: 'none' })
+        if (document.getElementById('main').querySelector('video')) {
+          document
+            .getElementById('main')
+            .querySelector('video')
+            .play()
+        }
       }
     })()
   }, [navigation])
