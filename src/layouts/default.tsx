@@ -18,9 +18,12 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  const [opening, setOpening] = React.useState(true) // 開発中
-  // const [opening, setOpening] = React.useState(false) // プロダクション
-  const [navigation, setNavigation] = React.useState(false)
+  // 開発中
+  const [opening, setOpening] = React.useState(true)
+  const [navigation, setNavigation] = React.useState(true)
+  // プロダクション
+  // const [opening, setOpening] = React.useState(false)
+  // const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
   React.useEffect(() => {
     ;(async (): Promise<void> => {

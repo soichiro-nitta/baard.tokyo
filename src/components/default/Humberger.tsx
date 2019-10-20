@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { TweenMax } from 'gsap'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
@@ -37,8 +36,6 @@ const Humberger: React.FC<Props> = props => {
       await functions.delay(100)
       animations.scaleX(border5.current, 1, 0.7, 'InOut')
     } else {
-      // circle.current.style.transform = 'scale(0, 0)'
-      // circle.current.style.opacity = 1
       await functions.raf()
       animations.scale(circle.current, 1, 0.7, 'InOut')
       animations.opacity(circle.current, 0, 0.7, 'InOut')

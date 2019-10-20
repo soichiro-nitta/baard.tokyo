@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 
-const Background: React.FC = () => (
+const Borders: React.FC = () => (
   <Root>
     <Border1>
       <Relative>
@@ -64,4 +64,4 @@ const Border4 = styled(Border3)`
   height: 100%;
 `
 
-export default Background
+export default Borders
