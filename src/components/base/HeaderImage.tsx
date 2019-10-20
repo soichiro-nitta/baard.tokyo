@@ -4,7 +4,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
-import functions from '~/utils/functions'
+import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 
 type Props = {
@@ -22,6 +22,7 @@ const HeaderImage: React.FC<Props> = props => {
   return (
     <Root>
       <Img fluid={props.fluid} />
+      <Filter />
       <Content>
         <Flex>
           <FontAwesomeIcon icon={props.icon} />
@@ -39,7 +40,7 @@ const HeaderImage: React.FC<Props> = props => {
 }
 
 const Root = styled.div`
-  ${styles.mixins.relative}
+  position: relative;
   width: 100%;
   height: 105vw;
   .gatsby-image-wrapper {
@@ -60,7 +61,6 @@ const Content = styled.div`
   color: white;
   font-size: 2.2rem;
   line-height: 1;
-  background: rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.3);
 `
 const Flex = styled.div`
   display: flex;

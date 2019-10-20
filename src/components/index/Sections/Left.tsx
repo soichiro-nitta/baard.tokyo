@@ -10,6 +10,7 @@ import {
   faLongArrowRight
 } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import Filter from '~/components/base/Filter'
 
 type Props = {
   fluid: FluidObject | FluidObject[]
@@ -30,6 +31,7 @@ const Left: React.FC<Props> = props => {
       <Background />
       <ImgWrapper>
         <Img fluid={props.fluid} />
+        <Filter />
       </ImgWrapper>
       <Content>
         <Head>
@@ -74,15 +76,6 @@ const ImgWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: ${styles.colors.light.shape};
-    opacity: 0.3;
   }
 `
 const Content = styled.div`
