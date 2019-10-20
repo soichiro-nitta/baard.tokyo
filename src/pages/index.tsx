@@ -4,6 +4,9 @@ import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
 import Seo from '~/components/base/Seo'
+import Wrapper from '~/components/base/Wrapper'
+import P from '~/components/base/P'
+import Row from '~/components/base/Row'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
@@ -59,41 +62,20 @@ const Index: React.FC = () => {
         </ButtonWrapper>
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>店名</b>
-        </P>
-        <P>BAARD（バーールト）理髪店</P>
+        <Row head="店名" data="BAARD（バーールト）理髪店" />
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>所在地</b>
-        </P>
-        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
+        <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
       </Wrapper>
       <Wrapper>
-        <P>
-          <b>電話番号</b>
-        </P>
-        <P>03-0000-0000</P>
+        <Row head="電話番号" data="03-0000-0000" />
       </Wrapper>
     </>
   )
 }
 
-const Wrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
-`
-const P = styled.p`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding: 0 ${styles.sizes.phone.base}px;
-  width: 100%;
-  ${styles.mixins.lhCrop(2)}
-`
 const ButtonWrapper = styled.div`
-  margin-top: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar) /
-    3}px;
-  margin-left: ${styles.sizes.phone.base}px;
+  margin-top: ${styles.sizes.phone.base}px;
 `
 const SectionsWrapper = styled.div`
   margin-top: ${styles.sizes.phone.base}px;
