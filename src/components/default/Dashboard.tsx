@@ -8,7 +8,7 @@ import {
   faClipboardList,
   faMapMarkedAlt,
   faFillDrip,
-  faVolumeSlash
+  faPhone
 } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 
@@ -30,9 +30,9 @@ const Dashboard: React.FC = () => (
     <Icon to="/">
       <FontAwesomeIcon icon={faFillDrip} />
     </Icon>
-    <Icon to="/">
-      <FontAwesomeIcon icon={faVolumeSlash} />
-    </Icon>
+    <Phone href="tel:0300000000">
+      <FontAwesomeIcon icon={faPhone} />
+    </Phone>
   </>
 )
 
@@ -41,6 +41,18 @@ const Icon = styled(Link)`
   :not(:first-of-type) {
     margin-top: ${((styles.sizes.phone.dashboard - 30) / 2 + 5) * 2}px;
   }
+  width: 100%;
+  text-align: center;
+  svg {
+    color: ${styles.colors.light.logo};
+    font-size: 16px;
+    height: 16px;
+    vertical-align: top;
+  }
+`
+const Phone = styled.a`
+  display: block;
+  margin-top: ${((styles.sizes.phone.dashboard - 30) / 2 + 5) * 2}px;
   width: 100%;
   text-align: center;
   svg {
