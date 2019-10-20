@@ -149,32 +149,5 @@ const ExhibitionStaff = styled.div`
     object-fit: cover;
   }
 `
-const ExhibitionImg = styled.div`
-  position: relative;
-  width: 100%;
-  height: 105vw;
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`
-const ExhibitionFilter = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.3);
-`
-const ExhibitionStaff = styled.div`
-  position: relative;
-  width: 100%;
-  height: 52.5vw;
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`
 
 export default Salon
