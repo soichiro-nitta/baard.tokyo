@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
+import { isMobile } from 'react-device-detect'
 import styles, { global } from '~/utils/styles'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
@@ -18,6 +19,9 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
+  if (!isMobile) {
+    alert('Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。')
+  }
   // 開発中
   // const [opening, setOpening] = React.useState(true)
   // const [navigation, setNavigation] = React.useState(true)

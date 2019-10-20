@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   ]
   const video = React.useRef(null)
   React.useEffect(() => {
-    video.current.load()
+    // video.current.load()
     video.current.play()
   })
   return (
