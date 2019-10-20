@@ -2,7 +2,6 @@ import * as React from 'react'
 import Img from 'gatsby-image'
 import { faCut } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/salon/useFluid'
@@ -13,6 +12,7 @@ import P from '~/components/base/P'
 import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
 import Exhibition from '~/components/base/Exhibition'
+import Filter from '~/components/base/Filter'
 
 const Salon: React.FC = () => {
   useMain()
@@ -49,7 +49,7 @@ const Salon: React.FC = () => {
       <Exhibition>
         <ExhibitionImg>
           <Img fluid={fluid[1]} />
-          <ExhibitionFilter />
+          <Filter />
         </ExhibitionImg>
       </Exhibition>
       <Wrapper>
@@ -67,7 +67,7 @@ const Salon: React.FC = () => {
       <Exhibition>
         <ExhibitionImg>
           <Img fluid={fluid[2]} />
-          <ExhibitionFilter />
+          <Filter />
         </ExhibitionImg>
       </Exhibition>
       <Wrapper>
@@ -92,7 +92,7 @@ const Salon: React.FC = () => {
       <Exhibition>
         <ExhibitionStaff>
           <Img fluid={fluid[3]} />
-          <ExhibitionFilter />
+          <Filter />
         </ExhibitionStaff>
       </Exhibition>
       <Wrapper>
@@ -107,7 +107,7 @@ const Salon: React.FC = () => {
       <Exhibition>
         <ExhibitionStaff>
           <Img fluid={fluid[4]} />
-          <ExhibitionFilter />
+          <Filter />
         </ExhibitionStaff>
       </Exhibition>
       <Wrapper>
@@ -131,13 +131,6 @@ const ExhibitionImg = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`
-const ExhibitionFilter = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.3);
 `
 const ExhibitionStaff = styled.div`
   position: relative;
