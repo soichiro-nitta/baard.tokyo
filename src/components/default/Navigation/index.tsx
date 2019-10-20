@@ -23,10 +23,13 @@ type Props = {
 const Navigation: React.FC<Props> = props => {
   const root = React.useRef()
   const video = React.useRef(null)
-
   const click = (): void => {
     props.setNavigation(false)
   }
+  React.useEffect(() => {
+    video.current.load()
+    video.current.play()
+  }, [])
   React.useEffect(() => {
     if (props.navigation) {
       video.current.play()
