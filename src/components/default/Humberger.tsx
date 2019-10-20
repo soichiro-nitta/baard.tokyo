@@ -4,27 +4,56 @@ import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
 
-const Humberger: React.FC = () => {
-  const circle = React.useRef()
+type Props = {
+  navigation: boolean
+  setNavigation: Function
+}
+
+const Humberger: React.FC<Props> = props => {
+  const circle = React.useRef(null)
   const border1 = React.useRef()
   const border2 = React.useRef()
   const border3 = React.useRef()
   const border4 = React.useRef()
   const border5 = React.useRef()
   const click = async (): Promise<void> => {
-    await functions.raf()
-    animations.scale(circle.current, 1, 0.7, 'InOut')
-    animations.opacity(circle.current, 0, 0.7, 'InOut')
-    animations.scaleX(border1.current, 0, 0.7, 'InOut')
-    await functions.delay(100)
-    animations.scaleX(border3.current, 0, 0.7, 'InOut')
-    await functions.delay(100)
-    animations.scaleX(border2.current, 0, 0.7, 'InOut')
-    await functions.delay(350)
-    animations.scaleX(border4.current, 1, 0.7, 'InOut')
-    await functions.delay(100)
-    animations.scaleX(border5.current, 1, 0.7, 'InOut')
+    props.setNavigation(!props.navigation)
+    animations.set(circle.current, {
+      scale: 0,
+      opacity: 1
+    })
   }
+  React.useEffect(() => {
+    ;(async (): Promise<void> => {
+      if (props.navigation) {
+        await functions.raf()
+        animations.scale(circle.current, 1, 0.7, 'InOut')
+        animations.opacity(circle.current, 0, 0.7, 'InOut')
+        animations.scaleX(border1.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border3.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border2.current, 0, 0.7, 'InOut')
+        await functions.delay(350)
+        animations.scaleX(border4.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border5.current, 1, 0.7, 'InOut')
+      } else {
+        await functions.raf()
+        animations.scale(circle.current, 1, 0.7, 'InOut')
+        animations.opacity(circle.current, 0, 0.7, 'InOut')
+        animations.scaleX(border4.current, 0, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border5.current, 0, 0.7, 'InOut')
+        await functions.delay(350)
+        animations.scaleX(border2.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border3.current, 1, 0.7, 'InOut')
+        await functions.delay(100)
+        animations.scaleX(border1.current, 1, 0.7, 'InOut')
+      }
+    })()
+  }, [props.navigation])
   return (
     <Root onClick={click}>
       <Circle ref={circle} />
