@@ -17,6 +17,7 @@ const functions = {
     })
   },
   delay(ms: number): Promise<void> {
+    //TODO: msからsに変更する
     return new Promise((resolve): void => {
       setTimeout(resolve, ms)
     })
