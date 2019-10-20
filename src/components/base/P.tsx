@@ -7,6 +7,7 @@ const P: React.FC = props => {
 }
 
 const Root = styled.div`
+  width: 100%;
   ${styles.mixins.lhCrop(2)}
 `
 
