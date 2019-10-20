@@ -12,8 +12,8 @@ import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
-import Map from '~/components/access/Map'
-import Table from '~/components/access/Table'
+import Map from '~/components/base/Map'
+import Table from '~/components/base/Table'
 
 const Index: React.FC = () => {
   useMain()
