@@ -7,10 +7,13 @@ import Seo from '~/components/base/Seo'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
 import Row from '~/components/base/Row'
+import Exhibition from '~/components/base/Exhibition'
 import ButtonNew from '~/components/base/ButtonNew'
 import Sections from '~/components/index/Sections'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
+import Map from '~/components/access/Map'
+import Table from '~/components/access/Table'
 
 const Index: React.FC = () => {
   useMain()
@@ -69,6 +72,18 @@ const Index: React.FC = () => {
       </Wrapper>
       <Wrapper>
         <Row head="電話番号" data="03-0000-0000" />
+      </Wrapper>
+      <Wrapper>
+        <Table />
+      </Wrapper>
+      <Exhibition>
+        <Map />
+      </Exhibition>
+      <Wrapper>
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
+          text="Google Mapsを起動する"
+        />
       </Wrapper>
     </>
   )
