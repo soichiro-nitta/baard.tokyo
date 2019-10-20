@@ -88,7 +88,6 @@ const HumbergerWrapper = styled.div`
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   right: ${styles.sizes.phone.base}px;
-  mix-blend-mode: exclusion;
   z-index: 1;
 `
 const NavigationWrapper = styled.div`
