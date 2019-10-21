@@ -27,16 +27,13 @@ const Navigation: React.FC<Props> = props => {
     props.setNavigation(false)
   }
   React.useEffect(() => {
-    console.log('load')
     video.current.load()
   }, [])
   React.useEffect(() => {
     if (props.navigation) {
-      console.log('play')
       video.current.play()
       animations.opacity(root.current, 1, 1, 'InOut')
     } else {
-      console.log('pause')
       video.current.pause()
       animations.opacity(root.current, 0, 1, 'InOut')
     }
