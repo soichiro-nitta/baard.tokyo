@@ -2,11 +2,12 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import { isMobile } from 'react-device-detect'
 import styles, { global } from '~/utils/styles'
+import config from '~/utils/config'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
 import Logo from '~/assets/svg/baard.svg'
+import useAlert from '~/hooks/default/useAlert'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Borders from '~/components/default/Borders'
@@ -19,18 +20,10 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  const [opening, setOpening] = React.useState(
-    process.env.NODE_ENV === 'development' ? true : false
-  )
+  const [opening, setOpening] = React.useState(config.nodeEnv)
   const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
-  React.useEffect(() => {
-    if (!isMobile) {
-      window.alert(
-        'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
-      )
-    }
-  })
+  useAlert()
   React.useEffect(() => {
     ;(async (): Promise<void> => {
       if (navigation) {
