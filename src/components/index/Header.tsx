@@ -6,18 +6,24 @@ import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 
-const Header: React.FC = () => {
+type Props = {
+  video: HTMLVideoElement
+  setVideo: (video: HTMLVideoElement) => void
+}
+
+const Header: React.FC<Props> = props => {
   const crumbs = [
     {
       to: '/',
       name: 'ホーム'
     }
   ]
-  const video = React.useRef(null)
+  const video = React.useRef<HTMLVideoElement>(null)
   React.useEffect(() => {
     video.current.load()
     video.current.play()
-  })
+    props.setVideo(video.current)
+  }, [])
   return (
     <Root>
       <video
