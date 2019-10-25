@@ -60,7 +60,7 @@ const Svg: React.FC = () => {
       await functions.delay(1200)
       animations.paths(paths)
     })()
-  })
+  }, [])
   return (
     <Root ref={logo}>
       <Logo />

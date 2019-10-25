@@ -16,7 +16,7 @@ const Opening: React.FC<Props> = props => {
       await functions.delay(4500)
       props.setOpening(true)
     })()
-  })
+  }, [])
   return (
     <Root>
       <Shapes />

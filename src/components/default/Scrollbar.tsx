@@ -11,7 +11,7 @@ const Scrollbar: React.FC = () => {
       scrollbar.current.style.transform = `scaleX(${main.scrollTop /
         scrollMax})`
     })
-  })
+  }, [location.pathname])
   return (
     <>
       <Bar1 />

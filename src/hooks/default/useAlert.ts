@@ -8,7 +8,7 @@ const useAlert = (): void => {
         'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
       )
     }
-  })
+  }, [])
 }
 
 export default useAlert

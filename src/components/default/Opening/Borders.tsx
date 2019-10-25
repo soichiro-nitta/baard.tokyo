@@ -21,7 +21,7 @@ const Borders: React.FC = () => {
       animations.borderOutDown(border2.current)
       animations.borderOutUp(border1.current)
     })()
-  })
+  }, [])
   return (
     <Root>
       <Border1 ref={border1} />
