@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { useStore } from '~/store'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
@@ -16,6 +17,7 @@ import Table from '~/components/base/Table'
 
 const Index: React.FC = () => {
   useMain()
+  const store = useStore()
   return (
     <>
       <Seo title="Home" />

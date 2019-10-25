@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
+import { Provider } from '~/store'
 import styles, { global } from '~/utils/styles'
 import config from '~/utils/config'
 import functions from '~/utils/functions'
@@ -47,7 +48,7 @@ const Layout: React.FC = props => {
     })()
   }, [navigation])
   return (
-    <>
+    <Provider>
       <Global styles={global} />
       <BordersWrapper>
         <Borders />
@@ -83,7 +84,7 @@ const Layout: React.FC = props => {
           <Opening setOpening={setOpening} />
         </OpeningWrapper>
       )}
-    </>
+    </Provider>
   )
 }
 
