@@ -16,10 +16,9 @@ const functions = {
       image.src = src
     })
   },
-  delay(ms: number): Promise<void> {
-    //TODO: msからsに変更する
+  delay(duration: number): Promise<void> {
     return new Promise((resolve): void => {
-      setTimeout(resolve, ms)
+      setTimeout(resolve, duration * 1000)
     })
   },
   raf(): Promise<void> {

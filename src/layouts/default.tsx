@@ -36,7 +36,7 @@ const Layout: React.FC = props => {
             .pause()
         }
       } else {
-        await functions.delay(1000)
+        await functions.delay(1)
         animations.set(navigationWrapper.current, { display: 'none' })
         if (document.getElementById('main').querySelector('video')) {
           document

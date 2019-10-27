@@ -13,7 +13,7 @@ type Props = {
 const Opening: React.FC<Props> = props => {
   React.useEffect(() => {
     ;(async (): Promise<void> => {
-      await functions.delay(4500)
+      await functions.delay(4.5)
       props.setOpening(true)
     })()
   }, [])

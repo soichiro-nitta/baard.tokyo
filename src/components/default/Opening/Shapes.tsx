@@ -9,7 +9,7 @@ const Shapes: React.FC = () => {
   const root = React.useRef()
   React.useEffect(() => {
     ;(async (): Promise<void> => {
-      await functions.delay(3500)
+      await functions.delay(3.5)
       animations.shapeOut(root.current)
     })()
   })
