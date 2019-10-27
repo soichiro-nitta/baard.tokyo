@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import functions from '~/utils/functions'
-import Shapes from '~/components/default/Opening/Shapes'
+import Background from '~/components/default/Opening/Background'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
 
@@ -19,7 +19,7 @@ const Opening: React.FC<Props> = props => {
   }, [])
   return (
     <Root>
-      <Shapes />
+      <Background />
       <BordersWrapper>
         <Borders />
       </BordersWrapper>
