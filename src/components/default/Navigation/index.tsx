@@ -109,7 +109,7 @@ const Contents = styled.div`
 `
 const Bottom = styled.div`
   border-top: 1px solid
-    rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.1);
+    rgba(${functions.hexToRgb(styles.colors.light.shape)}, 0.1);
 `
 
 export default Navigation

@@ -10,7 +10,7 @@ const Wrapper: React.FC = props => {
 const Root = styled.div`
   padding: ${styles.sizes.phone.base}px;
   border-top: 1px solid
-    rgba(${functions.hex2rgb(styles.colors.light.shape)}, 0.1);
+    rgba(${functions.hexToRgb(styles.colors.light.shape)}, 0.1);
 `
 
 export default Wrapper

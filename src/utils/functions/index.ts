@@ -5,7 +5,7 @@ import raf from '~/utils/functions/raf'
 import completeLottie from '~/utils/functions/completeLottie'
 import canplayVideo from '~/utils/functions/canplayVideo'
 import playVideo from '~/utils/functions/playVideo'
-import hex2rgb from '~/utils/functions/hex2rgb'
+import hexToRgb from '~/utils/functions/hexToRgb'
 import toUpperFirst from '~/utils/functions/toUpperFirst'
 
 const functions = {
@@ -16,7 +16,7 @@ const functions = {
   completeLottie,
   canplayVideo,
   playVideo,
-  hex2rgb,
+  hexToRgb,
   toUpperFirst
 }
 
