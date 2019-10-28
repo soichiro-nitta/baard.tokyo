@@ -20,46 +20,52 @@ type RootTypes = React.MutableRefObject<HTMLDivElement> & {
 
 const Svg: React.FC = () => {
   const logo: RootTypes = React.useRef()
+  const pathAnimation = (path): void => {
+    const length = path.getTotalLength()
+    animations.set(path, {
+      strokeDasharray: length + ' ' + length,
+      strokeDashoffset: length,
+      opacity: 1,
+      y: '30px',
+      scale: 1.2
+    })
+    animations.strokeDashoffset(path, 0, 1, 'Out')
+    animations.y(path, 0, 1, 'Out')
+    animations.scale(path, 1, 1, 'Out')
+    animations.fillOpacity(path, 1, 1, 'InOut')
+    animations.strokeOpacity(path, 0, 1, 'InOut')
+  }
   useEffectAsync(
     async () => {
       const root = logo.current
       const svg = root.children[0]
       const paths = svg.children
-      const path1 = paths[0]
-      const path2 = paths[1]
-      const path3 = paths[2]
-      const path4 = paths[3]
-      const path5 = paths[4]
-      const path6 = paths[5]
-      const path7 = paths[6]
-      const path8 = paths[7]
-      const path9 = paths[8]
-      const path10 = paths[9]
-      const path11 = paths[10]
       await functions.delay(1)
-      animations.path(path1)
+      pathAnimation(paths[0])
       await functions.delay(0.1)
-      animations.path(path2)
+      pathAnimation(paths[1])
       await functions.delay(0.1)
-      animations.path(path3)
+      pathAnimation(paths[2])
       await functions.delay(0.1)
-      animations.path(path4)
+      pathAnimation(paths[3])
       await functions.delay(0.1)
-      animations.path(path5)
+      pathAnimation(paths[4])
       await functions.delay(0.1)
-      animations.path(path6)
+      pathAnimation(paths[5])
       await functions.delay(0.1)
-      animations.path(path7)
+      pathAnimation(paths[6])
       await functions.delay(0.1)
-      animations.path(path8)
+      pathAnimation(paths[7])
       await functions.delay(0.1)
-      animations.path(path9)
+      pathAnimation(paths[8])
       await functions.delay(0.1)
-      animations.path(path10)
+      pathAnimation(paths[9])
       await functions.delay(0.1)
-      animations.path(path11)
+      pathAnimation(paths[10])
       await functions.delay(1.2)
-      animations.paths(paths)
+      animations.y(paths, '-30px', 1, 'Out')
+      animations.scale(paths, 0.8, 1, 'Out')
+      animations.opacity(paths, 0, 1, 'Out')
     },
     { deps: [] }
   )

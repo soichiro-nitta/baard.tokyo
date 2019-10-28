@@ -1,6 +1,6 @@
 import { TweenMax } from 'gsap'
 
-const set = (element: HTMLDivElement, values: object): void => {
+const set = (element: Element, values: object): void => {
   TweenMax.set(element, values)
 }
 
