@@ -10,7 +10,7 @@ const Background: React.FC = () => {
   useEffectAsync(
     async () => {
       await functions.delay(3.5)
-      animations.shapeOut(root.current)
+      animations.opacity(root.current, 0, 1, 'In')
     },
     { deps: [] }
   )

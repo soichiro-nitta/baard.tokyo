@@ -3,7 +3,6 @@ import paths from '~/utils/animations/paths'
 import borderIn from '~/utils/animations/borderIn'
 import borderOutUp from '~/utils/animations/borderOutUp'
 import borderOutDown from '~/utils/animations/borderOutDown'
-import shapeOut from '~/utils/animations/shapeOut'
 import set from '~/utils/animations/set'
 import scale from '~/utils/animations/scale'
 import scaleX from '~/utils/animations/scaleX'
@@ -15,7 +14,6 @@ export default {
   borderIn,
   borderOutUp,
   borderOutDown,
-  shapeOut,
   set,
   scale,
   scaleX,
