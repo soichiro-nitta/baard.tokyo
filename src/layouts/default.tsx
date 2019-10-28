@@ -9,6 +9,7 @@ import functions from '~/utils/functions'
 import animations from '~/utils/animations'
 import Logo from '~/assets/svg/baard.svg'
 import useAlert from '~/hooks/default/useAlert'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Borders from '~/components/default/Borders'
@@ -21,12 +22,13 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  const [opening, setOpening] = React.useState(config.nodeEnv)
+  // const [opening, setOpening] = React.useState(config.nodeEnv)
+  const [opening, setOpening] = React.useState(false)
   const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
   useAlert()
-  React.useEffect(() => {
-    ;(async (): Promise<void> => {
+  useEffectAsync(
+    async () => {
       if (navigation) {
         animations.set(navigationWrapper.current, { display: 'block' })
         if (document.getElementById('main').querySelector('video')) {
@@ -45,8 +47,9 @@ const Layout: React.FC = props => {
             .play()
         }
       }
-    })()
-  }, [navigation])
+    },
+    { deps: [navigation] }
+  )
   return (
     <Provider>
       <Global styles={global} />

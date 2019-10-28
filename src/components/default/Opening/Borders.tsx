@@ -3,14 +3,15 @@ import styled from '@emotion/styled'
 import animations from '~/utils/animations'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 const Borders: React.FC = () => {
   const border1 = React.useRef()
   const border2 = React.useRef()
   const border3 = React.useRef()
   const border4 = React.useRef()
-  React.useEffect(() => {
-    ;(async (): Promise<void> => {
+  useEffectAsync(
+    async () => {
       animations.borderIn(border1.current)
       animations.borderIn(border2.current)
       animations.borderIn(border3.current)
@@ -20,8 +21,9 @@ const Borders: React.FC = () => {
       animations.borderOutUp(border3.current)
       animations.borderOutDown(border2.current)
       animations.borderOutUp(border1.current)
-    })()
-  }, [])
+    },
+    { deps: [] }
+  )
   return (
     <Root>
       <Border1 ref={border1} />

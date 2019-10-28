@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 type Props = {
   navigation: boolean
@@ -23,8 +24,8 @@ const Humberger: React.FC<Props> = props => {
       opacity: 1
     })
   }
-  React.useEffect(() => {
-    ;(async (): Promise<void> => {
+  useEffectAsync(
+    async () => {
       if (props.navigation) {
         await functions.raf()
         animations.scale(circle.current, 1, 0.7, 'InOut')
@@ -52,8 +53,9 @@ const Humberger: React.FC<Props> = props => {
         await functions.delay(0.1)
         animations.scaleX(border1.current, 1, 0.7, 'InOut')
       }
-    })()
-  }, [props.navigation])
+    },
+    { deps: [props.navigation] }
+  )
   return (
     <Root onClick={click}>
       <Circle ref={circle} />

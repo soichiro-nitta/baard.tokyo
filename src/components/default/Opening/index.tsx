@@ -2,6 +2,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import functions from '~/utils/functions'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
@@ -11,12 +12,13 @@ type Props = {
 }
 
 const Opening: React.FC<Props> = props => {
-  React.useEffect(() => {
-    ;(async (): Promise<void> => {
+  useEffectAsync(
+    async () => {
       await functions.delay(4.5)
       props.setOpening(true)
-    })()
-  }, [])
+    },
+    { deps: [] }
+  )
   return (
     <Root>
       <Background />

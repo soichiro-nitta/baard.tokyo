@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import animations from '~/utils/animations'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Logo from '~/assets/svg/logo.svg'
 
 type RootTypes = React.MutableRefObject<HTMLDivElement> & {
@@ -19,22 +20,22 @@ type RootTypes = React.MutableRefObject<HTMLDivElement> & {
 
 const Svg: React.FC = () => {
   const logo: RootTypes = React.useRef()
-  React.useEffect(() => {
-    const root = logo.current
-    const svg = root.children[0]
-    const paths = svg.children
-    const path1 = paths[0]
-    const path2 = paths[1]
-    const path3 = paths[2]
-    const path4 = paths[3]
-    const path5 = paths[4]
-    const path6 = paths[5]
-    const path7 = paths[6]
-    const path8 = paths[7]
-    const path9 = paths[8]
-    const path10 = paths[9]
-    const path11 = paths[10]
-    ;(async (): Promise<void> => {
+  useEffectAsync(
+    async () => {
+      const root = logo.current
+      const svg = root.children[0]
+      const paths = svg.children
+      const path1 = paths[0]
+      const path2 = paths[1]
+      const path3 = paths[2]
+      const path4 = paths[3]
+      const path5 = paths[4]
+      const path6 = paths[5]
+      const path7 = paths[6]
+      const path8 = paths[7]
+      const path9 = paths[8]
+      const path10 = paths[9]
+      const path11 = paths[10]
       await functions.delay(1)
       animations.path(path1)
       await functions.delay(0.1)
@@ -59,8 +60,9 @@ const Svg: React.FC = () => {
       animations.path(path11)
       await functions.delay(1.2)
       animations.paths(paths)
-    })()
-  }, [])
+    },
+    { deps: [] }
+  )
   return (
     <Root ref={logo}>
       <Logo />
