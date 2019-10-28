@@ -12,10 +12,10 @@ const Borders: React.FC = () => {
   const border4 = React.useRef()
   useEffectAsync(
     async () => {
-      animations.borderIn(border1.current)
-      animations.borderIn(border2.current)
-      animations.borderIn(border3.current)
-      animations.borderIn(border4.current)
+      animations.y(border1.current, '0%', 7, 'Out')
+      animations.y(border2.current, '0%', 7, 'Out')
+      animations.y(border3.current, '0%', 7, 'Out')
+      animations.y(border4.current, '0%', 7, 'Out')
       await functions.delay(3)
       animations.borderOutDown(border4.current)
       animations.borderOutUp(border3.current)
