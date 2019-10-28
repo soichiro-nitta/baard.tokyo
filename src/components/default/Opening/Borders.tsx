@@ -17,10 +17,10 @@ const Borders: React.FC = () => {
       animations.y(border3.current, '0%', 7, 'Out')
       animations.y(border4.current, '0%', 7, 'Out')
       await functions.delay(3)
-      animations.y(border4.current, '100%', 7, 'Out')
-      animations.y(border3.current, '-100%', 7, 'Out')
-      animations.y(border2.current, '100%', 7, 'Out')
-      animations.y(border1.current, '-100%', 7, 'Out')
+      animations.y(border4.current, '100%', 1, 'InOut')
+      animations.y(border3.current, '-100%', 1, 'InOut')
+      animations.y(border2.current, '100%', 1, 'InOut')
+      animations.y(border1.current, '-100%', 1, 'InOut')
     },
     { deps: [] }
   )
