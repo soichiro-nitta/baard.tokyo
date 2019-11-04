@@ -10,8 +10,6 @@ import animations from '~/utils/animations'
 import Logo from '~/assets/svg/baard.svg'
 import useAlert from '~/hooks/default/useAlert'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
-import Exhibition from '~/components/base/Exhibition'
-import Br from '~/components/base/Br'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
@@ -19,7 +17,7 @@ import Loader from '~/components/default/Loader'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
-import Footer from '~/components/default/Footer'
+import Main from '~/components/default/Main'
 
 const Layout: React.FC = props => {
   const [opening, setOpening] = React.useState(config.nodeEnv)
@@ -65,14 +63,7 @@ const Layout: React.FC = props => {
       <LoaderWrapper>
         <Loader />
       </LoaderWrapper>
-      <Main id="main">
-        {props.children}
-        <Exhibition>
-          <Footer />
-        </Exhibition>
-        <Br />
-        <Margin />
-      </Main>
+      <Main>{props.children}</Main>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation navigation={navigation} setNavigation={setNavigation} />
       </NavigationWrapper>
@@ -120,21 +111,6 @@ const LoaderWrapper = styled.div`
   bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
-`
-const Main = styled.div`
-  padding-left: ${styles.sizes.phone.dashboard + 1}px;
-  width: 100%;
-  height: 100%;
-  font-size: 1.3rem;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  z-index: 0;
-`
-const Margin = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
 `
 const NavigationWrapper = styled.div`
   position: fixed;
