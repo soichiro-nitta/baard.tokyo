@@ -17,8 +17,8 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 
 const Index: React.FC = () => {
-  useMain()
   const store = useStore()
+  useMain()
   useWatch(store)
   return (
     <>

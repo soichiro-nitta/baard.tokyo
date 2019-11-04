@@ -22,8 +22,8 @@ import Opening from '~/components/default/Opening'
 import Footer from '~/components/default/Footer'
 
 const Layout: React.FC = props => {
-  // const [opening, setOpening] = React.useState(config.nodeEnv)
-  const [opening, setOpening] = React.useState(false)
+  const [opening, setOpening] = React.useState(config.nodeEnv)
+  // const [opening, setOpening] = React.useState(false)
   const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
   useAlert()
