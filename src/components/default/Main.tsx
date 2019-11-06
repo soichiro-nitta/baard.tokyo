@@ -4,8 +4,12 @@ import styles from '~/utils/styles'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
+import { constants } from 'perf_hooks'
 
 const Main: React.FC = props => {
+  const [childrens, setChildrens] = React.useState([])
+  childrens.push(props.children)
+  console.log(childrens)
   return (
     <Root id="main">
       {props.children}
