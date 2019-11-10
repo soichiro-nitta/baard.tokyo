@@ -24,8 +24,8 @@ const Humberger: React.FC<Props> = props => {
       opacity: 1
     })
   }
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       if (props.navigation) {
         await functions.raf()
         animations.scale(circle.current, 1, 0.7, 'InOut')
@@ -54,8 +54,8 @@ const Humberger: React.FC<Props> = props => {
         animations.scaleX(border1.current, 1, 0.7, 'InOut')
       }
     },
-    { deps: [props.navigation] }
-  )
+    deps: [props.navigation]
+  })
   return (
     <Root onClick={click}>
       <Circle ref={circle} />

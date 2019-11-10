@@ -11,13 +11,13 @@ type Props = {
 }
 
 const Opening: React.FC<Props> = props => {
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       await functions.delay(4.5)
       props.setOpening(true)
     },
-    { deps: [] }
-  )
+    deps: []
+  })
   return (
     <Root>
       <Background />

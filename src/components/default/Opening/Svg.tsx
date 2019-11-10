@@ -35,8 +35,8 @@ const Svg: React.FC = () => {
     animations.fillOpacity(path, 1, 1, 'InOut')
     animations.strokeOpacity(path, 0, 1, 'InOut')
   }
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       const root = logo.current
       const svg = root.children[0]
       const paths = svg.children
@@ -67,8 +67,8 @@ const Svg: React.FC = () => {
       animations.scale(paths, 0.8, 1, 'Out')
       animations.opacity(paths, 0, 1, 'Out')
     },
-    { deps: [] }
-  )
+    deps: []
+  })
   return (
     <Root ref={logo}>
       <Logo />

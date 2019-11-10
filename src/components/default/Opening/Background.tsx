@@ -7,13 +7,13 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 const Background: React.FC = () => {
   const root = React.useRef()
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       await functions.delay(3.5)
       animations.opacity(root.current, 0, 1, 'In')
     },
-    { deps: [] }
-  )
+    deps: []
+  })
   return <Root ref={root} />
 }
 

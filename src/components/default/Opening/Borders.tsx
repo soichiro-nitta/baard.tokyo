@@ -10,8 +10,8 @@ const Borders: React.FC = () => {
   const border2 = React.useRef()
   const border3 = React.useRef()
   const border4 = React.useRef()
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       animations.y(border1.current, '0%', 7, 'Out')
       animations.y(border2.current, '0%', 7, 'Out')
       animations.y(border3.current, '0%', 7, 'Out')
@@ -22,8 +22,8 @@ const Borders: React.FC = () => {
       animations.y(border2.current, '100%', 1, 'InOut')
       animations.y(border1.current, '-100%', 1, 'InOut')
     },
-    { deps: [] }
-  )
+    deps: []
+  })
   return (
     <Root>
       <Border1 ref={border1} />

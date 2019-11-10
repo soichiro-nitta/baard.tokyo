@@ -25,8 +25,8 @@ const Layout: React.FC = props => {
   const [navigation, setNavigation] = React.useState(false)
   const navigationWrapper = React.useRef(null)
   useAlert()
-  useEffectAsync(
-    async () => {
+  useEffectAsync({
+    effect: async () => {
       if (navigation) {
         animations.set(navigationWrapper.current, { display: 'block' })
         if (document.getElementById('main').querySelector('video')) {
@@ -46,8 +46,8 @@ const Layout: React.FC = props => {
         }
       }
     },
-    { deps: [navigation] }
-  )
+    deps: [navigation]
+  })
   return (
     <Provider>
       <Global styles={global} />

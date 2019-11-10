@@ -19,7 +19,7 @@ import Table from '~/components/base/Table'
 const Index: React.FC = () => {
   const store = useStore()
   useMain()
-  useWatch(store)
+  // useWatch(store)
   return (
     <>
       <Seo title="Home" />
