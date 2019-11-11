@@ -64,7 +64,9 @@ const Layout: React.FC = props => {
       <LoaderWrapper>
         <Loader />
       </LoaderWrapper>
-      <Main>{props.children}</Main>
+      <Main isPending={store.isPending} setIsPending={store.setIsPending}>
+        {props.children}
+      </Main>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation navigation={navigation} setNavigation={setNavigation} />
       </NavigationWrapper>

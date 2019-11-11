@@ -7,6 +7,7 @@ type Pages = {
 }[]
 
 const useUpdate = (
+  setIsPending: (isPending: boolean) => void,
   pages: Pages,
   setPages: React.Dispatch<React.SetStateAction<Pages>>,
   node: React.ReactNode
@@ -24,6 +25,7 @@ const useUpdate = (
         ...updated,
         { id: pages[pages.length - 1].id + 1, leave: false, node }
       ])
+      setIsPending(true)
     } else {
       setPages([{ id: 0, leave: false, node }])
     }

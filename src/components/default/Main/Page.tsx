@@ -8,6 +8,8 @@ import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
 
 type Props = {
+  isPending: boolean
+  setIsPending: (isPending: boolean) => void
   page: {
     id: number
     leave: boolean
@@ -19,13 +21,19 @@ const Page: React.FC<Props> = props => {
   const root = React.useRef(null)
   useEffectAsync({
     effect: async () => {
-      if (props.page.leave) {
-        animations.opacity(root.current, 0, 1, 'Out')
-      } else {
-        animations.opacity(root.current, 1, 1, 'In')
+      if (!props.isPending) {
+        if (props.page.leave) {
+          animations.opacity(root.current, 0, 2, 'Out')
+          animations.scale(root.current, 0.9, 1, 'InOut')
+          animations.x(root.current, '-10%', 1, 'InOut')
+        } else {
+          animations.opacity(root.current, 1, 1, 'InOut')
+          animations.scale(root.current, 1, 1, 'InOut')
+          animations.x(root.current, '0%', 1, 'InOut')
+        }
       }
     },
-    deps: [props.page]
+    deps: [props.isPending]
   })
   return (
     <Root ref={root}>
@@ -51,6 +59,7 @@ const Root = styled.div`
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   opacity: 0;
+  transform: translate3d(50%, 0, 0) scale(1.1);
 `
 const Margin = styled.div`
   margin-top: ${styles.sizes.phone.base}px;

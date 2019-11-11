@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
+import functions from '~/utils/functions'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Filter from '~/components/base/Filter'
@@ -9,6 +11,7 @@ import Breadcrumbs from '~/components/base/Breadcrumbs'
 type Props = {
   video: HTMLVideoElement
   setVideo: (video: HTMLVideoElement) => void
+  setIsPending: (isPending: boolean) => void
 }
 
 const Header: React.FC<Props> = props => {
@@ -19,11 +22,18 @@ const Header: React.FC<Props> = props => {
     }
   ]
   const video = React.useRef<HTMLVideoElement>(null)
-  React.useEffect(() => {
-    video.current.load()
-    video.current.play()
-    props.setVideo(video.current)
-  }, [])
+  useEffectAsync({
+    effect: async () => {
+      video.current.load()
+      console.log('load')
+      await functions.canplayVideo(video.current) // TODO: cleanupする
+      console.log('loaded')
+      props.setIsPending(false)
+      video.current.play()
+      props.setVideo(video.current)
+    },
+    deps: []
+  })
   return (
     <Root>
       <video

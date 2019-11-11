@@ -6,12 +6,22 @@ type StoreTypes = {
   setVideo: (video: HTMLVideoElement) => void
   isPending: boolean
   setIsPending: (isPending: boolean) => void
+  transitioning: boolean
+  setTransitioning: (transitioning: boolean) => void
 }
 
 const store = (): StoreTypes => {
   const [video, setVideo] = React.useState(null)
   const [isPending, setIsPending] = React.useState(false)
-  return { video, setVideo, isPending, setIsPending }
+  const [transitioning, setTransitioning] = React.useState(false)
+  return {
+    video,
+    setVideo,
+    isPending,
+    setIsPending,
+    transitioning,
+    setTransitioning
+  }
 }
 
 const container = createContainer(store)

@@ -19,11 +19,15 @@ import Table from '~/components/base/Table'
 const Index: React.FC = () => {
   const store = useStore()
   useMain()
-  // useWatch(store)
+  useWatch(store)
   return (
     <>
       <Seo title="Home" />
-      <Header video={store.video} setVideo={store.setVideo} />
+      <Header
+        video={store.video}
+        setVideo={store.setVideo}
+        setIsPending={store.setIsPending}
+      />
       <Wrapper>
         <P>
           亀有にオープンしたBAARD理髪店のウェブサイトです。
