@@ -4,14 +4,14 @@ import styles from '~/utils/styles'
 
 const Scrollbar: React.FC = () => {
   const scrollbar = React.useRef(null)
-  React.useEffect(() => {
-    const main = document.getElementById('main')
-    const scrollMax = main.scrollHeight - main.clientHeight
-    main.addEventListener('scroll', () => {
-      scrollbar.current.style.transform = `scaleX(${main.scrollTop /
-        scrollMax})`
-    })
-  }, [location.pathname])
+  // React.useEffect(() => {
+  //   const main = document.getElementById('main')
+  //   const scrollMax = main.scrollHeight - main.clientHeight
+  //   main.addEventListener('scroll', () => {
+  //     scrollbar.current.style.transform = `scaleX(${main.scrollTop /
+  //       scrollMax})`
+  //   })
+  // }, [location.pathname])
   return (
     <>
       <Bar1 />
