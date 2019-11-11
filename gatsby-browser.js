@@ -6,10 +6,15 @@
 
 // You can delete this file if you're not using it
 import * as React from 'react'
+import { Provider } from '~/store'
 import Layout from '~/layouts/default'
 
 const wrapPageElement = ({ element }) => {
-  return <Layout>{element}</Layout>
+  return (
+    <Provider>
+      <Layout>{element}</Layout>
+    </Provider>
+  )
 }
 
 export { wrapPageElement }

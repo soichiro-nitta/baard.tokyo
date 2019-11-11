@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import { Provider } from '~/store'
+import { useStore } from '~/store'
 import styles, { global } from '~/utils/styles'
 import config from '~/utils/config'
 import functions from '~/utils/functions'
@@ -20,6 +20,7 @@ import Opening from '~/components/default/Opening'
 import Main from '~/components/default/Main'
 
 const Layout: React.FC = props => {
+  const store = useStore()
   const [opening, setOpening] = React.useState(config.nodeEnv)
   // const [opening, setOpening] = React.useState(false)
   const [navigation, setNavigation] = React.useState(false)
@@ -49,7 +50,7 @@ const Layout: React.FC = props => {
     deps: [navigation]
   })
   return (
-    <Provider>
+    <>
       <Global styles={global} />
       <BordersWrapper>
         <Borders />
@@ -78,7 +79,7 @@ const Layout: React.FC = props => {
           <Opening setOpening={setOpening} />
         </OpeningWrapper>
       )}
-    </Provider>
+    </>
   )
 }
 
