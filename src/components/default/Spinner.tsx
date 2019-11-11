@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 
-const Loader: React.FC = () => {
+const Spinner: React.FC = () => {
   return (
     <Root viewBox="25 25 50 50">
       <Circle cx="50" cy="50" r="20" />
@@ -44,4 +44,4 @@ const Circle = styled.circle`
   }
 `
 
-export default Loader
+export default Spinner

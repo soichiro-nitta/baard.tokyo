@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
+import { useStore } from '~/store'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
@@ -18,10 +19,11 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 
 const Access: React.FC = () => {
-  useMain()
+  const store = useStore()
   const fluid = useFluid()
   const en = 'access'
   const ja = 'アクセス'
+  useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
@@ -40,6 +42,7 @@ const Access: React.FC = () => {
             name: ja
           }
         ]}
+        setIsPending={store.setIsPending}
       />
       <Wrapper>
         <H2 en="INFORMATION" ja="店舗情報" />

@@ -16,12 +16,16 @@ type Props = {
     to: string
     name: string
   }[]
+  setIsPending: (isPending: boolean) => void
 }
 
 const HeaderImage: React.FC<Props> = props => {
+  const onLoad = (): void => {
+    props.setIsPending(false)
+  }
   return (
     <Root>
-      <Img fluid={props.fluid} />
+      <Img fluid={props.fluid} onLoad={onLoad} />
       <Filter />
       <Content>
         <Flex>

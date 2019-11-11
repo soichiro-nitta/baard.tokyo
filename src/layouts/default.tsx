@@ -13,7 +13,7 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
-import Loader from '~/components/default/Loader'
+import Spinner from '~/components/default/Spinner'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
@@ -61,9 +61,11 @@ const Layout: React.FC = props => {
       <ScrollbarWrapper>
         <Scrollbar />
       </ScrollbarWrapper>
-      <LoaderWrapper>
-        <Loader />
-      </LoaderWrapper>
+      {store.isPending && (
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
+      )}
       <Main isPending={store.isPending} setIsPending={store.setIsPending}>
         {props.children}
       </Main>
@@ -107,7 +109,7 @@ const ScrollbarWrapper = styled.div`
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
 `
-const LoaderWrapper = styled.div`
+const SpinnerWrapper = styled.div`
   position: fixed;
   left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;

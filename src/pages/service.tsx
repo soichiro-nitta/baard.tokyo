@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
+import { useStore } from '~/store'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
@@ -13,10 +14,11 @@ import H2 from '~/components/base/H2'
 import List from '~/components/service/List'
 
 const Service: React.FC = () => {
-  useMain()
+  const store = useStore()
   const fluid = useFluid()
   const en = 'service'
   const ja = 'メニュー案内'
+  useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
@@ -35,6 +37,7 @@ const Service: React.FC = () => {
             name: ja
           }
         ]}
+        setIsPending={store.setIsPending}
       />
       <Wrapper>
         <H2 en="BARBER" ja="メンズメニュー" />
