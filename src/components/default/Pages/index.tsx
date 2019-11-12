@@ -13,29 +13,47 @@ type Pages = {
   leave: boolean
   node: React.ReactNode
 }[]
+type Action = {
+  type: 'init' | 'update'
+}
 
 const Pages: React.FC<Props> = props => {
-  const [pages, setPages] = React.useState<Pages>([])
-  const initPages = (): void => {
-    setPages([{ id: 0, leave: false, node: props.children }])
-  }
-  const updatePages = (): void => {
-    const updated = pages.map(value => {
-      return {
-        id: value.id,
-        leave: true,
-        node: value.node
+  const [pages, dispatch] = React.useReducer((pages: Pages, action: Action) => {
+    switch (action.type) {
+      case 'init':
+        return [{ id: 0, leave: false, node: props.children }]
+      case 'update': {
+        const updated = pages.map(value => {
+          return {
+            id: value.id,
+            leave: true,
+            node: value.node
+          }
+        })
+        return [
+          ...updated,
+          {
+            id: pages[pages.length - 1].id + 1,
+            leave: false,
+            node: props.children
+          }
+        ]
       }
-    })
-    setPages([
-      ...updated,
-      {
-        id: pages[pages.length - 1].id + 1,
-        leave: false,
-        node: props.children
-      }
-    ])
-  }
+      default:
+        throw new Error()
+    }
+  }, [])
+  React.useEffect(() => {
+    if (pages.length === 0) {
+      dispatch({ type: 'init' })
+    }
+  }, [props.children])
+  React.useEffect(() => {
+    if (pages.length !== 0) {
+      dispatch({ type: 'update' })
+      props.setIsPending(true)
+    }
+  }, [props.children])
   // const cleanPages = (): void => {
   //   console.log('cleanPages')
   //   console.log(pages)
@@ -45,17 +63,6 @@ const Pages: React.FC<Props> = props => {
   //   })
   // )
   // }
-  React.useEffect(() => {
-    if (pages.length === 0) {
-      initPages()
-    }
-  }, [props.children])
-  React.useEffect(() => {
-    if (pages.length !== 0) {
-      updatePages()
-      props.setIsPending(true)
-    }
-  }, [props.children])
   // useEffectAsync({
   //   effect: async () => {
   //     if (!props.isPending) {
