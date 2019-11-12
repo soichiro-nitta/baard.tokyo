@@ -17,7 +17,7 @@ import Spinner from '~/components/default/Spinner'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
-import Main from '~/components/default/Main'
+import Pages from '~/components/default/Pages'
 
 const Layout: React.FC = props => {
   const store = useStore()
@@ -66,9 +66,9 @@ const Layout: React.FC = props => {
           <Spinner />
         </SpinnerWrapper>
       )}
-      <Main isPending={store.isPending} setIsPending={store.setIsPending}>
+      <Pages isPending={store.isPending} setIsPending={store.setIsPending}>
         {props.children}
-      </Main>
+      </Pages>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation navigation={navigation} setNavigation={setNavigation} />
       </NavigationWrapper>

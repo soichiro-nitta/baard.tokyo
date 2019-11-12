@@ -10,11 +10,13 @@ import Footer from '~/components/default/Footer'
 type Props = {
   isPending: boolean
   setIsPending: (isPending: boolean) => void
-  page: {
-    id: number
-    leave: boolean
-    node: React.ReactNode
-  }
+  page: Page
+  cleanPages: () => void
+}
+type Page = {
+  id: number
+  leave: boolean
+  node: React.ReactNode
 }
 
 const Page: React.FC<Props> = props => {
@@ -30,6 +32,7 @@ const Page: React.FC<Props> = props => {
           animations.opacity(root.current, 1, 1, 'InOut')
           animations.scale(root.current, 1, 1, 'InOut')
           animations.x(root.current, '0%', 1, 'InOut')
+          props.cleanPages()
         }
       }
     },
