@@ -9,9 +9,7 @@ import Footer from '~/components/default/Footer'
 
 type Props = {
   isPending: boolean
-  setIsPending: (isPending: boolean) => void
   page: Page
-  cleanPages: () => void
 }
 type Page = {
   id: number
@@ -21,20 +19,19 @@ type Page = {
 
 const Page: React.FC<Props> = props => {
   const root = React.useRef(null)
+  const fadeIn = (): void => {
+    animations.opacity(root.current, 1, 1, 'InOut')
+    animations.scale(root.current, 1, 1, 'InOut')
+    animations.x(root.current, '0%', 1, 'InOut')
+  }
+  const fadeOut = (): void => {
+    animations.opacity(root.current, 0, 2, 'Out')
+    animations.scale(root.current, 0.9, 1, 'InOut')
+    animations.x(root.current, '-10%', 1, 'InOut')
+  }
   useEffectAsync({
     effect: async () => {
-      if (!props.isPending) {
-        if (props.page.leave) {
-          animations.opacity(root.current, 0, 2, 'Out')
-          animations.scale(root.current, 0.9, 1, 'InOut')
-          animations.x(root.current, '-10%', 1, 'InOut')
-        } else {
-          animations.opacity(root.current, 1, 1, 'InOut')
-          animations.scale(root.current, 1, 1, 'InOut')
-          animations.x(root.current, '0%', 1, 'InOut')
-          props.cleanPages()
-        }
-      }
+      if (!props.isPending) props.page.leave ? fadeOut() : fadeIn()
     },
     deps: [props.isPending]
   })

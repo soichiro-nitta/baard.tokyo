@@ -4,7 +4,6 @@ import { useStore } from '~/store'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
-import useWatch from '~/hooks/base/useWatch'
 import Seo from '~/components/base/Seo'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
@@ -19,7 +18,6 @@ import Table from '~/components/base/Table'
 const Index: React.FC = () => {
   const store = useStore()
   useMain()
-  useWatch(store)
   return (
     <>
       <Seo title="Home" />

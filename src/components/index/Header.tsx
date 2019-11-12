@@ -25,9 +25,7 @@ const Header: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
       video.current.load()
-      console.log('load')
       await functions.canplayVideo(video.current) // TODO: cleanupする
-      console.log('loaded')
       props.setIsPending(false)
       video.current.play()
       props.setVideo(video.current)
