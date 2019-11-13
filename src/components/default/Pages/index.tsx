@@ -23,7 +23,7 @@ const Pages: React.FC<Props> = props => {
       case 'init':
         return [{ id: 0, leave: false, node: props.children }]
       case 'update': {
-        const left = pages.map(value => {
+        const modified = pages.map(value => {
           return {
             id: value.id,
             leave: true,
@@ -31,7 +31,7 @@ const Pages: React.FC<Props> = props => {
           }
         })
         return [
-          ...left,
+          ...modified,
           {
             id: pages[pages.length - 1].id + 1,
             leave: false,
