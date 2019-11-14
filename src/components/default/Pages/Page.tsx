@@ -1,39 +1,32 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
-import animations from '~/utils/animations'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
+import useFadeIn from '~/hooks/default/Pages/Page/useFadeIn'
+import useFadeOut from '~/hooks/default/Pages/Page/useFadeOut'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
 
 type Props = {
   isPending: boolean
-  page: Page
-}
-type Page = {
-  id: number
-  leave: boolean
-  node: React.ReactNode
+  page: {
+    id: number
+    leave: boolean
+    node: React.ReactNode
+  }
 }
 
 const Page: React.FC<Props> = props => {
-  const root = React.useRef(null)
-  const fadeIn = (): void => {
-    animations.opacity(root.current, 1, 1, 'InOut')
-    animations.scale(root.current, 1, 1, 'InOut')
-    animations.x(root.current, '0%', 1, 'InOut')
-  }
-  const fadeOut = (): void => {
-    animations.opacity(root.current, 0, 2, 'Out')
-    animations.scale(root.current, 0.9, 1, 'InOut')
-    animations.x(root.current, '-10%', 1, 'InOut')
-  }
-  useEffectAsync({
-    effect: async () => {
-      if (!props.isPending) props.page.leave ? fadeOut() : fadeIn()
-    },
-    deps: [props.isPending]
+  const root = React.useRef<HTMLDivElement>(null)
+  useFadeIn({
+    root,
+    leave: props.page.leave,
+    isPending: props.isPending
+  })
+  useFadeOut({
+    root,
+    leave: props.page.leave,
+    isPending: props.isPending
   })
   return (
     <Root ref={root}>
