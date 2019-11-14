@@ -1,9 +1,10 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import functions from '~/utils/functions'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
-import Page from '~/components/default/Pages/Page'
 import usePages from '~/hooks/default/Pages/usePages'
+import useAdd from '~/hooks/default/Pages/useadd'
+import Page from '~/components/default/Pages/Page'
+import useUpdate from '~/hooks/default/Pages/useUpdate'
+import useClean from '~/hooks/default/Pages/useClean'
 
 type Props = {
   isPending: boolean
@@ -12,25 +13,20 @@ type Props = {
 
 const Pages: React.FC<Props> = props => {
   const [pages, dispatch] = usePages(props.children)
-  React.useEffect(() => {
-    if (pages.length === 0) {
-      dispatch({ type: 'init' })
-    }
-  }, [props.children])
-  React.useEffect(() => {
-    if (pages.length !== 0) {
-      dispatch({ type: 'update' })
-      props.setIsPending(true)
-    }
-  }, [props.children])
-  useEffectAsync({
-    effect: async () => {
-      if (!props.isPending) {
-        await functions.delay(1)
-        dispatch({ type: 'clean' })
-      }
-    },
-    deps: [props.isPending]
+  useAdd({
+    pages,
+    dispatch,
+    node: props.children
+  })
+  useUpdate({
+    setIsPending: props.setIsPending,
+    pages,
+    dispatch,
+    node: props.children
+  })
+  useClean({
+    isPending: props.isPending,
+    dispatch
   })
   return (
     <Root id="main">

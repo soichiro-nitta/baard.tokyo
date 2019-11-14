@@ -6,13 +6,13 @@ type Pages = {
   node: React.ReactNode
 }[]
 type Action = {
-  type: 'init' | 'update' | 'clean'
+  type: 'add' | 'update' | 'clean'
 }
 
 const usePages = (node: React.ReactNode): [Pages, React.Dispatch<Action>] => {
   return React.useReducer((pages: Pages, action: Action) => {
     switch (action.type) {
-      case 'init':
+      case 'add':
         return [{ id: 0, leave: false, node }]
       case 'update': {
         const modified = pages.map(value => {
