@@ -20,9 +20,10 @@ type Props = {
   setNavigation: Function
 }
 
+// このへん整理する
 const Navigation: React.FC<Props> = props => {
-  const root = React.useRef()
-  const video = React.useRef(null)
+  const root = React.useRef<HTMLDivElement>(null)
+  const video = React.useRef<HTMLVideoElement>(null)
   const click = (): void => {
     props.setNavigation(false)
   }
