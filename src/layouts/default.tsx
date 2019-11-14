@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import { useStore } from '~/store'
+import { store } from '~/store'
 import styles, { global } from '~/utils/styles'
 import config from '~/utils/config'
 import functions from '~/utils/functions'
@@ -20,7 +20,7 @@ import Opening from '~/components/default/Opening'
 import Pages from '~/components/default/Pages'
 
 const Layout: React.FC = props => {
-  const store = useStore()
+  // TODO: ここリファクタ
   const [opening, setOpening] = React.useState(config.nodeEnv)
   // const [opening, setOpening] = React.useState(false)
   const [navigation, setNavigation] = React.useState(false)
