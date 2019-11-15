@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import usePages from '~/hooks/default/Pages/usePages'
-import useAdd from '~/hooks/default/Pages/useadd'
+import useAdd from '~/hooks/default/Pages/useAdd'
 import Page from '~/components/default/Pages/Page'
 import useUpdate from '~/hooks/default/Pages/useUpdate'
 import useClean from '~/hooks/default/Pages/useClean'
