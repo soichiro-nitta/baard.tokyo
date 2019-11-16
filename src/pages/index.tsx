@@ -21,11 +21,7 @@ const Index: React.FC = () => {
   return (
     <>
       <Seo title="Home" />
-      <Header
-        video={store.video}
-        setVideo={store.setVideo}
-        setIsPending={store.setIsPending}
-      />
+      <Header video={store.video} isPending={store.isPending} />
       <Wrapper>
         <P>
           亀有にオープンしたBAARD理髪店のウェブサイトです。

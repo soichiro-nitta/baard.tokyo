@@ -62,14 +62,12 @@ const Layout: React.FC = props => {
       <ScrollbarWrapper>
         <Scrollbar />
       </ScrollbarWrapper>
-      {store.isPending && (
+      {store.isPending.state && (
         <SpinnerWrapper>
           <Spinner />
         </SpinnerWrapper>
       )}
-      <Pages isPending={store.isPending} setIsPending={store.setIsPending}>
-        {props.children}
-      </Pages>
+      <Pages isPending={store.isPending}>{props.children}</Pages>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation navigation={navigation} setNavigation={setNavigation} />
       </NavigationWrapper>

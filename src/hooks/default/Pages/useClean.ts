@@ -3,18 +3,32 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 
 const useClean = (params: {
-  isPending: boolean
-  dispatch: React.Dispatch<{ type: 'clean' }>
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
+  pages: {
+    state: {
+      id: number
+      leave: boolean
+      node: React.ReactNode
+    }[]
+    dispatch: React.Dispatch<{
+      type: 'add' | 'update' | 'clean'
+    }>
+  }
 }): void => {
-  const { isPending, dispatch } = params
+  const { isPending, pages } = params
   useEffectAsync({
     effect: async () => {
-      if (!isPending) {
+      if (!isPending.state) {
         await functions.delay(1)
-        dispatch({ type: 'clean' })
+        pages.dispatch({ type: 'clean' })
       }
     },
-    deps: [isPending]
+    deps: [isPending.state]
   })
 }
 

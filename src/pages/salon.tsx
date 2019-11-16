@@ -16,15 +16,16 @@ import Exhibition from '~/components/base/Exhibition'
 import Filter from '~/components/base/Filter'
 
 const Salon: React.FC = () => {
-  const store = useStore()
-  const fluid = useFluid()
   const en = 'salon'
   const ja = 'サロン・スタッフ紹介'
+  const store = useStore()
+  const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
+        isPending={store.isPending}
         fluid={fluid}
         icon={faCut}
         en={en.toUpperCase()}
@@ -39,7 +40,6 @@ const Salon: React.FC = () => {
             name: ja
           }
         ]}
-        setIsPending={store.setIsPending}
       />
       <Wrapper>
         <H2 en="CONCEPT" ja="サロンコンセプト" />

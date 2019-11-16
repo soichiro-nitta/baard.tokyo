@@ -8,6 +8,12 @@ import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 
 type Props = {
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
   fluid: FluidObject | FluidObject[]
   icon: IconDefinition
   en: string
@@ -16,12 +22,11 @@ type Props = {
     to: string
     name: string
   }[]
-  setIsPending: (isPending: boolean) => void
 }
 
 const HeaderImage: React.FC<Props> = props => {
   const onLoad = (): void => {
-    props.setIsPending(false)
+    props.isPending.dispatch({ type: 'off' })
   }
   return (
     <Root>

@@ -1,16 +1,21 @@
 import * as React from 'react'
+import useReducerFormatter from '~/hooks/base/useReducerFormatter'
 
-type Pages = {
-  id: number
-  leave: boolean
+type UsePages = (
   node: React.ReactNode
-}[]
-type Action = {
-  type: 'add' | 'update' | 'clean'
+) => {
+  state: {
+    id: number
+    leave: boolean
+    node: React.ReactNode
+  }[]
+  dispatch: React.Dispatch<{
+    type: 'add' | 'update' | 'clean'
+  }>
 }
 
-const usePages = (node: React.ReactNode): [Pages, React.Dispatch<Action>] => {
-  return React.useReducer((pages: Pages, action: Action) => {
+const usePages: UsePages = node => {
+  return useReducerFormatter((pages, action) => {
     switch (action.type) {
       case 'add':
         return [{ id: 0, leave: false, node }]

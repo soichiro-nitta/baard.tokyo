@@ -19,15 +19,16 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 
 const Access: React.FC = () => {
-  const store = useStore()
-  const fluid = useFluid()
   const en = 'access'
   const ja = 'アクセス'
+  const store = useStore()
+  const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
+        isPending={store.isPending}
         fluid={fluid}
         icon={faMapMarkedAlt}
         en={en.toUpperCase()}
@@ -42,7 +43,6 @@ const Access: React.FC = () => {
             name: ja
           }
         ]}
-        setIsPending={store.setIsPending}
       />
       <Wrapper>
         <H2 en="INFORMATION" ja="店舗情報" />

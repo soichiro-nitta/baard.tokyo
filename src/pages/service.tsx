@@ -14,15 +14,16 @@ import H2 from '~/components/base/H2'
 import List from '~/components/service/List'
 
 const Service: React.FC = () => {
-  const store = useStore()
-  const fluid = useFluid()
   const en = 'service'
   const ja = 'メニュー案内'
+  const store = useStore()
+  const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
+        isPending={store.isPending}
         fluid={fluid}
         icon={faClipboardList}
         en={en.toUpperCase()}
@@ -37,7 +38,6 @@ const Service: React.FC = () => {
             name: ja
           }
         ]}
-        setIsPending={store.setIsPending}
       />
       <Wrapper>
         <H2 en="BARBER" ja="メンズメニュー" />

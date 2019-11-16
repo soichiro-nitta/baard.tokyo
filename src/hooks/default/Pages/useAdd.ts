@@ -2,17 +2,21 @@ import * as React from 'react'
 
 const useAdd = (params: {
   pages: {
-    id: number
-    leave: boolean
-    node: React.ReactNode
-  }[]
-  dispatch: React.Dispatch<{ type: 'add' }>
+    state: {
+      id: number
+      leave: boolean
+      node: React.ReactNode
+    }[]
+    dispatch: React.Dispatch<{
+      type: 'add' | 'update' | 'clean'
+    }>
+  }
   node: React.ReactNode
 }): void => {
-  const { pages, dispatch, node } = params
+  const { pages, node } = params
   React.useEffect(() => {
-    if (pages.length === 0) {
-      dispatch({ type: 'add' })
+    if (pages.state.length === 0) {
+      pages.dispatch({ type: 'add' })
     }
   }, [node])
 }

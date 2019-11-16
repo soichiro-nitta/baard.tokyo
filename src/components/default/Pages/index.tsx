@@ -7,30 +7,32 @@ import useUpdate from '~/hooks/default/Pages/useUpdate'
 import useClean from '~/hooks/default/Pages/useClean'
 
 type Props = {
-  isPending: boolean
-  setIsPending: (isPending: boolean) => void
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
 }
 
 const Pages: React.FC<Props> = props => {
-  const [pages, dispatch] = usePages(props.children)
+  const pages = usePages(props.children)
   useAdd({
     pages,
-    dispatch,
     node: props.children
   })
   useUpdate({
-    setIsPending: props.setIsPending,
+    isPending: props.isPending,
     pages,
-    dispatch,
     node: props.children
   })
   useClean({
     isPending: props.isPending,
-    dispatch
+    pages
   })
   return (
     <Root id="main">
-      {pages.map(value => {
+      {pages.state.map(value => {
         return <Page key={value.id} isPending={props.isPending} page={value} />
       })}
     </Root>

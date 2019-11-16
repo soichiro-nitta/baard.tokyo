@@ -9,9 +9,19 @@ import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 
 type Props = {
-  video: HTMLVideoElement
-  setVideo: (video: HTMLVideoElement) => void
-  setIsPending: (isPending: boolean) => void
+  video: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'set'
+      payload: HTMLVideoElement
+    }>
+  }
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
 }
 
 const Header: React.FC<Props> = props => {
@@ -26,9 +36,9 @@ const Header: React.FC<Props> = props => {
     effect: async () => {
       video.current.load()
       await functions.canplayVideo(video.current) // TODO: cleanupする
-      props.setIsPending(false)
+      props.isPending.dispatch({ type: 'off' })
       video.current.play()
-      props.setVideo(video.current)
+      props.video.dispatch({ type: 'set', payload: video.current })
     },
     deps: []
   })

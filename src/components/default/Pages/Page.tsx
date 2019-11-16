@@ -8,7 +8,12 @@ import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
 
 type Props = {
-  isPending: boolean
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
   page: {
     id: number
     leave: boolean

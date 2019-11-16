@@ -1,20 +1,29 @@
 import * as React from 'react'
 
 const useUpdate = (params: {
-  setIsPending: (isPending: boolean) => void
+  isPending: {
+    state: HTMLVideoElement
+    dispatch: React.Dispatch<{
+      type: 'on' | 'off'
+    }>
+  }
   pages: {
-    id: number
-    leave: boolean
-    node: React.ReactNode
-  }[]
-  dispatch: React.Dispatch<{ type: 'update' }>
+    state: {
+      id: number
+      leave: boolean
+      node: React.ReactNode
+    }[]
+    dispatch: React.Dispatch<{
+      type: 'add' | 'update' | 'clean'
+    }>
+  }
   node: React.ReactNode
 }): void => {
-  const { setIsPending, pages, dispatch, node } = params
+  const { isPending, pages, node } = params
   React.useEffect(() => {
-    if (pages.length !== 0) {
-      setIsPending(true)
-      dispatch({ type: 'update' })
+    if (pages.state.length !== 0) {
+      isPending.dispatch({ type: 'on' })
+      pages.dispatch({ type: 'update' })
     }
   }, [node])
 }
