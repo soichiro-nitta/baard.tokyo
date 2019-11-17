@@ -7,15 +7,15 @@ export type IsPending = {
   }>
 }
 
-const isPending = useReducerFormatter((state, action) => {
-  switch (action.type) {
-    case 'on':
-      return true
-    case 'off':
-      return false
-    default:
-      throw new Error()
-  }
-}, null)
-
-export default isPending
+export const useIsPending = (): IsPending => {
+  return useReducerFormatter((state, action) => {
+    switch (action.type) {
+      case 'on':
+        return true
+      case 'off':
+        return false
+      default:
+        throw new Error()
+    }
+  }, null)
+}

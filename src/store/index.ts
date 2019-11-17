@@ -1,42 +1,15 @@
-import * as React from 'react'
 import { createContainer } from 'unstated-next'
-import useReducerFormatter from '~/hooks/base/useReducerFormatter'
+import { useVideo, Video } from '~/store/video'
+import { useIsPending, IsPending } from '~/store/isPending'
 
 type Store = () => {
-  video: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'set'
-      payload: HTMLVideoElement
-    }>
-  }
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  video: Video
+  isPending: IsPending
 }
 
 const store: Store = () => {
-  const video = useReducerFormatter((state, action) => {
-    switch (action.type) {
-      case 'set':
-        return action.payload
-      default:
-        throw new Error()
-    }
-  }, null)
-  const isPending = useReducerFormatter((state, action) => {
-    switch (action.type) {
-      case 'on':
-        return true
-      case 'off':
-        return false
-      default:
-        throw new Error()
-    }
-  }, false)
+  const video = useVideo()
+  const isPending = useIsPending()
   return {
     video,
     isPending

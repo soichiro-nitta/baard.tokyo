@@ -8,13 +8,13 @@ export type Video = {
   }>
 }
 
-const video: Video = useReducerFormatter((state, action) => {
-  switch (action.type) {
-    case 'set':
-      return action.payload
-    default:
-      throw new Error()
-  }
-}, null)
-
-export default video
+export const useVideo = (): Video => {
+  return useReducerFormatter((state, action) => {
+    switch (action.type) {
+      case 'set':
+        return action.payload
+      default:
+        throw new Error()
+    }
+  }, null)
+}
