@@ -1,19 +1,22 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { Launched } from '~/store/default/launched'
 import functions from '~/utils/functions'
+import { IsPending } from '~/store/global/isPending'
+import { Launched } from '~/store/default/launched'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
 
 type Props = {
+  isPending: IsPending
   launched: Launched
 }
 
 const Opening: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
+      props.isPending.dispatch({ type: 'on' })
       await functions.delay(4.5)
       props.launched.dispatch({ type: 'on' })
     },

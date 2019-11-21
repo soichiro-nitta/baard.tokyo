@@ -36,11 +36,6 @@ const Layout: React.FC = props => {
       <ScrollbarWrapper>
         <Scrollbar />
       </ScrollbarWrapper>
-      {global.isPending.state && (
-        <SpinnerWrapper>
-          <Spinner />
-        </SpinnerWrapper>
-      )}
       <Pages isPending={global.isPending}>{props.children}</Pages>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation playing={global.playing} gnav={local.gnav} />
@@ -53,8 +48,13 @@ const Layout: React.FC = props => {
       </HumbergerWrapper>
       {!local.launched.state && (
         <OpeningWrapper>
-          <Opening launched={local.launched} />
+          <Opening isPending={global.isPending} launched={local.launched} />
         </OpeningWrapper>
+      )}
+      {global.isPending.state && (
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
       )}
     </>
   )
@@ -81,14 +81,6 @@ const ScrollbarWrapper = styled.div`
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
-`
-const SpinnerWrapper = styled.div`
-  position: fixed;
-  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
-    2}px;
-  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
-    2}px;
-  height: ${styles.sizes.phone.scrollbar + 2}px;
 `
 const NavigationWrapper = styled.div`
   position: fixed;
@@ -125,6 +117,15 @@ const OpeningWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+`
+const SpinnerWrapper = styled.div`
+  position: fixed;
+  left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
+    2}px;
+  bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
+    2}px;
+  height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
 `
 
