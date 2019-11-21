@@ -1,6 +1,6 @@
 import useReducerFormatter from '~/hooks/base/useReducerFormatter'
 
-export type Video = {
+export type Playing = {
   state: HTMLVideoElement
   dispatch: React.Dispatch<{
     type: 'set'
@@ -8,7 +8,7 @@ export type Video = {
   }>
 }
 
-export const useVideo = (): Video => {
+export const usePlaying = (): Playing => {
   return useReducerFormatter((state, action) => {
     switch (action.type) {
       case 'set':

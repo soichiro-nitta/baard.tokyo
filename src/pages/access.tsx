@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
-import { useStore } from '~/store'
+import { useGlobal } from '~/store/global'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
@@ -21,14 +21,14 @@ import Table from '~/components/base/Table'
 const Access: React.FC = () => {
   const en = 'access'
   const ja = 'アクセス'
-  const store = useStore()
+  const global = useGlobal()
   const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
-        isPending={store.isPending}
+        isPending={global.isPending}
         fluid={fluid}
         icon={faMapMarkedAlt}
         en={en.toUpperCase()}

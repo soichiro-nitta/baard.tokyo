@@ -1,17 +1,13 @@
 import * as React from 'react'
+import { IsPending } from '~/store/global/isPending'
 import animations from '~/utils/animations'
 
 const useFadeOut = (params: {
-  root: React.MutableRefObject<HTMLDivElement>
+  isPending: IsPending
   leave: boolean
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  root: React.MutableRefObject<HTMLDivElement>
 }): void => {
-  const { root, leave, isPending } = params
+  const { isPending, leave, root } = params
   React.useEffect(() => {
     if (!isPending.state && leave) {
       animations.opacity(root.current, 0, 2, 'Out')

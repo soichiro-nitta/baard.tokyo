@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { Launched } from '~/store/default/launched'
 import functions from '~/utils/functions'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
@@ -7,14 +8,14 @@ import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
 
 type Props = {
-  setOpening: Function
+  launched: Launched
 }
 
 const Opening: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
       await functions.delay(4.5)
-      props.setOpening(true)
+      props.launched.dispatch({ type: 'on' })
     },
     deps: []
   })

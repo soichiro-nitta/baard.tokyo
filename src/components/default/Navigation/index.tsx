@@ -9,67 +9,52 @@ import {
 } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
-import animations from '~/utils/animations'
+import { Playing } from '~/store/global/playing'
+import { Gnav } from '~/store/default/gnav'
 import Filter from '~/components/base/Filter'
 import Borders from '~/components/default/Navigation/Borders'
 import Wrapper from '~/components/default/Navigation/Wrapper'
 import List from '~/components/default/Navigation/List'
+import useIn from '~/hooks/default/Navigation/useIn'
+import useOut from '~/hooks/default/Navigation/useOut'
+import Video from '~/components/default/Navigation/Video'
 
 type Props = {
-  navigation: boolean
-  setNavigation: Function
+  playing: Playing
+  gnav: Gnav
 }
 
-// このへん整理する
 const Navigation: React.FC<Props> = props => {
   const root = React.useRef<HTMLDivElement>(null)
-  const video = React.useRef<HTMLVideoElement>(null)
-  const click = (): void => {
-    props.setNavigation(false)
+  const off = (): void => {
+    props.gnav.dispatch({ type: 'off' })
   }
-  React.useEffect(() => {
-    video.current.load()
-  }, [])
-  React.useEffect(() => {
-    if (props.navigation) {
-      video.current.play()
-      animations.opacity(root.current, 1, 1, 'InOut')
-    } else {
-      video.current.pause()
-      animations.opacity(root.current, 0, 1, 'InOut')
-    }
-  }, [props.navigation])
+  useIn(props.gnav, root)
+  useOut(props.gnav, root)
   return (
     <Root ref={root}>
-      <video
-        ref={video}
-        src="navigation.mp4"
-        preload="none"
-        muted
-        playsInline
-        loop
-      />
+      <Video playing={props.playing} gnav={props.gnav} src="navigation.mp4" />
       <Filter />
       <BordersWrapper>
         <Borders />
       </BordersWrapper>
       <Contents>
-        <Link to="/" onClick={click}>
+        <Link to="/" onClick={off}>
           <Wrapper>
             <List icon={faHome} en="HOME" ja="ホーム" />
           </Wrapper>
         </Link>
-        <Link to="/salon" onClick={click}>
+        <Link to="/salon" onClick={off}>
           <Wrapper>
             <List icon={faCut} en="SALON" ja="サロン・スタッフ紹介" />
           </Wrapper>
         </Link>
-        <Link to="/service" onClick={click}>
+        <Link to="/service" onClick={off}>
           <Wrapper>
             <List icon={faClipboardList} en="SERVICE" ja="メニュー案内" />
           </Wrapper>
         </Link>
-        <Link to="/access" onClick={click}>
+        <Link to="/access" onClick={off}>
           <Wrapper>
             <List icon={faMapMarkedAlt} en="ACCESS" ja="アクセス" />
           </Wrapper>
@@ -83,11 +68,6 @@ const Navigation: React.FC<Props> = props => {
 const Root = styled.div`
   ${styles.mixins.relative}
   opacity: 0;
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `
 const BordersWrapper = styled.div`
   position: absolute;

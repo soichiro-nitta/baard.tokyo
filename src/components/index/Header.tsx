@@ -1,27 +1,17 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { Playing } from '~/store/global/playing'
+import { IsPending } from '~/store/global/isPending'
 import styles from '~/utils/styles'
-import functions from '~/utils/functions'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
+import Video from '~/components/base/Video'
 
 type Props = {
-  video: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'set'
-      payload: HTMLVideoElement
-    }>
-  }
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  playing: Playing
+  isPending: IsPending
 }
 
 const Header: React.FC<Props> = props => {
@@ -31,26 +21,15 @@ const Header: React.FC<Props> = props => {
       name: 'ホーム'
     }
   ]
-  const video = React.useRef<HTMLVideoElement>(null)
-  useEffectAsync({
-    effect: async () => {
-      video.current.load()
-      await functions.canplayVideo(video.current) // TODO: cleanupする
-      props.isPending.dispatch({ type: 'off' })
-      video.current.play()
-      props.video.dispatch({ type: 'set', payload: video.current })
-    },
-    deps: []
-  })
+  const canplaythrough = (): void => {
+    props.isPending.dispatch({ type: 'off' })
+  }
   return (
     <Root>
-      <video
-        ref={video}
+      <Video
+        playing={props.playing}
         src="video-mobile.mp4"
-        preload="none"
-        muted
-        playsInline
-        loop
+        canplaythrough={canplaythrough}
       />
       <Filter />
       <Text>
@@ -74,12 +53,6 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: 105vw;
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* opacity: 0; */
-  }
 `
 const Text = styled.div`
   display: flex;

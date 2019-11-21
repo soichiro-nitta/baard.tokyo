@@ -1,25 +1,11 @@
-import * as React from 'react'
+import { IsPending } from '~/store/global/isPending'
+import { Pages } from '~/store/default/Pages/pages'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 
-const useClean = (params: {
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
-  pages: {
-    state: {
-      id: number
-      leave: boolean
-      node: React.ReactNode
-    }[]
-    dispatch: React.Dispatch<{
-      type: 'add' | 'update' | 'clean'
-    }>
-  }
-}): void => {
+type UseClean = (params: { isPending: IsPending; pages: Pages }) => void
+
+const useClean: UseClean = params => {
   const { isPending, pages } = params
   useEffectAsync({
     effect: async () => {

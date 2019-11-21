@@ -3,17 +3,13 @@ import Img, { FluidObject } from 'gatsby-image'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
+import { IsPending } from '~/store/global/isPending'
 import styles from '~/utils/styles'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 
 type Props = {
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  isPending: IsPending
   fluid: FluidObject | FluidObject[]
   icon: IconDefinition
   en: string

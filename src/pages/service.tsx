@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import { useStore } from '~/store'
+import { useGlobal } from '~/store/global'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
@@ -16,14 +16,14 @@ import List from '~/components/service/List'
 const Service: React.FC = () => {
   const en = 'service'
   const ja = 'メニュー案内'
-  const store = useStore()
+  const global = useGlobal()
   const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
-        isPending={store.isPending}
+        isPending={global.isPending}
         fluid={fluid}
         icon={faClipboardList}
         en={en.toUpperCase()}

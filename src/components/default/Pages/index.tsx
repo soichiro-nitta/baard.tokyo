@@ -1,22 +1,18 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import usePages from '~/hooks/default/Pages/usePages'
+import { IsPending } from '~/store/global/isPending'
+import { usePages } from '~/store/default/Pages/pages'
 import useAdd from '~/hooks/default/Pages/useAdd'
 import Page from '~/components/default/Pages/Page'
 import useUpdate from '~/hooks/default/Pages/useUpdate'
 import useClean from '~/hooks/default/Pages/useClean'
 
 type Props = {
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  isPending: IsPending
 }
 
 const Pages: React.FC<Props> = props => {
-  const pages = usePages(props.children)
+  const pages = usePages()
   useAdd({
     pages,
     node: props.children

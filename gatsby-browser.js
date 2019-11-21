@@ -6,7 +6,7 @@
 
 // You can delete this file if you're not using it
 import * as React from 'react'
-import { Provider } from '~/store'
+import { Provider } from '~/store/global'
 import Layout from '~/layouts/default'
 
 const wrapPageElement = ({ element }) => {

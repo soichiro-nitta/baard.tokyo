@@ -1,15 +1,13 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Global } from '@emotion/core'
-import { useStore } from '~/store'
-import styles, { global } from '~/utils/styles'
-import config from '~/utils/config'
-import functions from '~/utils/functions'
-import animations from '~/utils/animations'
+import { Global as GlobalStyles } from '@emotion/core'
+import styles, { global as globalStyles } from '~/utils/styles'
 import Logo from '~/assets/svg/baard.svg'
+import { useGlobal } from '~/store/global'
+import { useLocal } from '~/store/default'
 import useAlert from '~/hooks/default/useAlert'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
+import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
 import Scrollbar from '~/components/default/Scrollbar'
@@ -18,41 +16,17 @@ import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Pages from '~/components/default/Pages'
+// import config from '~/utils/config'
 
 const Layout: React.FC = props => {
-  // TODO: ここリファクタ
-  const store = useStore()
-  const [opening, setOpening] = React.useState(config.nodeEnv)
-  // const [opening, setOpening] = React.useState(false)
-  const [navigation, setNavigation] = React.useState(false)
-  const navigationWrapper = React.useRef(null)
+  const global = useGlobal()
+  const local = useLocal()
+  const navigationWrapper = React.useRef<HTMLDivElement>(null)
   useAlert()
-  useEffectAsync({
-    effect: async () => {
-      if (navigation) {
-        animations.set(navigationWrapper.current, { display: 'block' })
-        if (document.getElementById('main').querySelector('video')) {
-          document
-            .getElementById('main')
-            .querySelector('video')
-            .pause()
-        }
-      } else {
-        await functions.delay(1)
-        animations.set(navigationWrapper.current, { display: 'none' })
-        if (document.getElementById('main').querySelector('video')) {
-          document
-            .getElementById('main')
-            .querySelector('video')
-            .play()
-        }
-      }
-    },
-    deps: [navigation]
-  })
+  useNavigationWrapper(local.gnav, navigationWrapper)
   return (
     <>
-      <Global styles={global} />
+      <GlobalStyles styles={globalStyles} />
       <BordersWrapper>
         <Borders />
       </BordersWrapper>
@@ -62,24 +36,24 @@ const Layout: React.FC = props => {
       <ScrollbarWrapper>
         <Scrollbar />
       </ScrollbarWrapper>
-      {store.isPending.state && (
+      {global.isPending.state && (
         <SpinnerWrapper>
           <Spinner />
         </SpinnerWrapper>
       )}
-      <Pages isPending={store.isPending}>{props.children}</Pages>
+      <Pages isPending={global.isPending}>{props.children}</Pages>
       <NavigationWrapper ref={navigationWrapper}>
-        <Navigation navigation={navigation} setNavigation={setNavigation} />
+        <Navigation playing={global.playing} gnav={local.gnav} />
       </NavigationWrapper>
       <LogoWrapper to="/">
         <Logo />
       </LogoWrapper>
       <HumbergerWrapper>
-        <Humberger navigation={navigation} setNavigation={setNavigation} />
+        <Humberger gnav={local.gnav} />
       </HumbergerWrapper>
-      {!opening && (
+      {!local.launched.state && (
         <OpeningWrapper>
-          <Opening setOpening={setOpening} />
+          <Opening launched={local.launched} />
         </OpeningWrapper>
       )}
     </>

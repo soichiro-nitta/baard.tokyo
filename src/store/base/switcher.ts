@@ -1,13 +1,14 @@
+import * as React from 'react'
 import useReducerFormatter from '~/hooks/base/useReducerFormatter'
 
-export type IsPending = {
-  state: HTMLVideoElement
+export type Switcher = {
+  state: boolean
   dispatch: React.Dispatch<{
     type: 'on' | 'off'
   }>
 }
 
-export const useIsPending = (): IsPending => {
+export const useSwitcher = (): Switcher => {
   return useReducerFormatter((state, action) => {
     switch (action.type) {
       case 'on':
@@ -17,5 +18,5 @@ export const useIsPending = (): IsPending => {
       default:
         throw new Error()
     }
-  }, null)
+  }, false)
 }

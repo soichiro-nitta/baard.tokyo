@@ -1,22 +1,13 @@
 import * as React from 'react'
+import { Pages } from '~/store/default/Pages/pages'
 
-const useAdd = (params: {
-  pages: {
-    state: {
-      id: number
-      leave: boolean
-      node: React.ReactNode
-    }[]
-    dispatch: React.Dispatch<{
-      type: 'add' | 'update' | 'clean'
-    }>
-  }
-  node: React.ReactNode
-}): void => {
+type UseAdd = (params: { pages: Pages; node: React.ReactNode }) => void
+
+const useAdd: UseAdd = params => {
   const { pages, node } = params
   React.useEffect(() => {
     if (pages.state.length === 0) {
-      pages.dispatch({ type: 'add' })
+      pages.dispatch({ type: 'add', payload: node })
     }
   }, [node])
 }

@@ -2,7 +2,7 @@ import * as React from 'react'
 import Img from 'gatsby-image'
 import { faCut } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import { useStore } from '~/store'
+import { useGlobal } from '~/store/global'
 import functions from '~/utils/functions'
 import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/salon/useFluid'
@@ -18,14 +18,14 @@ import Filter from '~/components/base/Filter'
 const Salon: React.FC = () => {
   const en = 'salon'
   const ja = 'サロン・スタッフ紹介'
-  const store = useStore()
+  const global = useGlobal()
   const fluid = useFluid()
   useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
       <HeaderImage
-        isPending={store.isPending}
+        isPending={global.isPending}
         fluid={fluid}
         icon={faCut}
         en={en.toUpperCase()}

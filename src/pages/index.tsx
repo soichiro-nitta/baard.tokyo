@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { useStore } from '~/store'
+import { useGlobal } from '~/store/global'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import useMain from '~/hooks/base/useMain'
@@ -16,12 +16,12 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 
 const Index: React.FC = () => {
-  const store = useStore()
+  const global = useGlobal()
   useMain()
   return (
     <>
       <Seo title="Home" />
-      <Header video={store.video} isPending={store.isPending} />
+      <Header playing={global.playing} isPending={global.isPending} />
       <Wrapper>
         <P>
           亀有にオープンしたBAARD理髪店のウェブサイトです。

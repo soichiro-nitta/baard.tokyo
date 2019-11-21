@@ -1,9 +1,7 @@
 import * as React from 'react'
 import useReducerFormatter from '~/hooks/base/useReducerFormatter'
 
-type UsePages = (
-  node: React.ReactNode
-) => {
+export type Pages = {
   state: {
     id: number
     leave: boolean
@@ -11,14 +9,15 @@ type UsePages = (
   }[]
   dispatch: React.Dispatch<{
     type: 'add' | 'update' | 'clean'
+    payload?: React.ReactNode
   }>
 }
 
-const usePages: UsePages = node => {
+export const usePages = (): Pages => {
   return useReducerFormatter((pages, action) => {
     switch (action.type) {
       case 'add':
-        return [{ id: 0, leave: false, node }]
+        return [{ id: 0, leave: false, node: action.payload }]
       case 'update': {
         const modified = pages.map(value => {
           return {
@@ -32,7 +31,7 @@ const usePages: UsePages = node => {
           {
             id: pages[pages.length - 1].id + 1,
             leave: false,
-            node
+            node: action.payload
           }
         ]
       }
@@ -46,5 +45,3 @@ const usePages: UsePages = node => {
     }
   }, [])
 }
-
-export default usePages

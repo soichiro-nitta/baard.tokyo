@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { IsPending } from '~/store/global/isPending'
 import styles from '~/utils/styles'
 import useFadeIn from '~/hooks/default/Pages/Page/useFadeIn'
 import useFadeOut from '~/hooks/default/Pages/Page/useFadeOut'
@@ -8,12 +9,7 @@ import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
 
 type Props = {
-  isPending: {
-    state: HTMLVideoElement
-    dispatch: React.Dispatch<{
-      type: 'on' | 'off'
-    }>
-  }
+  isPending: IsPending
   page: {
     id: number
     leave: boolean
@@ -24,14 +20,14 @@ type Props = {
 const Page: React.FC<Props> = props => {
   const root = React.useRef<HTMLDivElement>(null)
   useFadeIn({
-    root,
+    isPending: props.isPending,
     leave: props.page.leave,
-    isPending: props.isPending
+    root
   })
   useFadeOut({
-    root,
+    isPending: props.isPending,
     leave: props.page.leave,
-    isPending: props.isPending
+    root
   })
   return (
     <Root ref={root}>

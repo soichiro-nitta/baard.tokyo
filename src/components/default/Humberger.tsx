@@ -1,13 +1,13 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { Gnav } from '~/store/default/gnav'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 type Props = {
-  navigation: boolean
-  setNavigation: Function
+  gnav: Gnav
 }
 
 const Humberger: React.FC<Props> = props => {
@@ -18,7 +18,7 @@ const Humberger: React.FC<Props> = props => {
   const border4 = React.useRef()
   const border5 = React.useRef()
   const click = async (): Promise<void> => {
-    props.setNavigation(!props.navigation)
+    props.gnav.dispatch({ type: props.gnav.state ? 'off' : 'on' })
     animations.set(circle.current, {
       scale: 0,
       opacity: 1
@@ -26,7 +26,7 @@ const Humberger: React.FC<Props> = props => {
   }
   useEffectAsync({
     effect: async () => {
-      if (props.navigation) {
+      if (props.gnav.state) {
         await functions.raf()
         animations.scale(circle.current, 1, 0.7, 'InOut')
         animations.opacity(circle.current, 0, 0.7, 'InOut')
@@ -54,7 +54,7 @@ const Humberger: React.FC<Props> = props => {
         animations.scaleX(border1.current, 1, 0.7, 'InOut')
       }
     },
-    deps: [props.navigation]
+    deps: [props.gnav.state]
   })
   return (
     <Root onClick={click}>
