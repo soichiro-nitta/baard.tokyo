@@ -1,30 +1,16 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import animations from '~/utils/animations'
 import styles from '~/utils/styles'
 import { IsPending } from '~/store/global/isPending'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
-import functions from '~/utils/functions'
+import useInOut from '~/hooks/default/Progressbar/useInOut'
 
 type Props = {
   isPending: IsPending
 }
 
 const Progressbar: React.FC<Props> = props => {
-  const root = React.useRef(null)
-  useEffectAsync({
-    effect: async () => {
-      if (props.isPending.state) {
-        animations.set(root.current, {
-          x: '-100%'
-        })
-        animations.x(root.current, '0%', 1, 'InOut')
-      } else {
-        animations.x(root.current, '100%', 1, 'InOut')
-      }
-    },
-    deps: [props.isPending.state]
-  })
+  const root = React.useRef<HTMLDivElement>(null)
+  useInOut({ isPending: props.isPending, root })
   return <Root ref={root} />
 }
 
