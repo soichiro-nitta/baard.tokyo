@@ -4,7 +4,6 @@ import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import { useGlobal } from '~/store/global'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
-import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
@@ -23,7 +22,6 @@ const Access: React.FC = () => {
   const ja = 'アクセス'
   const global = useGlobal()
   const fluid = useFluid()
-  useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />

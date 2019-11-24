@@ -27,7 +27,7 @@ const Childrens: React.FC<Props> = props => {
     childrens: local.childrens
   })
   return (
-    <Root id="main">
+    <Root>
       {local.childrens.state.map(value => {
         return <Page key={value.id} isPending={props.isPending} page={value} />
       })}

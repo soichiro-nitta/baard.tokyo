@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import { useGlobal } from '~/store/global'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
-import useMain from '~/hooks/base/useMain'
 import useFluid from '~/hooks/service/useFluid'
 import Seo from '~/components/base/Seo'
 import HeaderImage from '~/components/base/HeaderImage'
@@ -18,7 +17,6 @@ const Service: React.FC = () => {
   const ja = 'メニュー案内'
   const global = useGlobal()
   const fluid = useFluid()
-  useMain()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
