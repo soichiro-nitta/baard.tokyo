@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { IsPending } from '~/store/global/isPending'
+import { useLocal } from '~/store/default/Spinner'
 import useIn from '~/hooks/default/Spinner/useIn'
 import useOut from '~/hooks/default/Spinner/useOut'
 
@@ -10,9 +11,18 @@ type Props = {
 }
 
 const Spinner: React.FC<Props> = props => {
+  const local = useLocal()
   const root = React.useRef<SVGSVGElement>(null)
-  useIn({ isPending: props.isPending, root })
-  useOut({ isPending: props.isPending, root })
+  useIn({
+    isPending: props.isPending,
+    started: local.started,
+    root
+  })
+  useOut({
+    isPending: props.isPending,
+    started: local.started,
+    root
+  })
   return (
     <Root ref={root} viewBox="25 25 50 50">
       <Circle cx="50" cy="50" r="20" />
