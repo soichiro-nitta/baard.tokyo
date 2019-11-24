@@ -18,6 +18,8 @@ const Progressbar: React.FC<Props> = props => {
         animations.set(root.current, {
           x: '-100%'
         })
+        animations.x(root.current, '0%', 1, 'InOut')
+      } else {
         animations.x(root.current, '100%', 1, 'InOut')
       }
     },
