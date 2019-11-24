@@ -1,15 +1,15 @@
 import { TweenMax, Expo } from 'gsap'
 
-const strokeDashoffset = (
+const rotation = (
   element: Element | HTMLCollection,
-  value: number | string,
+  value: string,
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
   TweenMax.to(element, duration, {
-    strokeDashoffset: value,
+    rotation: value,
     ease: Expo[`ease${easing}`]
   })
 }
 
-export default strokeDashoffset
+export default rotation

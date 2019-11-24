@@ -1,32 +1,43 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
+import { IsPending } from '~/store/global/isPending'
+import useIn from '~/hooks/default/Spinner/useIn'
+import useOut from '~/hooks/default/Spinner/useOut'
 
-const Spinner: React.FC = () => {
+type Props = {
+  isPending: IsPending
+}
+
+const Spinner: React.FC<Props> = props => {
+  const root = React.useRef<SVGSVGElement>(null)
+  useIn({ isPending: props.isPending, root })
+  useOut({ isPending: props.isPending, root })
   return (
-    <Root viewBox="25 25 50 50">
+    <Root ref={root} viewBox="25 25 50 50">
       <Circle cx="50" cy="50" r="20" />
     </Root>
   )
 }
 
 const Root = styled.svg`
+  display: none;
   width: ${styles.sizes.phone.scrollbar + 2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   transform-origin: center center;
-  animation: rotate 1.2s linear infinite;
+  opacity: 0;
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
     }
   }
+  animation: rotate 1.2s linear infinite;
 `
 const Circle = styled.circle`
   fill: none;
   stroke-width: 5;
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
-  animation: dash 0.9s ease-in-out infinite;
   stroke: ${styles.colors.light.logo};
   @keyframes dash {
     0% {
@@ -42,6 +53,7 @@ const Circle = styled.circle`
       stroke-dashoffset: -124;
     }
   }
+  animation: dash 0.9s ease-in-out infinite;
 `
 
 export default Spinner

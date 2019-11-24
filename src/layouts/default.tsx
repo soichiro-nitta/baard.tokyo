@@ -52,11 +52,9 @@ const Layout: React.FC = props => {
           <Opening isPending={global.isPending} launched={local.launched} />
         </OpeningWrapper>
       )}
-      {global.isPending.state && (
-        <SpinnerWrapper>
-          <Spinner />
-        </SpinnerWrapper>
-      )}
+      <SpinnerWrapper>
+        <Spinner isPending={global.isPending} />
+      </SpinnerWrapper>
       <ProgressbarWrapper>
         <Progressbar isPending={global.isPending} />
       </ProgressbarWrapper>
