@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { IsPending } from '~/store/global/isPending'
 import animations from '~/utils/animations'
+import styles from '~/utils/styles'
+import { IsPending } from '~/store/global/isPending'
 
 const useFadeOut = (params: {
   isPending: IsPending
@@ -8,11 +9,16 @@ const useFadeOut = (params: {
   root: React.MutableRefObject<HTMLDivElement>
 }): void => {
   const { isPending, leave, root } = params
+  const duration = 1
   React.useEffect(() => {
     if (!isPending.state && leave) {
-      animations.opacity(root.current, 0, 2, 'Out')
-      animations.scale(root.current, 0.9, 1, 'InOut')
-      animations.x(root.current, '-10%', 1, 'InOut')
+      animations.opacity(root.current, 0, duration, 'Out')
+      animations.x(
+        root.current,
+        `${(styles.sizes.phone.base() * -1) / 2}px`,
+        duration,
+        'InOut'
+      )
     }
   }, [isPending.state])
 }

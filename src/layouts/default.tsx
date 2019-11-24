@@ -15,7 +15,8 @@ import Spinner from '~/components/default/Spinner'
 import Humberger from '~/components/default/Humberger'
 import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
-import Pages from '~/components/default/Pages'
+import Childrens from '~/components/default/Childrens'
+import Progressbar from '~/components/default/Progressbar'
 // import config from '~/utils/config'
 
 const Layout: React.FC = props => {
@@ -36,7 +37,7 @@ const Layout: React.FC = props => {
       <ScrollbarWrapper>
         <Scrollbar />
       </ScrollbarWrapper>
-      <Pages isPending={global.isPending}>{props.children}</Pages>
+      <Childrens isPending={global.isPending}>{props.children}</Childrens>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation playing={global.playing} gnav={local.gnav} />
       </NavigationWrapper>
@@ -56,6 +57,9 @@ const Layout: React.FC = props => {
           <Spinner />
         </SpinnerWrapper>
       )}
+      <ProgressbarWrapper>
+        <Progressbar isPending={global.isPending} />
+      </ProgressbarWrapper>
     </>
   )
 }
@@ -126,6 +130,14 @@ const SpinnerWrapper = styled.div`
   bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
+  z-index: 1;
+`
+const ProgressbarWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
   z-index: 1;
 `
 

@@ -1,34 +1,34 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { IsPending } from '~/store/global/isPending'
-import { usePages } from '~/store/default/Pages/pages'
-import useAdd from '~/hooks/default/Pages/useAdd'
-import Page from '~/components/default/Pages/Page'
-import useUpdate from '~/hooks/default/Pages/useUpdate'
-import useClean from '~/hooks/default/Pages/useClean'
+import { useLocal } from '~/store/default/Childrens'
+import useAdd from '~/hooks/default/Childrens/useAdd'
+import useUpdate from '~/hooks/default/Childrens/useUpdate'
+import useClean from '~/hooks/default/Childrens/useClean'
+import Page from '~/components/default/Childrens/Page'
 
 type Props = {
   isPending: IsPending
 }
 
-const Pages: React.FC<Props> = props => {
-  const pages = usePages()
+const Childrens: React.FC<Props> = props => {
+  const local = useLocal()
   useAdd({
-    pages,
+    childrens: local.childrens,
     node: props.children
   })
   useUpdate({
     isPending: props.isPending,
-    pages,
+    childrens: local.childrens,
     node: props.children
   })
   useClean({
     isPending: props.isPending,
-    pages
+    childrens: local.childrens
   })
   return (
     <Root id="main">
-      {pages.state.map(value => {
+      {local.childrens.state.map(value => {
         return <Page key={value.id} isPending={props.isPending} page={value} />
       })}
     </Root>
@@ -44,4 +44,4 @@ const Root = styled.div`
   z-index: 0;
 `
 
-export default Pages
+export default Childrens

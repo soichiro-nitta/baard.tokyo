@@ -1,19 +1,19 @@
 import * as React from 'react'
 import { IsPending } from '~/store/global/isPending'
-import { Pages } from '~/store/default/Pages/pages'
+import { Childrens } from '~/store/default/Childrens/childrens'
 
 type UseUpdate = (params: {
   isPending: IsPending
-  pages: Pages
+  childrens: Childrens
   node: React.ReactNode
 }) => void
 
 const useUpdate: UseUpdate = params => {
-  const { isPending, pages, node } = params
+  const { isPending, childrens, node } = params
   React.useEffect(() => {
-    if (pages.state.length !== 0) {
+    if (childrens.state.length !== 0) {
       isPending.dispatch({ type: 'on' })
-      pages.dispatch({ type: 'update', payload: node })
+      childrens.dispatch({ type: 'update', payload: node })
     }
   }, [node])
 }

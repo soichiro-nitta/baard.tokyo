@@ -1,7 +1,7 @@
 import React from 'react'
 import SEO from '~/components/base/Seo'
 
-const NotFoundPage = () => (
+const NotFoundChildren = () => (
   <>
     <SEO title="404: Not found" />
     <h1>NOT FOUND</h1>
@@ -9,4 +9,4 @@ const NotFoundPage = () => (
   </>
 )
 
-export default NotFoundPage
+export default NotFoundChildren

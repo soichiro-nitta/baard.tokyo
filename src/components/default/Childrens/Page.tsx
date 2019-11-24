@@ -2,8 +2,8 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { IsPending } from '~/store/global/isPending'
 import styles from '~/utils/styles'
-import useFadeIn from '~/hooks/default/Pages/Page/useFadeIn'
-import useFadeOut from '~/hooks/default/Pages/Page/useFadeOut'
+import useFadeIn from '~/hooks/default/Childrens/Page/useFadeIn'
+import useFadeOut from '~/hooks/default/Childrens/Page/useFadeOut'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Footer from '~/components/default/Footer'
@@ -53,7 +53,6 @@ const Root = styled.div`
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   opacity: 0;
-  transform: translate3d(50%, 0, 0) scale(1.1);
 `
 const Margin = styled.div`
   margin-top: ${styles.sizes.phone.base}px;

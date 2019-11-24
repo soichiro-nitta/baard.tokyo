@@ -8,11 +8,14 @@ const useFadeIn = (params: {
   root: React.MutableRefObject<HTMLDivElement>
 }): void => {
   const { isPending, leave, root } = params
+  const duration = 1
   React.useEffect(() => {
     if (!isPending.state && !leave) {
-      animations.opacity(root.current, 1, 1, 'InOut')
-      animations.scale(root.current, 1, 1, 'InOut')
-      animations.x(root.current, '0%', 1, 'InOut')
+      animations.set(root.current, {
+        x: '100%'
+      })
+      animations.x(root.current, '0%', duration, 'Out')
+      animations.opacity(root.current, 1, duration, 'InOut')
     }
   }, [isPending.state])
 }

@@ -1,17 +1,17 @@
 import { IsPending } from '~/store/global/isPending'
-import { Pages } from '~/store/default/Pages/pages'
+import { Childrens } from '~/store/default/Childrens/childrens'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 
-type UseClean = (params: { isPending: IsPending; pages: Pages }) => void
+type UseClean = (params: { isPending: IsPending; childrens: Childrens }) => void
 
 const useClean: UseClean = params => {
-  const { isPending, pages } = params
+  const { isPending, childrens } = params
   useEffectAsync({
     effect: async () => {
       if (!isPending.state) {
         await functions.delay(1)
-        pages.dispatch({ type: 'clean' })
+        childrens.dispatch({ type: 'clean' })
       }
     },
     deps: [isPending.state]
