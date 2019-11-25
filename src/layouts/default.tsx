@@ -17,7 +17,6 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-// import config from '~/utils/config'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -35,9 +34,14 @@ const Layout: React.FC = props => {
         <Dashboard />
       </DashboardWrapper>
       <ScrollbarWrapper>
-        <Scrollbar />
+        <Scrollbar
+          currentPage={global.currentPage}
+          isPending={global.isPending}
+        />
       </ScrollbarWrapper>
-      <Childrens isPending={global.isPending}>{props.children}</Childrens>
+      <Childrens currentPage={global.currentPage} isPending={global.isPending}>
+        {props.children}
+      </Childrens>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation playing={global.playing} gnav={local.gnav} />
       </NavigationWrapper>

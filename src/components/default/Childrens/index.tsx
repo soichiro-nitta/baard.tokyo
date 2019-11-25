@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { CurrentPage } from '~/store/global/currentPage'
 import { IsPending } from '~/store/global/isPending'
 import { useLocal } from '~/store/default/Childrens'
 import useAdd from '~/hooks/default/Childrens/useAdd'
@@ -8,6 +9,7 @@ import useClean from '~/hooks/default/Childrens/useClean'
 import Page from '~/components/default/Childrens/Page'
 
 type Props = {
+  currentPage: CurrentPage
   isPending: IsPending
 }
 
@@ -29,7 +31,14 @@ const Childrens: React.FC<Props> = props => {
   return (
     <Root>
       {local.childrens.state.map(value => {
-        return <Page key={value.id} isPending={props.isPending} page={value} />
+        return (
+          <Page
+            key={value.id}
+            currentPage={props.currentPage}
+            isPending={props.isPending}
+            page={value}
+          />
+        )
       })}
     </Root>
   )
