@@ -62,14 +62,14 @@ const Text = styled.div`
   padding-left: ${styles.sizes.phone.base}px;
   width: 100%;
   height: 100%;
-  mix-blend-mode: exclusion;
+  /* mix-blend-mode: overlay; */
 `
 const BreadcrumbsWrapper = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   left: ${styles.sizes.phone.base}px;
   color: white;
-  mix-blend-mode: exclusion;
+  /* mix-blend-mode: overlay; */
 `
 const KatakanaWrapper = styled.div`
   svg {

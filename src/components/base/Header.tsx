@@ -73,6 +73,7 @@ const Content = styled.div`
   color: white;
   font-size: 2.2rem;
   line-height: 1;
+  /* mix-blend-mode: overlay; */
 `
 const Flex = styled.div`
   display: flex;
