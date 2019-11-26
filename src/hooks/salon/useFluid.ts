@@ -4,14 +4,6 @@ import { FluidObject } from 'gatsby-image'
 const useFluid = (): FluidObject | FluidObject[] => {
   const data = useStaticQuery(graphql`
     query {
-      salon: file(relativePath: { eq: "salon.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-
       salon1: file(relativePath: { eq: "salon1.png" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
@@ -43,7 +35,6 @@ const useFluid = (): FluidObject | FluidObject[] => {
     }
   `)
   return [
-    data.salon.childImageSharp.fluid,
     data.salon1.childImageSharp.fluid,
     data.salon2.childImageSharp.fluid,
     data.shun.childImageSharp.fluid,

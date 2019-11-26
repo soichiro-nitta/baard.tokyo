@@ -28,7 +28,7 @@ const Header: React.FC<Props> = props => {
     <Root>
       <Video
         playing={props.playing}
-        src="video-mobile.mp4"
+        src="/index/header.mp4"
         canplaythrough={canplaythrough}
       />
       <Filter />

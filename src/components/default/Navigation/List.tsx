@@ -10,7 +10,7 @@ type Props = {
   ja: string
 }
 
-const HeaderImage: React.FC<Props> = props => {
+const Header: React.FC<Props> = props => {
   return (
     <Root>
       <Icon>
@@ -51,4 +51,4 @@ const Ja = styled.div`
   letter-spacing: 0.33em;
 `
 
-export default HeaderImage
+export default Header

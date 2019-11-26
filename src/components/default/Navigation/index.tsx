@@ -33,7 +33,11 @@ const Navigation: React.FC<Props> = props => {
   useOut(props.gnav, root)
   return (
     <Root ref={root}>
-      <Video playing={props.playing} gnav={props.gnav} src="navigation.mp4" />
+      <Video
+        playing={props.playing}
+        gnav={props.gnav}
+        src="/navigation/background.mp4"
+      />
       <Filter />
       <BordersWrapper>
         <Borders />

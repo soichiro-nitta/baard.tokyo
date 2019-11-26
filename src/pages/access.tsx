@@ -4,9 +4,8 @@ import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import { useGlobal } from '~/store/global'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
-import useFluid from '~/hooks/access/useFluid'
 import Seo from '~/components/base/Seo'
-import HeaderImage from '~/components/base/HeaderImage'
+import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
 import Exhibition from '~/components/base/Exhibition'
@@ -21,13 +20,12 @@ const Access: React.FC = () => {
   const en = 'access'
   const ja = 'アクセス'
   const global = useGlobal()
-  const fluid = useFluid()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
-      <HeaderImage
+      <Header
+        playing={global.playing}
         isPending={global.isPending}
-        fluid={fluid}
         icon={faMapMarkedAlt}
         en={en.toUpperCase()}
         ja={ja}

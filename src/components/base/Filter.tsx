@@ -12,7 +12,7 @@ const Root = styled.div`
   width: 100%;
   height: 100%;
   background: ${styles.colors.light.shape};
-  opacity: 0.5;
+  opacity: 0.3;
 `
 
 export default Filter

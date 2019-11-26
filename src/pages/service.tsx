@@ -4,9 +4,8 @@ import styled from '@emotion/styled'
 import { useGlobal } from '~/store/global'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
-import useFluid from '~/hooks/service/useFluid'
 import Seo from '~/components/base/Seo'
-import HeaderImage from '~/components/base/HeaderImage'
+import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import Br from '~/components/base/Br'
 import H2 from '~/components/base/H2'
@@ -16,13 +15,12 @@ const Service: React.FC = () => {
   const en = 'service'
   const ja = 'メニュー案内'
   const global = useGlobal()
-  const fluid = useFluid()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
-      <HeaderImage
+      <Header
+        playing={global.playing}
         isPending={global.isPending}
-        fluid={fluid}
         icon={faClipboardList}
         en={en.toUpperCase()}
         ja={ja}

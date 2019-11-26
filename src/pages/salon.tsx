@@ -6,7 +6,7 @@ import { useGlobal } from '~/store/global'
 import functions from '~/utils/functions'
 import useFluid from '~/hooks/salon/useFluid'
 import Seo from '~/components/base/Seo'
-import HeaderImage from '~/components/base/HeaderImage'
+import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
 import Br from '~/components/base/Br'
@@ -22,9 +22,9 @@ const Salon: React.FC = () => {
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
-      <HeaderImage
+      <Header
+        playing={global.playing}
         isPending={global.isPending}
-        fluid={fluid}
         icon={faCut}
         en={en.toUpperCase()}
         ja={ja}
@@ -49,7 +49,7 @@ const Salon: React.FC = () => {
       </Wrapper>
       <Exhibition>
         <ExhibitionImg>
-          <Img fluid={fluid[1]} />
+          <Img fluid={fluid[0]} />
           <Filter />
         </ExhibitionImg>
       </Exhibition>
@@ -67,7 +67,7 @@ const Salon: React.FC = () => {
       </Wrapper>
       <Exhibition>
         <ExhibitionImg>
-          <Img fluid={fluid[2]} />
+          <Img fluid={fluid[1]} />
           <Filter />
         </ExhibitionImg>
       </Exhibition>
@@ -92,7 +92,7 @@ const Salon: React.FC = () => {
       </Wrapper>
       <Exhibition>
         <ExhibitionStaff>
-          <Img fluid={fluid[3]} />
+          <Img fluid={fluid[2]} />
           <Filter />
         </ExhibitionStaff>
       </Exhibition>
@@ -107,7 +107,7 @@ const Salon: React.FC = () => {
       <Br />
       <Exhibition>
         <ExhibitionStaff>
-          <Img fluid={fluid[4]} />
+          <Img fluid={fluid[3]} />
           <Filter />
         </ExhibitionStaff>
       </Exhibition>
