@@ -3,9 +3,9 @@ import { FluidObject } from 'gatsby-image'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import { IsPending } from '~/store/global/isPending'
-import styles from '~/utils/styles'
 import Video from '~/components/base/Video'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
@@ -17,6 +17,7 @@ type Props = {
   icon: IconDefinition
   en: string
   ja: string
+  src: string
   crumbs: {
     to: string
     name: string
@@ -29,11 +30,7 @@ const Header: React.FC<Props> = props => {
   }
   return (
     <Root>
-      <Video
-        playing={props.playing}
-        src={`/${props.en}/header.mp4`}
-        callback={callback}
-      />
+      <Video playing={props.playing} src={props.src} callback={callback} />
       <Filter />
       <Content>
         <Flex>

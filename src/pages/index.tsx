@@ -19,7 +19,11 @@ const Index: React.FC = () => {
   return (
     <>
       <Seo title="Home" />
-      <Header playing={global.playing} isPending={global.isPending} />
+      <Header
+        playing={global.playing}
+        isPending={global.isPending}
+        src={`${config.firebase}/index/header.mp4`}
+      />
       <Br />
       <Border />
       <Br />

@@ -1,9 +1,10 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
-import { useGlobal } from '~/store/global'
+import config from '~/utils/config'
 import functions from '~/utils/functions'
 import styles from '~/utils/styles'
+import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
@@ -30,6 +31,7 @@ const Access: React.FC = () => {
         icon={faMapMarkedAlt}
         en={en.toUpperCase()}
         ja={ja}
+        src={`${config.firebase}/${en}/header.mp4`}
         crumbs={[
           {
             to: '/',

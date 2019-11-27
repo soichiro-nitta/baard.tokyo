@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import { IsPending } from '~/store/global/isPending'
-import styles from '~/utils/styles'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Filter from '~/components/base/Filter'
@@ -12,6 +12,7 @@ import Video from '~/components/base/Video'
 type Props = {
   playing: Playing
   isPending: IsPending
+  src: string
 }
 
 const Header: React.FC<Props> = props => {
@@ -26,11 +27,7 @@ const Header: React.FC<Props> = props => {
   }
   return (
     <Root>
-      <Video
-        playing={props.playing}
-        src="/index/header.mp4"
-        callback={callback}
-      />
+      <Video playing={props.playing} src={props.src} callback={callback} />
       <Filter />
       <Text>
         <div>
