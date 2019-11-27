@@ -36,7 +36,7 @@ const Navigation: React.FC<Props> = props => {
       <Video
         playing={props.playing}
         gnav={props.gnav}
-        src="/navigation/background.mp4"
+        src="navigation/background.mp4"
       />
       <Filter />
       <BordersWrapper>
