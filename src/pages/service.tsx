@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import config from '~/utils/config'
 import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
@@ -26,7 +25,7 @@ const Service: React.FC = () => {
         icon={faClipboardList}
         en={en.toUpperCase()}
         ja={ja}
-        src={`${config.firebase}/${en}/header.mp4`}
+        src={`/${en}/header.mp4`}
         crumbs={[
           {
             to: '/',

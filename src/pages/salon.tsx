@@ -2,7 +2,6 @@ import * as React from 'react'
 import Img from 'gatsby-image'
 import { faCut } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
-import config from '~/utils/config'
 import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import useFluid from '~/hooks/salon/useFluid'
@@ -30,7 +29,7 @@ const Salon: React.FC = () => {
         icon={faCut}
         en={en.toUpperCase()}
         ja={ja}
-        src={`${config.firebase}/${en}/header.mp4`}
+        src={`/${en}/header.mp4`}
         crumbs={[
           {
             to: '/',
