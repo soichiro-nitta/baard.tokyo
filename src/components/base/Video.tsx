@@ -3,19 +3,21 @@ import styled from '@emotion/styled'
 import { Playing } from '~/store/global/playing'
 import useObserve from '~/hooks/base/useObserve'
 import useLoad from '~/hooks/base/video/useLoad'
-import useCanplaythrough from '~/hooks/base/video/useCanplaythrough'
+import useCanplay from '~/hooks/base/video/useCanplay'
+// import useCanplaythrough from '~/hooks/base/video/useCanplaythrough'
 
 type Props = {
   playing: Playing
   src: string
-  canplaythrough?: () => void
+  callback?: () => void
 }
 
 const Video: React.FC<Props> = props => {
   const root = React.useRef<HTMLDivElement>(null)
   const video = React.useRef<HTMLVideoElement>(null)
   useLoad(video)
-  useCanplaythrough({ video, canplaythrough: props.canplaythrough })
+  // useCanplaythrough({ video, canplaythrough: props.canplaythrough })
+  useCanplay({ video, canplay: props.callback })
   useObserve({
     ref: root,
     observeIn: () => {

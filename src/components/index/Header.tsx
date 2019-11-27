@@ -21,7 +21,7 @@ const Header: React.FC<Props> = props => {
       name: 'ホーム'
     }
   ]
-  const canplaythrough = (): void => {
+  const callback = (): void => {
     props.isPending.dispatch({ type: 'off' })
   }
   return (
@@ -29,7 +29,7 @@ const Header: React.FC<Props> = props => {
       <Video
         playing={props.playing}
         src="/index/header.mp4"
-        canplaythrough={canplaythrough}
+        callback={callback}
       />
       <Filter />
       <Text>
