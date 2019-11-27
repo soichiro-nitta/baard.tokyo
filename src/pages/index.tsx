@@ -22,8 +22,7 @@ const Index: React.FC = () => {
       <Header playing={global.playing} isPending={global.isPending} />
       <Wrapper>
         <P>
-          亀有にオープンしたBAARD理髪店のウェブサイトです。
-          ここに軽めの序文を。ここに軽めの序文を。ここに軽めの序文を。
+          和とモダンな雰囲気を織り交ぜた空間で、くつろぎの場所をご提供いたします。ときには忙しい日常を忘れ、ゆっくりとした時間をお過ごし下さいませ。
         </P>
         <ButtonWrapper>
           <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
@@ -47,10 +46,13 @@ const Index: React.FC = () => {
         <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
       </Wrapper>
       <Wrapper>
-        <Row head="電話番号" data="03-0000-0000" />
+        <Row head="電話番号" data="03-6876-6647" />
       </Wrapper>
       <Wrapper>
         <Table />
+      </Wrapper>
+      <Wrapper>
+        <Row head="定休日" data="月曜日、第２第３火曜日" />
       </Wrapper>
       <Exhibition>
         <Map />

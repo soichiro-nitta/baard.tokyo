@@ -38,7 +38,7 @@ const Sections: React.FC = () => {
           fluid={data.salon.childImageSharp.fluid}
           icon="faCut"
           head="SALON"
-          body="SALON、STAFFページ（サロンコンセプト、スタッフ紹介、設備など、椅子、シャンプーだい、タオルの紹介、予約システムなど）"
+          body="サロンコンセプト、スタッフ紹介、設備、椅子、シャンプーだい、タオルの紹介、予約システムなど"
           to="/salon"
         />
       </SectionWrapper>
@@ -47,7 +47,7 @@ const Sections: React.FC = () => {
           fluid={data.service.childImageSharp.fluid}
           icon="faClipboardList"
           head="SERVICE"
-          body="SERVICEページ（バーバーサロンメニュー、女性のお顔そりのメニュー、実際のカット風景など）"
+          body="バーバーメニュー、女性のお顔そりのメニュー、実際のカット風景など"
           to="/service"
         />
       </SectionWrapper>
@@ -56,7 +56,7 @@ const Sections: React.FC = () => {
           fluid={data.access.childImageSharp.fluid}
           icon="faMapMarkedAlt"
           head="ACCESS"
-          body="ACCESSページ（店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場？のご案内など）"
+          body="店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場のご案内など"
           to="/access"
         />
       </SectionWrapper>

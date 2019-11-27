@@ -40,7 +40,7 @@ const Left: React.FC<Props> = props => {
         </Head>
         <Body>{props.body}</Body>
         <Button to={props.to}>
-          くわしくみる
+          詳しくみる
           <FontAwesomeIcon icon={faLongArrowRight} />
         </Button>
       </Content>

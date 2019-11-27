@@ -1,5 +1,11 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCircle,
+  faTimes,
+  faTriangle
+} from '@fortawesome/pro-regular-svg-icons'
 import styles from '~/utils/styles'
 
 const Table: React.FC = () => {
@@ -36,25 +42,25 @@ const Table: React.FC = () => {
       </Col>
       <Col>
         <Row>
-          <Circle />
+          <Times icon={faTimes} />
         </Row>
         <Row>
-          <Circle />
+          <Triangle icon={faTriangle} />
         </Row>
         <Row>
-          <Circle />
+          <FontAwesomeIcon icon={faCircle} />
         </Row>
         <Row>
-          <Circle />
+          <FontAwesomeIcon icon={faCircle} />
         </Row>
         <Row>
-          <Circle />
+          <FontAwesomeIcon icon={faCircle} />
         </Row>
         <Row>
-          <Circle />
+          <FontAwesomeIcon icon={faCircle} />
         </Row>
         <Row>
-          <Circle />
+          <FontAwesomeIcon icon={faCircle} />
         </Row>
       </Col>
     </Root>
@@ -75,16 +81,16 @@ const Col = styled.div`
 const Row = styled.div`
   ${styles.mixins.flexCenter}
   flex-grow: 1;
+  width: calc((100% - 6px) / 7);
   border-top: 1px solid ${styles.colors.light.border};
   border-left: 1px solid ${styles.colors.light.border};
   height: 50px;
 `
-const Circle = styled.div`
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid ${styles.colors.light.neutral};
-  border-radius: 50%;
+const Times = styled(FontAwesomeIcon)`
+  font-size: 1.5rem;
+`
+const Triangle = styled(FontAwesomeIcon)`
+  font-size: 1.2rem;
 `
 
 export default Table

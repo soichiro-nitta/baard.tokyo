@@ -64,13 +64,6 @@ const Text = styled.div`
   height: 100%;
   /* mix-blend-mode: overlay; */
 `
-const BreadcrumbsWrapper = styled.div`
-  position: absolute;
-  bottom: ${styles.sizes.phone.base}px;
-  left: ${styles.sizes.phone.base}px;
-  color: white;
-  /* mix-blend-mode: overlay; */
-`
 const KatakanaWrapper = styled.div`
   svg {
     width: 120px;
@@ -89,6 +82,13 @@ const RihatsutenWrapper = styled.div`
       fill: ${styles.colors.light.background};
     }
   }
+`
+const BreadcrumbsWrapper = styled.div`
+  position: absolute;
+  bottom: ${styles.sizes.phone.base}px;
+  left: ${styles.sizes.phone.base}px;
+  color: ${styles.colors.light.background};
+  /* mix-blend-mode: overlay; */
 `
 
 export default Header

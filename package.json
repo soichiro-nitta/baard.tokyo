@@ -13,9 +13,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
-    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/pro-duotone-svg-icons": "^5.10.2",
+    "@fortawesome/pro-regular-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "gatsby": "^2.15.15",
     "gatsby-image": "^2.2.8",
