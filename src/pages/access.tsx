@@ -117,6 +117,14 @@ const Access: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
+        <Row
+          head="営業時間"
+          data="平日&nbsp;&nbsp;:&nbsp;&nbsp;10:00 ~ 20:00"
+        />
+        <Row head="" data="土日祝&nbsp;&nbsp;:&nbsp;&nbsp;09:00 ~ 19:00 " />
+      </Wrapper>
+      <Br />
+      <Wrapper>
         <Table />
       </Wrapper>
       <Br />

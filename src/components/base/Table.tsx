@@ -13,12 +13,6 @@ const Table: React.FC = () => {
     <Root>
       <Col>
         <Row>
-          <b>営業時間</b>
-        </Row>
-        <Row>10:00 ~ 20:00</Row>
-      </Col>
-      <Col>
-        <Row>
           <b>月</b>
         </Row>
         <Row>
@@ -90,7 +84,7 @@ const Times = styled(FontAwesomeIcon)`
   font-size: 1.5rem;
 `
 const Triangle = styled(FontAwesomeIcon)`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `
 
 export default Table
