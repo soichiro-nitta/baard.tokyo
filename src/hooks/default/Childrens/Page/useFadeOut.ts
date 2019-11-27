@@ -12,7 +12,7 @@ const useFadeOut = (params: {
   const duration = 1
   React.useEffect(() => {
     if (!isPending.state && leave) {
-      animations.opacity(root.current, 0, duration, 'Out')
+      animations.opacity(root.current, 0, duration, 'InOut')
       animations.x(
         root.current,
         `${(styles.sizes.phone.base() * -1) / 2}px`,
