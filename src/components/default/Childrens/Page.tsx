@@ -7,6 +7,7 @@ import useFadeIn from '~/hooks/default/Childrens/Page/useFadeIn'
 import useFadeOut from '~/hooks/default/Childrens/Page/useFadeOut'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
+import Border from '~/components/base/Border'
 import Footer from '~/components/default/Footer'
 
 type Props = {
@@ -37,11 +38,15 @@ const Page: React.FC<Props> = props => {
   return (
     <Root ref={root}>
       {props.page.node}
+      <Br />
+      <Border />
+      <Br />
       <Exhibition>
         <Footer />
       </Exhibition>
       <Br />
-      <Margin />
+      <Border />
+      <Br />
     </Root>
   )
 }
@@ -58,9 +63,6 @@ const Root = styled.div`
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   opacity: 0;
-`
-const Margin = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
 `
 
 export default Page

@@ -10,6 +10,7 @@ import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
 import Br from '~/components/base/Br'
+import Border from '~/components/base/Border'
 import H2 from '~/components/base/H2'
 import Exhibition from '~/components/base/Exhibition'
 import Filter from '~/components/base/Filter'
@@ -39,9 +40,15 @@ const Salon: React.FC = () => {
           }
         ]}
       />
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H2 en="CONCEPT" ja="サロンコンセプト" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>
           1、スペース 仕切りで区切られた一つ一つのお席には、
@@ -50,30 +57,49 @@ const Salon: React.FC = () => {
           1Fはヘアサロン、2Fには女性専用のシェービングのお部屋がございます。
         </P>
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Exhibition>
         <ExhibitionImg>
           <Img fluid={fluid[0]} />
           <Filter />
         </ExhibitionImg>
       </Exhibition>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>↑ ここはスライダー（ギャラリー？）にします。鋭意制作中。</P>
       </Wrapper>
       <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H2 en="RESERVATION" ja="ご予約について" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>
           予約システムについて。BAARDでは初回のご来店以降のお客様に－－。ここに説明など。ここに説明など。ここに説明など。
         </P>
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Exhibition>
         <ExhibitionImg>
           <Img fluid={fluid[1]} />
           <Filter />
         </ExhibitionImg>
       </Exhibition>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>
           ↑
@@ -81,32 +107,52 @@ const Salon: React.FC = () => {
         </P>
       </Wrapper>
       <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>
           BAARDでは女性のお客様に－－。ここにもレディースシェービングについて紹介があるとわかりやすいかも？ここに説明など。
         </P>
       </Wrapper>
       <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H2 en="STAFF" ja="スタッフのご紹介" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Exhibition>
         <ExhibitionStaff>
           <Img fluid={fluid[2]} />
           <Filter />
         </ExhibitionStaff>
       </Exhibition>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <H2 en="SHUN" ja="なかだてしゅん" />
+        <H2 en="SHUN" ja="なかだて しゅん" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <P>
-          プロフィールや、沿革、自己紹介など。プロフィールや、沿革、自己紹介など。プロフィールや、沿革、自己紹介など。
-        </P>
+        <P>趣味：沖縄旅行、ランニング、スノーボード、サッカー</P>
       </Wrapper>
+      <Br />
+      <Border />
       <Br />
       <Exhibition>
         <ExhibitionStaff>
@@ -114,13 +160,17 @@ const Salon: React.FC = () => {
           <Filter />
         </ExhibitionStaff>
       </Exhibition>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <H2 en="RISA" ja="あらきりさ" />
+        <H2 en="RISA" ja="なかだて りさ" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <P>
-          プロフィールや、沿革、自己紹介など。プロフィールや、沿革、自己紹介など。プロフィールや、沿革、自己紹介など。
-        </P>
+        <P>趣味：沖縄旅行、映画</P>
       </Wrapper>
     </>
   )

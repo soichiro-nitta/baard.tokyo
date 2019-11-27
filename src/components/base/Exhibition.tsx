@@ -7,10 +7,7 @@ const Exhibition: React.FC = props => {
 }
 
 const Root = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding-top: ${styles.sizes.phone.base}px;
   padding-right: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
 `
 
 export default Exhibition

@@ -7,11 +7,7 @@ const Wrapper: React.FC = props => {
 }
 
 const Root = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-  padding-top: ${styles.sizes.phone.base}px;
-  padding-right: ${styles.sizes.phone.base}px;
-  padding-left: ${styles.sizes.phone.base}px;
-  border-top: 1px solid ${styles.colors.light.border};
+  padding: 0 ${styles.sizes.phone.base}px;
 `
 
 export default Wrapper

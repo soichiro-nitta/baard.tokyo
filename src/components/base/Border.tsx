@@ -2,12 +2,14 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 
-const Br: React.FC = () => {
+const Border: React.FC = () => {
   return <Root />
 }
 
 const Root = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
+  width: 100%;
+  height: 1px;
+  background: ${styles.colors.light.border};
 `
 
-export default Br
+export default Border
