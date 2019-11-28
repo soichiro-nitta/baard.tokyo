@@ -50,6 +50,8 @@ const Salon: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H3>スペース</H3>
         <Br />
@@ -69,6 +71,8 @@ const Salon: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <H3>こだわりのオイルシェービング</H3>
         <Br />
@@ -82,6 +86,8 @@ const Salon: React.FC = () => {
           普段は剃らない部分、眉カット、耳のお手入れ等も含めてご提供します。お客様のお肌のために、BAARD理髪店は、常に新しいものを追求していきます。
         </P>
       </Wrapper>
+      <Br />
+      <Border />
       <Br />
       <Border />
       <Br />
@@ -156,14 +162,12 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="SHUN" ja="なかだて しゅん" />
+        <H3>SHUN なかだて しゅん</H3>
+        <Br />
+        <P>趣味：沖縄旅行、ランニング、スノーボード、サッカー</P>
       </Wrapper>
       <Br />
       <Border />
-      <Br />
-      <Wrapper>
-        <P>趣味：沖縄旅行、ランニング、スノーボード、サッカー</P>
-      </Wrapper>
       <Br />
       <Border />
       <Br />
@@ -181,12 +185,8 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="RISA" ja="なかだて りさ" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
+        <H3>RISA なかだて りさ</H3>
+        <Br />
         <P>趣味：沖縄旅行、映画</P>
       </Wrapper>
     </>
