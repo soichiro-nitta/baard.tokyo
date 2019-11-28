@@ -22,7 +22,7 @@ const Index: React.FC = () => {
       <Header
         playing={global.playing}
         isPending={global.isPending}
-        src="index/header.mp4"
+        src="/index/header.mp4"
       />
       <Br />
       <Border />

@@ -1,10 +1,9 @@
 import * as React from 'react'
-import Img from 'gatsby-image'
 import { faCut } from '@fortawesome/pro-duotone-svg-icons'
 import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
-import useFluid from '~/hooks/salon/useFluid'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
@@ -12,14 +11,15 @@ import P from '~/components/base/P'
 import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import H2 from '~/components/base/H2'
+import H3 from '~/components/base/H3'
 import Exhibition from '~/components/base/Exhibition'
 import Filter from '~/components/base/Filter'
+import Video from '~/components/base/Video'
 
 const Salon: React.FC = () => {
   const en = 'salon'
   const ja = 'サロン・スタッフ紹介'
   const global = useGlobal()
-  const fluid = useFluid()
   return (
     <>
       <Seo title={functions.toUpperFirst(en)} />
@@ -51,27 +51,50 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
+        <H3>スペース</H3>
+        <Br />
         <P>
-          1、スペース 仕切りで区切られた一つ一つのお席には、
-          クロークをご用意しております。 ゆったりとしたスペースで、
+          仕切りで区切られた一つ一つのお席には、 クロークをご用意しております。
+        </P>
+        <Br />
+        <P>
+          ゆったりとしたスペースで、
           お客様がリラックスしていただけるような空間づくりにもこだわりました。
+        </P>
+        <Br />
+        <P>
           1Fはヘアサロン、2Fには女性専用のシェービングのお部屋がございます。
         </P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
-      <Exhibition>
-        <ExhibitionImg>
-          <Img fluid={fluid[0]} />
-          <Filter />
-        </ExhibitionImg>
-      </Exhibition>
+      <Wrapper>
+        <H3>こだわりのオイルシェービング</H3>
+        <Br />
+        <P>ヒリつきを抑え、お客様の肌への負担を最小限にするために、</P>
+        <Br />
+        <P>
+          抗酸化作用のある天然の高級オイルを使用し、フェイシャルスチーマーを当てながらお剃りします。
+        </P>
+        <Br />
+        <P>
+          普段は剃らない部分、眉カット、耳のお手入れ等も含めてご提供します。お客様のお肌のために、BAARD理髪店は、常に新しいものを追求していきます。
+        </P>
+      </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <P>↑ ここはスライダー（ギャラリー？）にします。鋭意制作中。</P>
+        <H3>カウンセリング</H3>
+        <Br />
+        <P>
+          十分なカウンセリングをして、お客様のお悩みや求めていることをお聞きしながら提案し、施術していきます。
+        </P>
+        <Br />
+        <P>
+          ヘアスタイルは、電子カルテにより写真として記録し、次回ご来店された際も仕上がりに満足して笑顔で帰っていただけるサロンを目指します。
+        </P>
       </Wrapper>
       <Br />
       <Border />
@@ -84,43 +107,28 @@ const Salon: React.FC = () => {
       <Br />
       <Border />
       <Br />
-      <Wrapper>
-        <P>
-          予約システムについて。BAARDでは初回のご来店以降のお客様に－－。ここに説明など。ここに説明など。ここに説明など。
-        </P>
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
       <Exhibition>
-        <ExhibitionImg>
-          <Img fluid={fluid[1]} />
+        <ExhibitionInner>
+          <Video
+            playing={global.playing}
+            src="/salon/reservation.mp4"
+            rootMargin="-40% 0%"
+          />
           <Filter />
-        </ExhibitionImg>
+        </ExhibitionInner>
       </Exhibition>
       <Br />
       <Border />
       <Br />
       <Wrapper>
+        <P>専用のアプリからネット予約を承っております。</P>
+        <Br />
         <P>
-          ↑
-          予約システムについて写真が必要であれば。複数枚必要があれば、こちらもスライダーに。
+          まずはアプリをダウンロードして頂き、行きたい日時やメニューを選択し、必要事項を入力するだけで、お客様が気軽にストレスなく、24時間いつでも予約をとる事が可能です。
         </P>
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <H2 en="LADY'S SHAVING" ja="レディースシェービング" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
+        <Br />
         <P>
-          BAARDでは女性のお客様に－－。ここにもレディースシェービングについて紹介があるとわかりやすいかも？ここに説明など。
+          アプリでのネット予約は、ご来店の1時間前までしか選択できませんので、お急ぎのお客様はお電話にてご予約くださいませ。
         </P>
       </Wrapper>
       <Br />
@@ -135,10 +143,14 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <ExhibitionStaff>
-          <Img fluid={fluid[2]} />
+        <ExhibitionInner>
+          <Video
+            playing={global.playing}
+            src="/salon/shun.mp4"
+            rootMargin="-40% 0%"
+          />
           <Filter />
-        </ExhibitionStaff>
+        </ExhibitionInner>
       </Exhibition>
       <Br />
       <Border />
@@ -156,10 +168,14 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <ExhibitionStaff>
-          <Img fluid={fluid[3]} />
+        <ExhibitionInner>
+          <Video
+            playing={global.playing}
+            src="/salon/risa.mp4"
+            rootMargin="-40% 0%"
+          />
           <Filter />
-        </ExhibitionStaff>
+        </ExhibitionInner>
       </Exhibition>
       <Br />
       <Border />
@@ -177,25 +193,13 @@ const Salon: React.FC = () => {
   )
 }
 
-const ExhibitionImg = styled.div`
+const ExhibitionInner = styled.div`
   position: relative;
   width: 100%;
-  height: 105vw;
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`
-const ExhibitionStaff = styled.div`
-  position: relative;
-  width: 100%;
-  height: 52.5vw;
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  height: calc(
+    (100vw - ${styles.sizes.phone.dashboard + 1 + styles.sizes.phone.base()}px) /
+      16 * 10
+  );
 `
 
 export default Salon

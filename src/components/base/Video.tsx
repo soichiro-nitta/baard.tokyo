@@ -2,50 +2,47 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import { Playing } from '~/store/global/playing'
+import { IsPending } from '~/store/global/isPending'
 import useObserve from '~/hooks/base/useObserve'
+import usePrevious from '~/hooks/base/usePrevious'
 import useLoad from '~/hooks/base/video/useLoad'
 import useCanplaythrough from '~/hooks/base/video/useCanplaythrough'
 
 type Props = {
   playing: Playing
+  isPending?: IsPending
   src: string
-  callback?: () => void
+  rootMargin?: string
 }
 
 const Video: React.FC<Props> = props => {
   const src = config.dev ? `${props.src}` : `${config.firebase}/${props.src}`
-  const root = React.useRef<HTMLDivElement>(null)
-  const video = React.useRef<HTMLVideoElement>(null)
-  useLoad(video)
-  useCanplaythrough({ video, canplaythrough: props.callback })
+  const root = React.useRef<HTMLVideoElement>(null)
+  const previous = usePrevious(props.playing.state)
+  useLoad(root)
   useObserve({
     ref: root,
-    observeIn: () => {
-      video.current.play()
-      props.playing.dispatch({ type: 'set', payload: video.current })
+    observeIn: ref => {
+      ref.current.play()
+      props.playing.dispatch({ type: 'set', payload: ref.current })
     },
-    observeOut: () => {
-      video.current.pause()
-      if (props.playing.state === video.current)
-        props.playing.dispatch({ type: 'set', payload: null })
-    }
+    observeOut: ref => {
+      ref.current.pause()
+    },
+    rootMargin: props.rootMargin
   })
-  return (
-    <Root ref={root}>
-      <video ref={video} src={src} preload="none" muted playsInline loop />
-    </Root>
-  )
+  React.useEffect(() => {
+    if (previous) previous.pause()
+  }, [props.playing.state])
+  if (props.isPending) useCanplaythrough({ isPending: props.isPending, root })
+  return <Root ref={root} src={src} preload="none" muted playsInline loop />
 }
 
-const Root = styled.div`
+const Root = styled.video`
   width: 100%;
   height: 100%;
-  video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* opacity: 0; */
-  }
+  object-fit: cover;
+  /* opacity: 0; */
 `
 
 export default Video

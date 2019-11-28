@@ -1,16 +1,20 @@
 import * as React from 'react'
+import { IsPending } from '~/store/global/isPending'
 
 type UseCanplaythrough = (params: {
-  video: React.MutableRefObject<HTMLVideoElement>
-  canplaythrough: () => void
+  isPending: IsPending
+  root: React.MutableRefObject<HTMLVideoElement>
 }) => void
 
 const useCanplaythrough: UseCanplaythrough = params => {
   React.useEffect(() => {
-    const { video, canplaythrough } = params
-    video.current.addEventListener('canplaythrough', canplaythrough)
+    const { isPending, root } = params
+    const canplaythrough = (): void => {
+      isPending.dispatch({ type: 'off' })
+    }
+    root.current.addEventListener('canplaythrough', canplaythrough)
     return (): void => {
-      video.current.removeEventListener('canplaythrough', canplaythrough)
+      root.current.removeEventListener('canplaythrough', canplaythrough)
     }
   }, [])
 }

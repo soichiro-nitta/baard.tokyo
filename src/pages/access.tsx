@@ -16,6 +16,7 @@ import ButtonNew from '~/components/base/ButtonNew'
 import Row from '~/components/base/Row'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
+import H3 from '~/components/base/H3'
 
 const Access: React.FC = () => {
   const en = 'access'
@@ -118,21 +119,19 @@ const Access: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <Row
-          head="営業時間"
-          data="平日&nbsp;&nbsp;:&nbsp;&nbsp;10:00 ~ 20:00"
-        />
-        <Row head="" data="土日祝&nbsp;&nbsp;:&nbsp;&nbsp;09:00 ~ 19:00 " />
-      </Wrapper>
-      <Br />
-      <Wrapper>
-        <Table />
+        <H3>営業時間</H3>
+        <Br />
+        <P>平日、10:00 ~ 20:00</P>
+        <Br />
+        <P>土日祝、09:00 ~ 19:00 </P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
         <Row head="定休日" data="月曜日、第２第３火曜日" />
+        <Br />
+        <Table />
       </Wrapper>
     </>
   )

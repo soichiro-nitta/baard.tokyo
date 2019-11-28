@@ -22,12 +22,13 @@ const Header: React.FC<Props> = props => {
       name: 'ホーム'
     }
   ]
-  const callback = (): void => {
-    props.isPending.dispatch({ type: 'off' })
-  }
   return (
     <Root>
-      <Video playing={props.playing} src={props.src} callback={callback} />
+      <Video
+        playing={props.playing}
+        isPending={props.isPending}
+        src={props.src}
+      />
       <Filter />
       <Text>
         <div>

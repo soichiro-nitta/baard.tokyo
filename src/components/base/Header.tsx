@@ -25,12 +25,13 @@ type Props = {
 }
 
 const Header: React.FC<Props> = props => {
-  const callback = (): void => {
-    props.isPending.dispatch({ type: 'off' })
-  }
   return (
     <Root>
-      <Video playing={props.playing} src={props.src} callback={callback} />
+      <Video
+        playing={props.playing}
+        isPending={props.isPending}
+        src={props.src}
+      />
       <Filter />
       <Content>
         <Flex>
