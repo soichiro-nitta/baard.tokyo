@@ -1,8 +1,6 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
 import functions from '~/utils/functions'
-import styles from '~/utils/styles'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
@@ -13,7 +11,6 @@ import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import H2 from '~/components/base/H2'
 import ButtonNew from '~/components/base/ButtonNew'
-import Row from '~/components/base/Row'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
@@ -52,32 +49,36 @@ const Access: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <Row head="店名" data="BAARD（バーールト）理髪店" />
+        <H3>店名</H3>
+        <Br />
+        <P>BAARD（バーールト）理髪店</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
+        <H3>住所</H3>
+        <Br />
+        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Row head="最寄駅" data="JR常磐線 亀有駅 徒歩8分" />
+        <H3>最寄駅</H3>
+        <Br />
+        <P>JR常磐線 亀有駅 南口徒歩8分</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Row head="電話番号" data="03-0000-0000" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <Row head="メールアドレス" data="baard-tokyo@gmail.com" />
+        <H3>電話番号</H3>
+        <Br />
+        <P>03-6876-6647</P>
       </Wrapper>
       <Br />
       <Border />
@@ -90,16 +91,17 @@ const Access: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <P>
           BAARD 理髪店（東京都葛飾区亀有 2-59-7）について、Google Mapsでみる。
         </P>
-        <ButtonWrapper>
-          <ButtonNew
-            to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
-            text="Google Mapsを起動する"
-          />
-        </ButtonWrapper>
+        <Br />
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
+          text="Google Mapsを起動する"
+        />
       </Wrapper>
       <Br />
       <Border />
@@ -113,8 +115,10 @@ const Access: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="OPENING" ja="営業時間について" />
+        <H2 en="OPENING" ja="営業日について" />
       </Wrapper>
+      <Br />
+      <Border />
       <Br />
       <Border />
       <Br />
@@ -128,17 +132,59 @@ const Access: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <Row head="定休日" data="月曜日、第２第３火曜日" />
+        <H3>定休日</H3>
+        <Br />
+        <P>月曜日、第２第３火曜日</P>
         <Br />
         <Table />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <H2 en="PARKING" ja="駐車場のご案内" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <H3>1. コインパーク亀有</H3>
+        <Br />
+        <P>〒125-0061 東京都葛飾区 亀有2丁目2</P>
+        <Br />
+        <ButtonNew
+          to="https://www.google.com/maps/place/%E3%82%B3%E3%82%A4%E3%83%B3%E3%83%91%E3%83%BC%E3%82%AF+%E4%BA%80%E6%9C%89/@35.7628514,139.8493712,16z/data=!4m8!1m2!2m1!1z44Kz44Kk44Oz44OR44O844Kv5LqA5pyJ!3m4!1s0x60188f842ba4f4c1:0xc76defbb8e7a66ec!8m2!3d35.7628514!4d139.8493712"
+          text="Google Mapsを起動する"
+        />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <H3>
+          2. ナビパーク
+          <br />
+          亀有信用金庫本店
+        </H3>
+        <Br />
+        <P>〒125-0061 東京都葛飾区 亀有3丁目12</P>
+        <Br />
+        <ButtonNew
+          to="https://www.google.com/maps/place/%E3%83%8A%E3%83%93%E3%83%91%E3%83%BC%E3%82%AF+%E4%BA%80%E6%9C%89%E4%BF%A1%E7%94%A8%E9%87%91%E5%BA%AB%E6%9C%AC%E5%BA%97/@35.7708686,139.8307802,14z/data=!4m8!1m2!2m1!1z44OK44OT44OR44O844Kv5LqA5pyJ5L-h55So6YeR5bqr5pys5bqX!3m4!1s0x60188f85a23f75a3:0xc4617cd78f4063e4!8m2!3d35.763247!4d139.847444"
+          text="Google Mapsを起動する"
+        />
       </Wrapper>
     </>
   )
 }
-
-const ButtonWrapper = styled.div`
-  margin-top: ${styles.sizes.phone.base}px;
-`
 
 export default Access

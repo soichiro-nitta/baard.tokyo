@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const H3: React.FC = props => {
   return <Root>{props.children}</Root>
@@ -8,7 +9,7 @@ const H3: React.FC = props => {
 const Root = styled.div`
   font-weight: bold;
   letter-spacing: 0.33em;
-  line-height: 1;
+  ${styles.mixins.lhCrop(2)}
 `
 
 export default H3

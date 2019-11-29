@@ -224,6 +224,8 @@ const Service: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
         <List head="ベーシックシェービング" price="4,000" />
       </Wrapper>
