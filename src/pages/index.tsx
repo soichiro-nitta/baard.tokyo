@@ -6,13 +6,13 @@ import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
-import Row from '~/components/base/Row'
 import Exhibition from '~/components/base/Exhibition'
 import ButtonNew from '~/components/base/ButtonNew'
 import Header from '~/components/index/Header'
 import Sections from '~/components/index/Sections'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
+import H3 from '~/components/base/H3'
 
 const Index: React.FC = () => {
   const global = useGlobal()
@@ -34,7 +34,12 @@ const Index: React.FC = () => {
         <Br />
         <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
       </Wrapper>
+      <Br />
+      <Border />
+      <Br />
       <Sections />
+      <Br />
+      <Border />
       <Br />
       <Border />
       <Br />
@@ -48,32 +53,51 @@ const Index: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <Row head="店名" data="BAARD（バーールト）理髪店" />
+        <H3>店名</H3>
+        <Br />
+        <P>BAARD（バーールト）理髪店</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Row head="住所" data="〒125-0061 東京都葛飾区亀有 2-59-7" />
+        <H3>住所</H3>
+        <Br />
+        <P>〒125-0061 東京都葛飾区亀有 2-59-7</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Row head="電話番号" data="03-6876-6647" />
+        <H3>最寄駅</H3>
+        <Br />
+        <P>JR常磐線 亀有駅 南口徒歩8分</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <Table />
+        <H3>電話番号</H3>
+        <Br />
+        <P>03-6876-6647</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <Row head="定休日" data="月曜日、第２第３火曜日" />
+        <P>
+          BAARD 理髪店（東京都葛飾区亀有 2-59-7）について、Google Mapsでみる。
+        </P>
+        <Br />
+        <ButtonNew
+          to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
+          text="Google Mapsを起動する"
+        />
       </Wrapper>
       <Br />
       <Border />
@@ -84,11 +108,26 @@ const Index: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <ButtonNew
-          to="https://www.google.com/maps/search/?api=1&query=BAARD%20理髪店"
-          text="Google Mapsを起動する"
-        />
+        <H3>営業時間</H3>
+        <Br />
+        <P>平日、10:00 ~ 20:00</P>
+        <Br />
+        <P>土日祝、09:00 ~ 19:00 </P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <H3>定休日</H3>
+        <Br />
+        <P>月曜日、第２第３火曜日</P>
+        <Br />
+        <Table />
       </Wrapper>
     </>
   )

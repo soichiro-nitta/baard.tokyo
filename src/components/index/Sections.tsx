@@ -46,6 +46,8 @@ const Sections: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Left
         fluid={data.service.childImageSharp.fluid}
         icon="faClipboardList"
@@ -53,6 +55,8 @@ const Sections: React.FC = () => {
         body="バーバーメニュー、女性のお顔そりのメニュー、実際のカット風景など"
         to="/service"
       />
+      <Br />
+      <Border />
       <Br />
       <Border />
       <Br />
