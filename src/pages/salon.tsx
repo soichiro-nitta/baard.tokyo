@@ -162,7 +162,7 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H3>SHUN なかだて しゅん</H3>
+        <H3>SHUN（なかだて しゅん）</H3>
         <Br />
         <P>趣味：沖縄旅行、ランニング、スノーボード、サッカー</P>
       </Wrapper>
@@ -185,7 +185,7 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H3>RISA なかだて りさ</H3>
+        <H3>RISA（なかだて りさ）</H3>
         <Br />
         <P>趣味：沖縄旅行、映画</P>
       </Wrapper>
