@@ -11,7 +11,7 @@ const useFadeOut = (params: {
   root: React.MutableRefObject<HTMLDivElement>
 }): void => {
   const { isPending, leave, root } = params
-  const duration = 0.7
+  const duration = 0.8
   useEffectAsync({
     effect: async () => {
       if (!isPending.state && leave) {
