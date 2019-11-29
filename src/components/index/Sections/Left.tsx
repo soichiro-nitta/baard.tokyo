@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -10,10 +9,13 @@ import {
   faLongArrowRight
 } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import { Playing } from '~/store/global/playing'
 import Filter from '~/components/base/Filter'
+import Video from '~/components/base/Video'
 
 type Props = {
-  fluid: FluidObject | FluidObject[]
+  playing: Playing
+  src: string
   icon: string
   head: string
   body: string
@@ -30,7 +32,7 @@ const Left: React.FC<Props> = props => {
     <Root>
       <Background />
       <ImgWrapper>
-        <Img fluid={props.fluid} />
+        <Video playing={props.playing} src={props.src} rootMargin="-40% 0%" />
         <Filter />
       </ImgWrapper>
       <Content>

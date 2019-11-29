@@ -37,7 +37,7 @@ const Index: React.FC = () => {
       <Br />
       <Border />
       <Br />
-      <Sections />
+      <Sections playing={global.playing} />
       <Br />
       <Border />
       <Br />
