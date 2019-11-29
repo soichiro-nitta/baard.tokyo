@@ -12,9 +12,9 @@ const useCanplaythrough: UseCanplaythrough = params => {
     const canplaythrough = (): void => {
       isPending.dispatch({ type: 'off' })
     }
-    root.current.addEventListener('canplaythrough', canplaythrough)
+    root.current.addEventListener('loadeddata', canplaythrough)
     return (): void => {
-      root.current.removeEventListener('canplaythrough', canplaythrough)
+      root.current.removeEventListener('loadeddata', canplaythrough)
     }
   }, [])
 }
