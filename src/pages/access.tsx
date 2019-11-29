@@ -91,6 +91,10 @@ const Access: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Exhibition>
+        <Map />
+      </Exhibition>
+      <Br />
       <Border />
       <Br />
       <Wrapper>
@@ -103,12 +107,6 @@ const Access: React.FC = () => {
           text="Google Mapsを起動する"
         />
       </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Exhibition>
-        <Map />
-      </Exhibition>
       <Br />
       <Border />
       <Br />
