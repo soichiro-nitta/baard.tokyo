@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { faCut } from '@fortawesome/pro-duotone-svg-icons'
-import styled from '@emotion/styled'
-import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
@@ -13,6 +11,7 @@ import Border from '~/components/base/Border'
 import H2 from '~/components/base/H2'
 import H3 from '~/components/base/H3'
 import Exhibition from '~/components/base/Exhibition'
+import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
 
@@ -114,14 +113,14 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <ExhibitionInner>
+        <ExhibitionPanorama>
           <Video
             playing={global.playing}
             src="/salon/reservation.mp4"
-            rootMargin="-40% 0%"
+            rootMargin="0% 0%"
           />
           <Filter />
-        </ExhibitionInner>
+        </ExhibitionPanorama>
       </Exhibition>
       <Br />
       <Border />
@@ -149,14 +148,14 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <ExhibitionInner>
+        <ExhibitionPanorama>
           <Video
             playing={global.playing}
             src="/salon/shun.mp4"
             rootMargin="-40% 0%"
           />
           <Filter />
-        </ExhibitionInner>
+        </ExhibitionPanorama>
       </Exhibition>
       <Br />
       <Border />
@@ -172,14 +171,14 @@ const Salon: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <ExhibitionInner>
+        <ExhibitionPanorama>
           <Video
             playing={global.playing}
             src="/salon/risa.mp4"
             rootMargin="-40% 0%"
           />
           <Filter />
-        </ExhibitionInner>
+        </ExhibitionPanorama>
       </Exhibition>
       <Br />
       <Border />
@@ -192,14 +191,5 @@ const Salon: React.FC = () => {
     </>
   )
 }
-
-const ExhibitionInner = styled.div`
-  position: relative;
-  width: 100%;
-  height: calc(
-    (100vw - ${styles.sizes.phone.dashboard + 1 + styles.sizes.phone.base()}px) /
-      16 * 10
-  );
-`
 
 export default Salon

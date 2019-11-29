@@ -15,7 +15,7 @@ const useFadeIn = (params: {
         x: '100%'
       })
       animations.x(root.current, '0%', duration, 'Out')
-      animations.opacity(root.current, 1, duration, 'InOut')
+      animations.opacity(root.current, 1, duration, 'Out')
     }
   }, [isPending.state])
 }

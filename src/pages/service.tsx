@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
-import styled from '@emotion/styled'
-import styles from '~/utils/styles'
 import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
@@ -11,6 +9,11 @@ import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import H2 from '~/components/base/H2'
 import List from '~/components/service/List'
+import Exhibition from '~/components/base/Exhibition'
+import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
+import Video from '~/components/base/Video'
+import Filter from '~/components/base/Filter'
+import P from '~/components/base/P'
 
 const Service: React.FC = () => {
   const en = 'service'
@@ -41,78 +44,155 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="BARBER" ja="メンズメニュー" />
+        <H2 en="BAARD COURSE" ja="オイルケアシェービング＆カット" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
+        <List head="ヘアカットコース" price="3,800" />
+        <Br />
+        <P>プレシャンプー、カット、シャンプー、マッサージ、ブロー</P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="スタンダードコース" price="5,300" />
+        <Br />
         <P>
-          BAARDではヘアスタイルを作る上で３つの要素を大切に、ヘアデザインに落とし込みます。お客様の髪質に合わせ－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
+          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、マッサージ、ブロー
         </P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <List head="メンズカット" price="5,000" />
+        <List head="プレミアムコース" price="6,300" />
+        <Br />
+        <P>
+          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、モイスチャーパック、ブルブルマッサージ、ブロー
+        </P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="ロイヤルコース" price="7,300" />
+        <Br />
+        <P>
+          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、フェイシャルマッサージ、モイスチャーパック、ブルブルマッサージ、ブロー
+        </P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <H2 en="MEN'S MENU" ja="メンズメニュー" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="カット" price="3,800" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="前髪カット" price="1,000" />
+        <List head="高校生" price="3,500" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="キッズカット" price="3,000" />
+        <List head="中学生" price="3,000" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="リタッチカラー" price="9,500" />
+        <List head="小学生以下" price="2,700" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="シェービング" price="1,500~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="オールカラー" price="13,500" />
+        <List head="カラー" price="3,200~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="デザインカラー" price="6,000" />
+        <List head="グレーカラー" price="3,200~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="ブリーチカラー" price="10,000" />
+        <List head="白髪ぼかしカラー" price="2,000~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="コスメパーマ" price="8,500" />
+        <List head="パーマ" price="4,000~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="エアウェーブパーマ" price="11,500" />
-      </Wrapper>
-      <Wrapper>
-        <List head="デジタルパーマ" price="12,500" />
+        <List head="アイロンパーマ" price="4,200~" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="ポイントパーマ" price="3,000" />
+        <List head="シャンプーブロー" price="1,500~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="ヘッドマッサージ15分" price="1,500" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="ヘッドマッサージ30分" price="3,000" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="頭皮クレンジング" price="500" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="マッサージ延長" price="500" />
       </Wrapper>
       <Br />
       <Border />
@@ -125,23 +205,58 @@ const Service: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Exhibition>
+        <ExhibitionPanorama>
+          <Video
+            playing={global.playing}
+            src="/service/ladys-shaving.mp4"
+            rootMargin="0% 0%"
+          />
+          <Filter />
+        </ExhibitionPanorama>
+      </Exhibition>
+      <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <P>
-          BAARDのレディースシェービングは－－。お顔のうぶ毛を剃ることにより－－。ここに説明など。ここに説明など。ここに説明など。ここに説明など。ここに説明など。
-        </P>
+        <P>※全てのコースに、眉カット・襟足シェービング付きとなります。</P>
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="シェービング" price="3,000" />
+        <List head="ベーシックシェービング" price="4,000" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="うる肌保湿コース" price="5,000" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="毛穴クリーンコース" price="5,000" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="リフトフェイシャルコース" price="8,500" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="ブライダルシェービング" price="15,000" />
+        <Br />
+        <P>挙式の1ヶ月以上前に一度ご相談ください。</P>
       </Wrapper>
     </>
   )
 }
-
-const P = styled.p`
-  ${styles.mixins.lhCrop(2)}
-`
 
 export default Service
