@@ -61,7 +61,11 @@ const Layout: React.FC = props => {
       </HumbergerWrapper>
       {!local.launched.state && (
         <OpeningWrapper>
-          <Opening isPending={global.isPending} launched={local.launched} />
+          <Opening
+            isPending={global.isPending}
+            launched={local.launched}
+            large={global.large}
+          />
         </OpeningWrapper>
       )}
       <SpinnerWrapper>

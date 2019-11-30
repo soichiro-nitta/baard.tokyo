@@ -7,10 +7,14 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
 import Borders from '~/components/default/Opening/Borders'
 import Svg from '~/components/default/Opening/Svg'
+import styles from '~/utils/styles'
+import { css } from '@emotion/core'
+import { Large } from '~/store/global/large'
 
 type Props = {
   isPending: IsPending
   launched: Launched
+  large: Large
 }
 
 const Opening: React.FC<Props> = props => {
@@ -26,7 +30,7 @@ const Opening: React.FC<Props> = props => {
     <Root>
       <Background />
       <BordersWrapper>
-        <Borders />
+        <Borders large={props.large} />
       </BordersWrapper>
       <SvgWrapper>
         <Svg />
@@ -36,9 +40,14 @@ const Opening: React.FC<Props> = props => {
 }
 
 const Root = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  ${styles.large(css`
+    margin: 0 auto;
+    width: ${styles.sizes.desktop.container()}px;
+  `)}
 `
 const BordersWrapper = styled.div`
   position: absolute;

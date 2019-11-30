@@ -5,6 +5,7 @@ import functions from '~/utils/functions'
 import styles from '~/utils/styles'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Logo from '~/assets/svg/logo.svg'
+import { css } from '@emotion/core'
 
 type RootTypes = React.MutableRefObject<HTMLDivElement> & {
   current: {
@@ -92,6 +93,9 @@ const Root = styled.div`
       fill-opacity: 0;
       opacity: 0;
     }
+    ${styles.large(css`
+      width: ${styles.sizes.phone.dashboard * 6}px;
+    `)}
   }
 `
 

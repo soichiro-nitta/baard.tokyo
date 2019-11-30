@@ -1,7 +1,7 @@
 import { TweenMax, Expo } from 'gsap'
 
 const y = (
-  element: Element | HTMLCollection,
+  element: Element | Element[] | HTMLCollection,
   value: string | number,
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
