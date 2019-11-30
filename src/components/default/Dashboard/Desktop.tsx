@@ -80,8 +80,6 @@ const Desktop: React.FC<Props> = props => {
       </PhoneMenu>
       <Border />
       <Br />
-      <Border />
-      <Br />
     </Root>
   )
 }

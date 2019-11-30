@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
+import Br from '~/components/base/Br'
 
 type Props = {
   links: { name: string; to: string; icon: IconDefinition }[]
@@ -13,34 +14,55 @@ type Props = {
 
 const Mobile: React.FC<Props> = props => {
   return (
-    <>
+    <Root>
       {props.links.map(value => {
         return (
-          <LinkIcon to={value.to} key={value.to}>
-            <FontAwesomeIcon icon={value.icon} />
-          </LinkIcon>
+          <Menu to={value.to} key={value.to}>
+            <Br />
+            <SvgWrapper>
+              <FontAwesomeIcon icon={value.icon} />
+            </SvgWrapper>
+            <Br />
+          </Menu>
         )
       })}
+      <Br />
       <Border />
+      <Br />
       {props.options.map(value => {
         return (
-          <OptionIcon key={value.icon.iconName}>
-            <FontAwesomeIcon icon={value.icon} />
-          </OptionIcon>
+          <OptionMenu key={value.icon.iconName}>
+            <Br />
+            <SvgWrapper>
+              <FontAwesomeIcon icon={value.icon} />
+            </SvgWrapper>
+            <Br />
+          </OptionMenu>
         )
       })}
-      <Phone href={props.tel.href}>
-        <FontAwesomeIcon icon={props.tel.icon} />
-      </Phone>
-    </>
+      <PhoneMenu href={props.tel.href}>
+        <Br />
+        <SvgWrapper>
+          <FontAwesomeIcon icon={props.tel.icon} />
+        </SvgWrapper>
+        <Br />
+      </PhoneMenu>
+    </Root>
   )
 }
 
-const LinkIcon = styled(Link)`
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+`
+const Menu = styled(Link)`
   display: block;
-  :not(:first-of-type) {
-    margin-top: ${styles.sizes.phone.base() * 2}px;
-  }
+  width: 100%;
+  overflow: hidden;
+`
+const SvgWrapper = styled.div`
+  margin: 0 auto;
   width: 18px;
   text-align: center;
   svg {
@@ -51,35 +73,20 @@ const LinkIcon = styled(Link)`
   }
 `
 const Border = styled.div`
-  margin-top: ${styles.sizes.phone.base() * 2}px;
-  width: 100%;
+  margin: 0 auto;
+  width: 18px;
   height: 1px;
   background: ${styles.colors.light.border};
 `
-const OptionIcon = styled.div`
-  display: block;
-  margin-top: ${styles.sizes.phone.base() * 2}px;
-  width: 18px;
-  text-align: center;
-  opacity: 0.3;
-  svg {
-    color: ${styles.colors.light.logo};
-    font-size: 16px;
-    height: 16px;
-    vertical-align: top;
-  }
-`
-const Phone = styled.a`
-  display: block;
-  margin-top: ${styles.sizes.phone.base() * 2}px;
+const OptionMenu = styled.div`
   width: 100%;
-  text-align: center;
-  svg {
-    color: ${styles.colors.light.logo};
-    font-size: 16px;
-    height: 16px;
-    vertical-align: top;
-  }
+  overflow: hidden;
+  opacity: 0.3;
+`
+const PhoneMenu = styled.a`
+  display: block;
+  width: 100%;
+  overflow: hidden;
 `
 
 export default Mobile

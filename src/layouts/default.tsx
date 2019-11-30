@@ -88,10 +88,9 @@ const BordersWrapper = styled.div`
 `
 const DashboardWrapper = styled.div`
   position: fixed;
-  top: ${styles.sizes.phone.dashboard +
-    (styles.sizes.phone.dashboard - 30) / 2 +
-    5}px;
-  left: ${styles.sizes.phone.base}px;
+  top: ${styles.sizes.phone.dashboard}px;
+  left: 0;
+  width: ${styles.sizes.phone.dashboard}px;
   z-index: 1;
   ${isBrowser &&
     css`
