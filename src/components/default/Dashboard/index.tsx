@@ -7,11 +7,15 @@ import {
   faFillDrip,
   faPhone
 } from '@fortawesome/pro-duotone-svg-icons'
-import { isBrowser } from 'react-device-detect'
+import { Large } from '~/store/global/large'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
-const Dashboard: React.FC = () => {
+type Props = {
+  large: Large
+}
+
+const Dashboard: React.FC<Props> = props => {
   const links = [
     {
       name: 'ホーム',
@@ -46,9 +50,9 @@ const Dashboard: React.FC = () => {
   }
   return (
     <>
-      {(isBrowser && <Desktop links={links} options={options} tel={tel} />) || (
-        <Mobile links={links} options={options} tel={tel} />
-      )}
+      {(props.large.state && (
+        <Desktop links={links} options={options} tel={tel} />
+      )) || <Mobile links={links} options={options} tel={tel} />}
     </>
   )
 }

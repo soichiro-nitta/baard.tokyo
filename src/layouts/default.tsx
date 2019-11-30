@@ -8,6 +8,7 @@ import { useGlobal } from '~/store/global'
 import { useLocal } from '~/store/default'
 // import useAlert from '~/hooks/default/useAlert'
 import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
+import useWindow from '~/hooks/default/useWindow'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
 import Sidecolumn from '~/components/default/Sidecolumn'
@@ -18,7 +19,6 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-import { isBrowser } from 'react-device-detect'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -26,16 +26,17 @@ const Layout: React.FC = props => {
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
   // useAlert()
   useNavigationWrapper(local.gnav, navigationWrapper)
+  useWindow({ large: global.large })
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
       <BordersWrapper>
-        <Borders />
+        <Borders large={global.large} />
       </BordersWrapper>
       <DashboardWrapper>
-        <Dashboard />
+        <Dashboard large={global.large} />
       </DashboardWrapper>
-      {isBrowser && (
+      {global.large.state && (
         <SidecolumnWrapper>
           <Sidecolumn />
         </SidecolumnWrapper>

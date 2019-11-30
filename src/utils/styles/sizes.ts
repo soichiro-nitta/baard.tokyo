@@ -28,7 +28,7 @@ const sizes = {
     base: (): number => (sizes.phone.dashboard - sizes.phone.scrollbar) / 2
   },
   mq: {
-    large: 1046
+    large: 1047
   }
 }
 
