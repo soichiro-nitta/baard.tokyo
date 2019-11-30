@@ -7,11 +7,11 @@ const sizes = {
       1 +
       sizes.phone.dashboard * 1.5,
     main: (): number =>
-      sizes.phone.dashboard * 3 +
+      sizes.phone.dashboard * 2.5 +
       1 +
-      sizes.phone.dashboard * 3 +
+      sizes.phone.dashboard * 2.5 +
       1 +
-      sizes.phone.dashboard * 3,
+      sizes.phone.dashboard * 2.5,
     container: (): number =>
       1 +
       sizes.desktop.dashboard() +
@@ -28,7 +28,7 @@ const sizes = {
     base: (): number => (sizes.phone.dashboard - sizes.phone.scrollbar) / 2
   },
   mq: {
-    large: 1047
+    large: 955.5
   }
 }
 

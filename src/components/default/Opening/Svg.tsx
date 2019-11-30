@@ -94,7 +94,7 @@ const Root = styled.div`
       opacity: 0;
     }
     ${styles.large(css`
-      width: ${styles.sizes.phone.dashboard * 6}px;
+      width: ${styles.sizes.phone.dashboard * 5}px;
     `)}
   }
 `

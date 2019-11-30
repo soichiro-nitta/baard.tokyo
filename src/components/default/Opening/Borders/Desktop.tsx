@@ -93,7 +93,7 @@ const Border2 = styled.div`
   opacity: 0;
 `
 const Border3 = styled.div`
-  margin-left: ${styles.sizes.phone.dashboard * 3}px;
+  margin-left: ${styles.sizes.phone.dashboard * 2.5}px;
   width: 1px;
   height: 100%;
   background: ${styles.colors.light.border};
