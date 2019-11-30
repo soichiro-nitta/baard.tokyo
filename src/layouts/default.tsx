@@ -92,41 +92,38 @@ const DashboardWrapper = styled.div`
   left: 0;
   width: ${styles.sizes.phone.dashboard}px;
   z-index: 1;
-  ${isBrowser &&
-    css`
-      top: ${styles.sizes.phone.dashboard}px;
-      left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-      width: ${styles.sizes.desktop.dashboard()}px;
-      height: 100%;
-    `}
+  ${styles.large(css`
+    top: ${styles.sizes.phone.dashboard}px;
+    left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+    width: ${styles.sizes.desktop.dashboard()}px;
+    height: 100%;
+  `)}
 `
 const SidecolumnWrapper = styled.div`
-  ${isBrowser &&
-    css`
-      position: fixed;
-      top: ${styles.sizes.phone.dashboard}px;
-      right: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-      width: ${styles.sizes.desktop.dashboard()}px;
-      height: 100%;
-      z-index: 1;
-    `}
+  ${styles.large(css`
+    position: fixed;
+    top: ${styles.sizes.phone.dashboard}px;
+    right: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+    width: ${styles.sizes.desktop.dashboard()}px;
+    height: 100%;
+    z-index: 1;
+  `)}
 `
 const ScrollbarWrapper = styled.div`
   position: fixed;
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
-  ${isBrowser &&
-    css`
-      display: flex;
-      align-items: center;
-      left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-      bottom: 0;
-      padding-left: ${styles.sizes.phone.base()}px;
-      width: ${styles.sizes.desktop.dashboard()}px;
-      height: ${styles.sizes.phone.dashboard}px;
-      border-top: 1px solid ${styles.colors.light.border};
-    `}
+  ${styles.large(css`
+    display: flex;
+    align-items: center;
+    left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+    bottom: 0;
+    padding-left: ${styles.sizes.phone.base()}px;
+    width: ${styles.sizes.desktop.dashboard()}px;
+    height: ${styles.sizes.phone.dashboard}px;
+    border-top: 1px solid ${styles.colors.light.border};
+  `)}
 `
 const NavigationWrapper = styled.div`
   position: fixed;
@@ -134,13 +131,12 @@ const NavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  ${isBrowser &&
-    css`
-      margin: 0 auto;
-      width: ${styles.sizes.desktop.container() - 2}px;
-      left: 0;
-      right: 0;
-    `}
+  ${styles.large(css`
+    margin: 0 auto;
+    width: ${styles.sizes.desktop.container() - 2}px;
+    left: 0;
+    right: 0;
+  `)}
 `
 const LogoHeight = 20
 const LogoWrapper = styled(Link)`
@@ -157,13 +153,12 @@ const LogoWrapper = styled(Link)`
     height: 100%;
     vertical-align: top;
   }
-  ${isBrowser &&
-    css`
-      left: calc(
-        (100% - ${styles.sizes.desktop.container()}px) / 2 +
-          ${styles.sizes.phone.base() + 1}px
-      );
-    `}
+  ${styles.large(css`
+    left: calc(
+      (100% - ${styles.sizes.desktop.container()}px) / 2 +
+        ${styles.sizes.phone.base() + 1}px
+    );
+  `)}
 `
 const HumbergerWrapper = styled.div`
   position: fixed;
@@ -171,13 +166,12 @@ const HumbergerWrapper = styled.div`
   right: ${styles.sizes.phone.base}px;
   mix-blend-mode: exclusion;
   z-index: 1;
-  ${isBrowser &&
-    css`
-      right: calc(
-        (100% - ${styles.sizes.desktop.container()}px) / 2 +
-          ${styles.sizes.phone.base() + 1}px
-      );
-    `}
+  ${styles.large(css`
+    right: calc(
+      (100% - ${styles.sizes.desktop.container()}px) / 2 +
+        ${styles.sizes.phone.base() + 1}px
+    );
+  `)}
 `
 const OpeningWrapper = styled.div`
   position: fixed;
@@ -194,14 +188,13 @@ const SpinnerWrapper = styled.div`
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
-  ${isBrowser &&
-    css`
-      left: calc(
-        (100% - ${styles.sizes.desktop.container()}px) / 2 +
-          ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
-            2}px
-      );
-    `}
+  ${styles.large(css`
+    left: calc(
+      (100% - ${styles.sizes.desktop.container()}px) / 2 +
+        ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
+          2}px
+    );
+  `)}
 `
 const ProgressbarWrapper = styled.div`
   position: fixed;

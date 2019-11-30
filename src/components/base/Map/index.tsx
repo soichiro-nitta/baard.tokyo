@@ -6,7 +6,6 @@ import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/base/Map/options'
-import { isBrowser } from 'react-device-detect'
 import { css } from '@emotion/core'
 
 const Map: React.FC = () => {
@@ -41,10 +40,9 @@ const Root = styled.div`
     border-right: 1px solid ${styles.colors.light.border};
     border-bottom: 1px solid ${styles.colors.light.border};
   }
-  ${isBrowser &&
-    css`
-      height: ${styles.sizes.desktop.main() * 1.05}px;
-    `}
+  ${styles.large(css`
+    height: ${styles.sizes.desktop.main() * 1.05}px;
+  `)}
 `
 const width = 39
 const height = 52

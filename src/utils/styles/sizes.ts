@@ -26,6 +26,9 @@ const sizes = {
     dashboard: 61,
     scrollbar: 20,
     base: (): number => (sizes.phone.dashboard - sizes.phone.scrollbar) / 2
+  },
+  mq: {
+    large: 1046
   }
 }
 

@@ -9,7 +9,6 @@ import { IsPending } from '~/store/global/isPending'
 import Video from '~/components/base/Video'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
-import { isBrowser } from 'react-device-detect'
 import { css } from '@emotion/core'
 
 type Props = {
@@ -55,10 +54,9 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: 105vw;
-  ${isBrowser &&
-    css`
-      height: ${styles.sizes.desktop.main() * 1.05}px;
-    `}
+  ${styles.large(css`
+    height: ${styles.sizes.desktop.main() * 1.05}px;
+  `)}
 `
 const Content = styled.div`
   display: flex;

@@ -12,7 +12,6 @@ import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
-import { isBrowser } from 'react-device-detect'
 import { css } from '@emotion/core'
 
 type Props = {
@@ -58,11 +57,9 @@ const Root = styled.div`
   width: calc(100% - ${styles.sizes.phone.base}px);
   height: calc(105vw + ${styles.sizes.phone.base}px);
   color: white;
-  ${isBrowser &&
-    css`
-      height: ${styles.sizes.desktop.main() * 1.05 +
-        styles.sizes.phone.base()}px;
-    `}
+  ${styles.large(css`
+    height: ${styles.sizes.desktop.main() * 1.05 + styles.sizes.phone.base()}px;
+  `)}
 `
 const Background = styled.div`
   position: absolute;
