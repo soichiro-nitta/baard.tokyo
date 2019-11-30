@@ -51,9 +51,9 @@ const Header: React.FC<Props> = props => {
 const Root = styled.div`
   position: relative;
   width: 100%;
-  height: 105vw;
+  height: calc((100vw - ${styles.sizes.phone.dashboard + 1}px) * 1.25);
   ${styles.large(css`
-    height: ${styles.sizes.desktop.main() * 1.05}px;
+    height: ${styles.sizes.desktop.main() * 1.25}px;
   `)}
 `
 const Text = styled.div`

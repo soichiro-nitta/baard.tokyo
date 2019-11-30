@@ -11,11 +11,12 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: calc(
-    (100vw - ${styles.sizes.phone.dashboard + 1 + styles.sizes.phone.base()}px) /
-      16 * 10
+    (100vw - ${styles.sizes.phone.dashboard + 1 + styles.sizes.phone.base()}px) *
+      1.25
   );
   ${styles.large(css`
-    height: ${(styles.sizes.desktop.main() / 16) * 10}px;
+    height: ${(styles.sizes.desktop.main() - styles.sizes.phone.base()) *
+      1.25}px;
   `)}
 `
 

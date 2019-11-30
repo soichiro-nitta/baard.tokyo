@@ -59,7 +59,6 @@ const Navigation: React.FC<Props> = props => {
             <List icon={faMapMarkedAlt} en="ACCESS" ja="アクセス" />
           </Wrapper>
         </Link>
-        <Bottom />
       </Contents>
     </Root>
   )
@@ -79,10 +78,6 @@ const Contents = styled.div`
   width: 100%;
   height: 100%;
   color: white;
-`
-const Bottom = styled.div`
-  border-top: 1px solid
-    rgba(${functions.hexToRgb(styles.colors.light.shape)}, 0.1);
 `
 
 export default Navigation
