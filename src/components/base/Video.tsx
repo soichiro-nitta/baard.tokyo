@@ -16,7 +16,7 @@ type Props = {
 }
 
 const Video: React.FC<Props> = props => {
-  const src = config.dev ? `${props.src}` : `${config.firebase}/${props.src}`
+  const src = `${config.firebase}${props.src}`
   const root = React.useRef<HTMLVideoElement>(null)
   const previous = usePrevious(props.playing.state)
   useLoad(root)

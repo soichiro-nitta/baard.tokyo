@@ -14,9 +14,7 @@ type Props = {
 }
 
 const Video: React.FC<Props> = props => {
-  const src = config.dev
-    ? `${config.local}/${props.src}`
-    : `${config.firebase}/${props.src}`
+  const src = `${config.firebase}${props.src}`
   const video = React.useRef<HTMLVideoElement>(null)
   useLoad({ video })
   usePlaying({ playing: props.playing, gnav: props.gnav })

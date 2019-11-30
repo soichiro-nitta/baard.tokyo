@@ -12,7 +12,6 @@ import functions from '~/utils/functions'
 import { Playing } from '~/store/global/playing'
 import { Gnav } from '~/store/default/gnav'
 import Filter from '~/components/base/Filter'
-import Borders from '~/components/default/Navigation/Borders'
 import Wrapper from '~/components/default/Navigation/Wrapper'
 import List from '~/components/default/Navigation/List'
 import useIn from '~/hooks/default/Navigation/useIn'
@@ -36,12 +35,9 @@ const Navigation: React.FC<Props> = props => {
       <Video
         playing={props.playing}
         gnav={props.gnav}
-        src="navigation/background.mp4"
+        src="/navigation/background.mp4"
       />
       <Filter />
-      <BordersWrapper>
-        <Borders />
-      </BordersWrapper>
       <Contents>
         <Link to="/" onClick={off}>
           <Wrapper>
@@ -72,14 +68,6 @@ const Navigation: React.FC<Props> = props => {
 const Root = styled.div`
   ${styles.mixins.relative}
   opacity: 0;
-`
-const BordersWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.1;
 `
 const Contents = styled.div`
   display: flex;
