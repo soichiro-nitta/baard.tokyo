@@ -21,7 +21,7 @@ const Header: React.FC<Props> = props => {
   const crumbs = [
     {
       to: '/',
-      name: 'ホーム'
+      name: 'ホームa'
     }
   ]
   return (
