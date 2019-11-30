@@ -79,6 +79,9 @@ const Desktop: React.FC<Props> = props => {
         <Br />
       </PhoneMenu>
       <Border />
+      <Br />
+      <Border />
+      <Br />
     </Root>
   )
 }

@@ -55,6 +55,9 @@ const Sidecolumn: React.FC = () => {
       </Wrapper>
       <Br />
       <Border />
+      <Br />
+      <Border />
+      <Br />
     </Root>
   )
 }

@@ -119,10 +119,14 @@ const ScrollbarWrapper = styled.div`
   height: 2px;
   ${isBrowser &&
     css`
-      left: calc(
-        (100% - ${styles.sizes.desktop.container()}px) / 2 +
-          ${styles.sizes.phone.base() + 1}px
-      );
+      display: flex;
+      align-items: center;
+      left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+      bottom: 0;
+      padding-left: ${styles.sizes.phone.base()}px;
+      width: ${styles.sizes.desktop.dashboard()}px;
+      height: ${styles.sizes.phone.dashboard}px;
+      border-top: 1px solid ${styles.colors.light.border};
     `}
 `
 const NavigationWrapper = styled.div`
