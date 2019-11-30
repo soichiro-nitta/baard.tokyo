@@ -1,8 +1,10 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import { isMobile } from 'react-device-detect'
+import styles from '~/utils/styles'
 import { CurrentPage } from '~/store/global/currentPage'
 import { IsPending } from '~/store/global/isPending'
-import styles from '~/utils/styles'
 import useFadeIn from '~/hooks/default/Childrens/Page/useFadeIn'
 import useFadeOut from '~/hooks/default/Childrens/Page/useFadeOut'
 import Exhibition from '~/components/base/Exhibition'
@@ -22,31 +24,36 @@ type Props = {
 
 const Page: React.FC<Props> = props => {
   const root = React.useRef<HTMLDivElement>(null)
+  const inner = React.useRef<HTMLDivElement>(null)
   React.useEffect(() => {
     props.currentPage.dispatch({ type: 'set', payload: root.current })
-  })
+  }, [])
   useFadeIn({
     isPending: props.isPending,
     leave: props.page.leave,
-    root
+    inner
   })
   useFadeOut({
     isPending: props.isPending,
     leave: props.page.leave,
-    root
+    inner
   })
   return (
     <Root ref={root}>
-      {props.page.node}
-      <Br />
-      <Border />
-      <Br />
-      <Exhibition>
-        <Footer />
-      </Exhibition>
-      <Br />
-      <Border />
-      <Br />
+      <Clipping>
+        <Inner ref={inner}>
+          {props.page.node}
+          <Br />
+          <Border />
+          <Br />
+          <Exhibition>
+            <Footer />
+          </Exhibition>
+          <Br />
+          <Border />
+          <Br />
+        </Inner>
+      </Clipping>
     </Root>
   )
 }
@@ -54,7 +61,6 @@ const Page: React.FC<Props> = props => {
 const Root = styled.div`
   position: absolute;
   top: 0;
-  padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -62,6 +68,20 @@ const Root = styled.div`
   -webkit-overflow-scrolling: touch;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+`
+const Clipping = styled.div`
+  padding-left: ${styles.sizes.phone.dashboard + 1}px;
+  width: 100%;
+  overflow: hidden;
+  ${!isMobile &&
+    css`
+      margin: 0 auto;
+      padding: 0;
+      width: ${styles.sizes.desktop.main()}px;
+    `}
+`
+const Inner = styled.div`
+  width: 100%;
   opacity: 0;
 `
 

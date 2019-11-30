@@ -8,6 +8,8 @@ import Rihatsuten from '~/assets/svg/rihatsuten.svg'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 import Video from '~/components/base/Video'
+import { isMobile } from 'react-device-detect'
+import { css } from '@emotion/core'
 
 type Props = {
   playing: Playing
@@ -51,6 +53,10 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: 105vw;
+  ${!isMobile &&
+    css`
+      height: ${styles.sizes.desktop.main() * 1.05}px;
+    `}
 `
 const Text = styled.div`
   display: flex;

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Global as GlobalStyles } from '@emotion/core'
+import { Global as GlobalStyles, css } from '@emotion/core'
 import styles, { global as globalStyles } from '~/utils/styles'
 import Logo from '~/assets/svg/baard.svg'
 import { useGlobal } from '~/store/global'
 import { useLocal } from '~/store/default'
-import useAlert from '~/hooks/default/useAlert'
+// import useAlert from '~/hooks/default/useAlert'
 import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
@@ -17,12 +17,13 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
+import { isMobile } from 'react-device-detect'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
   const local = useLocal()
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
-  useAlert()
+  // useAlert()
   useNavigationWrapper(local.gnav, navigationWrapper)
   return (
     <>
@@ -81,12 +82,26 @@ const DashboardWrapper = styled.div`
     5}px;
   left: ${styles.sizes.phone.base}px;
   z-index: 1;
+  ${!isMobile &&
+    css`
+      left: calc(
+        (100% - ${styles.sizes.desktop.container()}px) / 2 +
+          ${styles.sizes.phone.base() + 1}px
+      );
+    `}
 `
 const ScrollbarWrapper = styled.div`
   position: fixed;
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
+  ${!isMobile &&
+    css`
+      left: calc(
+        (100% - ${styles.sizes.desktop.container()}px) / 2 +
+          ${styles.sizes.phone.base() + 1}px
+      );
+    `}
 `
 const NavigationWrapper = styled.div`
   position: fixed;
@@ -94,6 +109,13 @@ const NavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
+  ${!isMobile &&
+    css`
+      margin: 0 auto;
+      width: ${styles.sizes.desktop.container() - 2}px;
+      left: 0;
+      right: 0;
+    `}
 `
 const LogoHeight = 20
 const LogoWrapper = styled(Link)`
@@ -110,6 +132,13 @@ const LogoWrapper = styled(Link)`
     height: 100%;
     vertical-align: top;
   }
+  ${!isMobile &&
+    css`
+      left: calc(
+        (100% - ${styles.sizes.desktop.container()}px) / 2 +
+          ${styles.sizes.phone.base() + 1}px
+      );
+    `}
 `
 const HumbergerWrapper = styled.div`
   position: fixed;
@@ -117,6 +146,13 @@ const HumbergerWrapper = styled.div`
   right: ${styles.sizes.phone.base}px;
   mix-blend-mode: exclusion;
   z-index: 1;
+  ${!isMobile &&
+    css`
+      right: calc(
+        (100% - ${styles.sizes.desktop.container()}px) / 2 +
+          ${styles.sizes.phone.base() + 1}px
+      );
+    `}
 `
 const OpeningWrapper = styled.div`
   position: fixed;
@@ -133,6 +169,14 @@ const SpinnerWrapper = styled.div`
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
+  ${!isMobile &&
+    css`
+      left: calc(
+        (100% - ${styles.sizes.desktop.container()}px) / 2 +
+          ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
+            2}px
+      );
+    `}
 `
 const ProgressbarWrapper = styled.div`
   position: fixed;

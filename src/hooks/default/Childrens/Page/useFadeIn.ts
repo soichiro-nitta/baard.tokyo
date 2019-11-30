@@ -5,17 +5,17 @@ import animations from '~/utils/animations'
 const useFadeIn = (params: {
   isPending: IsPending
   leave: boolean
-  root: React.MutableRefObject<HTMLDivElement>
+  inner: React.MutableRefObject<HTMLDivElement>
 }): void => {
-  const { isPending, leave, root } = params
+  const { isPending, leave, inner } = params
   const duration = 1
   React.useEffect(() => {
     if (!isPending.state && !leave) {
-      animations.set(root.current, {
+      animations.set(inner.current, {
         x: '100%'
       })
-      animations.x(root.current, '0%', duration, 'Out')
-      animations.opacity(root.current, 1, duration, 'Out')
+      animations.x(inner.current, '0%', duration, 'Out')
+      animations.opacity(inner.current, 1, duration, 'Out')
     }
   }, [isPending.state])
 }

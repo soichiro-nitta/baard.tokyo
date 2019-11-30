@@ -9,6 +9,8 @@ import { IsPending } from '~/store/global/isPending'
 import Video from '~/components/base/Video'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
+import { isMobile } from 'react-device-detect'
+import { css } from '@emotion/core'
 
 type Props = {
   playing: Playing
@@ -53,11 +55,10 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: 105vw;
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  ${!isMobile &&
+    css`
+      height: ${styles.sizes.desktop.main() * 1.05}px;
+    `}
 `
 const Content = styled.div`
   display: flex;
