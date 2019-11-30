@@ -17,7 +17,7 @@ type Props = {
 
 const Desktop: React.FC<Props> = props => {
   return (
-    <>
+    <Root>
       {props.links.map(value => {
         return (
           <div key={value.to}>
@@ -79,10 +79,15 @@ const Desktop: React.FC<Props> = props => {
         <Br />
       </PhoneMenu>
       <Border />
-    </>
+    </Root>
   )
 }
 
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+`
 const Menu = styled(Link)`
   display: block;
   overflow: hidden;

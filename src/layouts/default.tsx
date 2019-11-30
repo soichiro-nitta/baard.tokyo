@@ -98,6 +98,7 @@ const DashboardWrapper = styled.div`
       top: ${styles.sizes.phone.dashboard}px;
       left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
       width: ${styles.sizes.desktop.dashboard()}px;
+      height: 100%;
     `}
 `
 const SidecolumnWrapper = styled.div`
@@ -107,6 +108,7 @@ const SidecolumnWrapper = styled.div`
       top: ${styles.sizes.phone.dashboard}px;
       right: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
       width: ${styles.sizes.desktop.dashboard()}px;
+      height: 100%;
       z-index: 1;
     `}
 `
