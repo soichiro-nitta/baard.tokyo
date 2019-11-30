@@ -18,7 +18,7 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-import { isBrowser } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -35,7 +35,7 @@ const Layout: React.FC = props => {
       {/* <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper> */}
-      {isBrowser && (
+      {!isMobile && (
         <SidecolumnWrapper>
           <Sidecolumn />
         </SidecolumnWrapper>
@@ -92,7 +92,7 @@ const DashboardWrapper = styled.div`
   left: 0;
   width: ${styles.sizes.phone.dashboard}px;
   z-index: 1;
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       top: ${styles.sizes.phone.dashboard}px;
       left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
@@ -101,7 +101,7 @@ const DashboardWrapper = styled.div`
     `}
 `
 const SidecolumnWrapper = styled.div`
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       position: fixed;
       top: ${styles.sizes.phone.dashboard}px;
@@ -116,7 +116,7 @@ const ScrollbarWrapper = styled.div`
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       display: flex;
       align-items: center;
@@ -134,7 +134,7 @@ const NavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       margin: 0 auto;
       width: ${styles.sizes.desktop.container() - 2}px;
@@ -157,7 +157,7 @@ const LogoWrapper = styled(Link)`
     height: 100%;
     vertical-align: top;
   }
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -171,7 +171,7 @@ const HumbergerWrapper = styled.div`
   right: ${styles.sizes.phone.base}px;
   mix-blend-mode: exclusion;
   z-index: 1;
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       right: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -194,7 +194,7 @@ const SpinnerWrapper = styled.div`
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
-  ${isBrowser &&
+  ${!isMobile &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +

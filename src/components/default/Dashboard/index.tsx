@@ -7,7 +7,7 @@ import {
   faFillDrip,
   faPhone
 } from '@fortawesome/pro-duotone-svg-icons'
-import { isBrowser } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 
@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
   }
   return (
     <>
-      {(isBrowser && <Desktop links={links} options={options} tel={tel} />) || (
+      {(!isMobile && <Desktop links={links} options={options} tel={tel} />) || (
         <Mobile links={links} options={options} tel={tel} />
       )}
     </>

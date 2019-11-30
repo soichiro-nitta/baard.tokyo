@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { isBrowser } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 
 const useAlert = (): void => {
   React.useEffect(() => {
-    if (isBrowser) {
+    if (!isMobile) {
       window.alert(
         'Coming Soon...現在PC版未実装のため、モバイルにて閲覧ください。'
       )
