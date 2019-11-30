@@ -6,6 +6,7 @@ import P from '../base/P'
 import Br from '../base/Br'
 import Border from '../base/Border'
 import Wrapper from '../base/Wrapper'
+import H3 from '../base/H3'
 
 const Sidecolumn: React.FC = () => {
   return (
@@ -15,6 +16,8 @@ const Sidecolumn: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
+        <H3>フェイスブック</H3>
+        <Br />
         <P>
           Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
         </P>
@@ -27,6 +30,8 @@ const Sidecolumn: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
+        <H3>インスタグラム</H3>
+        <Br />
         <P>Sidecolumn</P>
         <Br />
         <ButtonNew to={config.instagram} text="スタイル集はInstagram" />
@@ -37,6 +42,8 @@ const Sidecolumn: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
+        <H3>グーグルマップ</H3>
+        <Br />
         <P>
           BAARD 理髪店（東京都葛飾区亀有 2-59-7）について、Google Mapsでみる。
         </P>
@@ -54,6 +61,7 @@ const Sidecolumn: React.FC = () => {
 
 const Root = styled.div`
   width: 100%;
+  text-align: right;
 `
 
 export default Sidecolumn
