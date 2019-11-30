@@ -29,12 +29,12 @@ const Layout: React.FC = props => {
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
-      <BordersWrapper>
+      {/* <BordersWrapper>
         <Borders />
-      </BordersWrapper>
-      <DashboardWrapper>
+      </BordersWrapper> */}
+      {/* <DashboardWrapper>
         <Dashboard />
-      </DashboardWrapper>
+      </DashboardWrapper> */}
       {isBrowser && (
         <SidecolumnWrapper>
           <Sidecolumn />
