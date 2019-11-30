@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import P from '~/components/base/P'
+import Wrapper from '~/components/base/Wrapper'
+import Border from '~/components/base/Border'
+import Br from '~/components/base/Br'
 
 type Props = {
   links: { name: string; to: string; icon: IconDefinition }[]
@@ -17,37 +20,78 @@ const Desktop: React.FC<Props> = props => {
     <>
       {props.links.map(value => {
         return (
-          <LinkWrapper to={value.to} key={value.to}>
-            <FontAwesomeIcon icon={value.icon} />
-            <LinkName>
-              <P>{value.name}</P>
-            </LinkName>
-          </LinkWrapper>
+          <div key={value.to}>
+            <Border />
+            <Br />
+            <Border />
+            <Menu to={value.to}>
+              <Br />
+              <Wrapper>
+                <Flex>
+                  <SvgWrapper>
+                    <FontAwesomeIcon icon={value.icon} />
+                  </SvgWrapper>
+                  <LinkName>
+                    <P>{value.name}</P>
+                  </LinkName>
+                </Flex>
+              </Wrapper>
+              <Br />
+            </Menu>
+          </div>
+        )
+      })}
+      {props.options.map(value => {
+        return (
+          <div key={value.icon.iconName}>
+            <Border />
+            <Br />
+            <Border />
+            <Br />
+            <OptionWrapper>
+              <Wrapper>
+                <Flex>
+                  <SvgWrapper>
+                    <FontAwesomeIcon icon={value.icon} />
+                  </SvgWrapper>
+                </Flex>
+              </Wrapper>
+            </OptionWrapper>
+            <Br />
+          </div>
         )
       })}
       <Border />
-      {props.options.map(value => {
-        return (
-          <OptionIcon key={value.icon.iconName}>
-            <FontAwesomeIcon icon={value.icon} />
-          </OptionIcon>
-        )
-      })}
-      <PhoneWrapper href={props.tel.href}>
-        <FontAwesomeIcon icon={props.tel.icon} />
-        <LinkName>
-          <P>{props.tel.name}</P>
-        </LinkName>
-      </PhoneWrapper>
+      <Br />
+      <Border />
+      <PhoneMenu href={props.tel.href}>
+        <Br />
+        <Wrapper>
+          <Flex>
+            <SvgWrapper>
+              <FontAwesomeIcon icon={props.tel.icon} />
+            </SvgWrapper>
+            <LinkName>
+              <P>{props.tel.name}</P>
+            </LinkName>
+          </Flex>
+        </Wrapper>
+        <Br />
+      </PhoneMenu>
+      <Border />
     </>
   )
 }
 
-const LinkWrapper = styled(Link)`
+const Menu = styled(Link)`
+  display: block;
+  overflow: hidden;
+`
+const Flex = styled.div`
   display: flex;
-  :not(:first-of-type) {
-    margin-top: ${styles.sizes.phone.base() * 2}px;
-  }
+`
+const SvgWrapper = styled.div`
+  width: 18px;
   text-align: center;
   svg {
     color: ${styles.colors.light.logo};
@@ -59,35 +103,12 @@ const LinkWrapper = styled(Link)`
 const LinkName = styled.div`
   margin-left: ${styles.sizes.phone.base}px;
 `
-const Border = styled.div`
-  margin-top: ${styles.sizes.phone.base() * 2}px;
-  width: 18px;
-  height: 1px;
-  background: ${styles.colors.light.border};
-`
-const OptionIcon = styled.div`
-  display: block;
-  margin-top: ${styles.sizes.phone.base() * 2}px;
-  width: 18px;
-  text-align: center;
+const OptionWrapper = styled.div`
   opacity: 0.3;
-  svg {
-    color: ${styles.colors.light.logo};
-    font-size: 16px;
-    height: 16px;
-    vertical-align: top;
-  }
 `
-const PhoneWrapper = styled.a`
-  display: flex;
-  margin-top: ${styles.sizes.phone.base() * 2}px;
-  text-align: center;
-  svg {
-    color: ${styles.colors.light.logo};
-    font-size: 16px;
-    height: 16px;
-    vertical-align: top;
-  }
+const PhoneMenu = styled.a`
+  display: block;
+  overflow: hidden;
 `
 
 export default Desktop

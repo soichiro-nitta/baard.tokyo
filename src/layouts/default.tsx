@@ -10,6 +10,7 @@ import { useLocal } from '~/store/default'
 import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
+import Sidecolumn from '~/components/default/Sidecolumn'
 import Scrollbar from '~/components/default/Scrollbar'
 import Spinner from '~/components/default/Spinner'
 import Humberger from '~/components/default/Humberger'
@@ -34,6 +35,11 @@ const Layout: React.FC = props => {
       <DashboardWrapper>
         <Dashboard />
       </DashboardWrapper>
+      {isBrowser && (
+        <SidecolumnWrapper>
+          <Sidecolumn />
+        </SidecolumnWrapper>
+      )}
       <ScrollbarWrapper>
         <Scrollbar
           currentPage={global.currentPage}
@@ -89,10 +95,19 @@ const DashboardWrapper = styled.div`
   z-index: 1;
   ${isBrowser &&
     css`
-      left: calc(
-        (100% - ${styles.sizes.desktop.container()}px) / 2 +
-          ${styles.sizes.phone.base() + 1}px
-      );
+      top: ${styles.sizes.phone.dashboard}px;
+      left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+      width: ${styles.sizes.desktop.dashboard()}px;
+    `}
+`
+const SidecolumnWrapper = styled.div`
+  ${isBrowser &&
+    css`
+      position: fixed;
+      top: ${styles.sizes.phone.dashboard}px;
+      right: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
+      width: ${styles.sizes.desktop.dashboard()}px;
+      z-index: 1;
     `}
 `
 const ScrollbarWrapper = styled.div`
