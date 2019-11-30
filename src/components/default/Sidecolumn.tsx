@@ -64,7 +64,11 @@ const Root = styled.div`
   width: 100%;
   height: 100%;
   text-align: right;
+  overflow-x: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 `
 
 export default Sidecolumn
