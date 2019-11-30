@@ -17,7 +17,7 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-import { isMobile } from 'react-device-detect'
+import { isBrowser } from 'react-device-detect'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -26,7 +26,7 @@ const Layout: React.FC = props => {
   // useAlert()
   useNavigationWrapper(local.gnav, navigationWrapper)
   return (
-    <>
+    <Root>
       <GlobalStyles styles={globalStyles} />
       <BordersWrapper>
         <Borders />
@@ -63,10 +63,15 @@ const Layout: React.FC = props => {
       <ProgressbarWrapper>
         <Progressbar isPending={global.isPending} />
       </ProgressbarWrapper>
-    </>
+    </Root>
   )
 }
 
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+`
 const BordersWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -82,7 +87,7 @@ const DashboardWrapper = styled.div`
     5}px;
   left: ${styles.sizes.phone.base}px;
   z-index: 1;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -95,7 +100,7 @@ const ScrollbarWrapper = styled.div`
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -109,7 +114,7 @@ const NavigationWrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       margin: 0 auto;
       width: ${styles.sizes.desktop.container() - 2}px;
@@ -132,7 +137,7 @@ const LogoWrapper = styled(Link)`
     height: 100%;
     vertical-align: top;
   }
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -146,7 +151,7 @@ const HumbergerWrapper = styled.div`
   right: ${styles.sizes.phone.base}px;
   mix-blend-mode: exclusion;
   z-index: 1;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       right: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +
@@ -169,7 +174,7 @@ const SpinnerWrapper = styled.div`
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       left: calc(
         (100% - ${styles.sizes.desktop.container()}px) / 2 +

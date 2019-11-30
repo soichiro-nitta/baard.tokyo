@@ -49,7 +49,6 @@ const Root = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-size: 1.3rem;
   z-index: 0;
 `
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { isMobile } from 'react-device-detect'
+import { isBrowser } from 'react-device-detect'
 import styles from '~/utils/styles'
 import { CurrentPage } from '~/store/global/currentPage'
 import { IsPending } from '~/store/global/isPending'
@@ -73,7 +73,7 @@ const Clipping = styled.div`
   padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   overflow: hidden;
-  ${!isMobile &&
+  ${isBrowser &&
     css`
       margin: 0 auto;
       padding: 0;

@@ -1,5 +1,5 @@
-import { isMobile } from 'react-device-detect'
-import Mobile from '~/components/default/Borders/Mobile'
-import Desktop from '~/components/default/Borders/Desktop'
+import { isBrowser } from 'react-device-detect'
+import Desktop from './Desktop'
+import Mobile from './Mobile'
 
-export default isMobile ? Mobile : Desktop
+export default isBrowser ? Desktop : Mobile
