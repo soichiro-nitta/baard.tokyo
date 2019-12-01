@@ -107,7 +107,7 @@ const SvgWrapper = styled.div`
   }
 `
 const LinkName = styled.div`
-  margin-left: ${styles.sizes.phone.base}px;
+  margin-left: ${styles.sizes.phone.base() * 2 + 1}px;
 `
 const OptionWrapper = styled.div`
   opacity: 0.3;

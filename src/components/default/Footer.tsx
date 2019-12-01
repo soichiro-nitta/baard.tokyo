@@ -7,11 +7,12 @@ import {
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
+import H3 from '../base/H3'
 
 const Footer: React.FC = () => {
   return (
     <Root>
-      <Text>© {new Date().getFullYear()}, BAARD.</Text>
+      <H3>© {new Date().getFullYear()}, BAARD.</H3>
       <Icons>
         <Icon href={config.facebook} target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faFacebookSquare} />
@@ -32,11 +33,6 @@ const Root = styled.div`
   width: 100%;
   color: white;
   background: ${styles.colors.light.shape};
-`
-const Text = styled.div`
-  ${styles.mixins.lhCrop(1.8)}
-  letter-spacing: 0.33em;
-  font-weight: bold;
 `
 const Icons = styled.div`
   ${styles.mixins.lhCrop(1.8)}

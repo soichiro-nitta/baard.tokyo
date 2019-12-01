@@ -53,7 +53,7 @@ const Root = styled.div`
   width: 100%;
   height: calc((100vw - ${styles.sizes.phone.dashboard + 1}px) * 1.25);
   ${styles.large(css`
-    height: ${styles.sizes.desktop.main() * 1.25}px;
+    height: ${styles.sizes.desktop.main() * 1.185}px;
   `)}
 `
 const Text = styled.div`

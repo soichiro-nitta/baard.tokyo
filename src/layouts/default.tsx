@@ -151,7 +151,7 @@ const LogoWrapper = styled(Link)`
   left: ${styles.sizes.phone.base}px;
   width: 110px;
   height: ${LogoHeight}px;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: screen;
   z-index: 1;
   svg {
     width: 100%;
@@ -169,7 +169,7 @@ const HumbergerWrapper = styled.div`
   position: fixed;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   right: ${styles.sizes.phone.base}px;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: screen;
   z-index: 1;
   ${styles.large(css`
     right: calc(
