@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { faMapMarkedAlt } from '@fortawesome/pro-duotone-svg-icons'
-import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
@@ -14,29 +12,28 @@ import ButtonNew from '~/components/base/ButtonNew'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
+import config from '~/utils/config'
 
 const Access: React.FC = () => {
-  const en = 'access'
-  const ja = 'アクセス'
   const global = useGlobal()
   return (
     <>
-      <Seo title={functions.toUpperFirst(en)} />
+      <Seo title={config.pages.access.en} />
       <Header
         playing={global.playing}
         isPending={global.isPending}
-        icon={faMapMarkedAlt}
-        en={en.toUpperCase()}
-        ja={ja}
-        src={`/${en}/header.mp4`}
+        icon={config.pages.access.icon}
+        en={config.pages.access.en}
+        ja={config.pages.access.ja}
+        src="/access/header.mp4"
         crumbs={[
           {
-            to: '/',
-            name: 'ホーム'
+            to: config.pages.index.path,
+            name: config.pages.index.ja
           },
           {
-            to: `/${en}`,
-            name: ja
+            to: config.pages.access.path,
+            name: config.pages.access.ja
           }
         ]}
       />

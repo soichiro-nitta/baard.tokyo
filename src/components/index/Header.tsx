@@ -9,6 +9,7 @@ import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
+import config from '~/utils/config'
 
 type Props = {
   playing: Playing
@@ -19,8 +20,8 @@ type Props = {
 const Header: React.FC<Props> = props => {
   const crumbs = [
     {
-      to: '/',
-      name: 'ホーム'
+      to: config.pages.index.path,
+      name: config.pages.index.ja
     }
   ]
   return (

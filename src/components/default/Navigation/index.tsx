@@ -2,12 +2,6 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import {
-  faHome,
-  faCut,
-  faClipboardList,
-  faMapMarkedAlt
-} from '@fortawesome/pro-duotone-svg-icons'
-import {
   faFacebookSquare,
   faInstagram
 } from '@fortawesome/free-brands-svg-icons'
@@ -30,6 +24,7 @@ type Props = {
 }
 
 const Navigation: React.FC<Props> = props => {
+  const pages = Object.entries(config.pages)
   const root = React.useRef<HTMLDivElement>(null)
   const off = (): void => {
     props.gnav.dispatch({ type: 'off' })
@@ -45,58 +40,23 @@ const Navigation: React.FC<Props> = props => {
       />
       <Filter />
       <Contents>
-        <Menu to="/" onClick={off}>
-          <Br />
-          <Flex>
-            <Icon>
-              <FontAwesomeIcon icon={faHome} />
-            </Icon>
-            <Text>
-              <En>HOME</En>
-              <Ja>ホーム</Ja>
-            </Text>
-          </Flex>
-          <Br />
-        </Menu>
-        <Menu to="/salon" onClick={off}>
-          <Br />
-          <Flex>
-            <Icon>
-              <FontAwesomeIcon icon={faCut} />
-            </Icon>
-            <Text>
-              <En>SALON</En>
-              <Ja>サロン・スタッフ紹介</Ja>
-            </Text>
-          </Flex>
-          <Br />
-        </Menu>
-        <Menu to="/salon" onClick={off}>
-          <Br />
-          <Flex>
-            <Icon>
-              <FontAwesomeIcon icon={faClipboardList} />
-            </Icon>
-            <Text>
-              <En>SERVICE</En>
-              <Ja>メニュー案内</Ja>
-            </Text>
-          </Flex>
-          <Br />
-        </Menu>
-        <Menu to="/access" onClick={off}>
-          <Br />
-          <Flex>
-            <Icon>
-              <FontAwesomeIcon icon={faMapMarkedAlt} />
-            </Icon>
-            <Text>
-              <En>ACCESS</En>
-              <Ja>アクセス</Ja>
-            </Text>
-          </Flex>
-          <Br />
-        </Menu>
+        {pages.map(value => {
+          return (
+            <Menu to={value[1].path} onClick={off} key={value[0]}>
+              <Br />
+              <Flex>
+                <Icon>
+                  <FontAwesomeIcon icon={value[1].icon} />
+                </Icon>
+                <Text>
+                  <En>{value[1].en}</En>
+                  <Ja>{value[1].ja}</Ja>
+                </Text>
+              </Flex>
+              <Br />
+            </Menu>
+          )
+        })}
       </Contents>
       <Social>
         <SocialIcon

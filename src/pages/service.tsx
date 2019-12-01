@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { faClipboardList } from '@fortawesome/pro-duotone-svg-icons'
-import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
@@ -14,29 +12,28 @@ import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Video from '~/components/base/Video'
 import Filter from '~/components/base/Filter'
 import P from '~/components/base/P'
+import config from '~/utils/config'
 
 const Service: React.FC = () => {
-  const en = 'service'
-  const ja = 'メニュー案内'
   const global = useGlobal()
   return (
     <>
-      <Seo title={functions.toUpperFirst(en)} />
+      <Seo title={config.pages.service.en} />
       <Header
         playing={global.playing}
         isPending={global.isPending}
-        icon={faClipboardList}
-        en={en.toUpperCase()}
-        ja={ja}
-        src={`/${en}/header.mp4`}
+        icon={config.pages.service.icon}
+        en={config.pages.service.en}
+        ja={config.pages.service.ja}
+        src="/service/header.mp4"
         crumbs={[
           {
-            to: '/',
-            name: 'ホーム'
+            to: config.pages.index.path,
+            name: config.pages.index.ja
           },
           {
-            to: `/${en}`,
-            name: ja
+            to: config.pages.service.path,
+            name: config.pages.service.ja
           }
         ]}
       />

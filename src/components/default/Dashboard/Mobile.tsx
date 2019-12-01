@@ -5,22 +5,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
+import config from '~/utils/config'
 
 type Props = {
-  links: { name: string; to: string; icon: IconDefinition }[]
   options: { icon: IconDefinition }[]
-  tel: { name: string; icon: IconDefinition; href: string }
 }
 
 const Mobile: React.FC<Props> = props => {
+  const pages = Object.entries(config.pages)
   return (
     <Root>
-      {props.links.map(value => {
+      {pages.map(value => {
         return (
-          <Menu to={value.to} key={value.to}>
+          <Menu to={value[1].path} key={value[1].path}>
             <Br />
             <SvgWrapper>
-              <FontAwesomeIcon icon={value.icon} />
+              <FontAwesomeIcon icon={value[1].icon} />
             </SvgWrapper>
             <Br />
           </Menu>
@@ -40,10 +40,10 @@ const Mobile: React.FC<Props> = props => {
           </OptionMenu>
         )
       })}
-      <PhoneMenu href={props.tel.href}>
+      <PhoneMenu href={`tel:${config.tel.number}`}>
         <Br />
         <SvgWrapper>
-          <FontAwesomeIcon icon={props.tel.icon} />
+          <FontAwesomeIcon icon={config.tel.icon} />
         </SvgWrapper>
         <Br />
       </PhoneMenu>

@@ -2,33 +2,22 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCut,
-  faClipboardList,
-  faMapMarkedAlt,
-  faLongArrowRight
-} from '@fortawesome/pro-duotone-svg-icons'
+import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
+import config from '~/utils/config'
 
 type Props = {
   playing: Playing
+  page: string
   src: string
-  icon: string
-  head: string
   body: string
-  to: string
 }
 
 const Left: React.FC<Props> = props => {
-  const icons = {
-    faCut,
-    faClipboardList,
-    faMapMarkedAlt
-  }
   return (
     <Root>
       <Background />
@@ -38,11 +27,11 @@ const Left: React.FC<Props> = props => {
       </ImgWrapper>
       <Content>
         <Head>
-          {props.head}
-          <FontAwesomeIcon icon={icons[props.icon]} />
+          {config.pages[props.page].en}
+          <FontAwesomeIcon icon={config.pages[props.page].icon} />
         </Head>
         <Body>{props.body}</Body>
-        <Button to={props.to}>
+        <Button to={config.pages[props.page].path}>
           詳しくみる
           <FontAwesomeIcon icon={faLongArrowRight} />
         </Button>

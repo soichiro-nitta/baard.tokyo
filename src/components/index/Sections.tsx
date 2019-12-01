@@ -17,11 +17,9 @@ const Sections: React.FC<Props> = props => {
       <Br />
       <Right
         playing={props.playing}
+        page="salon"
         src="/salon/header.mp4"
-        icon="faCut"
-        head="SALON"
         body="サロンコンセプト、スタッフ紹介、設備、椅子、シャンプーだい、タオルの紹介、予約システムなど"
-        to="/salon"
       />
       <Br />
       <Border />
@@ -30,11 +28,9 @@ const Sections: React.FC<Props> = props => {
       <Br />
       <Left
         playing={props.playing}
+        page="service"
         src="/service/header.mp4"
-        icon="faClipboardList"
-        head="SERVICE"
         body="バーバーメニュー、女性のお顔そりのメニュー、実際のカット風景など"
-        to="/service"
       />
       <Br />
       <Border />
@@ -43,11 +39,9 @@ const Sections: React.FC<Props> = props => {
       <Br />
       <Right
         playing={props.playing}
+        page="access"
         src="/access/header.mp4"
-        icon="faMapMarkedAlt"
-        head="ACCESS"
         body="店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場のご案内など"
-        to="/access"
       />
     </>
   )

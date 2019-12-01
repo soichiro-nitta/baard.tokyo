@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { faCut } from '@fortawesome/pro-duotone-svg-icons'
-import functions from '~/utils/functions'
 import { useGlobal } from '~/store/global'
 import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
@@ -14,29 +12,28 @@ import Exhibition from '~/components/base/Exhibition'
 import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
+import config from '~/utils/config'
 
 const Salon: React.FC = () => {
-  const en = 'salon'
-  const ja = 'サロン・スタッフ紹介'
   const global = useGlobal()
   return (
     <>
-      <Seo title={functions.toUpperFirst(en)} />
+      <Seo title={config.pages.salon.en} />
       <Header
         playing={global.playing}
         isPending={global.isPending}
-        icon={faCut}
-        en={en.toUpperCase()}
-        ja={ja}
-        src={`/${en}/header.mp4`}
+        icon={config.pages.salon.icon}
+        en={config.pages.salon.en}
+        ja={config.pages.salon.ja}
+        src="/salon/header.mp4"
         crumbs={[
           {
-            to: '/',
-            name: 'ホーム'
+            to: config.pages.index.path,
+            name: config.pages.index.ja
           },
           {
-            to: `/${en}`,
-            name: ja
+            to: config.pages.salon.path,
+            name: config.pages.salon.ja
           }
         ]}
       />

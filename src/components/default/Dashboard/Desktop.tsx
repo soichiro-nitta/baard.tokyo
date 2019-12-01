@@ -8,31 +8,31 @@ import P from '~/components/base/P'
 import Wrapper from '~/components/base/Wrapper'
 import Border from '~/components/base/Border'
 import Br from '~/components/base/Br'
+import config from '~/utils/config'
 
 type Props = {
-  links: { name: string; to: string; icon: IconDefinition }[]
   options: { icon: IconDefinition }[]
-  tel: { name: string; icon: IconDefinition; href: string }
 }
 
 const Desktop: React.FC<Props> = props => {
+  const pages = Object.entries(config.pages)
   return (
     <Root>
-      {props.links.map(value => {
+      {pages.map(value => {
         return (
-          <div key={value.to}>
+          <div key={value[1].path}>
             <Border />
             <Br />
             <Border />
-            <Menu to={value.to}>
+            <Menu to={value[1].path}>
               <Br />
               <Wrapper>
                 <Flex>
                   <SvgWrapper>
-                    <FontAwesomeIcon icon={value.icon} />
+                    <FontAwesomeIcon icon={value[1].icon} />
                   </SvgWrapper>
                   <LinkName>
-                    <P>{value.name}</P>
+                    <P>{value[1].ja}</P>
                   </LinkName>
                 </Flex>
               </Wrapper>
@@ -64,15 +64,15 @@ const Desktop: React.FC<Props> = props => {
       <Border />
       <Br />
       <Border />
-      <PhoneMenu href={props.tel.href}>
+      <PhoneMenu href={`tel:${config.tel.number}`}>
         <Br />
         <Wrapper>
           <Flex>
             <SvgWrapper>
-              <FontAwesomeIcon icon={props.tel.icon} />
+              <FontAwesomeIcon icon={config.tel.icon} />
             </SvgWrapper>
             <LinkName>
-              <P>{props.tel.name}</P>
+              <P>{config.tel.string}</P>
             </LinkName>
           </Flex>
         </Wrapper>
