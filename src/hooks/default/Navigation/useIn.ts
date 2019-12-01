@@ -7,6 +7,8 @@ type UseIn = (gnav: Gnav, root: React.MutableRefObject<HTMLDivElement>) => void
 const useIn: UseIn = (gnav, root) => {
   React.useEffect(() => {
     if (gnav.state) {
+      animations.set(root.current, { scale: 1.1 })
+      animations.scale(root.current, 1, 1, 'InOut')
       animations.opacity(root.current, 1, 1, 'InOut')
     }
   }, [gnav.state])
