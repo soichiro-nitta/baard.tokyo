@@ -19,7 +19,6 @@
     "@fortawesome/pro-regular-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "gatsby": "^2.15.15",
-    "gatsby-image": "^2.2.8",
     "gatsby-plugin-emotion": "^4.1.2",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.4",
