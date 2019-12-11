@@ -10,13 +10,6 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
     // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `images`,
-    //     path: `${__dirname}/src/assets/images`
-    //   }
-    // },
-    // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
     //     name: `gatsby-starter-default`,
