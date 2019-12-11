@@ -2,14 +2,15 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import styles from '~/utils/styles'
+import animations from '~/utils/animations'
 import { CurrentPage } from '~/store/global/currentPage'
 import { IsPending } from '~/store/global/isPending'
-import useFadeIn from '~/hooks/default/Childrens/Page/useFadeIn'
-import useFadeOut from '~/hooks/default/Childrens/Page/useFadeOut'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import Footer from '~/components/default/Footer'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
+import functions from '~/utils/functions'
 
 type Props = {
   currentPage: CurrentPage
@@ -27,15 +28,31 @@ const Page: React.FC<Props> = props => {
   React.useEffect(() => {
     props.currentPage.dispatch({ type: 'set', payload: root.current })
   }, [])
-  useFadeIn({
-    isPending: props.isPending,
-    leave: props.page.leave,
-    inner
-  })
-  useFadeOut({
-    isPending: props.isPending,
-    leave: props.page.leave,
-    inner
+  React.useEffect(() => {
+    if (!props.isPending.state && !props.page.leave) {
+      const duration = 1
+      animations.set(inner.current, {
+        x: '100%'
+      })
+      animations.x(inner.current, '0%', duration, 'Out')
+      animations.opacity(inner.current, 1, duration, 'Out')
+    }
+  }, [props.isPending.state])
+  useEffectAsync({
+    effect: async () => {
+      if (!props.isPending.state && props.page.leave) {
+        const duration = 1
+        await functions.delay(1 - duration)
+        animations.opacity(inner.current, 0, duration, 'Out')
+        animations.x(
+          inner.current,
+          `${(styles.sizes.phone.base() * -1) / 2}px`,
+          duration,
+          'Out'
+        )
+      }
+    },
+    deps: [props.isPending.state]
   })
   return (
     <Root ref={root}>
