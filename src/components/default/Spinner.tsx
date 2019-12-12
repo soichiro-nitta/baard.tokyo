@@ -5,23 +5,26 @@ import { IsPending } from '~/store/global/isPending'
 import { useLocal } from '~/store/default/Spinner'
 import useIn from '~/hooks/default/Spinner/useIn'
 import useOut from '~/hooks/default/Spinner/useOut'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
+import animations from '~/utils/animations'
+import functions from '~/utils/functions'
 
 type Props = {
   isPending: IsPending
 }
 
 const Spinner: React.FC<Props> = props => {
-  const local = useLocal()
   const root = React.useRef<SVGSVGElement>(null)
-  useIn({
-    isPending: props.isPending,
-    started: local.started,
-    root
-  })
-  useOut({
-    isPending: props.isPending,
-    started: local.started,
-    root
+  useEffectAsync({
+    effect: async () => {
+      const duration = 1
+      if (props.isPending.state > 0) {
+        animations.opacity(root.current, 1, duration, 'InOut')
+      } else {
+        animations.opacity(root.current, 0, duration, 'InOut')
+      }
+    },
+    deps: [props.isPending.state]
   })
   return (
     <Root ref={root} viewBox="25 25 50 50">
@@ -31,7 +34,6 @@ const Spinner: React.FC<Props> = props => {
 }
 
 const Root = styled.svg`
-  display: none;
   width: ${styles.sizes.phone.scrollbar + 2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   transform-origin: center center;

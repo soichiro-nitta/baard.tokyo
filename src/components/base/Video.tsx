@@ -32,17 +32,17 @@ const Video: React.FC<Props> = props => {
   React.useEffect(() => {
     if (previous) previous.pause()
   }, [props.playing.state])
-  React.useEffect(() => {
-    if (props.isPending) {
-      const loadedmetadata = (): void => {
-        props.isPending.dispatch({ type: 'off' })
-      }
-      root.current.addEventListener('loadedmetadata', loadedmetadata)
-      return (): void => {
-        root.current.removeEventListener('loadedmetadata', loadedmetadata)
-      }
-    }
-  }, [])
+  //React.useEffect(() => {
+  //  if (props.isPending) {
+  //    const loadedmetadata = (): void => {
+  //      props.isPending.dispatch({ type: 'off' })
+  //    }
+  //    root.current.addEventListener('loadedmetadata', loadedmetadata)
+  //    return (): void => {
+  //      root.current.removeEventListener('loadedmetadata', loadedmetadata)
+  //    }
+  //  }
+  //}, [])
   return <Root ref={root} src={src} preload="none" muted playsInline loop />
 }
 

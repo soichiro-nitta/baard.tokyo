@@ -20,7 +20,6 @@ type Props = {
 const Opening: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
-      props.isPending.dispatch({ type: 'on' })
       await functions.delay(4.5)
       props.launched.dispatch({ type: 'on' })
     },

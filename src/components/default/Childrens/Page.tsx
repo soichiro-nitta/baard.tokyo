@@ -4,7 +4,6 @@ import { css } from '@emotion/core'
 import styles from '~/utils/styles'
 import animations from '~/utils/animations'
 import { CurrentPage } from '~/store/global/currentPage'
-import { IsPending } from '~/store/global/isPending'
 import Exhibition from '~/components/base/Exhibition'
 import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
@@ -14,35 +13,20 @@ import functions from '~/utils/functions'
 
 type Props = {
   currentPage: CurrentPage
-  isPending: IsPending
   page: {
     id: number
     leave: boolean
     node: React.ReactNode
   }
+  length: number
 }
-
 const Page: React.FC<Props> = props => {
   const root = React.useRef<HTMLDivElement>(null)
   const inner = React.useRef<HTMLDivElement>(null)
-  React.useEffect(() => {
-    props.currentPage.dispatch({ type: 'set', payload: root.current })
-  }, [])
-  React.useEffect(() => {
-    if (!props.isPending.state && !props.page.leave) {
-      const duration = 1
-      animations.set(inner.current, {
-        x: '100%'
-      })
-      animations.x(inner.current, '0%', duration, 'Out')
-      animations.opacity(inner.current, 1, duration, 'Out')
-    }
-  }, [props.isPending.state])
   useEffectAsync({
     effect: async () => {
-      if (!props.isPending.state && props.page.leave) {
-        const duration = 1
-        await functions.delay(1 - duration)
+      const duration = 1
+      if (props.page.leave) {
         animations.opacity(inner.current, 0, duration, 'Out')
         animations.x(
           inner.current,
@@ -50,9 +34,24 @@ const Page: React.FC<Props> = props => {
           duration,
           'Out'
         )
+      } else {
+        if (props.length === 0) {
+          animations.set(inner.current, {
+            opacity: 1,
+            x: '0%'
+          })
+        } else {
+          animations.set(inner.current, {
+            x: '100%'
+          })
+          animations.opacity(inner.current, 1, duration, 'Out')
+          animations.x(inner.current, '0%', duration, 'Out')
+        }
+        await functions.delay(duration)
+        props.currentPage.dispatch({ type: 'set', payload: root.current })
       }
     },
-    deps: [props.isPending.state]
+    deps: [props.page.leave]
   })
   return (
     <Root ref={root}>
