@@ -21,7 +21,6 @@ const Salon: React.FC = () => {
       <Seo title={config.pages.salon.en} />
       <Header
         playing={global.playing}
-        isPending={global.isPending}
         icon={config.pages.salon.icon}
         en={config.pages.salon.en}
         ja={config.pages.salon.ja}

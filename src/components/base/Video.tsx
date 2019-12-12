@@ -5,6 +5,7 @@ import { Playing } from '~/store/global/playing'
 import { IsPending } from '~/store/global/isPending'
 import useObserve from '~/hooks/base/useObserve'
 import usePrevious from '~/hooks/base/usePrevious'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 type Props = {
   playing: Playing
@@ -20,7 +21,6 @@ const Video: React.FC<Props> = props => {
   useObserve({
     ref: root,
     observeIn: ref => {
-      root.current.load()
       ref.current.play()
       props.playing.dispatch({ type: 'set', payload: ref.current })
     },
@@ -30,19 +30,11 @@ const Video: React.FC<Props> = props => {
     rootMargin: props.rootMargin
   })
   React.useEffect(() => {
+    root.current.load()
+  }, [])
+  React.useEffect(() => {
     if (previous) previous.pause()
   }, [props.playing.state])
-  //React.useEffect(() => {
-  //  if (props.isPending) {
-  //    const loadedmetadata = (): void => {
-  //      props.isPending.dispatch({ type: 'off' })
-  //    }
-  //    root.current.addEventListener('loadedmetadata', loadedmetadata)
-  //    return (): void => {
-  //      root.current.removeEventListener('loadedmetadata', loadedmetadata)
-  //    }
-  //  }
-  //}, [])
   return <Root ref={root} src={src} preload="none" muted playsInline loop />
 }
 

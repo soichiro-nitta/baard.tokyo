@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { FluidObject } from 'gatsby-image'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
-import { IsPending } from '~/store/global/isPending'
 import Video from '~/components/base/Video'
 import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
@@ -13,8 +11,6 @@ import { css } from '@emotion/core'
 
 type Props = {
   playing: Playing
-  isPending: IsPending
-  fluid?: FluidObject | FluidObject[]
   icon: IconDefinition
   en: string
   ja: string
@@ -28,11 +24,7 @@ type Props = {
 const Header: React.FC<Props> = props => {
   return (
     <Root>
-      <Video
-        playing={props.playing}
-        isPending={props.isPending}
-        src={props.src}
-      />
+      <Video playing={props.playing} src={props.src} />
       <Filter />
       <Content>
         <Flex>

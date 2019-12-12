@@ -21,7 +21,6 @@ const Service: React.FC = () => {
       <Seo title={config.pages.service.en} />
       <Header
         playing={global.playing}
-        isPending={global.isPending}
         icon={config.pages.service.icon}
         en={config.pages.service.en}
         ja={config.pages.service.ja}
