@@ -5,8 +5,6 @@ import { Playing } from '~/store/global/playing'
 import { IsPending } from '~/store/global/isPending'
 import useObserve from '~/hooks/base/useObserve'
 import usePrevious from '~/hooks/base/usePrevious'
-import useLoad from '~/hooks/base/video/useLoad'
-import useCanplaythrough from '~/hooks/base/video/useCanplaythrough'
 
 type Props = {
   playing: Playing
@@ -19,7 +17,9 @@ const Video: React.FC<Props> = props => {
   const src = `${config.firebase}${props.src}`
   const root = React.useRef<HTMLVideoElement>(null)
   const previous = usePrevious(props.playing.state)
-  useLoad(root)
+  React.useEffect(() => {
+    root.current.load()
+  }, [])
   useObserve({
     ref: root,
     observeIn: ref => {
@@ -34,7 +34,15 @@ const Video: React.FC<Props> = props => {
   React.useEffect(() => {
     if (previous) previous.pause()
   }, [props.playing.state])
-  if (props.isPending) useCanplaythrough({ isPending: props.isPending, root })
+  React.useEffect(() => {
+    const loadedmetadata = (): void => {
+      props.isPending.dispatch({ type: 'off' })
+    }
+    root.current.addEventListener('loadedmetadata', loadedmetadata)
+    return (): void => {
+      root.current.removeEventListener('loadedmetadata', loadedmetadata)
+    }
+  }, [])
   return <Root ref={root} src={src} preload="none" muted playsInline loop />
 }
 
