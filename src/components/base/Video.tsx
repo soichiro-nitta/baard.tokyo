@@ -17,12 +17,10 @@ const Video: React.FC<Props> = props => {
   const src = `${config.firebase}${props.src}`
   const root = React.useRef<HTMLVideoElement>(null)
   const previous = usePrevious(props.playing.state)
-  React.useEffect(() => {
-    root.current.load()
-  }, [])
   useObserve({
     ref: root,
     observeIn: ref => {
+      root.current.load()
       ref.current.play()
       props.playing.dispatch({ type: 'set', payload: ref.current })
     },
@@ -35,12 +33,14 @@ const Video: React.FC<Props> = props => {
     if (previous) previous.pause()
   }, [props.playing.state])
   React.useEffect(() => {
-    const loadedmetadata = (): void => {
-      props.isPending.dispatch({ type: 'off' })
-    }
-    root.current.addEventListener('loadedmetadata', loadedmetadata)
-    return (): void => {
-      root.current.removeEventListener('loadedmetadata', loadedmetadata)
+    if (props.isPending) {
+      const loadedmetadata = (): void => {
+        props.isPending.dispatch({ type: 'off' })
+      }
+      root.current.addEventListener('loadedmetadata', loadedmetadata)
+      return (): void => {
+        root.current.removeEventListener('loadedmetadata', loadedmetadata)
+      }
     }
   }, [])
   return <Root ref={root} src={src} preload="none" muted playsInline loop />
