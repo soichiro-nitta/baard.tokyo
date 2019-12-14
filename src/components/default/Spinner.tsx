@@ -2,12 +2,8 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { IsPending } from '~/store/global/isPending'
-import { useLocal } from '~/store/default/Spinner'
-import useIn from '~/hooks/default/Spinner/useIn'
-import useOut from '~/hooks/default/Spinner/useOut'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import animations from '~/utils/animations'
-import functions from '~/utils/functions'
 
 type Props = {
   isPending: IsPending
