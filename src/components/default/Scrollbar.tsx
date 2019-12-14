@@ -4,10 +4,9 @@ import styles from '~/utils/styles'
 import { CurrentPage } from '~/store/global/currentPage'
 import { IsPending } from '~/store/global/isPending'
 import { useLocal } from '~/store/default/Scrollbar'
-import useOut from '~/hooks/default/Scrollbar/useOut'
-import useIn from '~/hooks/default/Scrollbar/useIn'
-import useReset from '~/hooks/default/Scrollbar/useReset'
-import useScroll from '~/hooks/default/Scrollbar/useScroll'
+import useEffectAsync from '~/hooks/base/useEffectAsync'
+import animations from '~/utils/animations'
+import functions from '~/utils/functions'
 
 type Props = {
   isPending: IsPending
@@ -15,14 +14,47 @@ type Props = {
 }
 
 const Scrollbar: React.FC<Props> = props => {
-  const page = props.currentPage.state
   const local = useLocal()
+  const page = props.currentPage.state
   const root = React.useRef<HTMLDivElement>(null)
   const gauge = React.useRef<HTMLDivElement>(null)
-  useOut({ isPending: props.isPending, squashed: local.squashed, root })
-  useIn({ isPending: props.isPending, squashed: local.squashed, root })
-  useReset({ squashed: local.squashed, gauge })
-  useScroll({ page, gauge })
+  const duration = 0.6
+  useEffectAsync({
+    effect: async () => {
+      if (props.isPending.state > 0) {
+        animations.scaleX(root.current, 0, duration, 'In')
+        await functions.delay(duration)
+        local.squashed.dispatch({ type: 'on' })
+      }
+    },
+    deps: [props.isPending.state]
+  })
+  useEffectAsync({
+    effect: async () => {
+      if (props.isPending.state === 0 && local.squashed.state) {
+        await functions.delay(1)
+        animations.scaleX(root.current, 1, duration, 'Out')
+        await functions.delay(duration)
+        local.squashed.dispatch({ type: 'off' })
+      }
+    },
+    deps: [props.isPending.state, local.squashed.state]
+  })
+  React.useEffect(() => {
+    gauge.current.style.transform = 'scaleX(0)'
+  }, [local.squashed.state])
+  React.useEffect(() => {
+    if (page) {
+      const scrollMax = page.scrollHeight - page.clientHeight
+      const scroll = (): void => {
+        gauge.current.style.transform = `scaleX(${page.scrollTop / scrollMax})`
+      }
+      page.addEventListener('scroll', scroll)
+      return (): void => {
+        page.removeEventListener('scroll', scroll)
+      }
+    }
+  }, [page])
   return (
     <Root ref={root}>
       <Gauge ref={gauge} />

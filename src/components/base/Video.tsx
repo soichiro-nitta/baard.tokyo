@@ -2,14 +2,11 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import { Playing } from '~/store/global/playing'
-import { IsPending } from '~/store/global/isPending'
 import useObserve from '~/hooks/base/useObserve'
 import usePrevious from '~/hooks/base/usePrevious'
-import useEffectAsync from '~/hooks/base/useEffectAsync'
 
 type Props = {
   playing: Playing
-  isPending?: IsPending
   src: string
   rootMargin?: string
 }

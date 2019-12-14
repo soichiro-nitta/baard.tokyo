@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import functions from '~/utils/functions'
-import { IsPending } from '~/store/global/isPending'
 import { Launched } from '~/store/default/launched'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
@@ -12,7 +11,6 @@ import { css } from '@emotion/core'
 import { Large } from '~/store/global/large'
 
 type Props = {
-  isPending: IsPending
   launched: Launched
   large: Large
 }
