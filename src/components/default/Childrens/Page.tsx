@@ -25,7 +25,7 @@ const Page: React.FC<Props> = props => {
   const inner = React.useRef<HTMLDivElement>(null)
   useEffectAsync({
     effect: async () => {
-      const duration = 1
+      const duration = 2
       if (props.page.leave) {
         animations.opacity(inner.current, 0, duration, 'Out')
         animations.x(

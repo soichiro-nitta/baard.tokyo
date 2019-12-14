@@ -21,7 +21,7 @@ const Childrens: React.FC<Props> = props => {
       } else {
         props.isPending.dispatch({ type: 'increment' })
         local.childrens.dispatch({ type: 'update', payload: props.children })
-        await functions.delay(1)
+        await functions.delay(2)
         props.isPending.dispatch({ type: 'decrement' })
         local.childrens.dispatch({ type: 'clean' })
       }
