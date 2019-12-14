@@ -9,9 +9,11 @@ import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
 import config from '~/utils/config'
+import { IsPending } from '~/store/global/isPending'
 
 type Props = {
   playing: Playing
+  isPending: IsPending
   page: string
   src: string
   body: string
@@ -22,7 +24,12 @@ const Left: React.FC<Props> = props => {
     <Root>
       <Background />
       <ImgWrapper>
-        <Video playing={props.playing} src={props.src} rootMargin="-40% 0%" />
+        <Video
+          playing={props.playing}
+          isPending={props.isPending}
+          src={props.src}
+          rootMargin="-40% 0%"
+        />
         <Filter />
       </ImgWrapper>
       <Content>

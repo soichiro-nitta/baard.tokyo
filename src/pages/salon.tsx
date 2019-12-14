@@ -21,6 +21,7 @@ const Salon: React.FC = () => {
       <Seo title={config.pages.salon.en} />
       <Header
         playing={global.playing}
+        isPending={global.isPending}
         icon={config.pages.salon.icon}
         en={config.pages.salon.en}
         ja={config.pages.salon.ja}
@@ -112,6 +113,7 @@ const Salon: React.FC = () => {
         <ExhibitionPanorama>
           <Video
             playing={global.playing}
+            isPending={global.isPending}
             src="/salon/reservation.mp4"
             rootMargin="0% 0%"
           />
@@ -147,6 +149,7 @@ const Salon: React.FC = () => {
         <ExhibitionPanorama>
           <Video
             playing={global.playing}
+            isPending={global.isPending}
             src="/salon/shun.mp4"
             rootMargin="-40% 0%"
           />
@@ -170,6 +173,7 @@ const Salon: React.FC = () => {
         <ExhibitionPanorama>
           <Video
             playing={global.playing}
+            isPending={global.isPending}
             src="/salon/risa.mp4"
             rootMargin="-40% 0%"
           />

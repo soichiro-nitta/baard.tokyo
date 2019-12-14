@@ -21,6 +21,7 @@ const Access: React.FC = () => {
       <Seo title={config.pages.access.en} />
       <Header
         playing={global.playing}
+        isPending={global.isPending}
         icon={config.pages.access.icon}
         en={config.pages.access.en}
         ja={config.pages.access.ja}

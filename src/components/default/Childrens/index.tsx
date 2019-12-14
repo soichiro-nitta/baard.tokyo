@@ -14,6 +14,7 @@ type Props = {
 
 const Childrens: React.FC<Props> = props => {
   const local = useLocal()
+  const duration = 1
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
@@ -21,7 +22,7 @@ const Childrens: React.FC<Props> = props => {
       } else {
         props.isPending.dispatch({ type: 'increment' })
         local.childrens.dispatch({ type: 'update', payload: props.children })
-        await functions.delay(2)
+        await functions.delay(duration)
         props.isPending.dispatch({ type: 'decrement' })
         local.childrens.dispatch({ type: 'clean' })
       }

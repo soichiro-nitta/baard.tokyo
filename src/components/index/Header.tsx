@@ -9,9 +9,11 @@ import Breadcrumbs from '~/components/base/Breadcrumbs'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
 import config from '~/utils/config'
+import { IsPending } from '~/store/global/isPending'
 
 type Props = {
   playing: Playing
+  isPending: IsPending
   src: string
 }
 
@@ -24,7 +26,11 @@ const Header: React.FC<Props> = props => {
   ]
   return (
     <Root>
-      <Video playing={props.playing} src={props.src} />
+      <Video
+        playing={props.playing}
+        isPending={props.isPending}
+        src={props.src}
+      />
       <Filter />
       <Text>
         <div>

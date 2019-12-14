@@ -25,14 +25,14 @@ const Page: React.FC<Props> = props => {
   const inner = React.useRef<HTMLDivElement>(null)
   useEffectAsync({
     effect: async () => {
-      const duration = 2
+      const duration = 1
       if (props.page.leave) {
-        animations.opacity(inner.current, 0, duration, 'Out')
+        animations.opacity(inner.current, 0, duration, 'InOut')
         animations.x(
           inner.current,
           `${(styles.sizes.phone.base() * -1) / 2}px`,
           duration,
-          'Out'
+          'InOut'
         )
       } else {
         if (props.length === 0) {
@@ -44,7 +44,7 @@ const Page: React.FC<Props> = props => {
           animations.set(inner.current, {
             x: '100%'
           })
-          animations.opacity(inner.current, 1, duration, 'Out')
+          animations.opacity(inner.current, 1, duration, 'InOut')
           animations.x(inner.current, '0%', duration, 'Out')
         }
         await functions.delay(duration)
