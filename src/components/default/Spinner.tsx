@@ -14,7 +14,7 @@ const Spinner: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
       const duration = 1
-      if (props.isPending.state > 0) {
+      if (props.isPending.state) {
         animations.opacity(root.current, 1, duration, 'InOut')
       } else {
         animations.opacity(root.current, 0, duration, 'InOut')

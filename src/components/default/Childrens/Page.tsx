@@ -25,7 +25,7 @@ const Page: React.FC<Props> = props => {
   const inner = React.useRef<HTMLDivElement>(null)
   useEffectAsync({
     effect: async () => {
-      const duration = 1
+      const duration = 2
       if (props.page.leave) {
         animations.opacity(inner.current, 0, duration, 'InOut')
         animations.x(
@@ -42,10 +42,11 @@ const Page: React.FC<Props> = props => {
           })
         } else {
           animations.set(inner.current, {
-            x: '100%'
+            x: '50%'
           })
-          animations.opacity(inner.current, 1, duration, 'InOut')
-          animations.x(inner.current, '0%', duration, 'Out')
+          await functions.delay(0.2)
+          animations.opacity(inner.current, 1, duration - 0.2, 'InOut')
+          animations.x(inner.current, '0%', duration - 0.2, 'Out')
         }
         await functions.delay(duration)
         props.currentPage.dispatch({ type: 'set', payload: root.current })

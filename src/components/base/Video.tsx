@@ -30,7 +30,6 @@ const Video: React.FC<Props> = props => {
   // })
   React.useEffect(() => {
     if (!props.isPending.state) {
-      console.log('isPending false')
       root.current.load()
       const observer = new IntersectionObserver(
         entries => {
