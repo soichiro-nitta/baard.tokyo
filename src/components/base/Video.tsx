@@ -20,17 +20,16 @@ const Video: React.FC<Props> = props => {
   const [loaded, setLoaded] = React.useState<boolean>(false)
   const root = React.useRef<HTMLDivElement>(null)
   const i = React.useRef<HTMLDivElement>(null)
-  const sw = React.useRef<HTMLDivElement>(null)
   const s = React.useRef<SVGSVGElement>(null)
   const v = React.useRef<HTMLVideoElement>(null)
   const previous = usePrevious(props.playing.state)
 
   React.useEffect(() => {
     const loadedmetadata = (): void => {
-      animations.opacity(i.current, 1, 2, 'InOut')
+      animations.opacity(i.current, 1, 1, 'InOut')
     }
     const canplay = (): void => {
-      animations.opacity(sw.current, 0, 3, 'InOut')
+      animations.opacity(s.current, 0, 1, 'InOut')
       v.current.play()
     }
     v.current.addEventListener('loadedmetadata', loadedmetadata)
@@ -79,11 +78,10 @@ const Video: React.FC<Props> = props => {
         <V ref={v} src={src} preload="none" muted playsInline loop />
         <Filter />
       </Inner>
-      <SpinnerWrapper ref={sw}>
-        <Spinner ref={s} viewBox="25 25 50 50">
+      <SpinnerWrapper ref={s}>
+        <Spinner viewBox="25 25 50 50">
           <Circle cx="50" cy="50" r="20" />
         </Spinner>
-        <Filter />
       </SpinnerWrapper>
     </Root>
   )
@@ -116,7 +114,6 @@ const Spinner = styled.svg`
   width: ${styles.sizes.phone.dashboard}px;
   height: ${styles.sizes.phone.dashboard}px;
   transform-origin: center center;
-  opacity: 0;
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
