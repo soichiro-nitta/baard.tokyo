@@ -22,7 +22,7 @@ const Sections: React.FC<Props> = props => {
         isPending={props.isPending}
         page="salon"
         src="/salon/header.mp4"
-        body="サロンコンセプト、スタッフ紹介、設備、椅子、シャンプーだい、タオルの紹介、予約システムなど"
+        body="サロンのこだわり、ご予約について、スタッフのご紹介"
       />
       <Br />
       <Border />
@@ -34,7 +34,7 @@ const Sections: React.FC<Props> = props => {
         isPending={props.isPending}
         page="service"
         src="/service/header.mp4"
-        body="バーバーメニュー、女性のお顔そりのメニュー、実際のカット風景など"
+        body="バーールトコース、メンズメニュー、レディースシェービング"
       />
       <Br />
       <Border />
@@ -46,7 +46,7 @@ const Sections: React.FC<Props> = props => {
         isPending={props.isPending}
         page="access"
         src="/access/header.mp4"
-        body="店名、住所、最寄駅、電話番号、メールアドレス、マップ、営業時間・定休日、駐車場のご案内など"
+        body="店名、住所、最寄駅、電話番号、マップ、営業日について、駐車場のご案内"
       />
     </>
   )

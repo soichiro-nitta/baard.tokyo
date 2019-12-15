@@ -31,8 +31,6 @@ const Index: React.FC = () => {
         <P>
           和とモダンな雰囲気を織り交ぜた空間で、くつろぎの場所をご提供いたします。ときには忙しい日常を忘れ、ゆっくりとした時間をお過ごし下さいませ。
         </P>
-        <Br />
-        <ButtonNew to={config.instagram} text="スタイル集はInstagramにて" />
       </Wrapper>
       <Br />
       <Border />
@@ -44,11 +42,9 @@ const Index: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <P>
-          Facebookページにてお店の情報やお知らせ、近況のご報告などをおこなっています。
-        </P>
+        <P>Instagramにてスタイル集、お店の情報やお知らせなど載せております。</P>
         <Br />
-        <ButtonNew to={config.facebook} text="近況報告はFacebookにて" />
+        <ButtonNew to={config.instagram} text="近況報告はInstagramにて" />
       </Wrapper>
       <Br />
       <Border />
@@ -74,7 +70,7 @@ const Index: React.FC = () => {
       <Wrapper>
         <H3>最寄駅</H3>
         <Br />
-        <P>JR常磐線 亀有駅 南口徒歩8分</P>
+        <P>JR常磐線 亀有駅 南口徒歩6分</P>
       </Wrapper>
       <Br />
       <Border />

@@ -40,17 +40,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="BAARD COURSE" ja="オイルケアシェービング＆カット" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="ヘアカットコース" price="3,800" />
-        <Br />
-        <P>プレシャンプー、カット、シャンプー、マッサージ、ブロー</P>
+        <H2 en="BAARD COURSE" ja="カット＆オイルケアシェービング" />
       </Wrapper>
       <Br />
       <Border />
@@ -61,7 +51,8 @@ const Service: React.FC = () => {
         <List head="スタンダードコース" price="5,300" />
         <Br />
         <P>
-          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、マッサージ、ブロー
+          オイル頭皮ケア付きのスタンダードなコース。
+          (オイル頭皮ケア、カット、襟剃り、シェービング、マッサージ、ブロー)
         </P>
       </Wrapper>
       <Br />
@@ -73,7 +64,7 @@ const Service: React.FC = () => {
         <List head="プレミアムコース" price="6,300" />
         <Br />
         <P>
-          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、モイスチャーパック、ブルブルマッサージ、ブロー
+          スタンダードコースに、お顔のモイスチャーパックとマッサージ機器のぶるぶるマッサージが付きます。
         </P>
       </Wrapper>
       <Br />
@@ -84,9 +75,7 @@ const Service: React.FC = () => {
       <Wrapper>
         <List head="ロイヤルコース" price="7,300" />
         <Br />
-        <P>
-          オイル頭皮ケア、カット、リンシング、オイルケアシェービング、フェイシャルマッサージ、モイスチャーパック、ブルブルマッサージ、ブロー
-        </P>
+        <P>プレミアムコースに、フェイシャルマッサージが付きます。</P>
       </Wrapper>
       <Br />
       <Border />
@@ -94,7 +83,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="MEN'S MENU" ja="メンズメニュー" />
+        <H2 en="MENU" ja="メニュー" />
       </Wrapper>
       <Br />
       <Border />
@@ -102,7 +91,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="カット" price="3,800" />
+        <List head="カット(シャンプー、マッサージ、ブロー)" price="3,800" />
       </Wrapper>
       <Br />
       <Border />
@@ -124,12 +113,6 @@ const Service: React.FC = () => {
       </Wrapper>
       <Br />
       <Border />
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="シェービング" price="1,500~" />
-      </Wrapper>
       <Br />
       <Border />
       <Br />
@@ -163,8 +146,50 @@ const Service: React.FC = () => {
       <Br />
       <Border />
       <Br />
+      <Border />
+      <Br />
       <Wrapper>
-        <List head="シャンプーブロー" price="1,500~" />
+        <List head="スタンダードシェービング(単品)" price="2,000" />
+        <Br />
+        <P>
+          お肌に優しいオイルクレンジング、オイルスチームシェービング、眉カット。
+        </P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="プレミアムシェービング(単品)" price="3,000" />
+        <Br />
+        <P>
+          スタンダードシェービングに、モイスチャーパック、フェイパックが付きます。
+        </P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="ロイヤルシェービング(単品)" price="4,000" />
+        <Br />
+        <P>プレミアムシェービングに、フェイシャルマッサージが付きます。</P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="フェイシャルマッサージ" price="2000" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="頭皮オイルクレンジング" price="500" />
       </Wrapper>
       <Br />
       <Border />
@@ -182,13 +207,13 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="頭皮クレンジング" price="500" />
+        <List head="ぶるぶるマッサージ" price="500" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="マッサージ延長" price="500" />
+        <List head="シャンプーブロー" price="1,500~" />
       </Wrapper>
       <Br />
       <Border />
@@ -251,7 +276,7 @@ const Service: React.FC = () => {
       <Wrapper>
         <List head="ブライダルシェービング" price="15,000" />
         <Br />
-        <P>挙式の1ヶ月以上前に一度ご相談ください。</P>
+        <P>挙式の1ヶ月以上前に一度お電話にてご相談ください。</P>
       </Wrapper>
     </>
   )
