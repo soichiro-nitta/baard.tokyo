@@ -20,11 +20,16 @@ const Childrens: React.FC<Props> = props => {
       if (local.childrens.state.length === 0) {
         local.childrens.dispatch({ type: 'add', payload: props.children })
       } else {
-        props.isPending.dispatch({ type: 'on' })
-        local.childrens.dispatch({ type: 'update', payload: props.children })
-        await functions.delay(duration)
-        props.isPending.dispatch({ type: 'off' })
-        local.childrens.dispatch({ type: 'clean' })
+        const latest: string =
+          local.childrens.state[local.childrens.state.length - 1].node.key
+        if (latest.key !== props.children.key) {
+          console.log(props.children)
+          props.isPending.dispatch({ type: 'on' })
+          local.childrens.dispatch({ type: 'update', payload: props.children })
+          await functions.delay(duration)
+          props.isPending.dispatch({ type: 'off' })
+          local.childrens.dispatch({ type: 'clean' })
+        }
       }
     },
     deps: [props.children]
