@@ -57,7 +57,7 @@ const Root = styled.svg`
       transform: rotate(360deg);
     }
   }
-  animation: rotate 1.2s linear infinite;
+  animation: rotate 1.6s linear infinite;
 `
 const Circle = styled.circle`
   fill: none;
@@ -79,7 +79,7 @@ const Circle = styled.circle`
       stroke-dashoffset: -124;
     }
   }
-  animation: dash 0.9s ease-in-out infinite;
+  animation: dash 1.2s ease-in-out infinite;
 `
 
 export default Spinner
