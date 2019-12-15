@@ -88,6 +88,12 @@ const Video: React.FC<Props> = props => {
   }, [props.isPending.state, loaded])
 
   React.useEffect(() => {
+    if (props.isPending.state) {
+      v.current.pause()
+    }
+  }, [props.isPending.state])
+
+  React.useEffect(() => {
     if (previous) previous.pause()
   }, [props.playing.state])
 
