@@ -148,8 +148,8 @@ const SpinnerWrapper = styled.div`
   height: 100%;
 `
 const Spinner = styled.svg`
-  width: ${styles.sizes.phone.dashboard}px;
-  height: ${styles.sizes.phone.dashboard}px;
+  width: ${styles.sizes.phone.base() * 2}px;
+  height: ${styles.sizes.phone.base() * 2}px;
   transform-origin: center center;
   @keyframes rotate {
     100% {
