@@ -17,7 +17,7 @@ const Progressbar: React.FC<Props> = props => {
   const duration = 1
   useEffectAsync({
     effect: async () => {
-      if (props.isPending.state > 0) {
+      if (props.isPending.state) {
         animations.set(root.current, {
           transformOrigin: 'left center',
           scaleX: 0
@@ -32,7 +32,7 @@ const Progressbar: React.FC<Props> = props => {
   })
   useEffectAsync({
     effect: async () => {
-      if (props.isPending.state === 0 && local.stretched.state) {
+      if (!props.isPending.state && local.stretched.state) {
         animations.opacity(root.current, 0, duration, 'InOut')
         await functions.delay(duration)
         local.stretched.dispatch({ type: 'off' })
