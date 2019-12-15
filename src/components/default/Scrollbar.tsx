@@ -32,7 +32,7 @@ const Scrollbar: React.FC<Props> = props => {
   useEffectAsync({
     effect: async () => {
       if (!props.isPending.state && local.squashed.state) {
-        await functions.delay(1)
+        await functions.delay(duration)
         animations.scaleX(root.current, 1, duration, 'Out')
         await functions.delay(duration)
         local.squashed.dispatch({ type: 'off' })
