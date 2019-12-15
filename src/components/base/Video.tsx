@@ -20,7 +20,7 @@ const Video: React.FC<Props> = props => {
   const [loaded, setLoaded] = React.useState<boolean>(false)
   const root = React.useRef<HTMLDivElement>(null)
   const i = React.useRef<HTMLDivElement>(null)
-  const s = React.useRef<SVGSVGElement>(null)
+  const s = React.useRef<HTMLDivElement>(null)
   const v = React.useRef<HTMLVideoElement>(null)
   const g = React.useRef<HTMLDivElement>(null)
   const previous = usePrevious(props.playing.state)
