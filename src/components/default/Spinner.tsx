@@ -14,7 +14,7 @@ type Props = {
 const Spinner: React.FC<Props> = props => {
   const local = useLocal()
   const root = React.useRef<SVGSVGElement>(null)
-  const duration = 1
+  const duration = 0.6
   useEffectAsync({
     effect: async () => {
       if (props.isPending.state) {
