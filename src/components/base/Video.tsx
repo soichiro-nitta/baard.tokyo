@@ -22,6 +22,7 @@ const Video: React.FC<Props> = props => {
   const i = React.useRef<HTMLDivElement>(null)
   const s = React.useRef<SVGSVGElement>(null)
   const v = React.useRef<HTMLVideoElement>(null)
+  const g = React.useRef<HTMLDivElement>(null)
   const previous = usePrevious(props.playing.state)
 
   React.useEffect(() => {
@@ -31,9 +32,27 @@ const Video: React.FC<Props> = props => {
     const canplay = (): void => {
       animations.opacity(s.current, 0, 1, 'InOut')
       v.current.play()
+      let time = 0
+      const raf = (): void => {
+        if (v.current !== null) {
+          if (time !== v.current.currentTime) {
+            time = v.current.currentTime
+            v.current.dispatchEvent(new CustomEvent('timeupdate'))
+          }
+          requestAnimationFrame(raf)
+        }
+      }
+      requestAnimationFrame(raf)
+    }
+    const timeupdate = (): void => {
+      if (v.current) {
+        g.current.style.transform = `scaleX(${v.current.currentTime /
+          v.current.duration})`
+      }
     }
     v.current.addEventListener('loadedmetadata', loadedmetadata)
     v.current.addEventListener('canplay', canplay)
+    v.current.addEventListener('timeupdate', timeupdate)
     return (): void => {
       v.current.removeEventListener('loadedmetadata', loadedmetadata)
       v.current.removeEventListener('canplay', canplay)
@@ -77,6 +96,8 @@ const Video: React.FC<Props> = props => {
       <Inner ref={i}>
         <V ref={v} src={src} preload="none" muted playsInline loop />
         <Filter />
+        <Bar />
+        <Guage ref={g} />
       </Inner>
       <SpinnerWrapper ref={s}>
         <Spinner viewBox="25 25 50 50">
@@ -102,6 +123,22 @@ const V = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`
+const Bar = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: ${styles.colors.light.neutral};
+`
+const Guage = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: ${styles.colors.light.logo};
+  transform: scaleX(0);
+  transform-origin: left center;
 `
 const SpinnerWrapper = styled.div`
   ${styles.mixins.flexCenter}
