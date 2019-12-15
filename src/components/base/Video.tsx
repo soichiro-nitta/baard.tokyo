@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import { Playing } from '~/store/global/playing'
-import useObserve from '~/hooks/base/useObserve'
 import usePrevious from '~/hooks/base/usePrevious'
 import { IsPending } from '~/store/global/isPending'
 
@@ -17,17 +16,6 @@ const Video: React.FC<Props> = props => {
   const src = `${config.firebase}${props.src}`
   const root = React.useRef<HTMLVideoElement>(null)
   const previous = usePrevious(props.playing.state)
-  // useObserve({
-  //   ref: root,
-  //   observeIn: ref => {
-  //     ref.current.play()
-  //     props.playing.dispatch({ type: 'set', payload: ref.current })
-  //   },
-  //   observeOut: ref => {
-  //     ref.current.pause()
-  //   },
-  //   rootMargin: props.rootMargin
-  // })
   React.useEffect(() => {
     if (!props.isPending.state) {
       root.current.load()

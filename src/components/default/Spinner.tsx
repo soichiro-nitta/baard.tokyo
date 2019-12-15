@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { IsPending } from '~/store/global/isPending'
+import { useLocal } from '~/store/default/Spinner'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import animations from '~/utils/animations'
 
@@ -10,14 +11,26 @@ type Props = {
 }
 
 const Spinner: React.FC<Props> = props => {
+  const local = useLocal()
   const root = React.useRef<SVGSVGElement>(null)
   useEffectAsync({
     effect: async () => {
-      const duration = 1
       if (props.isPending.state) {
-        animations.opacity(root.current, 1, duration, 'InOut')
-      } else {
-        animations.opacity(root.current, 0, duration, 'InOut')
+        console.log(local.timeoutId.state)
+        if (local.timeoutId.state) {
+          clearTimeout(local.timeoutId.state)
+        }
+        animations.set(root.current, {
+          display: 'block'
+        })
+        local.timeoutId.dispatch({
+          type: 'set',
+          payload: setTimeout(() => {
+            animations.set(root.current, {
+              display: 'none'
+            })
+          }, 2000)
+        })
       }
     },
     deps: [props.isPending.state]
@@ -30,10 +43,10 @@ const Spinner: React.FC<Props> = props => {
 }
 
 const Root = styled.svg`
+  display: none;
   width: ${styles.sizes.phone.scrollbar + 2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   transform-origin: center center;
-  opacity: 0;
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
