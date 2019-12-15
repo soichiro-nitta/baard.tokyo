@@ -10,7 +10,6 @@ import List from '~/components/service/List'
 import Exhibition from '~/components/base/Exhibition'
 import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Video from '~/components/base/Video'
-import Filter from '~/components/base/Filter'
 import P from '~/components/base/P'
 import config from '~/utils/config'
 
@@ -210,7 +209,6 @@ const Service: React.FC = () => {
             src="/service/ladys-shaving.mp4"
             rootMargin="0% 0%"
           />
-          <Filter />
         </ExhibitionPanorama>
       </Exhibition>
       <Br />

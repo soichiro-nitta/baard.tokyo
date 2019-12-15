@@ -10,7 +10,6 @@ import H2 from '~/components/base/H2'
 import H3 from '~/components/base/H3'
 import Exhibition from '~/components/base/Exhibition'
 import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
-import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
 import config from '~/utils/config'
 
@@ -117,7 +116,6 @@ const Salon: React.FC = () => {
             src="/salon/reservation.mp4"
             rootMargin="0% 0%"
           />
-          <Filter />
         </ExhibitionPanorama>
       </Exhibition>
       <Br />
@@ -153,7 +151,6 @@ const Salon: React.FC = () => {
             src="/salon/shun.mp4"
             rootMargin="-40% 0%"
           />
-          <Filter />
         </ExhibitionPanorama>
       </Exhibition>
       <Br />
@@ -177,7 +174,6 @@ const Salon: React.FC = () => {
             src="/salon/risa.mp4"
             rootMargin="-40% 0%"
           />
-          <Filter />
         </ExhibitionPanorama>
       </Exhibition>
       <Br />

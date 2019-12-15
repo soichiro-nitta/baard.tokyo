@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Video from '~/components/base/Video'
-import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 import { css } from '@emotion/core'
 import { IsPending } from '~/store/global/isPending'
@@ -31,7 +30,6 @@ const Header: React.FC<Props> = props => {
         isPending={props.isPending}
         src={props.src}
       />
-      <Filter />
       <Content>
         <Flex>
           <FontAwesomeIcon icon={props.icon} />

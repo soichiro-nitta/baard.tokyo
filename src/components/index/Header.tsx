@@ -4,7 +4,6 @@ import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Katakana from '~/assets/svg/katakana.svg'
 import Rihatsuten from '~/assets/svg/rihatsuten.svg'
-import Filter from '~/components/base/Filter'
 import Breadcrumbs from '~/components/base/Breadcrumbs'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
@@ -31,7 +30,6 @@ const Header: React.FC<Props> = props => {
         isPending={props.isPending}
         src={props.src}
       />
-      <Filter />
       <Text>
         <div>
           <KatakanaWrapper>

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
-import Filter from '~/components/base/Filter'
 import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
 import config from '~/utils/config'
@@ -30,7 +29,6 @@ const Left: React.FC<Props> = props => {
           src={props.src}
           rootMargin="-40% 0%"
         />
-        <Filter />
       </ImgWrapper>
       <Content>
         <Head>
