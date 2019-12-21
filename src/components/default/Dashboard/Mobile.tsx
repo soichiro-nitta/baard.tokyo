@@ -20,7 +20,7 @@ const Mobile: React.FC<Props> = props => {
   pages.forEach(value => {
     icons[value[1].path] = React.useRef<HTMLDivElement>(null)
   })
-  if (window) {
+  if (typeof window !== `undefined`) {
     useEffectAsync({
       effect: async () => {
         const duration = 0.5
