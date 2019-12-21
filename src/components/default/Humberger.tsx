@@ -11,6 +11,7 @@ type Props = {
 }
 
 const Humberger: React.FC<Props> = props => {
+  const [processing, setProcessing] = React.useState<boolean>(false)
   const circle = React.useRef(null)
   const border1 = React.useRef()
   const border2 = React.useRef()
@@ -18,6 +19,7 @@ const Humberger: React.FC<Props> = props => {
   const border4 = React.useRef()
   const border5 = React.useRef()
   const click = async (): Promise<void> => {
+    if (processing) return
     props.gnav.dispatch({ type: props.gnav.state ? 'off' : 'on' })
     animations.set(circle.current, {
       scale: 0,
@@ -26,6 +28,7 @@ const Humberger: React.FC<Props> = props => {
   }
   useEffectAsync({
     effect: async () => {
+      setProcessing(true)
       if (props.gnav.state) {
         await functions.raf()
         animations.scale(circle.current, 1, 0.7, 'InOut')
@@ -53,6 +56,8 @@ const Humberger: React.FC<Props> = props => {
         await functions.delay(0.1)
         animations.scaleX(border1.current, 1, 0.7, 'InOut')
       }
+      await functions.delay(0.8)
+      setProcessing(false)
     },
     deps: [props.gnav.state]
   })
