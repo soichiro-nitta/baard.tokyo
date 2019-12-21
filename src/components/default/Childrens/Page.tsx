@@ -90,9 +90,7 @@ const Clipping = styled.div`
   width: 100%;
   overflow: hidden;
   ${styles.large(css`
-    margin: 0 auto;
-    padding: 0;
-    width: ${styles.sizes.desktop.main()}px;
+    padding-left: ${styles.sizes.desktop.dashboard}px;
   `)}
 `
 const Inner = styled.div`

@@ -96,7 +96,7 @@ const Contents = styled.div`
   height: 100%;
   color: ${styles.colors.light.background};
   ${styles.large(css`
-    padding-left: ${styles.sizes.desktop.dashboard() + 1}px;
+    padding-left: ${styles.sizes.desktop.dashboard + 1}px;
   `)}
 `
 const Menu = styled(Link)`

@@ -15,7 +15,7 @@ const Root = styled.div`
       1.25
   );
   ${styles.large(css`
-    height: ${(styles.sizes.desktop.main() - styles.sizes.phone.base()) *
+    height: ${(styles.sizes.desktop.main - styles.sizes.phone.base()) *
       1.185}px;
   `)}
 `

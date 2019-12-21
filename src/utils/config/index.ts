@@ -3,6 +3,7 @@ import {
   faCut,
   faClipboardList,
   faMapMarkedAlt,
+  faFillDrip,
   faPhone
 } from '@fortawesome/pro-duotone-svg-icons'
 
@@ -36,6 +37,11 @@ export default {
       en: 'ACCESS',
       ja: 'アクセス',
       icon: faMapMarkedAlt
+    }
+  },
+  options: {
+    darkmode: {
+      icon: faFillDrip
     }
   },
   tel: {

@@ -10,7 +10,6 @@ import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
 import useWindow from '~/hooks/default/useWindow'
 import Borders from '~/components/default/Borders'
 import Dashboard from '~/components/default/Dashboard'
-import Sidecolumn from '~/components/default/Sidecolumn'
 import Scrollbar from '~/components/default/Scrollbar'
 import Spinner from '~/components/default/Spinner'
 import Humberger from '~/components/default/Humberger'
@@ -25,6 +24,9 @@ const Layout: React.FC = props => {
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large })
+  // React.useEffect(() => {
+  //   local.launched.dispatch({ type: 'on' })
+  // }, [])
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
@@ -32,13 +34,12 @@ const Layout: React.FC = props => {
         <Borders large={global.large} />
       </BordersWrapper>
       <DashboardWrapper>
-        <Dashboard large={global.large} isPending={global.isPending} />
+        <Dashboard
+          launched={local.launched}
+          large={global.large}
+          isPending={global.isPending}
+        />
       </DashboardWrapper>
-      {global.large.state && (
-        <SidecolumnWrapper>
-          <Sidecolumn />
-        </SidecolumnWrapper>
-      )}
       <ScrollbarWrapper>
         <Scrollbar
           currentPage={global.currentPage}
@@ -46,7 +47,7 @@ const Layout: React.FC = props => {
         />
       </ScrollbarWrapper>
       <Childrens currentPage={global.currentPage} isPending={global.isPending}>
-        {props.children}
+        {props.children as React.ReactElement}
       </Childrens>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation playing={global.playing} gnav={local.gnav} />
@@ -73,12 +74,17 @@ const Layout: React.FC = props => {
 }
 
 const Root = styled.div`
-  width: 100%;
-  height: 100%;
+  ${styles.mixins.relative}
   font-size: 1.3rem;
+  ${styles.large(css`
+    ${styles.mixins.fixedCenter}
+    width: ${styles.sizes.desktop.container}px;
+  border-right: 1px solid ${styles.colors.light.border};
+  border-left: 1px solid ${styles.colors.light.border};
+  `)}
 `
 const BordersWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -86,61 +92,33 @@ const BordersWrapper = styled.div`
   z-index: -1;
 `
 const DashboardWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: ${styles.sizes.phone.dashboard}px;
   left: 0;
   width: ${styles.sizes.phone.dashboard}px;
   z-index: 1;
   ${styles.large(css`
-    top: ${styles.sizes.phone.dashboard}px;
-    left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-    bottom: 0;
-    width: ${styles.sizes.desktop.dashboard()}px;
-  `)}
-`
-const SidecolumnWrapper = styled.div`
-  ${styles.large(css`
-    position: fixed;
-    top: ${styles.sizes.phone.dashboard}px;
-    right: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-    bottom: 0;
-    width: ${styles.sizes.desktop.dashboard()}px;
-    z-index: 1;
+    left: 1px;
+    width: ${styles.sizes.desktop.dashboard}px;
   `)}
 `
 const ScrollbarWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   left: ${styles.sizes.phone.base}px;
   bottom: ${(styles.sizes.phone.dashboard - 2) / 2}px;
   height: 2px;
-  ${styles.large(css`
-    display: flex;
-    align-items: center;
-    left: calc((100% - ${styles.sizes.desktop.container()}px) / 2 + 1px);
-    bottom: 0;
-    padding-left: ${styles.sizes.phone.base()}px;
-    width: ${styles.sizes.desktop.dashboard()}px;
-    height: ${styles.sizes.phone.dashboard}px;
-    border-top: 1px solid ${styles.colors.light.border};
-  `)}
 `
 const NavigationWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  ${styles.large(css`
-    margin: 0 auto;
-    width: ${styles.sizes.desktop.container() - 2}px;
-    left: 0;
-    right: 0;
-  `)}
 `
 const LogoHeight = 20
 const LogoWrapper = styled(Link)`
   display: inline-block;
-  position: fixed;
+  position: absolute;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   left: ${styles.sizes.phone.base}px;
   width: 110px;
@@ -152,51 +130,32 @@ const LogoWrapper = styled(Link)`
     height: 100%;
     vertical-align: top;
   }
-  ${styles.large(css`
-    left: calc(
-      (100% - ${styles.sizes.desktop.container()}px) / 2 +
-        ${styles.sizes.phone.base() + 1}px
-    );
-  `)}
 `
 const HumbergerWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   right: ${styles.sizes.phone.base}px;
   mix-blend-mode: screen;
   z-index: 1;
-  ${styles.large(css`
-    right: calc(
-      (100% - ${styles.sizes.desktop.container()}px) / 2 +
-        ${styles.sizes.phone.base() + 1}px
-    );
-  `)}
 `
 const OpeningWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
 `
 const SpinnerWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   left: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
   bottom: ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
     2}px;
   height: ${styles.sizes.phone.scrollbar + 2}px;
   z-index: 1;
-  ${styles.large(css`
-    left: calc(
-      (100% - ${styles.sizes.desktop.container()}px) / 2 +
-        ${(styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar - 2) /
-          2}px
-    );
-  `)}
 `
 const ProgressbarWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

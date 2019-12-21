@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconDefinition } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
@@ -10,18 +9,32 @@ import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 
-type Props = {
-  options: { icon: IconDefinition }[]
-}
-
-const Mobile: React.FC<Props> = props => {
+const Mobile: React.FC = () => {
   const pages = Object.entries(config.pages)
   const icons = {}
-  const circles = {}
+  const circles = {
+    darkmode: React.useRef<HTMLDivElement>(null),
+    phone: React.useRef<HTMLDivElement>(null)
+  }
   pages.forEach(value => {
     icons[value[1].path] = React.useRef<HTMLDivElement>(null)
     circles[value[1].path] = React.useRef<HTMLDivElement>(null)
   })
+  const circleExpand = async (el: HTMLDivElement): Promise<void> => {
+    animations.scale(el, 1, 0.7, 'InOut')
+    animations.opacity(el, 0, 0.7, 'InOut')
+    await functions.delay(0.7)
+    animations.set(circles[location.pathname].current, {
+      scale: 0,
+      opacity: 1
+    })
+  }
+  const clickDarkmode = (): void => {
+    // circleExpand(circles['darkmode'].current)
+  }
+  const clickPhone = (): void => {
+    circleExpand(circles['phone'].current)
+  }
   if (typeof window !== `undefined`) {
     useEffectAsync({
       effect: async () => {
@@ -32,22 +45,14 @@ const Mobile: React.FC<Props> = props => {
             others.push(icon.current)
           }
         })
-        animations.scale(circles[location.pathname].current, 1, 0.7, 'InOut')
-        animations.opacity(circles[location.pathname].current, 0, 0.7, 'InOut')
+        circleExpand(circles[location.pathname].current)
         animations.color(others, styles.colors.light.text, 0.7, 'InOut')
-        animations.scale(icons[location.pathname].current, 1.2, 0.7, 'InOut')
         animations.color(
           icons[location.pathname].current,
           styles.colors.light.logo,
           0.7,
           'InOut'
         )
-        await functions.delay(0.7)
-        animations.scale(icons[location.pathname].current, 1, 0.7, 'In')
-        animations.set(circles[location.pathname].current, {
-          scale: 0,
-          opacity: 1
-        })
       },
       deps: [location.pathname]
     })
@@ -69,19 +74,20 @@ const Mobile: React.FC<Props> = props => {
       <Br />
       <Border />
       <Br />
-      {props.options.map(value => {
-        return (
-          <MenuWrapper key={value.icon.iconName}>
-            <OptionMenu>
-              <SvgWrapper>
-                <FontAwesomeIcon icon={value.icon} />
-              </SvgWrapper>
-            </OptionMenu>
-          </MenuWrapper>
-        )
-      })}
+      <MenuWrapper
+        key={config.options.darkmode.icon.iconName}
+        onClick={clickDarkmode}
+      >
+        <Circle ref={circles['darkmode']} />
+        <OptionMenu>
+          <SvgWrapper>
+            <FontAwesomeIcon icon={config.options.darkmode.icon} />
+          </SvgWrapper>
+        </OptionMenu>
+      </MenuWrapper>
       <MenuWrapper>
-        <PhoneMenu href={`tel:${config.tel.number}`}>
+        <Circle ref={circles['phone']} />
+        <PhoneMenu href={`tel:${config.tel.number}`} onClick={clickPhone}>
           <SvgWrapper>
             <FontAwesomeIcon icon={config.tel.icon} />
           </SvgWrapper>

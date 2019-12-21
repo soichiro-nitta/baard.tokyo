@@ -51,7 +51,7 @@ const Root = styled.div`
   height: calc(105vw + ${styles.sizes.phone.base}px);
   color: white;
   ${styles.large(css`
-    height: ${styles.sizes.desktop.main() * 1.05 + styles.sizes.phone.base()}px;
+    height: ${styles.sizes.desktop.main * 1.05 + styles.sizes.phone.base()}px;
   `)}
 `
 const Background = styled.div`

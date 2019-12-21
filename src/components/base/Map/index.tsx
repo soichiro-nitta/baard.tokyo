@@ -41,7 +41,7 @@ const Root = styled.div`
     border-bottom: 1px solid ${styles.colors.light.border};
   }
   ${styles.large(css`
-    height: ${styles.sizes.desktop.main() * 1.05}px;
+    height: ${styles.sizes.desktop.main * 1.05}px;
   `)}
 `
 const width = 39
