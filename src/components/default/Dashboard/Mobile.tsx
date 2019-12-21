@@ -20,30 +20,32 @@ const Mobile: React.FC<Props> = props => {
   pages.forEach(value => {
     icons[value[1].path] = React.useRef<HTMLDivElement>(null)
   })
-  useEffectAsync({
-    effect: async () => {
-      const duration = 0.5
-      const others: HTMLDivElement[] = []
-      Object.entries(icons).forEach(value => {
-        if (value[0] !== location.pathname) {
-          const icon = value[1] as React.MutableRefObject<HTMLDivElement>
-          others.push(icon.current)
-        }
-      })
-      animations.scale(icons[location.pathname].current, 0, duration, 'In')
-      animations.scale(others, 1, 1, 'InOut')
-      animations.color(others, styles.colors.light.text, 1, 'InOut')
-      animations.color(
-        icons[location.pathname].current,
-        styles.colors.light.logo,
-        1,
-        'InOut'
-      )
-      await functions.delay(duration)
-      animations.scale(icons[location.pathname].current, 1, duration, 'Out')
-    },
-    deps: [location.pathname]
-  })
+  if (window) {
+    useEffectAsync({
+      effect: async () => {
+        const duration = 0.5
+        const others: HTMLDivElement[] = []
+        Object.entries(icons).forEach(value => {
+          if (value[0] !== location.pathname) {
+            const icon = value[1] as React.MutableRefObject<HTMLDivElement>
+            others.push(icon.current)
+          }
+        })
+        animations.scale(icons[location.pathname].current, 0, duration, 'In')
+        animations.scale(others, 1, 1, 'InOut')
+        animations.color(others, styles.colors.light.text, 1, 'InOut')
+        animations.color(
+          icons[location.pathname].current,
+          styles.colors.light.logo,
+          1,
+          'InOut'
+        )
+        await functions.delay(duration)
+        animations.scale(icons[location.pathname].current, 1, duration, 'Out')
+      },
+      deps: [location.pathname]
+    })
+  }
   return (
     <Root>
       {pages.map(value => {
