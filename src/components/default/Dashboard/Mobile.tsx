@@ -7,8 +7,8 @@ import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
 import animations from '~/utils/animations'
-import functions from '~/utils/functions'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
+import functions from '~/utils/functions'
 
 type Props = {
   options: { icon: IconDefinition }[]
@@ -17,13 +17,14 @@ type Props = {
 const Mobile: React.FC<Props> = props => {
   const pages = Object.entries(config.pages)
   const icons = {}
+  const circles = {}
   pages.forEach(value => {
     icons[value[1].path] = React.useRef<HTMLDivElement>(null)
+    circles[value[1].path] = React.useRef<HTMLDivElement>(null)
   })
   if (typeof window !== `undefined`) {
     useEffectAsync({
       effect: async () => {
-        const duration = 0.5
         const others: HTMLDivElement[] = []
         Object.entries(icons).forEach(value => {
           if (value[0] !== location.pathname) {
@@ -31,17 +32,22 @@ const Mobile: React.FC<Props> = props => {
             others.push(icon.current)
           }
         })
-        animations.scale(icons[location.pathname].current, 0, duration, 'In')
-        animations.scale(others, 1, 1, 'InOut')
-        animations.color(others, styles.colors.light.text, 1, 'InOut')
+        animations.scale(circles[location.pathname].current, 1, 0.7, 'InOut')
+        animations.opacity(circles[location.pathname].current, 0, 0.7, 'InOut')
+        animations.color(others, styles.colors.light.text, 0.7, 'InOut')
+        animations.scale(icons[location.pathname].current, 1.2, 0.7, 'InOut')
         animations.color(
           icons[location.pathname].current,
           styles.colors.light.logo,
-          1,
+          0.7,
           'InOut'
         )
-        await functions.delay(duration)
-        animations.scale(icons[location.pathname].current, 1, duration, 'Out')
+        await functions.delay(0.7)
+        animations.scale(icons[location.pathname].current, 1, 0.7, 'In')
+        animations.set(circles[location.pathname].current, {
+          scale: 0,
+          opacity: 1
+        })
       },
       deps: [location.pathname]
     })
@@ -50,15 +56,14 @@ const Mobile: React.FC<Props> = props => {
     <Root>
       {pages.map(value => {
         return (
-          <Menu
-            ref={icons[value[1].path]}
-            to={value[1].path}
-            key={value[1].path}
-          >
-            <SvgWrapper>
-              <FontAwesomeIcon icon={value[1].icon} />
-            </SvgWrapper>
-          </Menu>
+          <MenuWrapper key={value[1].path}>
+            <Circle ref={circles[value[1].path]} />
+            <Menu ref={icons[value[1].path]} to={value[1].path}>
+              <SvgWrapper>
+                <FontAwesomeIcon icon={value[1].icon} />
+              </SvgWrapper>
+            </Menu>
+          </MenuWrapper>
         )
       })}
       <Br />
@@ -66,18 +71,22 @@ const Mobile: React.FC<Props> = props => {
       <Br />
       {props.options.map(value => {
         return (
-          <OptionMenu key={value.icon.iconName}>
-            <SvgWrapper>
-              <FontAwesomeIcon icon={value.icon} />
-            </SvgWrapper>
-          </OptionMenu>
+          <MenuWrapper key={value.icon.iconName}>
+            <OptionMenu>
+              <SvgWrapper>
+                <FontAwesomeIcon icon={value.icon} />
+              </SvgWrapper>
+            </OptionMenu>
+          </MenuWrapper>
         )
       })}
-      <PhoneMenu href={`tel:${config.tel.number}`}>
-        <SvgWrapper>
-          <FontAwesomeIcon icon={config.tel.icon} />
-        </SvgWrapper>
-      </PhoneMenu>
+      <MenuWrapper>
+        <PhoneMenu href={`tel:${config.tel.number}`}>
+          <SvgWrapper>
+            <FontAwesomeIcon icon={config.tel.icon} />
+          </SvgWrapper>
+        </PhoneMenu>
+      </MenuWrapper>
     </Root>
   )
 }
@@ -85,14 +94,26 @@ const Mobile: React.FC<Props> = props => {
 const Root = styled.div`
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
 `
 const svgHeight = 16
+const MenuWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: ${styles.sizes.phone.base() * 2 + svgHeight}px;
+`
+const Circle = styled.div`
+  ${styles.mixins.absoluteCenter}
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: ${styles.colors.light.neutral};
+  border-radius: 50%;
+  transform: scale(0);
+`
 const Menu = styled(Link)`
   ${styles.mixins.flexCenter}
   width: 100%;
-  height: ${styles.sizes.phone.base() * 2 + svgHeight}px;
-  overflow: hidden;
+  height: 100%;
 `
 const SvgWrapper = styled.div`
   width: 18px;
@@ -113,15 +134,13 @@ const Border = styled.div`
 const OptionMenu = styled.div`
   ${styles.mixins.flexCenter}
   width: 100%;
-  height: ${styles.sizes.phone.base() * 2 + svgHeight}px;
-  overflow: hidden;
+  height: 100%;
   opacity: 0.3;
 `
 const PhoneMenu = styled.a`
   ${styles.mixins.flexCenter}
   width: 100%;
-  height: ${styles.sizes.phone.base() * 2 + svgHeight}px;
-  overflow: hidden;
+  height: 100%;
 `
 
 export default Mobile
