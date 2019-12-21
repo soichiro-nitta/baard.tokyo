@@ -9,6 +9,7 @@ const P: React.FC = props => {
 const Root = styled.div`
   width: 100%;
   ${styles.mixins.lhCrop(2)}
+  color: ${styles.colors.light.text};
 `
 
 export default P

@@ -63,14 +63,13 @@ const Text = styled.div`
   padding-left: ${styles.sizes.phone.base}px;
   width: 100%;
   height: 100%;
-  /* mix-blend-mode: overlay; */
 `
 const KatakanaWrapper = styled.div`
   svg {
     width: 120px;
     vertical-align: top;
     path {
-      fill: ${styles.colors.light.background};
+      fill: white;
     }
   }
 `
@@ -80,7 +79,7 @@ const RihatsutenWrapper = styled.div`
     width: 60px;
     vertical-align: top;
     path {
-      fill: ${styles.colors.light.background};
+      fill: white;
     }
   }
 `
@@ -88,8 +87,7 @@ const BreadcrumbsWrapper = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   left: ${styles.sizes.phone.base}px;
-  color: ${styles.colors.light.background};
-  /* mix-blend-mode: overlay; */
+  color: white;
 `
 
 export default Header

@@ -63,7 +63,7 @@ const Content = styled.div`
   padding-left: ${styles.sizes.phone.base}px;
   width: 100%;
   height: 100%;
-  color: ${styles.colors.light.background};
+  color: white;
   font-size: 2.2rem;
   line-height: 1;
   /* mix-blend-mode: overlay; */
@@ -88,7 +88,7 @@ const BreadcrumbsWrapper = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   margin-left: ${styles.sizes.phone.base}px;
-  color: ${styles.colors.light.background};
+  color: white;
 `
 
 export default Header

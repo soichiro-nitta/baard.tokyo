@@ -6,7 +6,6 @@ import styles, { global as globalStyles } from '~/utils/styles'
 import Logo from '~/assets/svg/baard.svg'
 import { useGlobal } from '~/store/global'
 import { useLocal } from '~/store/default'
-// import useAlert from '~/hooks/default/useAlert'
 import useNavigationWrapper from '~/hooks/default/useNavigationWrapper'
 import useWindow from '~/hooks/default/useWindow'
 import Borders from '~/components/default/Borders'
@@ -24,7 +23,6 @@ const Layout: React.FC = props => {
   const global = useGlobal()
   const local = useLocal()
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
-  // useAlert()
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large })
   return (
@@ -34,7 +32,7 @@ const Layout: React.FC = props => {
         <Borders large={global.large} />
       </BordersWrapper>
       <DashboardWrapper>
-        <Dashboard large={global.large} />
+        <Dashboard large={global.large} isPending={global.isPending} />
       </DashboardWrapper>
       {global.large.state && (
         <SidecolumnWrapper>
@@ -61,11 +59,7 @@ const Layout: React.FC = props => {
       </HumbergerWrapper>
       {!local.launched.state && (
         <OpeningWrapper>
-          <Opening
-            isPending={global.isPending}
-            launched={local.launched}
-            large={global.large}
-          />
+          <Opening launched={local.launched} large={global.large} />
         </OpeningWrapper>
       )}
       <SpinnerWrapper>

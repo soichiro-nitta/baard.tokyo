@@ -4,8 +4,9 @@ const colors = {
     background: '#fbfcfd',
     border: '#eef2f5',
     neutral: '#ACB2BA',
-    shape: '#6F7B89',
-    logo: '#314458'
+    shape: 'rgba(49, 68, 88, 0.75)',
+    text: 'rgba(0, 0, 0, 0.60)',
+    logo: 'rgba(49, 68, 88, 1)'
   }
 }
 export default colors

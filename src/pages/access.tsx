@@ -152,7 +152,7 @@ const Access: React.FC = () => {
       <Wrapper>
         <H3>1. コインパーク亀有</H3>
         <Br />
-        <P>〒125-0061 東京都葛飾区 亀有2丁目2</P>
+        <P>〒125-0061 東京都葛飾区 亀有2-2</P>
         <Br />
         <ButtonNew
           to="https://www.google.com/maps/place/%E3%82%B3%E3%82%A4%E3%83%B3%E3%83%91%E3%83%BC%E3%82%AF+%E4%BA%80%E6%9C%89/@35.7628514,139.8493712,16z/data=!4m8!1m2!2m1!1z44Kz44Kk44Oz44OR44O844Kv5LqA5pyJ!3m4!1s0x60188f842ba4f4c1:0xc76defbb8e7a66ec!8m2!3d35.7628514!4d139.8493712"
@@ -171,7 +171,7 @@ const Access: React.FC = () => {
           亀有信用金庫本店
         </H3>
         <Br />
-        <P>〒125-0061 東京都葛飾区 亀有3丁目12</P>
+        <P>〒125-0061 東京都葛飾区 亀有3-12</P>
         <Br />
         <ButtonNew
           to="https://www.google.com/maps/place/%E3%83%8A%E3%83%93%E3%83%91%E3%83%BC%E3%82%AF+%E4%BA%80%E6%9C%89%E4%BF%A1%E7%94%A8%E9%87%91%E5%BA%AB%E6%9C%AC%E5%BA%97/@35.7708686,139.8307802,14z/data=!4m8!1m2!2m1!1z44OK44OT44OR44O844Kv5LqA5pyJ5L-h55So6YeR5bqr5pys5bqX!3m4!1s0x60188f85a23f75a3:0xc4617cd78f4063e4!8m2!3d35.763247!4d139.847444"

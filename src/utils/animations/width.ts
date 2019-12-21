@@ -1,15 +1,15 @@
 import { TweenMax, Expo } from 'gsap'
 
-const opacity = (
+const width = (
   element: Element | Element[],
-  value: number,
+  value: string,
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
   TweenMax.to(element, duration, {
-    opacity: value,
+    width: value,
     ease: Expo[`ease${easing}`]
   })
 }
 
-export default opacity
+export default width

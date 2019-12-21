@@ -8,6 +8,7 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 
 type Props = {
+  children: React.ReactElement
   currentPage: CurrentPage
   isPending: IsPending
 }
@@ -20,11 +21,15 @@ const Childrens: React.FC<Props> = props => {
       if (local.childrens.state.length === 0) {
         local.childrens.dispatch({ type: 'add', payload: props.children })
       } else {
-        const latest =
-          local.childrens.state[local.childrens.state.length - 1].node
+        const latest = local.childrens.state[local.childrens.state.length - 1]
+          .node as React.ReactElement
         if (latest.key !== props.children.key) {
+          await functions.delay(0.5)
           props.isPending.dispatch({ type: 'on' })
-          local.childrens.dispatch({ type: 'update', payload: props.children })
+          local.childrens.dispatch({
+            type: 'update',
+            payload: props.children
+          })
           await functions.delay(duration)
           props.isPending.dispatch({ type: 'off' })
           local.childrens.dispatch({ type: 'clean' })

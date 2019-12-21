@@ -4,7 +4,6 @@ import config from '~/utils/config'
 import { Playing } from '~/store/global/playing'
 import usePrevious from '~/hooks/base/usePrevious'
 import { IsPending } from '~/store/global/isPending'
-import Filter from '~/components/base/Filter'
 import styles from '~/utils/styles'
 import animations from '~/utils/animations'
 
@@ -61,11 +60,11 @@ const Video: React.FC<Props> = props => {
 
   React.useEffect(() => {
     if (!props.isPending.state) {
-      animations.opacity(s.current, 1, 1, 'InOut')
       const observer = new IntersectionObserver(
         entries => {
           if (entries[0].isIntersecting) {
             if (!loaded) {
+              animations.opacity(s.current, 1, 1, 'InOut')
               v.current.load()
               setLoaded(true)
             } else {
@@ -101,7 +100,6 @@ const Video: React.FC<Props> = props => {
     <Root ref={root}>
       <Inner ref={i}>
         <V ref={v} src={src} preload="none" muted playsInline loop />
-        <Filter />
         <Bar />
         <Guage ref={g} />
       </Inner>
@@ -127,7 +125,7 @@ const Inner = styled.div`
 `
 const V = styled.video`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2px);
   object-fit: cover;
 `
 const Bar = styled.div`
@@ -152,6 +150,7 @@ const SpinnerWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
 `
 const Spinner = styled.svg`
   width: ${styles.sizes.phone.base() * 2}px;
@@ -169,7 +168,7 @@ const Circle = styled.circle`
   stroke-width: 5;
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
-  stroke: ${styles.colors.light.shape};
+  stroke: ${styles.colors.light.neutral};
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

@@ -1,7 +1,7 @@
 import { TweenMax, Expo } from 'gsap'
 
 const scale = (
-  element: Element | HTMLCollection,
+  element: Element | Element[],
   value: number,
   duration: number,
   easing: 'In' | 'Out' | 'InOut'

@@ -72,11 +72,6 @@ const ImgWrapper = styled.div`
     100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
   height: calc(100% - ${styles.sizes.phone.base}px);
-  .gatsby-image-wrapper {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `
 const Content = styled.div`
   display: flex;
