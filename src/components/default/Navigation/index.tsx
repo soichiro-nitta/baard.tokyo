@@ -8,17 +8,17 @@ import {
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import { Gnav } from '~/store/default/gnav'
-import Filter from '~/components/base/Filter'
 import config from '~/utils/config'
-import useIn from '~/hooks/default/Navigation/useIn'
-import useOut from '~/hooks/default/Navigation/useOut'
 import Video from '~/components/default/Navigation/Video'
 import Br from '~/components/base/Br'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import H3 from '~/components/base/H3'
 import { css } from '@emotion/core'
+import animations from '~/utils/animations'
+import { Launched } from '~/store/default/launched'
 
 type Props = {
+  launched: Launched
   playing: Playing
   gnav: Gnav
 }
@@ -29,16 +29,24 @@ const Navigation: React.FC<Props> = props => {
   const off = (): void => {
     props.gnav.dispatch({ type: 'off' })
   }
-  useIn(props.gnav, root)
-  useOut(props.gnav, root)
+  React.useEffect(() => {
+    if (props.gnav.state) {
+      animations.set(root.current, { scale: 1.1 })
+      animations.scale(root.current, 1, 1, 'InOut')
+      animations.opacity(root.current, 1, 1, 'InOut')
+    } else {
+      animations.scale(root.current, 1.1, 1, 'InOut')
+      animations.opacity(root.current, 0, 1, 'InOut')
+    }
+  }, [props.gnav.state])
   return (
     <Root ref={root}>
       <Video
+        launched={props.launched}
         playing={props.playing}
         gnav={props.gnav}
         src="/navigation/background.mp4"
       />
-      <Filter />
       <Contents>
         {pages.map(value => {
           return (
