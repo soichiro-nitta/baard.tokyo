@@ -50,14 +50,14 @@ const Border0 = styled.div`
   margin-left: ${styles.sizes.phone.dashboard}px;
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
   opacity: 0;
 `
 const Border1 = styled.div`
   margin-left: calc(((100vw - ${styles.sizes.phone.dashboard * 2 + 4}px) / 3));
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
   opacity: 0;
 `
 

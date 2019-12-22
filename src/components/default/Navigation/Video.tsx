@@ -20,7 +20,6 @@ const Video: React.FC<Props> = props => {
   const s = React.useRef<HTMLDivElement>(null)
   React.useEffect(() => {
     if (props.launched.state) {
-      console.log('load')
       video.current.load()
       animations.opacity(s.current, 1, 1, 'InOut')
     }
@@ -61,7 +60,7 @@ const Video: React.FC<Props> = props => {
 const Root = styled.div`
   width: 100%;
   height: 100%;
-  background: ${styles.colors.light.logo};
+  background: var(--brand);
   video {
     width: 100%;
     height: 100%;
@@ -93,7 +92,7 @@ const Circle = styled.circle`
   stroke-width: 5;
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
-  stroke: ${styles.colors.light.neutral};
+  stroke: var(--onPictureShape);
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

@@ -31,8 +31,7 @@ const Root = styled.div`
   align-items: center;
   padding: ${styles.sizes.phone.base}px;
   width: 100%;
-  color: white;
-  background: ${styles.colors.light.shape};
+  color: var(--clearly);
 `
 const Icons = styled.div`
   ${styles.mixins.lhCrop(1.8)}

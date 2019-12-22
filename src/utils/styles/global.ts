@@ -1,4 +1,5 @@
 import { css } from '@emotion/core'
+import mixins from '~/utils/styles/mixins'
 import colors from '~/utils/styles/colors'
 
 const globalStyles = css`
@@ -30,19 +31,36 @@ const globalStyles = css`
     font-size: 65%;
   }
   body {
+    --brand: ${colors.base.brand};
+    --onPicture: ${colors.base.onPicture};
+    --onPictureShape: ${colors.base.onPictureShape};
+    --background: ${colors.light.background};
+    --border: ${colors.light.border};
+    --neutral: ${colors.light.neutral};
+    --clearly: ${colors.light.clearly};
+    --text: ${colors.light.text};
+    &.dark {
+      --background: ${colors.dark.background};
+      --border: ${colors.dark.border};
+      --neutral: ${colors.dark.neutral};
+      --clearly: ${colors.dark.clearly};
+      --text: ${colors.dark.text};
+    }
     position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    color: ${colors.light.logo};
+    color: var(--clearly);
     font-weight: 500;
-    background: ${colors.light.background};
+    background: var(--background);
     letter-spacing: 0px;
     font-family: 'Fira Sans', 'Noto Sans JP', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 0;
+    ${mixins.transitionColor}
+    ${mixins.transitionBackground}
   }
   #___gatsby,
   #gatsby-focus-wrapper {

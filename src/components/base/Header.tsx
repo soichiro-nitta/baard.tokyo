@@ -50,6 +50,7 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: calc((100vw - ${styles.sizes.phone.dashboard + 1}px) * 1.25);
+  color: var(--onPicture);
   ${styles.large(css`
     height: ${styles.sizes.desktop.main * 1.185}px;
   `)}
@@ -63,10 +64,8 @@ const Content = styled.div`
   padding-left: ${styles.sizes.phone.base}px;
   width: 100%;
   height: 100%;
-  color: white;
   font-size: 2.2rem;
   line-height: 1;
-  /* mix-blend-mode: overlay; */
 `
 const Flex = styled.div`
   display: flex;
@@ -88,7 +87,6 @@ const BreadcrumbsWrapper = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   margin-left: ${styles.sizes.phone.base}px;
-  color: white;
 `
 
 export default Header

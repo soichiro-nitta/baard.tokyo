@@ -18,7 +18,7 @@ const Scrollbar: React.FC<Props> = props => {
   const page = props.currentPage.state
   const root = React.useRef<HTMLDivElement>(null)
   const gauge = React.useRef<HTMLDivElement>(null)
-  const duration = 0.6
+  const duration = 0.7
   useEffectAsync({
     effect: async () => {
       if (props.isPending.state) {
@@ -65,13 +65,13 @@ const Scrollbar: React.FC<Props> = props => {
 const Root = styled.div`
   width: ${styles.sizes.phone.scrollbar}px;
   height: 2px;
-  background: ${styles.colors.light.neutral};
+  background: var(--neutral);
   transform-origin: left center;
 `
 const Gauge = styled.div`
   width: 100%;
   height: 100%;
-  background: ${styles.colors.light.logo};
+  background: var(--brand);
   transform: scaleX(0);
   transform-origin: left center;
 `

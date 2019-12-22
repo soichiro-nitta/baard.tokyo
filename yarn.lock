@@ -1112,6 +1112,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google-map-react@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@types/google-map-react/-/google-map-react-1.1.3.tgz#5724fadb0467900d57a13c093fbbd18f5758081c"
+  integrity sha512-2qF4l8alBNqs0fJOqubhuOpWFHAFOgq2uLfypXRq/5WmbaLeVPvH0d8WIObr7EfUFPBJHeQONB0QVwlfVeOJRw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/gsap@^1.20.2":
   version "1.20.2"
   resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.20.2.tgz#038d0e81a8dd50b9b6894f34f3cd4045f71c62b8"

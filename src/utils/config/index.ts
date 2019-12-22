@@ -3,7 +3,8 @@ import {
   faCut,
   faClipboardList,
   faMapMarkedAlt,
-  faFillDrip,
+  faSunCloud,
+  faMoonStars,
   faPhone
 } from '@fortawesome/pro-duotone-svg-icons'
 
@@ -39,9 +40,12 @@ export default {
       icon: faMapMarkedAlt
     }
   },
-  options: {
-    darkmode: {
-      icon: faFillDrip
+  colorscheme: {
+    dark: {
+      icon: faMoonStars
+    },
+    light: {
+      icon: faSunCloud
     }
   },
   tel: {

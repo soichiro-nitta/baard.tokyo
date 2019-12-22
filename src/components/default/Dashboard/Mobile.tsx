@@ -8,12 +8,21 @@ import config from '~/utils/config'
 import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
+import { Colorscheme } from '~/store/global/colorscheme'
 
-const Mobile: React.FC = () => {
+type Props = {
+  colorscheme: Colorscheme
+}
+
+const Mobile: React.FC<Props> = props => {
   const pages = Object.entries(config.pages)
-  const icons = {}
+  const icons = {
+    light: React.useRef<HTMLDivElement>(null),
+    dark: React.useRef<HTMLDivElement>(null)
+  }
+  const [others, setOthers] = React.useState<HTMLDivElement[]>([])
   const circles = {
-    darkmode: React.useRef<HTMLDivElement>(null),
+    colorscheme: React.useRef<HTMLDivElement>(null),
     phone: React.useRef<HTMLDivElement>(null)
   }
   pages.forEach(value => {
@@ -24,13 +33,18 @@ const Mobile: React.FC = () => {
     animations.scale(el, 1, 0.7, 'InOut')
     animations.opacity(el, 0, 0.7, 'InOut')
     await functions.delay(0.7)
-    animations.set(circles[location.pathname].current, {
+    animations.set(el, {
       scale: 0,
       opacity: 1
     })
   }
   const clickDarkmode = (): void => {
-    // circleExpand(circles['darkmode'].current)
+    circleExpand(circles['colorscheme'].current)
+    if (props.colorscheme.state === 'dark') {
+      props.colorscheme.dispatch({ type: 'set', payload: 'light' })
+    } else {
+      props.colorscheme.dispatch({ type: 'set', payload: 'dark' })
+    }
   }
   const clickPhone = (): void => {
     circleExpand(circles['phone'].current)
@@ -38,24 +52,45 @@ const Mobile: React.FC = () => {
   if (typeof window !== `undefined`) {
     useEffectAsync({
       effect: async () => {
-        const others: HTMLDivElement[] = []
+        const others = []
         Object.entries(icons).forEach(value => {
           if (value[0] !== location.pathname) {
             const icon = value[1] as React.MutableRefObject<HTMLDivElement>
             others.push(icon.current)
           }
         })
+        setOthers(others)
         circleExpand(circles[location.pathname].current)
-        animations.color(others, styles.colors.light.text, 0.7, 'InOut')
+        animations.color(
+          others,
+          styles.colors[props.colorscheme.state].text,
+          0.7,
+          'InOut'
+        )
         animations.color(
           icons[location.pathname].current,
-          styles.colors.light.logo,
+          styles.colors.base.brand,
           0.7,
           'InOut'
         )
       },
       deps: [location.pathname]
     })
+    React.useEffect(() => {
+      animations.color(
+        others,
+        styles.colors[props.colorscheme.state].text,
+        0.7,
+        'InOut'
+      )
+      if (props.colorscheme.state === 'dark') {
+        animations.scale(icons.dark.current, 0, 0.7, 'InOut')
+        animations.scale(icons.light.current, 1, 0.7, 'InOut')
+      } else {
+        animations.scale(icons.light.current, 0, 0.7, 'InOut')
+        animations.scale(icons.dark.current, 1, 0.7, 'InOut')
+      }
+    }, [props.colorscheme.state])
   }
   return (
     <Root>
@@ -75,13 +110,18 @@ const Mobile: React.FC = () => {
       <Border />
       <Br />
       <MenuWrapper
-        key={config.options.darkmode.icon.iconName}
+        key={config.colorscheme.dark.icon.iconName}
         onClick={clickDarkmode}
       >
-        <Circle ref={circles['darkmode']} />
-        <OptionMenu>
+        <Circle ref={circles['colorscheme']} />
+        <OptionMenu ref={icons.light}>
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.options.darkmode.icon} />
+            <FontAwesomeIcon icon={config.colorscheme.light.icon} />
+          </SvgWrapper>
+        </OptionMenu>
+        <OptionMenu ref={icons.dark}>
+          <SvgWrapper>
+            <FontAwesomeIcon icon={config.colorscheme.dark.icon} />
           </SvgWrapper>
         </OptionMenu>
       </MenuWrapper>
@@ -112,7 +152,7 @@ const Circle = styled.div`
   left: -50%;
   width: 200%;
   height: 200%;
-  background: ${styles.colors.light.neutral};
+  background: var(--brand);
   border-radius: 50%;
   transform: scale(0);
 `
@@ -120,6 +160,7 @@ const Menu = styled(Link)`
   ${styles.mixins.flexCenter}
   width: 100%;
   height: 100%;
+  color: var(--text);
 `
 const SvgWrapper = styled.div`
   width: 18px;
@@ -135,18 +176,20 @@ const Border = styled.div`
   margin: 0 auto;
   width: 18px;
   height: 1px;
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const OptionMenu = styled.div`
+  position: absolute;
   ${styles.mixins.flexCenter}
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+  color: var(--text);
 `
 const PhoneMenu = styled.a`
   ${styles.mixins.flexCenter}
   width: 100%;
   height: 100%;
+  color: var(--text);
 `
 
 export default Mobile

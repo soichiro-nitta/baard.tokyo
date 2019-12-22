@@ -102,7 +102,7 @@ const Contents = styled.div`
   padding-left: ${styles.sizes.phone.dashboard + 1}px;
   width: 100%;
   height: 100%;
-  color: ${styles.colors.light.background};
+  color: var(--onPicture);
   ${styles.large(css`
     padding-left: ${styles.sizes.phone.dashboard +
       1 +
@@ -148,7 +148,7 @@ const SocialIcon = styled.a`
   display: inline-block;
   margin-bottom: ${styles.sizes.phone.base}px;
   margin-left: ${styles.sizes.phone.base}px;
-  color: ${styles.colors.light.background};
+  color: var(--onPicture);
   mix-blend-mode: screen;
   svg {
     font-size: 16px;
@@ -159,6 +159,7 @@ const Baard = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   right: ${styles.sizes.phone.base}px;
+  color: var(--brand);
   mix-blend-mode: screen;
 `
 

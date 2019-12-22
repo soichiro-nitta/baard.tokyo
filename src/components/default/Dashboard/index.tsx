@@ -4,8 +4,10 @@ import Desktop from './Desktop'
 import Mobile from './Mobile'
 import { IsPending } from '~/store/global/isPending'
 import { Launched } from '~/store/default/launched'
+import { Colorscheme } from '~/store/global/colorscheme'
 
 type Props = {
+  colorscheme: Colorscheme
   launched: Launched
   large: Large
   isPending: IsPending
@@ -14,9 +16,9 @@ type Props = {
 const Dashboard: React.FC<Props> = props => {
   return (
     <>
-      {(props.large.state && <Desktop launched={props.launched} />) || (
-        <Mobile />
-      )}
+      {(props.large.state && (
+        <Desktop colorscheme={props.colorscheme} launched={props.launched} />
+      )) || <Mobile colorscheme={props.colorscheme} />}
     </>
   )
 }

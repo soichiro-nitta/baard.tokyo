@@ -89,7 +89,7 @@ const Access: React.FC = () => {
       <Border />
       <Br />
       <Exhibition>
-        <Map />
+        <Map colorscheme={global.colorscheme} />
       </Exhibition>
       <Br />
       <Border />

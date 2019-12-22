@@ -46,7 +46,7 @@ const Progressbar: React.FC<Props> = props => {
 const Root = styled.div`
   width: 100%;
   height: 100%;
-  background: ${styles.colors.light.logo};
+  background: var(--brand);
   transform: scaleX(0);
   opacity: 0;
 `

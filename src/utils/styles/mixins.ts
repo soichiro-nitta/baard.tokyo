@@ -1,4 +1,13 @@
 const mixins = {
+  transitionColor: `
+    transition: color 0.7s ease-in-out;
+  `,
+  transitionBackground: `
+    transition: background 0.7s ease-in-out;
+  `,
+  transitionBorder: `
+    transition: border 0.7s ease-in-out;
+  `,
   relative: `
     position: relative;
     width: 100%;

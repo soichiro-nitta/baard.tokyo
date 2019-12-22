@@ -32,21 +32,21 @@ const Border1 = styled.div`
 const Border1A = styled.div`
   width: 100%;
   height: 9px;
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const Border1B = styled.div`
   position: absolute;
   top: ${styles.sizes.phone.dashboard}px;
   width: 100%;
   height: calc(100% - ${styles.sizes.phone.dashboard}px);
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const Border2 = styled(Border1)`
   left: calc(
     ((100% - ${styles.sizes.phone.dashboard * 2 + 2}px) - 2px) / 3 +
       ${styles.sizes.phone.dashboard + 1}px
   );
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const Border3 = styled.div`
   position: absolute;
@@ -57,7 +57,7 @@ const Border3 = styled.div`
   );
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const Border4 = styled(Border3)`
   right: ${styles.sizes.phone.dashboard}px;

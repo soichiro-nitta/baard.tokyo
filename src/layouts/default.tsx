@@ -23,10 +23,19 @@ const Layout: React.FC = props => {
   const local = useLocal()
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
   useNavigationWrapper(local.gnav, navigationWrapper)
-  useWindow({ large: global.large })
-  // React.useEffect(() => {
-  //   local.launched.dispatch({ type: 'on' })
-  // }, [])
+  useWindow({ large: global.large, colorscheme: global.colorscheme })
+  React.useEffect(() => {
+    local.launched.dispatch({ type: 'on' })
+  }, [])
+  React.useEffect(() => {
+    if (global.colorscheme.state === 'dark') {
+      document.body.classList.add('dark')
+      localStorage.setItem('colorscheme', 'dark')
+    } else {
+      document.body.classList.remove('dark')
+      localStorage.setItem('colorscheme', 'light')
+    }
+  }, [global.colorscheme.state])
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
@@ -35,6 +44,7 @@ const Layout: React.FC = props => {
       </BordersWrapper>
       <DashboardWrapper>
         <Dashboard
+          colorscheme={global.colorscheme}
           launched={local.launched}
           large={global.large}
           isPending={global.isPending}
@@ -80,11 +90,12 @@ const Layout: React.FC = props => {
 const Root = styled.div`
   ${styles.mixins.relative}
   font-size: 1.3rem;
+  overflow: hidden;
   ${styles.large(css`
     ${styles.mixins.fixedCenter}
     width: ${styles.sizes.desktop.container}px;
-  border-right: 1px solid ${styles.colors.light.border};
-  border-left: 1px solid ${styles.colors.light.border};
+    border-right: 1px solid var(--border);
+    border-left: 1px solid var(--border);
   `)}
 `
 const BordersWrapper = styled.div`
@@ -101,6 +112,7 @@ const DashboardWrapper = styled.div`
   left: 0;
   width: ${styles.sizes.phone.dashboard}px;
   z-index: 1;
+  background: var(--bg);
   ${styles.large(css`
     left: 1px;
     width: ${styles.sizes.desktop.dashboard}px;
@@ -134,12 +146,15 @@ const LogoWrapper = styled(Link)`
     width: 100%;
     height: 100%;
     vertical-align: top;
+    path {
+      fill: var(--brand);
+    }
   }
 `
 const HumbergerWrapper = styled.div`
   position: absolute;
-  top: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
-  right: ${styles.sizes.phone.base}px;
+  top: 0;
+  right: 0;
   mix-blend-mode: screen;
   z-index: 1;
 `

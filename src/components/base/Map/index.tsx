@@ -7,10 +7,16 @@ import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/base/Map/options'
 import { css } from '@emotion/core'
+import { Colorscheme } from '~/store/global/colorscheme'
 
-const Map: React.FC = () => {
+type Props = {
+  colorscheme: Colorscheme
+}
+
+const Map: React.FC<Props> = props => {
   const lat = 35.762755
   const lng = 139.848256
+  const optionsByColorscheme = options(props.colorscheme)
   return (
     <Root>
       <GoogleMapReact
@@ -22,7 +28,7 @@ const Map: React.FC = () => {
           lng: lng
         }}
         defaultZoom={17}
-        options={options}
+        options={optionsByColorscheme}
       >
         <Pin lat={lat} lng={lng}>
           <FontAwesomeIcon icon={faMapMarkerAlt} />
@@ -36,9 +42,9 @@ const Root = styled.div`
   width: 100%;
   height: 105vw;
   & > div {
-    border-top: 1px solid ${styles.colors.light.border};
-    border-right: 1px solid ${styles.colors.light.border};
-    border-bottom: 1px solid ${styles.colors.light.border};
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
   ${styles.large(css`
     height: ${styles.sizes.desktop.main * 1.05}px;
@@ -56,7 +62,7 @@ const Pin = styled.div<{
   width: ${width}px;
   height: ${height}px;
   font-size: 5rem;
-  color: ${styles.colors.light.logo};
+  color: var(--brand);
 `
 
 export default Map

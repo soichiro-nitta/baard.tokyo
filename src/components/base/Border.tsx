@@ -9,7 +9,8 @@ const Border: React.FC = () => {
 const Root = styled.div`
   width: 100%;
   height: 1px;
-  background: ${styles.colors.light.border};
+  background: var(--border);
+  transition: 'color 0.7s ease-out, background 0.7s ease-out';
 `
 
 export default Border

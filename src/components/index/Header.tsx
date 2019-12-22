@@ -51,6 +51,10 @@ const Root = styled.div`
   position: relative;
   width: 100%;
   height: calc((100vw - ${styles.sizes.phone.dashboard + 1}px) * 1.25);
+  color: var(--onPicture);
+  path {
+    fill: var(--onPicture);
+  }
   ${styles.large(css`
     height: ${styles.sizes.desktop.main * 1.185}px;
   `)}
@@ -68,9 +72,6 @@ const KatakanaWrapper = styled.div`
   svg {
     width: 120px;
     vertical-align: top;
-    path {
-      fill: white;
-    }
   }
 `
 const RihatsutenWrapper = styled.div`
@@ -78,16 +79,12 @@ const RihatsutenWrapper = styled.div`
   svg {
     width: 60px;
     vertical-align: top;
-    path {
-      fill: white;
-    }
   }
 `
 const BreadcrumbsWrapper = styled.div`
   position: absolute;
   bottom: ${styles.sizes.phone.base}px;
   left: ${styles.sizes.phone.base}px;
-  color: white;
 `
 
 export default Header

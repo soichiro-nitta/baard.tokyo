@@ -20,7 +20,7 @@ const Root = styled.a`
   display: inline-block;
   padding: 10px;
   line-height: 1;
-  border: 1px solid ${styles.colors.light.border};
+  border: 1px solid var(--border);
   svg {
     margin-left: 7.5px;
   }

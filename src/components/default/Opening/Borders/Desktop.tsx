@@ -52,14 +52,14 @@ const Border1 = styled.div`
   margin-left: ${styles.sizes.phone.dashboard}px;
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 const Border2 = styled.div`
   margin-left: ${styles.sizes.desktop.dashboard -
     (styles.sizes.phone.dashboard + 1)}px;
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
   opacity: 0;
 `
 const Border3 = styled.div`
@@ -68,7 +68,7 @@ const Border3 = styled.div`
   right: ${styles.sizes.desktop.dashboard}px;
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
   opacity: 0;
 `
 const Border4 = styled.div`
@@ -77,7 +77,7 @@ const Border4 = styled.div`
   right: ${styles.sizes.phone.dashboard}px;
   width: 1px;
   height: 100%;
-  background: ${styles.colors.light.border};
+  background: var(--border);
   opacity: 0;
 `
 

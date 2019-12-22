@@ -115,7 +115,7 @@ const Video: React.FC<Props> = props => {
 const Root = styled.div`
   width: 100%;
   height: 100%;
-  background: ${styles.colors.light.logo};
+  background: var(--brand);
 `
 const Inner = styled.div`
   position: relative;
@@ -133,14 +133,14 @@ const Bar = styled.div`
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: ${styles.colors.light.neutral};
+  background: var(--neutral);
 `
 const Guage = styled.div`
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: ${styles.colors.light.logo};
+  background: var(--brand);
   transform: scaleX(0);
   transform-origin: left center;
 `
@@ -168,7 +168,7 @@ const Circle = styled.circle`
   stroke-width: 5;
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
-  stroke: ${styles.colors.light.neutral};
+  stroke: var(--onPictureShape);
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

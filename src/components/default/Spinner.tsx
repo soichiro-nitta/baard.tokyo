@@ -14,7 +14,7 @@ type Props = {
 const Spinner: React.FC<Props> = props => {
   const local = useLocal()
   const root = React.useRef<SVGSVGElement>(null)
-  const duration = 0.6
+  const duration = 0.7
   useEffectAsync({
     effect: async () => {
       if (props.isPending.state) {
@@ -64,7 +64,7 @@ const Circle = styled.circle`
   stroke-width: 5;
   stroke-dasharray: 150, 200;
   stroke-dashoffset: -10;
-  stroke: ${styles.colors.light.logo};
+  stroke: var(--brand);
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 200;

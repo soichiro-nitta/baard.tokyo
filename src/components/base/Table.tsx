@@ -63,9 +63,9 @@ const Table: React.FC = () => {
 
 const Root = styled.div`
   width: 100%;
-  border-right: 1px solid ${styles.colors.light.border};
-  border-bottom: 1px solid ${styles.colors.light.border};
-  background: ${styles.colors.light.background};
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
 `
 const Col = styled.div`
   display: flex;
@@ -76,8 +76,8 @@ const Row = styled.div`
   ${styles.mixins.flexCenter}
   flex-grow: 1;
   width: calc((100% - 6px) / 7);
-  border-top: 1px solid ${styles.colors.light.border};
-  border-left: 1px solid ${styles.colors.light.border};
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
   height: 50px;
 `
 const Times = styled(FontAwesomeIcon)`

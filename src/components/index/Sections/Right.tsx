@@ -50,7 +50,7 @@ const Root = styled.div`
   margin-left: ${styles.sizes.phone.base}px;
   width: calc(100% - ${styles.sizes.phone.base}px);
   height: calc(105vw + ${styles.sizes.phone.base}px);
-  color: white;
+  color: var(--onPicture);
   ${styles.large(css`
     height: ${styles.sizes.desktop.main * 1.05 + styles.sizes.phone.base()}px;
   `)}
@@ -63,7 +63,7 @@ const Background = styled.div`
     100% - ${styles.sizes.phone.dashboard - styles.sizes.phone.scrollbar}px
   );
   height: calc(100% - ${styles.sizes.phone.base}px);
-  background: ${styles.colors.light.shape};
+  background: var(--brand);
 `
 const ImgWrapper = styled.div`
   position: absolute;
@@ -107,7 +107,7 @@ const Button = styled(Link)`
   margin-top: ${styles.sizes.phone.base}px;
   padding: 10px;
   line-height: 1;
-  border: 1px solid ${styles.colors.light.neutral};
+  border: 1px solid var(--onPictureShape);
   svg {
     margin-left: 7.5px;
   }

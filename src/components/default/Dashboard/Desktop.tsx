@@ -9,8 +9,10 @@ import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 import { Launched } from '~/store/default/launched'
+import { Colorscheme } from '~/store/global/colorscheme'
 
 type Props = {
+  colorscheme: Colorscheme
   launched: Launched
 }
 
@@ -19,7 +21,7 @@ const Desktop: React.FC<Props> = props => {
   const icons = {}
   const text = {}
   const circles = {
-    darkmode: React.useRef<HTMLDivElement>(null),
+    colorscheme: React.useRef<HTMLDivElement>(null),
     phone: React.useRef<HTMLDivElement>(null)
   }
   pages.forEach(value => {
@@ -65,13 +67,13 @@ const Desktop: React.FC<Props> = props => {
         animations.color(otherText, styles.colors.light.text, 0.7, 'InOut')
         animations.color(
           icons[location.pathname].current,
-          styles.colors.light.logo,
+          styles.colors.brand,
           0.7,
           'InOut'
         )
         animations.color(
           text[location.pathname].current,
-          styles.colors.light.logo,
+          styles.colors.brand,
           0.7,
           'InOut'
         )
@@ -98,13 +100,13 @@ const Desktop: React.FC<Props> = props => {
       <Border />
       <Br />
       <OptionMenu
-        key={config.options.darkmode.icon.iconName}
+        key={config.colorscheme.dark.icon.iconName}
         onClick={clickDarkmode}
       >
         <Icon>
-          <Circle ref={circles['darkmode']} />
+          <Circle ref={circles['colorscheme']} />
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.options.darkmode.icon} />
+            <FontAwesomeIcon icon={config.colorscheme.dark.icon} />
           </SvgWrapper>
         </Icon>
       </OptionMenu>
@@ -163,7 +165,7 @@ const Circle = styled.div`
   left: -50%;
   width: 200%;
   height: 200%;
-  background: ${styles.colors.light.neutral};
+  background: var(--neutral);
   border-radius: 50%;
   transform: scale(0);
 `
@@ -171,17 +173,17 @@ const Text = styled.div`
   display: flex;
   align-items: center;
   margin-left: ${styles.sizes.phone.base()}px;
-  color: ${styles.colors.light.text};
+  color: var(--text);
 `
 const PhoneText = styled(Text)`
-  color: ${styles.colors.light.logo};
+  color: var(--brand);
   letter-spacing: 0.33em;
 `
 const Border = styled.div`
   margin: 0 auto;
   width: 18px;
   height: 1px;
-  background: ${styles.colors.light.border};
+  background: var(--border);
 `
 
 export default Desktop

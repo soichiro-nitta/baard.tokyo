@@ -20,7 +20,7 @@ const Background: React.FC = () => {
 const Root = styled.div`
   width: 100%;
   height: 100%;
-  background: ${styles.colors.light.background};
+  background: var(--background);
 `
 
 export default Background

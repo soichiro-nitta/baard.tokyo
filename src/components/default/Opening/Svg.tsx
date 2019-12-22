@@ -85,11 +85,11 @@ const Root = styled.div`
     width: 50%;
     vertical-align: top;
     path {
-      stroke: ${styles.colors.light.logo};
+      stroke: var(--brand);
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      fill: ${styles.colors.light.logo};
+      fill: var(--brand);
       fill-opacity: 0;
       opacity: 0;
     }
