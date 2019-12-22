@@ -6,9 +6,11 @@ const scale = (
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
-  TweenMax.to(element, duration, {
-    scale: value,
-    ease: Expo[`ease${easing}`]
+  requestAnimationFrame(() => {
+    TweenMax.to(element, duration, {
+      scale: value,
+      ease: Expo[`ease${easing}`]
+    })
   })
 }
 

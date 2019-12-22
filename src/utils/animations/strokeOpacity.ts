@@ -6,9 +6,11 @@ const strokeOpacity = (
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
-  TweenMax.to(element, duration, {
-    strokeOpacity: value,
-    ease: Expo[`ease${easing}`]
+  requestAnimationFrame(() => {
+    TweenMax.to(element, duration, {
+      strokeOpacity: value,
+      ease: Expo[`ease${easing}`]
+    })
   })
 }
 

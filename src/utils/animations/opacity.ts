@@ -6,9 +6,11 @@ const opacity = (
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
-  TweenMax.to(element, duration, {
-    opacity: value,
-    ease: Expo[`ease${easing}`]
+  requestAnimationFrame(() => {
+    TweenMax.to(element, duration, {
+      opacity: value,
+      ease: Expo[`ease${easing}`]
+    })
   })
 }
 

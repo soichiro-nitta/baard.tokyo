@@ -6,9 +6,11 @@ const color = (
   duration: number,
   easing: 'In' | 'Out' | 'InOut'
 ): void => {
-  TweenMax.to(element, duration, {
-    color: value,
-    ease: Expo[`ease${easing}`]
+  requestAnimationFrame(() => {
+    TweenMax.to(element, duration, {
+      color: value,
+      ease: Expo[`ease${easing}`]
+    })
   })
 }
 
