@@ -66,6 +66,7 @@ const Root = styled.div`
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--background);
+  ${styles.mixins.transitionBackground}
 `
 const Col = styled.div`
   display: flex;

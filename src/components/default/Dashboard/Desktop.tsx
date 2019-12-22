@@ -102,18 +102,14 @@ const Desktop: React.FC<Props> = props => {
       deps: [location.pathname]
     })
     React.useEffect(() => {
-      animations.color(
-        otherIcons,
-        styles.colors[props.colorscheme.state].text,
-        0.7,
-        'InOut'
-      )
-      animations.color(
-        otherText,
-        styles.colors[props.colorscheme.state].text,
-        0.7,
-        'InOut'
-      )
+      requestAnimationFrame(() => {
+        animations.set(otherIcons, {
+          color: styles.colors[props.colorscheme.state].text
+        })
+        animations.set(otherText, {
+          color: styles.colors[props.colorscheme.state].text
+        })
+      })
       if (props.colorscheme.state === 'dark') {
         animations.scale(icons.dark.current, 0, 0.7, 'InOut')
         animations.scale(icons.light.current, 1, 0.7, 'InOut')

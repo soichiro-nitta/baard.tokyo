@@ -59,7 +59,6 @@ const globalStyles = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 0;
-    ${mixins.transitionColor}
     ${mixins.transitionBackground}
   }
   #___gatsby,
