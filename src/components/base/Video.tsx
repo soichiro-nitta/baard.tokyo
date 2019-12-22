@@ -6,8 +6,10 @@ import usePrevious from '~/hooks/base/usePrevious'
 import { IsPending } from '~/store/global/isPending'
 import styles from '~/utils/styles'
 import animations from '~/utils/animations'
+import { Launched } from '~/store/global/launched'
 
 type Props = {
+  launched: Launched
   playing: Playing
   src: string
   rootMargin?: string
@@ -59,7 +61,7 @@ const Video: React.FC<Props> = props => {
   }, [])
 
   React.useEffect(() => {
-    if (!props.isPending.state) {
+    if (!props.isPending.state && props.launched.state) {
       const observer = new IntersectionObserver(
         entries => {
           if (entries[0].isIntersecting) {
@@ -84,7 +86,7 @@ const Video: React.FC<Props> = props => {
         observer.unobserve(root.current)
       }
     }
-  }, [props.isPending.state, loaded])
+  }, [props.isPending.state, loaded, props.launched.state])
 
   React.useEffect(() => {
     if (props.isPending.state) {

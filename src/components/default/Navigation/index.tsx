@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import H3 from '~/components/base/H3'
 import { css } from '@emotion/core'
 import animations from '~/utils/animations'
-import { Launched } from '~/store/default/launched'
+import { Launched } from '~/store/global/launched'
 
 type Props = {
   launched: Launched

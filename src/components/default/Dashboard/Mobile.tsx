@@ -82,8 +82,6 @@ const Mobile: React.FC<Props> = props => {
           color: styles.colors[props.colorscheme.state].text
         })
       })
-      console.log(props.colorscheme.state)
-      console.log(styles.colors[props.colorscheme.state].text)
       if (props.colorscheme.state === 'dark') {
         animations.scale(icons.dark.current, 0, 0.7, 'InOut')
         animations.scale(icons.light.current, 1, 0.7, 'InOut')

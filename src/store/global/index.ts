@@ -4,6 +4,7 @@ import { Playing, usePlaying } from './playing'
 import { IsPending, useIsPending } from './isPending'
 import { Large, useLarge } from './large'
 import { Colorscheme, useColorscheme } from './colorscheme'
+import { Launched, useLaunched } from '~/store/global/launched'
 
 type Global = () => {
   currentPage: CurrentPage
@@ -11,6 +12,7 @@ type Global = () => {
   isPending: IsPending
   large: Large
   colorscheme: Colorscheme
+  launched: Launched
 }
 
 const global: Global = () => {
@@ -19,12 +21,14 @@ const global: Global = () => {
   const isPending = useIsPending()
   const large = useLarge()
   const colorscheme = useColorscheme()
+  const launched = useLaunched()
   return {
     currentPage,
     playing,
     isPending,
     large,
-    colorscheme
+    colorscheme,
+    launched
   }
 }
 

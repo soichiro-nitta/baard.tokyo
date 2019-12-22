@@ -22,6 +22,7 @@ const Access: React.FC = () => {
       <Header
         playing={global.playing}
         isPending={global.isPending}
+        launched={global.launched}
         icon={config.pages.access.icon}
         en={config.pages.access.en}
         ja={config.pages.access.ja}

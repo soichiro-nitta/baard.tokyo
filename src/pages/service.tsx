@@ -21,6 +21,7 @@ const Service: React.FC = () => {
       <Header
         playing={global.playing}
         isPending={global.isPending}
+        launched={global.launched}
         icon={config.pages.service.icon}
         en={config.pages.service.en}
         ja={config.pages.service.ja}
@@ -231,6 +232,7 @@ const Service: React.FC = () => {
           <Video
             playing={global.playing}
             isPending={global.isPending}
+            launched={global.launched}
             src="/service/ladys-shaving.mp4"
             rootMargin="0% 0%"
           />

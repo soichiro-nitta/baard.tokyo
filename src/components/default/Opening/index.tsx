@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import functions from '~/utils/functions'
-import { Launched } from '~/store/default/launched'
+import { Launched } from '~/store/global/launched'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import Background from '~/components/default/Opening/Background'
 import Borders from '~/components/default/Opening/Borders'

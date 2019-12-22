@@ -9,10 +9,12 @@ import Video from '~/components/base/Video'
 import { css } from '@emotion/core'
 import config from '~/utils/config'
 import { IsPending } from '~/store/global/isPending'
+import { Launched } from '~/store/global/launched'
 
 type Props = {
   playing: Playing
   isPending: IsPending
+  launched: Launched
   src: string
 }
 
@@ -28,6 +30,7 @@ const Header: React.FC<Props> = props => {
       <Video
         playing={props.playing}
         isPending={props.isPending}
+        launched={props.launched}
         src={props.src}
       />
       <Text>

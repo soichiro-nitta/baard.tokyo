@@ -25,7 +25,7 @@ const Layout: React.FC = props => {
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large, colorscheme: global.colorscheme })
   // React.useEffect(() => {
-  //   local.launched.dispatch({ type: 'on' })
+  //   global.launched.dispatch({ type: 'on' })
   // }, [])
   React.useEffect(() => {
     if (global.colorscheme.state === 'dark') {
@@ -45,7 +45,7 @@ const Layout: React.FC = props => {
       <DashboardWrapper>
         <Dashboard
           colorscheme={global.colorscheme}
-          launched={local.launched}
+          launched={global.launched}
           large={global.large}
           isPending={global.isPending}
         />
@@ -61,7 +61,7 @@ const Layout: React.FC = props => {
       </Childrens>
       <NavigationWrapper ref={navigationWrapper}>
         <Navigation
-          launched={local.launched}
+          launched={global.launched}
           playing={global.playing}
           gnav={local.gnav}
         />
@@ -72,9 +72,9 @@ const Layout: React.FC = props => {
       <HumbergerWrapper>
         <Humberger gnav={local.gnav} />
       </HumbergerWrapper>
-      {!local.launched.state && (
+      {!global.launched.state && (
         <OpeningWrapper>
-          <Opening launched={local.launched} large={global.large} />
+          <Opening launched={global.launched} large={global.large} />
         </OpeningWrapper>
       )}
       <SpinnerWrapper>

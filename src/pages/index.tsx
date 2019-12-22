@@ -22,6 +22,7 @@ const Index: React.FC = () => {
       <Header
         playing={global.playing}
         isPending={global.isPending}
+        launched={global.launched}
         src="/index/header.mp4"
       />
       <Br />
@@ -35,7 +36,11 @@ const Index: React.FC = () => {
       <Br />
       <Border />
       <Br />
-      <Sections playing={global.playing} isPending={global.isPending} />
+      <Sections
+        launched={global.launched}
+        playing={global.playing}
+        isPending={global.isPending}
+      />
       <Br />
       <Border />
       <Br />

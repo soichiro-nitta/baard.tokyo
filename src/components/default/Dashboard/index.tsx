@@ -3,7 +3,7 @@ import { Large } from '~/store/global/large'
 import Desktop from './Desktop'
 import Mobile from './Mobile'
 import { IsPending } from '~/store/global/isPending'
-import { Launched } from '~/store/default/launched'
+import { Launched } from '~/store/global/launched'
 import { Colorscheme } from '~/store/global/colorscheme'
 
 type Props = {
