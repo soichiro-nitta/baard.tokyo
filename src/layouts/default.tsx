@@ -24,9 +24,9 @@ const Layout: React.FC = props => {
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large, colorscheme: global.colorscheme })
-  React.useEffect(() => {
-    local.launched.dispatch({ type: 'on' })
-  }, [])
+  // React.useEffect(() => {
+  //   local.launched.dispatch({ type: 'on' })
+  // }, [])
   React.useEffect(() => {
     if (global.colorscheme.state === 'dark') {
       document.body.classList.add('dark')

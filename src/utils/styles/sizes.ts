@@ -1,8 +1,8 @@
 const sizes = {
   desktop: {
-    dashboard: 260,
-    main: 500,
-    container: 761
+    dashboard: 320,
+    main: 550,
+    container: 871
   },
   tablet: {},
   phone: {

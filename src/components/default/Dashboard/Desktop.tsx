@@ -18,8 +18,13 @@ type Props = {
 
 const Desktop: React.FC<Props> = props => {
   const pages = Object.entries(config.pages)
-  const icons = {}
+  const icons = {
+    light: React.useRef<HTMLDivElement>(null),
+    dark: React.useRef<HTMLDivElement>(null)
+  }
   const text = {}
+  const [otherIcons, setOtherIcons] = React.useState<HTMLDivElement[]>([])
+  const [otherText, setOtherText] = React.useState<HTMLDivElement[]>([])
   const circles = {
     colorscheme: React.useRef<HTMLDivElement>(null),
     phone: React.useRef<HTMLDivElement>(null)
@@ -33,13 +38,18 @@ const Desktop: React.FC<Props> = props => {
     animations.scale(el, 1, 0.7, 'InOut')
     animations.opacity(el, 0, 0.7, 'InOut')
     await functions.delay(0.7)
-    animations.set(circles[location.pathname].current, {
+    animations.set(el, {
       scale: 0,
       opacity: 1
     })
   }
   const clickDarkmode = (): void => {
-    // circleExpand(circles['darkmode'].current)
+    circleExpand(circles['colorscheme'].current)
+    if (props.colorscheme.state === 'dark') {
+      props.colorscheme.dispatch({ type: 'set', payload: 'light' })
+    } else {
+      props.colorscheme.dispatch({ type: 'set', payload: 'dark' })
+    }
   }
   const clickPhone = (): void => {
     circleExpand(circles['phone'].current)
@@ -54,6 +64,7 @@ const Desktop: React.FC<Props> = props => {
             otherIcons.push(icon.current)
           }
         })
+        setOtherIcons(otherIcons)
         const otherText: HTMLDivElement[] = []
         Object.entries(text).forEach(value => {
           if (value[0] !== location.pathname) {
@@ -61,25 +72,56 @@ const Desktop: React.FC<Props> = props => {
             otherText.push(icon.current)
           }
         })
-        if (props.launched.state)
-          circleExpand(circles[location.pathname].current)
-        animations.color(otherIcons, styles.colors.light.text, 0.7, 'InOut')
-        animations.color(otherText, styles.colors.light.text, 0.7, 'InOut')
+        setOtherText(otherText)
+        circleExpand(circles[location.pathname].current)
+        animations.color(
+          otherIcons,
+          styles.colors[props.colorscheme.state].text,
+          0.7,
+          'InOut'
+        )
+        animations.color(
+          otherText,
+          styles.colors[props.colorscheme.state].text,
+          0.7,
+          'InOut'
+        )
         animations.color(
           icons[location.pathname].current,
-          styles.colors.brand,
+          styles.colors.base.brand,
           0.7,
           'InOut'
         )
         animations.color(
           text[location.pathname].current,
-          styles.colors.brand,
+          styles.colors.base.brand,
           0.7,
           'InOut'
         )
       },
       deps: [location.pathname]
     })
+    React.useEffect(() => {
+      animations.color(
+        otherIcons,
+        styles.colors[props.colorscheme.state].text,
+        0.7,
+        'InOut'
+      )
+      animations.color(
+        otherText,
+        styles.colors[props.colorscheme.state].text,
+        0.7,
+        'InOut'
+      )
+      if (props.colorscheme.state === 'dark') {
+        animations.scale(icons.dark.current, 0, 0.7, 'InOut')
+        animations.scale(icons.light.current, 1, 0.7, 'InOut')
+      } else {
+        animations.scale(icons.light.current, 0, 0.7, 'InOut')
+        animations.scale(icons.dark.current, 1, 0.7, 'InOut')
+      }
+    }, [props.colorscheme.state])
   }
   return (
     <Root>
@@ -105,10 +147,14 @@ const Desktop: React.FC<Props> = props => {
       >
         <Icon>
           <Circle ref={circles['colorscheme']} />
-          <SvgWrapper>
+          <SvgWrapper ref={icons.light}>
+            <FontAwesomeIcon icon={config.colorscheme.light.icon} />
+          </SvgWrapper>
+          <SvgWrapper ref={icons.dark}>
             <FontAwesomeIcon icon={config.colorscheme.dark.icon} />
           </SvgWrapper>
         </Icon>
+        <Text>外観モード</Text>
       </OptionMenu>
       <PhoneMenu href={`tel:${config.tel.number}`} onClick={clickPhone}>
         <Icon>
@@ -117,7 +163,7 @@ const Desktop: React.FC<Props> = props => {
             <FontAwesomeIcon icon={config.tel.icon} />
           </SvgWrapper>
         </Icon>
-        <PhoneText>{config.tel.string}</PhoneText>
+        <Text>{config.tel.string}</Text>
       </PhoneMenu>
     </Root>
   )
@@ -137,7 +183,6 @@ const OptionMenu = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
 `
 const PhoneMenu = styled.a`
   display: flex;
@@ -151,6 +196,7 @@ const Icon = styled.div`
   height: ${styles.sizes.phone.dashboard}px;
 `
 const SvgWrapper = styled.div`
+  ${styles.mixins.absoluteCenter}
   width: 18px;
   height: ${svgHeight}px;
   text-align: center;
@@ -165,7 +211,7 @@ const Circle = styled.div`
   left: -50%;
   width: 200%;
   height: 200%;
-  background: var(--neutral);
+  background: var(--brand);
   border-radius: 50%;
   transform: scale(0);
 `
@@ -174,13 +220,10 @@ const Text = styled.div`
   align-items: center;
   margin-left: ${styles.sizes.phone.base()}px;
   color: var(--text);
-`
-const PhoneText = styled(Text)`
-  color: var(--brand);
   letter-spacing: 0.33em;
 `
 const Border = styled.div`
-  margin: 0 auto;
+  margin-left: ${(styles.sizes.phone.dashboard - 18) / 2}px;
   width: 18px;
   height: 1px;
   background: var(--border);
