@@ -38,7 +38,7 @@ const Sections: React.FC<Props> = props => {
         launched={props.launched}
         page="service"
         src="/service/header.mp4"
-        body="バーールトコース、メンズメニュー、レディースシェービング"
+        body="バーールトコース、メニュー、レディースシェービング"
       />
       <Br />
       <Border />
