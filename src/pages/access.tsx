@@ -68,7 +68,7 @@ const Access: React.FC = () => {
       <Wrapper>
         <H3>最寄駅</H3>
         <Br />
-        <P>JR常磐線 亀有駅 南口徒歩8分</P>
+        <P>JR常磐線 亀有駅 南口徒歩6分</P>
       </Wrapper>
       <Br />
       <Border />
