@@ -242,7 +242,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <P>※全てのコースに、眉カット・襟足シェービング付きとなります。</P>
+        <P>※すべてのコースに、眉カット・襟足シェービング付きとなります。</P>
       </Wrapper>
       <Br />
       <Border />
@@ -279,6 +279,14 @@ const Service: React.FC = () => {
         <List head="ブライダルシェービング" price="15,000" />
         <Br />
         <P>挙式の1ヶ月以上前に一度お電話にてご相談ください。</P>
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <P>※すべて税抜価格となっております。</P>
       </Wrapper>
     </>
   )
