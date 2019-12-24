@@ -111,7 +111,7 @@ const Access: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <H2 en="OPENING" ja="営業日について" />
+        <H2 en="OPEN/CLOSED" ja="営業日について" />
       </Wrapper>
       <Br />
       <Border />
