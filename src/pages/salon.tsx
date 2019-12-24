@@ -12,6 +12,7 @@ import Exhibition from '~/components/base/Exhibition'
 import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Video from '~/components/base/Video'
 import config from '~/utils/config'
+import ButtonNew from '~/components/base/ButtonNew'
 
 const Salon: React.FC = () => {
   const global = useGlobal()
@@ -132,6 +133,8 @@ const Salon: React.FC = () => {
         <P>
           アプリでのネット予約は、ご来店の1時間前までしか選択できませんので、お急ぎのお客様はお電話にてご予約くださいませ。
         </P>
+        <Br />
+        <ButtonNew to="http://1cs.jp/baard/r" text="ネット予約はこちら" />
       </Wrapper>
       <Br />
       <Border />
