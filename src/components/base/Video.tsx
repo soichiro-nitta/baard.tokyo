@@ -95,7 +95,11 @@ const Video: React.FC<Props> = props => {
   }, [props.isPending.state])
 
   React.useEffect(() => {
-    if (previous) previous.pause()
+    if (previous) {
+      requestAnimationFrame(() => {
+        previous.pause()
+      })
+    }
   }, [props.playing.state])
 
   return (
