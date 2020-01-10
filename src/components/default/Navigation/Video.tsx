@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import config from '~/utils/config'
 import { Playing } from '~/store/global/playing'
 import { Gnav } from '~/store/default/gnav'
-import { Launched } from '~/store/default/launched'
+import { Launched } from '~/store/global/launched'
 import styles from '~/utils/styles'
 import animations from '~/utils/animations'
 
