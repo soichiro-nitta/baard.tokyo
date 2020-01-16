@@ -17,6 +17,7 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
+import Seo from '~/components/base/Seo'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -39,6 +40,7 @@ const Layout: React.FC = props => {
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
+      <Seo title="Home" />
       <BordersWrapper>
         <Borders large={global.large} />
       </BordersWrapper>
