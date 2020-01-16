@@ -35,6 +35,8 @@ const SEO: React.FC<Props> = ({
       }
     `
   )
+  console.log(site.siteMetadata)
+  console.log(title)
   const metaDescription = description || site.siteMetadata.description
   return (
     <Helmet
