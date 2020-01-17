@@ -22,19 +22,19 @@ export default {
       icon: faHome
     },
     salon: {
-      path: '/salon',
+      path: '/salon/',
       en: 'SALON',
       ja: 'サロン・スタッフ紹介',
       icon: faCut
     },
     service: {
-      path: '/service',
+      path: '/service/',
       en: 'SERVICE',
       ja: 'メニュー案内',
       icon: faClipboardList
     },
     access: {
-      path: '/access',
+      path: '/access/',
       en: 'ACCESS',
       ja: 'アクセス',
       icon: faMapMarkedAlt
