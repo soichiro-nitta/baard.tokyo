@@ -8,6 +8,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import config from '~/utils/config'
 
 type Props = {
   title: string
@@ -17,8 +18,8 @@ type Props = {
 }
 
 const SEO: React.FC<Props> = ({
-  title = 'test',
-  description = '',
+  title,
+  description = '令和元年10月3日葛飾区亀有にオープン。落ち着いた店内で癒しのひとときを。 ベタつき、匂い、かゆみなどお悩みの方へワンランク上の頭皮ケアと上質なシェービングがおすすめ。',
   lang = 'ja',
   meta = []
 }) => {
@@ -50,7 +51,7 @@ const SEO: React.FC<Props> = ({
         },
         {
           property: `og:title`,
-          content: title
+          content: `${title} / ${site.siteMetadata.title}`
         },
         {
           property: `og:description`,
@@ -59,6 +60,10 @@ const SEO: React.FC<Props> = ({
         {
           property: `og:type`,
           content: `website`
+        },
+        {
+          property: `og:image`,
+          content: `${config.firebase}/ogp.png`
         },
         {
           name: `twitter:card`,
@@ -70,11 +75,15 @@ const SEO: React.FC<Props> = ({
         },
         {
           name: `twitter:title`,
-          content: title
+          content: `${title} / ${site.siteMetadata.title}`
         },
         {
           name: `twitter:description`,
           content: metaDescription
+        },
+        {
+          property: `twitter:image`,
+          content: `${config.firebase}/ogp.png`
         }
       ].concat(meta)}
     />
