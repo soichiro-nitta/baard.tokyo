@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
     title: `BAARD 理髪店`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    siteUrl: `https://baard.netlify.com`,
+    description: `令和元年10月3日葛飾区亀有にオープン。落ち着いた店内で癒しのひとときを。 ベタつき、匂い、かゆみなどお悩みの方へワンランク上の頭皮ケアと上質なシェービングがおすすめ。`,
+    siteUrl: `https://baard.tokyo`,
     author: `@soichiro_nitta`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -24,6 +25,7 @@ module.exports = {
         }
       }
     }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
   ]

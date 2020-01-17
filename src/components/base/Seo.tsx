@@ -17,12 +17,7 @@ type Props = {
   meta?: []
 }
 
-const SEO: React.FC<Props> = ({
-  title,
-  description = '令和元年10月3日葛飾区亀有にオープン。落ち着いた店内で癒しのひとときを。 ベタつき、匂い、かゆみなどお悩みの方へワンランク上の頭皮ケアと上質なシェービングがおすすめ。',
-  lang = 'ja',
-  meta = []
-}) => {
+const SEO: React.FC<Props> = ({ title, lang = 'ja', meta = [] }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,7 +31,7 @@ const SEO: React.FC<Props> = ({
       }
     `
   )
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = site.siteMetadata.description
   return (
     <Helmet
       htmlAttributes={{
