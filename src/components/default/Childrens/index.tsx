@@ -6,6 +6,7 @@ import { useLocal } from '~/store/default/Childrens'
 import Page from '~/components/default/Childrens/Page'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
+import Seo from '~/components/base/Seo'
 
 type Props = {
   children: React.ReactElement
@@ -40,6 +41,7 @@ const Childrens: React.FC<Props> = props => {
   })
   return (
     <Root>
+      <Seo title="home" />
       {local.childrens.state.map(value => {
         return (
           <Page

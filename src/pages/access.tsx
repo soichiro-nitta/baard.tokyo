@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useGlobal } from '~/store/global'
-import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import P from '~/components/base/P'
@@ -18,7 +17,6 @@ const Access: React.FC = () => {
   const global = useGlobal()
   return (
     <>
-      <Seo title={config.pages.access.en} />
       <Header
         playing={global.playing}
         isPending={global.isPending}

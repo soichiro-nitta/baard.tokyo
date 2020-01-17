@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { useGlobal } from '~/store/global'
 import config from '~/utils/config'
-import Seo from '~/components/base/Seo'
 import Br from '~/components/base/Br'
 import Border from '~/components/base/Border'
 import Wrapper from '~/components/base/Wrapper'
@@ -18,7 +17,6 @@ const Index: React.FC = () => {
   const global = useGlobal()
   return (
     <>
-      <Seo title="Home" />
       <Header
         playing={global.playing}
         isPending={global.isPending}

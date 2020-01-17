@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { useGlobal } from '~/store/global'
-import Seo from '~/components/base/Seo'
 import Header from '~/components/base/Header'
 import Wrapper from '~/components/base/Wrapper'
 import Br from '~/components/base/Br'
@@ -17,7 +16,6 @@ const Service: React.FC = () => {
   const global = useGlobal()
   return (
     <>
-      <Seo title={config.pages.service.en} />
       <Header
         playing={global.playing}
         isPending={global.isPending}
