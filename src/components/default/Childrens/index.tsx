@@ -7,6 +7,7 @@ import Page from '~/components/default/Childrens/Page'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 import Seo from '~/components/base/Seo'
+import config from '~/utils/config'
 
 type Props = {
   children: React.ReactElement
@@ -17,6 +18,8 @@ type Props = {
 const Childrens: React.FC<Props> = props => {
   const local = useLocal()
   const duration = 2
+  const pages = Object.entries(config.pages)
+  const [title, setTitle] = React.useState('')
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
@@ -36,12 +39,16 @@ const Childrens: React.FC<Props> = props => {
           local.childrens.dispatch({ type: 'clean' })
         }
       }
+      const title = pages.filter(value => {
+        return value[1].path === location.pathname
+      })[0][1].en
+      setTitle(title)
     },
     deps: [props.children]
   })
   return (
     <Root>
-      <Seo title="home" />
+      <Seo title={title} />
       {local.childrens.state.map(value => {
         return (
           <Page
