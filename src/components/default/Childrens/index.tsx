@@ -19,15 +19,11 @@ const Childrens: React.FC<Props> = props => {
   const local = useLocal()
   const duration = 2
   const pages = Object.entries(config.pages)
-  const [title, setTitle] = React.useState('')
-  const updateHelmet = (): void => {
-    const title = pages.filter(value => {
+  let title: string
+  if (typeof window !== `undefined`) {
+    title = pages.filter(value => {
       return value[1].path === location.pathname
     })[0][1].en
-    setTitle(title)
-  }
-  if (typeof window !== `undefined`) {
-    updateHelmet()
   }
   useEffectAsync({
     effect: async () => {
