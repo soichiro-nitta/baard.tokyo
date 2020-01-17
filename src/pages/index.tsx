@@ -12,13 +12,11 @@ import Sections from '~/components/index/Sections'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
-import Seo from '~/components/base/Seo'
 
 const Index: React.FC = () => {
   const global = useGlobal()
   return (
     <>
-      <Seo title="test" />
       <Header
         playing={global.playing}
         isPending={global.isPending}

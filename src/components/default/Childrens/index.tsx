@@ -8,6 +8,7 @@ import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 import Seo from '~/components/base/Seo'
 import config from '~/utils/config'
+import { Location } from '@reach/router'
 
 type Props = {
   children: React.ReactElement
@@ -18,11 +19,6 @@ type Props = {
 const Childrens: React.FC<Props> = props => {
   const local = useLocal()
   const duration = 2
-  const pages = Object.entries(config.pages)
-  const filtered = pages.filter(value => {
-    return value[1].path === props.children.key
-  })[0]
-  const title = filtered ? filtered[1].en : ''
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
@@ -47,7 +43,15 @@ const Childrens: React.FC<Props> = props => {
   })
   return (
     <Root>
-      <Seo title={title} />
+      <Location>
+        {({ location }): React.ReactElement => {
+          const filtered = Object.entries(config.pages).filter(value => {
+            return value[1].path === location.pathname
+          })[0]
+          const title = filtered ? filtered[1].en : ''
+          return <Seo title={title} />
+        }}
+      </Location>
       {local.childrens.state.map(value => {
         return (
           <Page
