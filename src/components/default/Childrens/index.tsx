@@ -23,7 +23,6 @@ const Childrens: React.FC<Props> = props => {
     return value[1].path === props.children.key
   })[0]
   const title = filtered ? filtered[1].en : ''
-  console.log(title)
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
