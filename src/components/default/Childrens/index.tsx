@@ -20,6 +20,15 @@ const Childrens: React.FC<Props> = props => {
   const duration = 2
   const pages = Object.entries(config.pages)
   const [title, setTitle] = React.useState('')
+  const updateHelmet = (): void => {
+    const title = pages.filter(value => {
+      return value[1].path === location.pathname
+    })[0][1].en
+    setTitle(title)
+  }
+  if (typeof window !== `undefined`) {
+    updateHelmet()
+  }
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
@@ -39,10 +48,6 @@ const Childrens: React.FC<Props> = props => {
           local.childrens.dispatch({ type: 'clean' })
         }
       }
-      const title = pages.filter(value => {
-        return value[1].path === location.pathname
-      })[0][1].en
-      setTitle(title)
     },
     deps: [props.children]
   })

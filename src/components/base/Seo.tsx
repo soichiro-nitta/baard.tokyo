@@ -19,7 +19,7 @@ type Props = {
 const SEO: React.FC<Props> = ({
   title,
   description = '',
-  lang = 'en',
+  lang = 'ja',
   meta = []
 }) => {
   const { site } = useStaticQuery(
