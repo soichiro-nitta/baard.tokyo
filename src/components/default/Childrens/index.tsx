@@ -19,12 +19,9 @@ const Childrens: React.FC<Props> = props => {
   const local = useLocal()
   const duration = 2
   const pages = Object.entries(config.pages)
-  let title: string
-  if (typeof window !== `undefined`) {
-    title = pages.filter(value => {
-      return value[1].path === location.pathname
-    })[0][1].en
-  }
+  const title = pages.filter(value => {
+    return value[1].path === props.children.key
+  })[0][1].en
   useEffectAsync({
     effect: async () => {
       if (local.childrens.state.length === 0) {
