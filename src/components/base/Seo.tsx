@@ -25,6 +25,7 @@ const SEO: React.FC<Props> = ({ title, lang = 'ja', meta = [] }) => {
           siteMetadata {
             title
             description
+            keywords
             author
           }
         }
@@ -43,6 +44,10 @@ const SEO: React.FC<Props> = ({ title, lang = 'ja', meta = [] }) => {
         {
           name: `description`,
           content: metaDescription
+        },
+        {
+          name: `keywords`,
+          content: site.siteMetadata.keywords
         },
         {
           property: `og:title`,
