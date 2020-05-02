@@ -31,6 +31,12 @@ module.exports = {
       options: {
         trackingId: 'UA-162950070-1'
       }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/favicon.png`
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
