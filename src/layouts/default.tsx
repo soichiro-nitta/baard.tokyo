@@ -17,11 +17,15 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+import animations from '~/utils/animations'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
   const local = useLocal()
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
+  const reserve = React.useRef<HTMLAnchorElement>(null)
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large, colorscheme: global.colorscheme })
   // React.useEffect(() => {
@@ -36,6 +40,15 @@ const Layout: React.FC = props => {
       localStorage.setItem('colorscheme', 'light')
     }
   }, [global.colorscheme.state])
+  React.useEffect(() => {
+    animations.set(reserve.current, {
+      x: '10px'
+    })
+    setTimeout(() => {
+      animations.opacity(reserve.current, 1, 1, 'Out')
+      animations.x(reserve.current, '0px', 1, 'Out')
+    }, 5500)
+  }, [])
   return (
     <Root>
       <GlobalStyles styles={globalStyles} />
@@ -83,6 +96,15 @@ const Layout: React.FC = props => {
       <ProgressbarWrapper>
         <Progressbar isPending={global.isPending} />
       </ProgressbarWrapper>
+      <Reserve
+        href="https://1cs.jp/gcs/user/salons/baard/reservation.do?#/salons/baard/reservations"
+        target="_blank"
+        rel="noopener noreferrer"
+        ref={reserve}
+      >
+        ネットで予約
+        <FontAwesomeIcon icon={faLongArrowRight} />
+      </Reserve>
     </Root>
   )
 }
@@ -181,6 +203,20 @@ const ProgressbarWrapper = styled.div`
   width: 100%;
   height: 2px;
   z-index: 1;
+`
+const Reserve = styled.a`
+  ${styles.mixins.flexCenter}
+  position: absolute;
+  bottom: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
+  right: ${styles.sizes.phone.base}px;
+  padding: 10px;
+  color: var(--onPicture);
+  background: ${styles.colors.base.brand};
+  mix-blend-mode: screen;
+  opacity: 0;
+  svg {
+    margin-left: 7.5px;
+  }
 `
 
 export default Layout
