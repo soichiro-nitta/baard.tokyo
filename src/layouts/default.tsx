@@ -45,9 +45,9 @@ const Layout: React.FC = props => {
       x: '10px'
     })
     setTimeout(() => {
-      animations.opacity(reserve.current, 1, 1, 'Out')
-      animations.x(reserve.current, '0px', 1, 'Out')
-    }, 6000)
+      animations.opacity(reserve.current, 1, 2, 'Out')
+      animations.x(reserve.current, '0px', 2, 'Out')
+    }, 5500)
   }, [])
   return (
     <Root>
