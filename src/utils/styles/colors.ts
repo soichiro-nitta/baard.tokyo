@@ -14,7 +14,7 @@ const colors = {
     textHex: '#5E5F60'
   },
   dark: {
-    background: '#323436',
+    background: '#21262a',
     border: 'rgba(255, 255, 255, 0.03)',
     borderHex: '#383A3C',
     neutral: '#333A44',
