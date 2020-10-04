@@ -26,6 +26,7 @@ const Layout: React.FC = props => {
   const local = useLocal()
   const navigationWrapper = React.useRef<HTMLDivElement>(null)
   const reserve = React.useRef<HTMLAnchorElement>(null)
+  const reserveIcon = React.useRef<HTMLDivElement>(null)
   useNavigationWrapper(local.gnav, navigationWrapper)
   useWindow({ large: global.large, colorscheme: global.colorscheme })
   // React.useEffect(() => {
@@ -42,11 +43,20 @@ const Layout: React.FC = props => {
   }, [global.colorscheme.state])
   React.useEffect(() => {
     animations.set(reserve.current, {
-      x: '10px'
+      x: '30px'
     })
     setTimeout(() => {
-      animations.opacity(reserve.current, 1, 2, 'Out')
-      animations.x(reserve.current, '0px', 2, 'Out')
+      animations.opacity(reserve.current, 1, 3, 'Out')
+      animations.x(reserve.current, '0px', 3, 'Out')
+      setInterval(() => {
+        animations.x(reserveIcon.current, '100%', 1, 'In')
+        setTimeout(() => {
+          animations.set(reserveIcon.current, {
+            x: '-150%'
+          })
+          animations.x(reserveIcon.current, '0%', 1, 'Out')
+        }, 1000)
+      }, 2000)
     }, 5500)
   }, [])
   return (
@@ -103,7 +113,11 @@ const Layout: React.FC = props => {
         ref={reserve}
       >
         ネットで予約
-        <FontAwesomeIcon icon={faLongArrowRight} />
+        <div className="iconWrapper">
+          <div className="icon" ref={reserveIcon}>
+            <FontAwesomeIcon icon={faLongArrowRight} />
+          </div>
+        </div>
       </Reserve>
     </Root>
   )
@@ -209,13 +223,31 @@ const Reserve = styled.a`
   position: absolute;
   bottom: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   right: ${styles.sizes.phone.base}px;
-  padding: 10px;
+  width: 140px;
+  height: 40px;
+  line-height: 1;
   color: var(--onPicture);
-  background: ${styles.colors.base.brand};
-  mix-blend-mode: screen;
+  background: var(--brand);
+  border: 1px solid var(--onPictureShape);
+  border-radius: 20px;
   opacity: 0;
-  svg {
+  .iconWrapper {
+    display: inline-block;
+    position: relative;
     margin-left: 7.5px;
+    width: 11.83px;
+    height: 13.52px;
+    overflow: hidden;
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      svg {
+        vertical-align: bottom;
+      }
+    }
   }
 `
 
