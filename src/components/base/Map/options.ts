@@ -38,6 +38,11 @@ const options: Options = colorscheme => {
           ]
         },
         {
+          featureType: 'landscape',
+          elementType: 'labels',
+          stylers: [{ visibility: 'off' }]
+        },
+        {
           featureType: 'road.local',
           elementType: 'geometry',
           stylers: [
