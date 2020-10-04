@@ -52,11 +52,11 @@ const Layout: React.FC = props => {
         animations.x(reserveIcon.current, '100%', 1, 'In')
         setTimeout(() => {
           animations.set(reserveIcon.current, {
-            x: '-150%'
+            x: '-100%'
           })
           animations.x(reserveIcon.current, '0%', 1, 'Out')
         }, 1000)
-      }, 2000)
+      }, 4000)
     }, 5500)
   }, [])
   return (
@@ -235,18 +235,14 @@ const Reserve = styled.a`
     display: inline-block;
     position: relative;
     margin-left: 7.5px;
-    width: 11.83px;
-    height: 13.52px;
+    width: 12px;
+    height: 14px;
     overflow: hidden;
     .icon {
-      position: absolute;
-      top: 0;
-      left: 0;
+      ${styles.mixins.absoluteCenter}
       width: 100%;
       height: 100%;
-      svg {
-        vertical-align: bottom;
-      }
+      will-change: transform;
     }
   }
 `
