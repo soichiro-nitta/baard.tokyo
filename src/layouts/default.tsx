@@ -56,7 +56,7 @@ const Layout: React.FC = props => {
           })
           animations.x(reserveIcon.current, '0%', 1, 'Out')
         }, 1000)
-      }, 4000)
+      }, 2500)
     }, 5500)
   }, [])
   return (
@@ -231,6 +231,7 @@ const Reserve = styled.a`
   border: 1px solid var(--onPictureShape);
   border-radius: 20px;
   opacity: 0;
+  will-change: transform opacity;
   .iconWrapper {
     display: inline-block;
     position: relative;
