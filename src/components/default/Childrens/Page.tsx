@@ -68,6 +68,8 @@ const Page: React.FC<Props> = props => {
           <Br />
           <Border />
           <Br />
+          <ReserveMargin />
+          <Br />
         </Inner>
       </Clipping>
     </Root>
@@ -96,6 +98,10 @@ const Clipping = styled.div`
 const Inner = styled.div`
   width: 100%;
   opacity: 0;
+`
+const ReserveMargin = styled.div`
+  width: 100%;
+  height: 40px;
 `
 
 export default Page
