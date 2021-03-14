@@ -47,7 +47,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="スタンダードコース" price="5,300" />
+        <List head="スタンダードコース" price="5,830" />
         <Br />
         <P>
           オイル頭皮ケア付きのスタンダードなコース。
@@ -60,7 +60,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="プレミアムコース" price="6,300" />
+        <List head="プレミアムコース" price="6,930" />
         <Br />
         <P>
           スタンダードコースに、お顔のモイスチャーパックとマッサージ機器のぶるぶるマッサージが付きます。
@@ -72,7 +72,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="ロイヤルコース" price="7,300" />
+        <List head="ロイヤルコース" price="8,030" />
         <Br />
         <P>プレミアムコースに、フェイシャルマッサージが付きます。</P>
       </Wrapper>
@@ -90,57 +90,25 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="カット(シャンプー、マッサージ、ブロー)" price="3,800" />
+        <List head="カット(シャンプー、マッサージ、ブロー)" price="4,180" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="高校生" price="3,500" />
+        <List head="高校生" price="3,850" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="中学生" price="3,000" />
+        <List head="中学生" price="3,300" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="小学生以下" price="2,700" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="カラー" price="3,200~" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="グレーカラー" price="3,200~" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="白髪ぼかしカラー" price="2,000~" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="パーマ" price="4,000~" />
-      </Wrapper>
-      <Br />
-      <Border />
-      <Br />
-      <Wrapper>
-        <List head="アイロンパーマ" price="4,200~" />
+        <List head="小学生以下" price="2,970" />
       </Wrapper>
       <Br />
       <Border />
@@ -148,7 +116,39 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="スタンダードシェービング(単品)" price="2,000" />
+        <List head="カラー" price="3,520~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="グレーカラー" price="3,520~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="白髪ぼかしカラー" price="2,200~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="パーマ" price="4,400~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="アイロンパーマ" price="4,620~" />
+      </Wrapper>
+      <Br />
+      <Border />
+      <Br />
+      <Border />
+      <Br />
+      <Wrapper>
+        <List head="スタンダードシェービング(単品)" price="2,200" />
         <Br />
         <P>
           お肌に優しいオイルクレンジング、オイルスチームシェービング、眉カット。
@@ -160,7 +160,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="プレミアムシェービング(単品)" price="3,000" />
+        <List head="プレミアムシェービング(単品)" price="3,300" />
         <Br />
         <P>
           スタンダードシェービングに、モイスチャーパック、フェイパックが付きます。
@@ -172,7 +172,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="ロイヤルシェービング(単品)" price="4,000" />
+        <List head="ロイヤルシェービング(単品)" price="4,400" />
         <Br />
         <P>プレミアムシェービングに、フェイシャルマッサージが付きます。</P>
       </Wrapper>
@@ -182,37 +182,37 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="フェイシャルマッサージ" price="2000" />
+        <List head="フェイシャルマッサージ" price="2200" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="頭皮オイルクレンジング" price="500" />
+        <List head="頭皮オイルクレンジング" price="550" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="ヘッドマッサージ15分" price="1,500" />
+        <List head="ヘッドマッサージ15分" price="1,650" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="ヘッドマッサージ30分" price="3,000" />
+        <List head="ヘッドマッサージ30分" price="3,300" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="ぶるぶるマッサージ" price="500" />
+        <List head="ぶるぶるマッサージ" price="550" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="シャンプーブロー" price="1,500~" />
+        <List head="シャンプーブロー" price="1,650~" />
       </Wrapper>
       <Br />
       <Border />
@@ -248,25 +248,25 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="ベーシックシェービング" price="4,000" />
+        <List head="ベーシックシェービング" price="4,400" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="うる肌保湿コース" price="5,000" />
+        <List head="うる肌保湿コース" price="5,500" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="毛穴クリーンコース" price="5,000" />
+        <List head="毛穴クリーンコース" price="5,500" />
       </Wrapper>
       <Br />
       <Border />
       <Br />
       <Wrapper>
-        <List head="リフトフェイシャルコース" price="8,500" />
+        <List head="リフトフェイシャルコース" price="9,350" />
       </Wrapper>
       <Br />
       <Border />
@@ -274,7 +274,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="ブライダルシェービング" price="15,000" />
+        <List head="ブライダルシェービング" price="16,500" />
         <Br />
         <P>挙式の1ヶ月以上前に一度お電話にてご相談ください。</P>
       </Wrapper>
@@ -284,7 +284,7 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <P>※すべて税抜価格となっております。</P>
+        <P>※すべて税込価格となっております。</P>
       </Wrapper>
     </>
   )
