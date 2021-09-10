@@ -12,6 +12,8 @@ import Sections from '~/components/index/Sections'
 import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Index: React.FC = () => {
   const global = useGlobal()
@@ -31,9 +33,9 @@ const Index: React.FC = () => {
           和とモダンな雰囲気を織り交ぜた空間で、くつろぎの場所をご提供いたします。ときには忙しい日常を忘れ、ゆっくりとした時間をお過ごし下さいませ。
         </P>
         <Br />
-        <P>
+        <Note>
           ※10月より約半年程スタッフが1人になる為、しばらくの間ご新規のお客様のご予約を停止させていただいております。ご了承くださいませ。
-        </P>
+        </Note>
       </Wrapper>
       <Br />
       <Border />
@@ -135,5 +137,14 @@ const Index: React.FC = () => {
     </>
   )
 }
+
+const Note = styled.div`
+  padding: ${styles.sizes.phone.base}px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  font-size: 12px;
+  line-height: 2;
+  font-weight: bold;
+`
 
 export default Index
