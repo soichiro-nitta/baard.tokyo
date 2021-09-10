@@ -145,6 +145,7 @@ const Note = styled.div`
   font-size: 12px;
   ${styles.mixins.lhCrop(2)}
   font-weight: bold;
+  ${styles.mixins.transitionBackground}
 `
 
 export default Index
