@@ -143,7 +143,7 @@ const Note = styled.div`
   border: 1px solid var(--border);
   background: var(--background);
   font-size: 12px;
-  line-height: 2;
+  ${styles.mixins.lhCrop(2)}
   font-weight: bold;
 `
 
