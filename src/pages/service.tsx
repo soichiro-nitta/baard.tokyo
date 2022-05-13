@@ -11,6 +11,8 @@ import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Video from '~/components/base/Video'
 import P from '~/components/base/P'
 import config from '~/utils/config'
+import styles from '~/utils/styles'
+import styled from '@emotion/styled'
 
 const Service: React.FC = () => {
   const global = useGlobal()
@@ -90,7 +92,9 @@ const Service: React.FC = () => {
       <Border />
       <Br />
       <Wrapper>
-        <List head="カット(シャンプー、マッサージ、ブロー)" price="4,180" />
+        <List head="カット(シャンプー、マッサージ、ブロー)" price="4,400" />
+        <Br />
+        <P>※スキンフェードカットの場合は、別途+550円頂戴致します。</P>
       </Wrapper>
       <Br />
       <Border />
@@ -291,5 +295,15 @@ const Service: React.FC = () => {
     </>
   )
 }
+
+const Note = styled.div`
+  padding: ${styles.sizes.phone.base}px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  font-size: 12px;
+  ${styles.mixins.lhCrop(2)}
+  font-weight: bold;
+  ${styles.mixins.transitionBackground}
+`
 
 export default Service
