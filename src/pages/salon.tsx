@@ -12,6 +12,8 @@ import ExhibitionPanorama from '~/components/base/ExhibitionPanorama'
 import Video from '~/components/base/Video'
 import config from '~/utils/config'
 import ButtonNew from '~/components/base/ButtonNew'
+import styled from '@emotion/styled'
+import styles from '~/utils/styles'
 
 const Salon: React.FC = () => {
   const global = useGlobal()
@@ -198,10 +200,37 @@ const Salon: React.FC = () => {
         <Br />
         <P>趣味：沖縄旅行、映画</P>
         <Br />
-        <P>2021年10月11日〜産休・育児休暇をいただきます。</P>
+        <Note>
+          <P>2022年5月6日より復帰いたします。</P>
+          <Br />
+          <P>
+            【出勤日】水・木・金・土
+            <br />
+            10:00〜17:00
+          </P>
+          <Br />
+          <P>
+            ※月・火・日と祝日はお休みさせていただきます。
+            <br />
+            また、早めのご予約をいただいていても、子供の急な発熱や風邪によりお休みさせていただく場合がございます。
+            <br />
+            お客様にはご迷惑をおかけしますが、ご理解ご協力よろしくお願いいたします。
+            <br />
+          </P>
+        </Note>
       </Wrapper>
     </>
   )
 }
+
+const Note = styled.div`
+  padding: ${styles.sizes.phone.base}px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  font-size: 12px;
+  ${styles.mixins.lhCrop(2)}
+  font-weight: bold;
+  ${styles.mixins.transitionBackground}
+`
 
 export default Salon
