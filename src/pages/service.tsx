@@ -245,8 +245,6 @@ const Service: React.FC = () => {
       <Br />
       <Wrapper>
         <P>※すべてのコースに、眉カット・襟足シェービング付きとなります。</P>
-        <Br />
-        <P>※初めてのお客様は当日にお電話予約をお願いいたします。</P>
       </Wrapper>
       <Br />
       <Border />
