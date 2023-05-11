@@ -130,7 +130,7 @@ const Index: React.FC = () => {
       <Wrapper>
         <H3>定休日</H3>
         <Br />
-        <P>月曜日、第２第３火曜日</P>
+        <P>月曜日、火曜日不定休</P>
         <Br />
         <Table />
       </Wrapper>
