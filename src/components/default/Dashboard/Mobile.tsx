@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
@@ -9,6 +8,15 @@ import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
 import { Colorscheme } from '~/store/global/colorscheme'
+import {
+  Home,
+  MapPinned,
+  MenuSquare,
+  Moon,
+  Phone,
+  Scissors,
+  Sun
+} from 'lucide-react'
 
 type Props = {
   colorscheme: Colorscheme
@@ -99,7 +107,18 @@ const Mobile: React.FC<Props> = props => {
             <Circle ref={circles[value[1].path]} />
             <Menu ref={icons[value[1].path]} to={value[1].path}>
               <SvgWrapper>
-                {/* <FontAwesomeIcon icon={value[1].icon} /> */}
+                {value[1].path === '/' && (
+                  <Home style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/salon/' && (
+                  <Scissors style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/service/' && (
+                  <MenuSquare style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/access/' && (
+                  <MapPinned style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
               </SvgWrapper>
             </Menu>
           </MenuWrapper>
@@ -115,12 +134,12 @@ const Mobile: React.FC<Props> = props => {
         <Circle ref={circles['colorscheme']} />
         <OptionMenu ref={icons.light}>
           <SvgWrapper>
-            {/* <FontAwesomeIcon icon={config.colorscheme.light.icon} /> */}
+            <Sun style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
         </OptionMenu>
         <OptionMenu ref={icons.dark}>
           <SvgWrapper>
-            {/* <FontAwesomeIcon icon={config.colorscheme.dark.icon} /> */}
+            <Moon style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
         </OptionMenu>
       </MenuWrapper>
@@ -128,7 +147,7 @@ const Mobile: React.FC<Props> = props => {
         <Circle ref={circles['phone']} />
         <PhoneMenu href={`tel:${config.tel.number}`} onClick={clickPhone}>
           <SvgWrapper>
-            {/* <FontAwesomeIcon icon={config.tel.icon} /> */}
+            <Phone style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
         </PhoneMenu>
       </MenuWrapper>

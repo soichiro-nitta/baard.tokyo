@@ -14,7 +14,7 @@ import config from '~/utils/config'
 import ButtonNew from '~/components/base/ButtonNew'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
-// import { ScissorsIcon } from '@heroicons/react/24/outline'
+import { Scissors } from 'lucide-react'
 
 const Salon: React.FC = () => {
   const global = useGlobal()
@@ -39,7 +39,7 @@ const Salon: React.FC = () => {
           }
         ]}
       >
-        {/* <ScissorsIcon style={{ width: '24px' }} /> */}
+        <Scissors style={{ width: '24px' }} />
       </Header>
       <Br />
       <Border />

@@ -17,9 +17,8 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 import animations from '~/utils/animations'
+import { ArrowRight } from 'lucide-react'
 
 const Layout: React.FC = props => {
   const global = useGlobal()
@@ -112,10 +111,10 @@ const Layout: React.FC = props => {
         rel="noopener noreferrer"
         ref={reserve}
       >
-        ネットで予約
+        <div>ネットで予約</div>
         <div className="iconWrapper">
           <div className="icon" ref={reserveIcon}>
-            {/* <FontAwesomeIcon icon={faLongArrowRight} /> */}
+            <ArrowRight style={{ width: '16px' }} strokeWidth={3} />
           </div>
         </div>
       </Reserve>
@@ -220,6 +219,8 @@ const ProgressbarWrapper = styled.div`
 `
 const Reserve = styled.a`
   ${styles.mixins.flexCenter}
+  display: flex !important;
+  align-items: center;
   position: absolute;
   bottom: ${(styles.sizes.phone.dashboard - LogoHeight) / 2}px;
   right: ${styles.sizes.phone.base}px;
@@ -237,13 +238,15 @@ const Reserve = styled.a`
     position: relative;
     margin-left: 7.5px;
     width: 12px;
-    height: 14px;
+    height: 100%;
     overflow: hidden;
     .icon {
       ${styles.mixins.absoluteCenter}
       width: 100%;
       height: 100%;
       will-change: transform;
+      display: flex;
+      align-items: center;
     }
   }
 `

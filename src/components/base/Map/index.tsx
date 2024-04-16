@@ -1,13 +1,13 @@
 import * as React from 'react'
 import GoogleMapReact from 'google-map-react'
 import styled from '@emotion/styled'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
+
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/base/Map/options'
 import { css } from '@emotion/core'
 import { Colorscheme } from '~/store/global/colorscheme'
+import { MapPin } from 'lucide-react'
 
 type Props = {
   colorscheme: Colorscheme
@@ -31,7 +31,10 @@ const Map: React.FC<Props> = props => {
         options={optionsByColorscheme}
       >
         <Pin lat={lat} lng={lng}>
-          {/* <FontAwesomeIcon icon={faMapMarkerAlt} /> */}
+          <MapPin
+            style={{ width: '60px', height: 'auto', opacity: 0.8 }}
+            strokeWidth={2}
+          />
         </Pin>
       </GoogleMapReact>
     </Root>

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-// import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 import styled from '@emotion/styled'
+import { ChevronRight } from 'lucide-react'
 
 type Props = {
   crumbs: {
@@ -17,7 +17,7 @@ const Breadcrumbs: React.FC<Props> = props => {
       {props.crumbs.map((crumb, index) => {
         return (
           <Crumb key={crumb.name}>
-            {/* <ChevronRightIcon style={{ width: '12px' }} /> */}
+            <ChevronRight style={{ width: '12px' }} strokeWidth={1} />
             {(index !== props.crumbs.length - 1 && (
               <CrumbLink to={crumb.to}>{crumb.name}</CrumbLink>
             )) || <CrumbNoLink>{crumb.name}</CrumbNoLink>}
@@ -35,7 +35,8 @@ const Root = styled.div`
 `
 const margin = 11.25
 const Crumb = styled.div`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   :not(:first-of-type) {
     margin-left: ${margin}px;
   }

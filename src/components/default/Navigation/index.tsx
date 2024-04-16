@@ -1,21 +1,26 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-// import {
-//   faFacebookSquare,
-//   faInstagram
-// } from '@fortawesome/free-brands-svg-icons'
+
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import { Gnav } from '~/store/default/gnav'
 import config from '~/utils/config'
 import Video from '~/components/default/Navigation/Video'
 import Br from '~/components/base/Br'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import H3 from '~/components/base/H3'
 import { css } from '@emotion/core'
 import animations from '~/utils/animations'
 import { Launched } from '~/store/global/launched'
+import {
+  Facebook,
+  Home,
+  Instagram,
+  MapPinned,
+  MenuSquare,
+  Scissors
+} from 'lucide-react'
 
 type Props = {
   launched: Launched
@@ -53,7 +58,20 @@ const Navigation: React.FC<Props> = props => {
             <Menu to={value[1].path} onClick={off} key={value[0]}>
               <Br />
               <Flex>
-                <Icon>{/* <FontAwesomeIcon icon={value[1].icon} /> */}</Icon>
+                <Icon>
+                  {value[1].path === '/' && (
+                    <Home style={{ width: '16px' }} strokeWidth={2.5} />
+                  )}
+                  {value[1].path === '/salon/' && (
+                    <Scissors style={{ width: '16px' }} strokeWidth={2.5} />
+                  )}
+                  {value[1].path === '/service/' && (
+                    <MenuSquare style={{ width: '16px' }} strokeWidth={2.5} />
+                  )}
+                  {value[1].path === '/access/' && (
+                    <MapPinned style={{ width: '16px' }} strokeWidth={2.5} />
+                  )}
+                </Icon>
                 <Text>
                   <En>{value[1].en}</En>
                   <Ja>{value[1].ja}</Ja>
@@ -70,14 +88,14 @@ const Navigation: React.FC<Props> = props => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* <FontAwesomeIcon icon={faFacebookSquare} /> */}
+          <Facebook style={{ width: '16px' }} strokeWidth={2.5} />
         </SocialIcon>
         <SocialIcon
           href={config.instagram}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* <FontAwesomeIcon icon={faInstagram} /> */}
+          <Instagram style={{ width: '16px' }} strokeWidth={2.5} />
         </SocialIcon>
       </Social>
       <Baard>

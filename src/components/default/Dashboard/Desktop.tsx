@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
@@ -11,6 +10,15 @@ import functions from '~/utils/functions'
 
 import { Colorscheme } from '~/store/global/colorscheme'
 import { Launched } from '~/store/global/launched'
+import {
+  Home,
+  MapPinned,
+  Moon,
+  Phone,
+  Scissors,
+  Sun,
+  MenuSquare
+} from 'lucide-react'
 
 type Props = {
   colorscheme: Colorscheme
@@ -128,7 +136,18 @@ const Desktop: React.FC<Props> = props => {
             <Icon ref={icons[value[1].path]}>
               <Circle ref={circles[value[1].path]} />
               <SvgWrapper>
-                {/* <FontAwesomeIcon icon={value[1].icon} /> */}
+                {value[1].path === '/' && (
+                  <Home style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/salon/' && (
+                  <Scissors style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/service/' && (
+                  <MenuSquare style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
+                {value[1].path === '/access/' && (
+                  <MapPinned style={{ width: '16px' }} strokeWidth={2.5} />
+                )}
               </SvgWrapper>
             </Icon>
             <Text ref={text[value[1].path]}>{value[1].ja}</Text>
@@ -145,10 +164,10 @@ const Desktop: React.FC<Props> = props => {
         <Icon>
           <Circle ref={circles['colorscheme']} />
           <SvgWrapper ref={icons.light}>
-            {/* <FontAwesomeIcon icon={config.colorscheme.light.icon} /> */}
+            <Sun style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
           <SvgWrapper ref={icons.dark}>
-            {/* <FontAwesomeIcon icon={config.colorscheme.dark.icon} /> */}
+            <Moon style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
         </Icon>
         <Text>外観モード</Text>
@@ -157,7 +176,7 @@ const Desktop: React.FC<Props> = props => {
         <Icon>
           <Circle ref={circles['phone']} />
           <SvgWrapper>
-            {/* <FontAwesomeIcon icon={config.tel.icon} /> */}
+            <Phone style={{ width: '16px' }} strokeWidth={2.5} />
           </SvgWrapper>
         </Icon>
         <Text>{config.tel.string}</Text>

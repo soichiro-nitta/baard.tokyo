@@ -12,7 +12,7 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
 import config from '~/utils/config'
-// import { MapPinIcon } from '@heroicons/react/24/outline'
+import { MapPinned } from 'lucide-react'
 
 const Access: React.FC = () => {
   const global = useGlobal()
@@ -37,7 +37,7 @@ const Access: React.FC = () => {
           }
         ]}
       >
-        {/* <MapPinIcon style={{ width: '24px' }} /> */}
+        <MapPinned style={{ width: '24px' }} strokeWidth={2} />
       </Header>
       <Br />
       <Border />

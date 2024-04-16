@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-
-// import { ArrowRightIcon } from '@heroicons/react/24/solid'
+import { ArrowRight } from 'lucide-react'
 
 type Props = {
   to: string
@@ -11,7 +10,7 @@ type Props = {
 const ButtonNew: React.FC<Props> = props => (
   <Root href={props.to} target="_blank" rel="noopener noreferrer">
     {props.text}
-    {/* <ArrowRightIcon style={{ width: '16px' }} strokeWidth={3} /> */}
+    <ArrowRight style={{ width: '16px' }} strokeWidth={3} />
   </Root>
 )
 

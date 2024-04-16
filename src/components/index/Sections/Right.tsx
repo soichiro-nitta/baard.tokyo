@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Video from '~/components/base/Video'
@@ -10,6 +9,7 @@ import { css } from '@emotion/core'
 import config from '~/utils/config'
 import { IsPending } from '~/store/global/isPending'
 import { Launched } from '~/store/global/launched'
+import { ArrowRight, Home, MapPinned, MenuSquare, Scissors } from 'lucide-react'
 
 type Props = {
   playing: Playing
@@ -35,13 +35,24 @@ const Left: React.FC<Props> = props => {
       </ImgWrapper>
       <Content>
         <Head>
-          {config.pages[props.page].en}
-          {/* <FontAwesomeIcon icon={config.pages[props.page].icon} /> */}
+          <div>{config.pages[props.page].en}</div>
+          {config.pages[props.page].path === '/' && (
+            <Home style={{ width: '16px' }} strokeWidth={2.5} />
+          )}
+          {config.pages[props.page].path === '/salon/' && (
+            <Scissors style={{ width: '16px' }} strokeWidth={2.5} />
+          )}
+          {config.pages[props.page].path === '/service/' && (
+            <MenuSquare style={{ width: '16px' }} strokeWidth={2.5} />
+          )}
+          {config.pages[props.page].path === '/access/' && (
+            <MapPinned style={{ width: '16px' }} strokeWidth={2.5} />
+          )}
         </Head>
         <Body>{props.body}</Body>
         <Button to={config.pages[props.page].path}>
           詳しくみる
-          {/* <FontAwesomeIcon icon={faLongArrowRight} /> */}
+          <ArrowRight style={{ width: '16px' }} strokeWidth={3} />
         </Button>
       </Content>
     </Root>
@@ -92,6 +103,8 @@ const Content = styled.div`
   }
 `
 const Head = styled.div`
+  display: flex !important;
+  align-items: center;
   font-size: 2.2rem;
   font-weight: bold;
   letter-spacing: 0.33em;
@@ -106,7 +119,8 @@ const Body = styled.div`
   ${styles.mixins.lhCrop(2)}
 `
 const Button = styled(Link)`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: ${styles.sizes.phone.base}px;
   padding: 10px;
   line-height: 1;

@@ -1,12 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {
-//   faCircle,
-//   faTimes,
-//   faTriangle
-// } from '@fortawesome/pro-regular-svg-icons'
+
 import styles from '~/utils/styles'
+import { Circle, Triangle, X } from 'lucide-react'
 
 const Table: React.FC = () => {
   return (
@@ -35,13 +31,27 @@ const Table: React.FC = () => {
         </Row>
       </Col>
       <Col>
-        <Row>{/* <Times icon={faTimes} /> */}</Row>
-        <Row>{/* <Triangle icon={faTriangle} /> */}</Row>
-        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
-        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
-        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
-        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
-        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
+        <Row>
+          <X style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Triangle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Circle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Circle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Circle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Circle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
+        <Row>
+          <Circle style={{ width: '16px' }} strokeWidth={2} />
+        </Row>
       </Col>
     </Root>
   )
