@@ -13,6 +13,7 @@ import P from '~/components/base/P'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import styled from '@emotion/styled'
+import { MenuSquare } from 'lucide-react'
 
 const Service: React.FC = () => {
   const global = useGlobal()
@@ -22,7 +23,6 @@ const Service: React.FC = () => {
         playing={global.playing}
         isPending={global.isPending}
         launched={global.launched}
-        icon={config.pages.service.icon}
         en={config.pages.service.en}
         ja={config.pages.service.ja}
         src="/service/header.mp4"
@@ -36,7 +36,9 @@ const Service: React.FC = () => {
             name: config.pages.service.ja
           }
         ]}
-      />
+      >
+        <MenuSquare style={{ width: '24px' }} />
+      </Header>
       <Br />
       <Border />
       <Br />
