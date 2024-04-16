@@ -14,6 +14,7 @@ import config from '~/utils/config'
 import ButtonNew from '~/components/base/ButtonNew'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
+// import { ScissorsIcon } from '@heroicons/react/24/outline'
 
 const Salon: React.FC = () => {
   const global = useGlobal()
@@ -23,7 +24,7 @@ const Salon: React.FC = () => {
         playing={global.playing}
         isPending={global.isPending}
         launched={global.launched}
-        icon={config.pages.salon.icon}
+        // icon={config.pages.salon.icon}
         en={config.pages.salon.en}
         ja={config.pages.salon.ja}
         src="/salon/header.mp4"
@@ -37,7 +38,9 @@ const Salon: React.FC = () => {
             name: config.pages.salon.ja
           }
         ]}
-      />
+      >
+        {/* <ScissorsIcon style={{ width: '24px' }} /> */}
+      </Header>
       <Br />
       <Border />
       <Br />

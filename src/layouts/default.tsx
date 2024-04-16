@@ -17,8 +17,8 @@ import Navigation from '~/components/default/Navigation'
 import Opening from '~/components/default/Opening'
 import Childrens from '~/components/default/Childrens'
 import Progressbar from '~/components/default/Progressbar'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 import animations from '~/utils/animations'
 
 const Layout: React.FC = props => {
@@ -115,7 +115,7 @@ const Layout: React.FC = props => {
         ネットで予約
         <div className="iconWrapper">
           <div className="icon" ref={reserveIcon}>
-            <FontAwesomeIcon icon={faLongArrowRight} />
+            {/* <FontAwesomeIcon icon={faLongArrowRight} /> */}
           </div>
         </div>
       </Reserve>

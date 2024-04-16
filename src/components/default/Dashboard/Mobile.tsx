@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
@@ -99,7 +99,7 @@ const Mobile: React.FC<Props> = props => {
             <Circle ref={circles[value[1].path]} />
             <Menu ref={icons[value[1].path]} to={value[1].path}>
               <SvgWrapper>
-                <FontAwesomeIcon icon={value[1].icon} />
+                {/* <FontAwesomeIcon icon={value[1].icon} /> */}
               </SvgWrapper>
             </Menu>
           </MenuWrapper>
@@ -109,18 +109,18 @@ const Mobile: React.FC<Props> = props => {
       <Border />
       <Br />
       <MenuWrapper
-        key={config.colorscheme.dark.icon.iconName}
+        // key={config.colorscheme.dark.icon.iconName}
         onClick={clickDarkmode}
       >
         <Circle ref={circles['colorscheme']} />
         <OptionMenu ref={icons.light}>
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.colorscheme.light.icon} />
+            {/* <FontAwesomeIcon icon={config.colorscheme.light.icon} /> */}
           </SvgWrapper>
         </OptionMenu>
         <OptionMenu ref={icons.dark}>
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.colorscheme.dark.icon} />
+            {/* <FontAwesomeIcon icon={config.colorscheme.dark.icon} /> */}
           </SvgWrapper>
         </OptionMenu>
       </MenuWrapper>
@@ -128,7 +128,7 @@ const Mobile: React.FC<Props> = props => {
         <Circle ref={circles['phone']} />
         <PhoneMenu href={`tel:${config.tel.number}`} onClick={clickPhone}>
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.tel.icon} />
+            {/* <FontAwesomeIcon icon={config.tel.icon} /> */}
           </SvgWrapper>
         </PhoneMenu>
       </MenuWrapper>

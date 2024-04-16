@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faFacebookSquare,
-  faInstagram
-} from '@fortawesome/free-brands-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import {
+//   faFacebookSquare,
+//   faInstagram
+// } from '@fortawesome/free-brands-svg-icons'
 import styled from '@emotion/styled'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
@@ -15,10 +15,10 @@ const Footer: React.FC = () => {
       <H3>© {new Date().getFullYear()}, BAARD.</H3>
       <Icons>
         <Icon href={config.facebook} target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faFacebookSquare} />
+          {/* <FontAwesomeIcon icon={faFacebookSquare} /> */}
         </Icon>
         <Icon href={config.instagram} target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faInstagram} />
+          {/* <FontAwesomeIcon icon={faInstagram} /> */}
         </Icon>
       </Icons>
     </Root>

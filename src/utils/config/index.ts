@@ -1,12 +1,12 @@
-import {
-  faHome,
-  faCut,
-  faClipboardList,
-  faMapMarkedAlt,
-  faSunCloud,
-  faMoonStars,
-  faPhone
-} from '@fortawesome/pro-duotone-svg-icons'
+// import {
+//   faHome,
+//   faCut,
+//   faClipboardList,
+//   faMapMarkedAlt,
+//   faSunCloud,
+//   faMoonStars,
+//   faPhone
+// } from '@fortawesome/pro-duotone-svg-icons'
 
 export default {
   facebook: 'https://facebook.com/barber.baard.9',
@@ -18,39 +18,39 @@ export default {
     index: {
       path: '/',
       en: 'HOME',
-      ja: 'ホーム',
-      icon: faHome
+      ja: 'ホーム'
+      // icon: faHome
     },
     salon: {
       path: '/salon/',
       en: 'SALON',
-      ja: 'サロン・スタッフ紹介',
-      icon: faCut
+      ja: 'サロン・スタッフ紹介'
+      // icon: faCut
     },
     service: {
       path: '/service/',
       en: 'SERVICE',
-      ja: 'メニュー案内',
-      icon: faClipboardList
+      ja: 'メニュー案内'
+      // icon: faClipboardList
     },
     access: {
       path: '/access/',
       en: 'ACCESS',
-      ja: 'アクセス',
-      icon: faMapMarkedAlt
+      ja: 'アクセス'
+      // icon: faMapMarkedAlt
     }
   },
   colorscheme: {
     dark: {
-      icon: faMoonStars
+      // icon: faMoonStars
     },
     light: {
-      icon: faSunCloud
+      // icon: faSunCloud
     }
   },
   tel: {
     string: '03-6876-6647',
-    number: '0368766647',
-    icon: faPhone
+    number: '0368766647'
+    // icon: faPhone
   }
 }

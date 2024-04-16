@@ -1,17 +1,17 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import {
-  faFacebookSquare,
-  faInstagram
-} from '@fortawesome/free-brands-svg-icons'
+// import {
+//   faFacebookSquare,
+//   faInstagram
+// } from '@fortawesome/free-brands-svg-icons'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import { Gnav } from '~/store/default/gnav'
 import config from '~/utils/config'
 import Video from '~/components/default/Navigation/Video'
 import Br from '~/components/base/Br'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import H3 from '~/components/base/H3'
 import { css } from '@emotion/core'
 import animations from '~/utils/animations'
@@ -53,9 +53,7 @@ const Navigation: React.FC<Props> = props => {
             <Menu to={value[1].path} onClick={off} key={value[0]}>
               <Br />
               <Flex>
-                <Icon>
-                  <FontAwesomeIcon icon={value[1].icon} />
-                </Icon>
+                <Icon>{/* <FontAwesomeIcon icon={value[1].icon} /> */}</Icon>
                 <Text>
                   <En>{value[1].en}</En>
                   <Ja>{value[1].ja}</Ja>
@@ -72,14 +70,14 @@ const Navigation: React.FC<Props> = props => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faFacebookSquare} />
+          {/* <FontAwesomeIcon icon={faFacebookSquare} /> */}
         </SocialIcon>
         <SocialIcon
           href={config.instagram}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faInstagram} />
+          {/* <FontAwesomeIcon icon={faInstagram} /> */}
         </SocialIcon>
       </Social>
       <Baard>

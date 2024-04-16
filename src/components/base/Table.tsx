@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCircle,
-  faTimes,
-  faTriangle
-} from '@fortawesome/pro-regular-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import {
+//   faCircle,
+//   faTimes,
+//   faTriangle
+// } from '@fortawesome/pro-regular-svg-icons'
 import styles from '~/utils/styles'
 
 const Table: React.FC = () => {
@@ -35,27 +35,13 @@ const Table: React.FC = () => {
         </Row>
       </Col>
       <Col>
-        <Row>
-          <Times icon={faTimes} />
-        </Row>
-        <Row>
-          <Triangle icon={faTriangle} />
-        </Row>
-        <Row>
-          <FontAwesomeIcon icon={faCircle} />
-        </Row>
-        <Row>
-          <FontAwesomeIcon icon={faCircle} />
-        </Row>
-        <Row>
-          <FontAwesomeIcon icon={faCircle} />
-        </Row>
-        <Row>
-          <FontAwesomeIcon icon={faCircle} />
-        </Row>
-        <Row>
-          <FontAwesomeIcon icon={faCircle} />
-        </Row>
+        <Row>{/* <Times icon={faTimes} /> */}</Row>
+        <Row>{/* <Triangle icon={faTriangle} /> */}</Row>
+        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
+        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
+        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
+        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
+        <Row>{/* <FontAwesomeIcon icon={faCircle} /> */}</Row>
       </Col>
     </Root>
   )
@@ -81,11 +67,11 @@ const Row = styled.div`
   border-left: 1px solid var(--border);
   height: 50px;
 `
-const Times = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-`
-const Triangle = styled(FontAwesomeIcon)`
-  font-size: 1.1rem;
-`
+// const Times = styled(FontAwesomeIcon)`
+//   font-size: 1.5rem;
+// `
+// const Triangle = styled(FontAwesomeIcon)`
+//   font-size: 1.1rem;
+// `
 
 export default Table

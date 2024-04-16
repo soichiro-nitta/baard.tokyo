@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight } from '@fortawesome/pro-duotone-svg-icons'
+// import { ChevronRightIcon } from '@heroicons/react/24/solid'
+
 import styled from '@emotion/styled'
 
 type Props = {
@@ -17,7 +17,7 @@ const Breadcrumbs: React.FC<Props> = props => {
       {props.crumbs.map((crumb, index) => {
         return (
           <Crumb key={crumb.name}>
-            <FontAwesomeIcon icon={faAngleRight} />
+            {/* <ChevronRightIcon style={{ width: '12px' }} /> */}
             {(index !== props.crumbs.length - 1 && (
               <CrumbLink to={crumb.to}>{crumb.name}</CrumbLink>
             )) || <CrumbNoLink>{crumb.name}</CrumbNoLink>}

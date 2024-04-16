@@ -1,8 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
-import styles from '~/utils/styles'
+
+// import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 type Props = {
   to: string
@@ -12,12 +11,13 @@ type Props = {
 const ButtonNew: React.FC<Props> = props => (
   <Root href={props.to} target="_blank" rel="noopener noreferrer">
     {props.text}
-    <FontAwesomeIcon icon={faLongArrowRight} />
+    {/* <ArrowRightIcon style={{ width: '16px' }} strokeWidth={3} /> */}
   </Root>
 )
 
 const Root = styled.a`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 10px;
   line-height: 1;
   border: 1px solid var(--border);

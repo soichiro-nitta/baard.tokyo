@@ -12,6 +12,7 @@ import Map from '~/components/base/Map'
 import Table from '~/components/base/Table'
 import H3 from '~/components/base/H3'
 import config from '~/utils/config'
+// import { MapPinIcon } from '@heroicons/react/24/outline'
 
 const Access: React.FC = () => {
   const global = useGlobal()
@@ -21,7 +22,7 @@ const Access: React.FC = () => {
         playing={global.playing}
         isPending={global.isPending}
         launched={global.launched}
-        icon={config.pages.access.icon}
+        // icon={config.pages.access.icon}
         en={config.pages.access.en}
         ja={config.pages.access.ja}
         src="/access/header.mp4"
@@ -35,7 +36,9 @@ const Access: React.FC = () => {
             name: config.pages.access.ja
           }
         ]}
-      />
+      >
+        {/* <MapPinIcon style={{ width: '24px' }} /> */}
+      </Header>
       <Br />
       <Border />
       <Br />

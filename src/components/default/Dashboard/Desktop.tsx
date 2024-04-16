@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '~/utils/styles'
 import Br from '~/components/base/Br'
 import config from '~/utils/config'
 import animations from '~/utils/animations'
 import useEffectAsync from '~/hooks/base/useEffectAsync'
 import functions from '~/utils/functions'
-import { Launched } from '~/store/default/launched'
+
 import { Colorscheme } from '~/store/global/colorscheme'
+import { Launched } from '~/store/global/launched'
 
 type Props = {
   colorscheme: Colorscheme
@@ -127,7 +128,7 @@ const Desktop: React.FC<Props> = props => {
             <Icon ref={icons[value[1].path]}>
               <Circle ref={circles[value[1].path]} />
               <SvgWrapper>
-                <FontAwesomeIcon icon={value[1].icon} />
+                {/* <FontAwesomeIcon icon={value[1].icon} /> */}
               </SvgWrapper>
             </Icon>
             <Text ref={text[value[1].path]}>{value[1].ja}</Text>
@@ -138,16 +139,16 @@ const Desktop: React.FC<Props> = props => {
       <Border />
       <Br />
       <OptionMenu
-        key={config.colorscheme.dark.icon.iconName}
+        // key={config.colorscheme.dark.icon.iconName}
         onClick={clickDarkmode}
       >
         <Icon>
           <Circle ref={circles['colorscheme']} />
           <SvgWrapper ref={icons.light}>
-            <FontAwesomeIcon icon={config.colorscheme.light.icon} />
+            {/* <FontAwesomeIcon icon={config.colorscheme.light.icon} /> */}
           </SvgWrapper>
           <SvgWrapper ref={icons.dark}>
-            <FontAwesomeIcon icon={config.colorscheme.dark.icon} />
+            {/* <FontAwesomeIcon icon={config.colorscheme.dark.icon} /> */}
           </SvgWrapper>
         </Icon>
         <Text>外観モード</Text>
@@ -156,7 +157,7 @@ const Desktop: React.FC<Props> = props => {
         <Icon>
           <Circle ref={circles['phone']} />
           <SvgWrapper>
-            <FontAwesomeIcon icon={config.tel.icon} />
+            {/* <FontAwesomeIcon icon={config.tel.icon} /> */}
           </SvgWrapper>
         </Icon>
         <Text>{config.tel.string}</Text>

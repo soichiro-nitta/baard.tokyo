@@ -1,8 +1,8 @@
 import * as React from 'react'
 import GoogleMapReact from 'google-map-react'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faMapMarkerAlt } from '@fortawesome/pro-duotone-svg-icons'
 import config from '~/utils/config'
 import styles from '~/utils/styles'
 import options from '~/components/base/Map/options'
@@ -31,7 +31,7 @@ const Map: React.FC<Props> = props => {
         options={optionsByColorscheme}
       >
         <Pin lat={lat} lng={lng}>
-          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          {/* <FontAwesomeIcon icon={faMapMarkerAlt} /> */}
         </Pin>
       </GoogleMapReact>
     </Root>

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { IconDefinition } from '@fortawesome/fontawesome-common-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { IconDefinition } from '@fortawesome/fontawesome-common-types'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from '@emotion/styled'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
@@ -14,7 +14,7 @@ type Props = {
   playing: Playing
   isPending: IsPending
   launched: Launched
-  icon: IconDefinition
+  // icon: IconDefinition
   en: string
   ja: string
   src: string
@@ -22,6 +22,7 @@ type Props = {
     to: string
     name: string
   }[]
+  children?: React.ReactNode
 }
 
 const Header: React.FC<Props> = props => {
@@ -35,7 +36,8 @@ const Header: React.FC<Props> = props => {
       />
       <Content>
         <Flex>
-          <FontAwesomeIcon icon={props.icon} />
+          {/* <FontAwesomeIcon icon={props.icon} /> */}
+          {props.children}
           <Text>
             <En>{props.en}</En>
             <Ja>{props.ja}</Ja>

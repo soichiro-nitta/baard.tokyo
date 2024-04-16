@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faLongArrowRight } from '@fortawesome/pro-duotone-svg-icons'
 import styles from '~/utils/styles'
 import { Playing } from '~/store/global/playing'
 import Video from '~/components/base/Video'
@@ -36,12 +36,12 @@ const Left: React.FC<Props> = props => {
       <Content>
         <Head>
           {config.pages[props.page].en}
-          <FontAwesomeIcon icon={config.pages[props.page].icon} />
+          {/* <FontAwesomeIcon icon={config.pages[props.page].icon} /> */}
         </Head>
         <Body>{props.body}</Body>
         <Button to={config.pages[props.page].path}>
           詳しくみる
-          <FontAwesomeIcon icon={faLongArrowRight} />
+          {/* <FontAwesomeIcon icon={faLongArrowRight} /> */}
         </Button>
       </Content>
     </Root>
